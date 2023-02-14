@@ -1,0 +1,23 @@
+Globale functies:
+cd (pwd voor macbook) gebruikt voor het zoeken naar map in je “Verkennen balk”
+cd..  Voor het terug gaan uit je map
+git  Command line die je moet gebruiken voor het uitvoeren van diverse functie
+.  Woord gebruikt voor het alles selecteren uit een map
+git –help  Hier kan je iedere command zien
+git status  hier kan je de status zien van de verschillende bestanden
+
+File’s voor het eerst downloaden naar de aangemaakte map. : 
+stap 1: Cd Git (Hierdoor zit je in je Git map)
+stap 2: git clone https://github.com/Martijn28405/ProjectB (de link van de repository)
+Stap 3: Nu staat alles in je map Git
+
+File’s pushen naar github: 
+Stap 1: Als eerst moet je naar de goede map dat doe je dus door cd Git  cd ProjectB
+Stap 2: nu gebruik je “git status” om te kijken naar de files die aangepast zijn
+Stap 3: daarna gebruik je “git commit -m add”
+Stap 4: Als laatste gebruik je “git push“
+
+Files’s pullen naar github: 
+Stap 1: Als eerst moet je naar de goede map dat doe je dus door cd Git  cd ProjectB
+Stap 2: nu gebruik je “git status” om te kijken naar de files die aangepast zijn
+stap 3: “git pull” voor het pullen van informatie in je lokale repository
