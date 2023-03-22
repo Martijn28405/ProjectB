@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-class Movieslogic
+public class MoviesLogic
 {
     public List<MovieModel> movies;
-    public Movieslogic()
+    public MoviesLogic()
     {
         movies = MoviesAccess.LoadAll();
 
     }
-    public void creatMovie()
+    public void createMovie()
     {
         int week = Convert.ToInt32(Console.ReadLine());
         string? movietitle = Console.ReadLine();

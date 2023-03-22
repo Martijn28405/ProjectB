@@ -24,26 +24,26 @@ static class Menu
         Console.WriteLine(text);
         Console.WriteLine("Wij zijn gevestigd bij Wijnhaven 107, 3011 WN in Rotterdam");
         Console.WriteLine("Met het openbaar vervoer. Neem dan vanaf Rotterdam Centraal Station metrolijn D richting De Akkers of E richting Slinge. ");
-        Console.WriteLine("Stap uit bij metrostation Beurs en loop 400 meter richting de Kamer van Koophandel");            
-        Console.WriteLine("langs het water richting het zuiden.");;
+        Console.WriteLine("Stap uit bij metrostation Beurs en loop 400 meter richting de Kamer van Koophandel");
+        Console.WriteLine("langs het water richting het zuiden."); ;
         Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------");
-        
+
         while (true)
         {
             Console.WriteLine("Enter [1] too login");
             Console.WriteLine("Enter [2] Login as Manager");
             Console.WriteLine("Enter [3] Login as Co-Worker");
-            Console.WriteLine("Enter [4] add an account"); 
+            Console.WriteLine("Enter [4] add an account");
             Console.WriteLine("Enter [5] add an movie");
             string input = Console.ReadLine();
-            
+
             switch (input)
             {
                 case "1":
                     UserLogin.Start();
                     break;
                 case "2":
-                    
+
                     ManagerMenu.Start();
                     break;
                 case "3":
@@ -52,12 +52,15 @@ static class Menu
                 case "4":
                     AccountsLogic login = new AccountsLogic();
                     login.CreateAccount();
-                    
+
                     break;
                 case "5":
                     Console.WriteLine("Enter a movie(not implemented yet)");
+                    MoviesLogic movie = new MoviesLogic();
+                    movie.createMovie();
+
                     break;
-                default: 
+                default:
                     Console.WriteLine("Unknown input registerd");
                     break;
             }

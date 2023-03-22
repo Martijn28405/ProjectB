@@ -16,5 +16,11 @@
     "emailAddress": "njaj@pinda",
     "password": "123",
     "fullName": "gavin"
+  },
+  {
+    "id": 4,
+    "emailAddress": "luca",
+    "password": "luca",
+    "fullName": "hoi"
   }
 ]
