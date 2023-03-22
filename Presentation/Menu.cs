@@ -41,7 +41,8 @@ static class Menu
                     UserLogin.Start();
                     break;
                 case "2":
-                    Console.WriteLine("Add account(not implemented yet)");
+                    AccountsLogic login = new AccountsLogic();
+                    login.CreateAccount();
                     break;
                 case "3":
                     Console.WriteLine("Enter a movie(not implemented yet)");
