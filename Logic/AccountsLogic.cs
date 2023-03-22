@@ -32,7 +32,7 @@ class AccountsLogic
         }
         else
         {
-            // acc.Id = _accounts.Max(account => account.Id) + 1;
+            acc.Id = _accounts.Max(account => account.Id) + 1;
             _accounts.Add(acc);
         }
         AccountsAccess.WriteAll(_accounts);
