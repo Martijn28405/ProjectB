@@ -14,7 +14,7 @@ public class MovieModel
     [JsonPropertyName("Target Audience")]
     public string TargetAudience { get; set; }
 
-    public MovieModel(int week, string films, string movietitle, string director, string information, string genre, string targetAudience)
+    public MovieModel(int week, string movietitle, string director, string information, string genre, string targetAudience)
     {
         Week = week;
         MovieTitle = movietitle;
