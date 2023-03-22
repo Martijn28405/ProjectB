@@ -22,17 +22,17 @@ class AccountsLogic
 
     public void UpdateList(AccountModel acc)
     {
-        //Find if there is already an model with the same id
-        int index = _accounts.FindIndex(s => s.Id == acc.Id);
+        // Check if there is already an account with the same id
+        // If the account is already in the list grab the index and update the account, else add a new account.
+        int index = _accounts.FindIndex(account => account.Id == acc.Id);
 
         if (index != -1)
         {
-            //update existing model
             _accounts[index] = acc;
         }
         else
         {
-            //add new model
+            // acc.Id = _accounts.Max(account => account.Id) + 1;
             _accounts.Add(acc);
         }
         AccountsAccess.WriteAll(_accounts);
@@ -41,7 +41,7 @@ class AccountsLogic
 
     public AccountModel GetById(int id)
     {
-        return _accounts.Find(i => i.Id == id);
+        return _accounts.Find(account => account.Id == id);
     }
 
     public AccountModel CheckLogin(string email, string password)
@@ -50,7 +50,8 @@ class AccountsLogic
         {
             return null;
         }
-        CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
+        // "i" veranderen naar account om de code leesbaarder te maken (dit kan op meerdere punten toegepast worden)
+        CurrentAccount = _accounts.Find(account => account.EmailAddress == email && account.Password == password);
         return CurrentAccount;
     }
 }
