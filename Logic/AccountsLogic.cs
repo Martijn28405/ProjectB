@@ -21,12 +21,12 @@ class AccountsLogic
 
     public void CreateAccount()
     {
-        string FullName = Console.ReadLine();
-        string EmailAddress = Console.ReadLine();
-        string Password = Console.ReadLine();
-        AccountModel acc1 = new AccountModel(3, EmailAddress, Password, FullName);
+        string fullName = Console.ReadLine();
+        string emailAddress = Console.ReadLine();
+        string password = Console.ReadLine();
+        AccountModel acc = new AccountModel(emailAddress, password, fullName);
         AccountsLogic accLogic = new AccountsLogic();
-        accLogic.UpdateList(acc1);
+        accLogic.UpdateList(acc);
         Console.WriteLine("Account created");
     }
 
