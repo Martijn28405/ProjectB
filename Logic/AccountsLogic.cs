@@ -28,8 +28,7 @@ class AccountsLogic
         Console.WriteLine("Password:");
         string password = Console.ReadLine();
         AccountModel acc = new AccountModel(emailAddress, password, fullName);
-        AccountsLogic accLogic = new AccountsLogic();
-        accLogic.UpdateList(acc);
+        UpdateList(acc);
         Console.WriteLine("Your account has been succesfully created!");
     }
 

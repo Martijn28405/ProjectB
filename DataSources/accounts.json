@@ -10,11 +10,5 @@
     "emailAddress": "t@b.c",
     "password": "xyz",
     "fullName": "Thomas Edison"
-  },
-  {
-    "id": 3,
-    "emailAddress": "njaj@pinda",
-    "password": "123",
-    "fullName": "gavin"
   }
 ]
