@@ -1,3 +1,5 @@
+using System.Xml.XPath;
+
 static class Menu
 {
 
@@ -6,23 +8,66 @@ static class Menu
     //You could edit this to show different menus depending on the user's role
     static public void Start()
     {
-        Console.WriteLine("Enter 1 to login");
-        Console.WriteLine("Enter 2 to do something else in the future");
+        Console.WriteLine("Welcome bij:");
+        string text = @"
+ ___  ___  _______  _________        ________  ___  ________  ________  ________  ________  ________  ________      ___  _______      
+|\  \|\  \|\  ___ \|\___   ___\     |\   __  \|\  \|\   __  \|\   ____\|\   ____\|\   __  \|\   __  \|\   __  \    |\  \|\  ___ \     
+\ \  \\\  \ \   __/\|___ \  \_|     \ \  \|\ /\ \  \ \  \|\  \ \  \___|\ \  \___|\ \  \|\  \ \  \|\  \ \  \|\  \   \ \  \ \   __/|    
+ \ \   __  \ \  \_|/__  \ \  \       \ \   __  \ \  \ \  \\\  \ \_____  \ \  \    \ \  \\\  \ \  \\\  \ \   ____\__ \ \  \ \  \_|/__  
+  \ \  \ \  \ \  \_|\ \  \ \  \       \ \  \|\  \ \  \ \  \\\  \|____|\  \ \  \____\ \  \\\  \ \  \\\  \ \  \___|\  \\_\  \ \  \_|\ \ 
+   \ \__\ \__\ \_______\  \ \__\       \ \_______\ \__\ \_______\____\_\  \ \_______\ \_______\ \_______\ \__\  \ \________\ \_______\
+    \|__|\|__|\|_______|   \|__|        \|_______|\|__|\|_______|\_________\|_______|\|_______|\|_______|\|__|   \|________|\|_______|
+                                                                \|_________|                                                          
+                                                                                                                                      
+                                                                                                                                      
+";
+        Console.WriteLine(text);
+        Console.WriteLine("Wij zijn gevestigd bij Wijnhaven 107, 3011 WN in Rotterdam");
+        Console.WriteLine("Met het openbaar vervoer. Neem dan vanaf Rotterdam Centraal Station metrolijn D richting De Akkers of E richting Slinge. ");
+        Console.WriteLine("Stap uit bij metrostation Beurs en loop 400 meter richting de Kamer van Koophandel");
+        Console.WriteLine("langs het water richting het zuiden."); ;
+        Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------");
 
-        string input = Console.ReadLine();
-        if (input == "1")
+        while (true)
         {
-            UserLogin.Start();
+            Console.WriteLine("Enter [1] to login");
+            Console.WriteLine("Enter [2] add an account");
+            Console.WriteLine("Enter [3] add an movie");
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    UserLogin.Start();
+                    break;
+                case "2":
+                    Console.WriteLine("Add account(not implemented yet)");
+                    break;
+                case "3":
+                    Console.WriteLine("Enter a movie(not implemented yet)");
+                    break;
+                default:
+                    Console.WriteLine("Unknown input registerd");
+                    break;
+            }
         }
-        else if (input == "2")
-        {
-            Console.WriteLine("This feature is not yet implemented");
-        }
-        else
-        {
-            Console.WriteLine("Invalid input");
-            Start();
-        }
+
+
+
+        // if (input == "1")
+        // {
+        //     UserLogin.Start();
+        // }
+        // else if (input == "2")
+        // {
+        //     Console.WriteLine("This feature is not yet implemented");
+        //     //add account
+        // }
+        // else
+        // {
+        //     Console.WriteLine("Invalid input");
+        //     Start();
+        // }
 
     }
 }

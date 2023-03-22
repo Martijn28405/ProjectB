@@ -19,6 +19,16 @@ class AccountsLogic
         _accounts = AccountsAccess.LoadAll();
     }
 
+    public void CreateAccount()
+    {
+        string FullName = Console.ReadLine();
+        string EmailAddress = Console.ReadLine();
+        string Password = Console.ReadLine();
+        AccountModel acc1 = new AccountModel(3, EmailAddress, Password, FullName);
+        AccountsLogic accLogic = new AccountsLogic();
+        accLogic.UpdateList(acc1);
+        Console.WriteLine("Account created");
+    }
 
     public void UpdateList(AccountModel acc)
     {
