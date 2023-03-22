@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-class MoviesLogic
+public class MoviesLogic
 {
     public List<MovieModel> movies;
     public MoviesLogic()
