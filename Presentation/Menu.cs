@@ -61,21 +61,5 @@ static class Menu
                     break;
             }
         }
-
-        // if (input == "1")
-        // {
-        //     UserLogin.Start();
-        // }
-        // else if (input == "2")
-        // {
-        //     Console.WriteLine("This feature is not yet implemented");
-        //     //add account
-        // }
-        // else
-        // {
-        //     Console.WriteLine("Invalid input");
-        //     Start();
-        // }
-
     }
 }

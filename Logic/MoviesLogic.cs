@@ -4,12 +4,14 @@ using System.IO;
 using System.Text.Json;
 public class MoviesLogic
 {
+    private JsonAccessor<MovieModel> _accesor;
     public List<MovieModel> movies;
     public MoviesLogic()
     {
-        movies = MoviesAccess.LoadAll();
-
+        _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
+        movies = _accesor.LoadAll();
     }
+
     public void CreateMovie()
     {
         int week = Convert.ToInt32(Console.ReadLine());
@@ -20,6 +22,6 @@ public class MoviesLogic
         string? targetAudience = Console.ReadLine();
         MovieModel movie = new MovieModel(week, movietitle, director, information, genre, targetAudience);
         movies.Add(movie);
-        MoviesAccess.WriteAll(movies);
+        _accesor.WriteAll(movies);
     }
 }

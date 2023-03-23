@@ -7,6 +7,7 @@ using System.Text.Json;
 //This class is not static so later on we can use inheritance and interfaces
 class AccountsLogic
 {
+    private JsonAccessor<AccountModel> _accessor;
     private List<AccountModel> _accounts;
 
     //Static properties are shared across all instances of the class
@@ -16,7 +17,8 @@ class AccountsLogic
 
     public AccountsLogic()
     {
-        _accounts = AccountsAccess.LoadAll();
+        _accessor = new JsonAccessor<AccountModel>(@"DataSources/accounts.json");
+        _accounts = _accessor.LoadAll();
     }
 
     public void CreateAccount()
@@ -27,7 +29,7 @@ class AccountsLogic
         string emailAddress = Console.ReadLine();
         Console.WriteLine("Password:");
         string password = Console.ReadLine();
-        AccountModel acc = new AccountModel(emailAddress, password, fullName);
+        AccountModel acc = new AccountModel(fullName, emailAddress, password);
         UpdateList(acc);
         Console.WriteLine("Your account has been succesfully created!");
     }
@@ -47,8 +49,7 @@ class AccountsLogic
             acc.Id = _accounts.Max(account => account.Id) + 1;
             _accounts.Add(acc);
         }
-        AccountsAccess.WriteAll(_accounts);
-
+        _accessor.WriteAll(_accounts);
     }
 
     public AccountModel GetById(int id)
