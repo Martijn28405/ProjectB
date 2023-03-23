@@ -21,17 +21,51 @@ class AccountsLogic
         _accounts = _accessor.LoadAll();
     }
 
-    public void CreateAccount()
+public void CreateAccount()
     {
-        Console.WriteLine("Full name:");
+        AccountsLogic redoLogin = new AccountsLogic();
+        Console.WriteLine("Full name:(Must contain a space)");
         string fullName = Console.ReadLine();
-        Console.WriteLine("E-mailadress:");
+
+        Console.WriteLine("E-mailadress:(Must contain an @)");
         string emailAddress = Console.ReadLine();
-        Console.WriteLine("Password:");
+
+        Console.WriteLine("Password:(8-14 characters and must contain atleast 1 number.)");
         string password = Console.ReadLine();
-        AccountModel acc = new AccountModel(fullName, emailAddress, password);
-        UpdateList(acc);
-        Console.WriteLine("Your account has been succesfully created!");
+        string passwordNum = "1234567890";
+
+        bool fullNameCheck = false;
+        bool emailAddressCheck = false;
+        bool passwordCheck = false;
+        bool containsNumber = false;
+
+        foreach (char num in passwordNum)
+        {
+            if (char.IsDigit(num))
+            {
+                containsNumber = true;
+            }
+
+        }
+
+        if (fullName.Contains(" ") && emailAddress.Contains("@") &&
+                    containsNumber == true && password.Length >= 8 && password.Length <= 14)
+        {
+            fullNameCheck = true;
+            emailAddressCheck = true;
+            passwordCheck = true;
+        }
+        else
+        {
+            System.Console.WriteLine("Invalid input");
+            redoLogin.CreateAccount();
+        }
+        if (fullNameCheck == true && emailAddressCheck == true && passwordCheck == true)
+        {
+            AccountModel acc = new AccountModel(emailAddress, password, fullName);
+            UpdateList(acc);
+            Console.WriteLine("Your account has been succesfully created!");
+        }
     }
 
     public void UpdateList(AccountModel acc)
