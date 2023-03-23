@@ -1,10 +1,26 @@
 [
-    {
-        "Week": 6,
-        "Movie Title": "Mathilda",
-        "Director": "Danny DeVito",
-        "Information": "lorem ipsum",
-        "Genre": "Comedy",
-        "Target Audience": "Families"
-    }
+  {
+    "Week": 6,
+    "Movie Title": "Mathilda",
+    "Director": "Danny DeVito",
+    "Information": "lorem ipsum",
+    "Genre": "Comedy",
+    "Target Audience": "Families"
+  },
+  {
+    "Week": 4,
+    "Movie Title": "hoi",
+    "Director": "nee",
+    "Information": "hoi",
+    "Genre": "ja",
+    "Target Audience": "nee"
+  },
+  {
+    "Week": 1,
+    "Movie Title": "hi",
+    "Director": "hoi",
+    "Information": "nee",
+    "Genre": "ja",
+    "Target Audience": "si"
+  }
 ]

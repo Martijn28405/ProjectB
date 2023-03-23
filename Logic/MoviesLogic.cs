@@ -24,4 +24,24 @@ public class MoviesLogic
         movies.Add(movie);
         _accesor.WriteAll(movies);
     }
+    public void ShowMovies()
+    {
+        Console.WriteLine("Which week?");
+        int inputWeek = Convert.ToInt32(Console.ReadLine());
+
+        foreach (var item in movies)
+        {
+            if (inputWeek == item.Week)
+            {
+                Console.WriteLine($"WEEK: {item.Week}");
+                Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
+                Console.WriteLine($"DIRECTOR: {item.Director}");
+                Console.WriteLine($"INFORMATION: {item.Information}");
+                Console.WriteLine($"GENRE:{item.Genre}");
+                Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}");
+            }
+
+        }
+
+    }
 }

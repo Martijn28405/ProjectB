@@ -56,9 +56,18 @@ static class Menu
                     MoviesLogic addMovie = new MoviesLogic();
                     addMovie.CreateMovie();
                     break;
+                case "6":
+                    MoviesLogic show = new MoviesLogic();
+                    show.ShowMovies();
+                    break;
+                case "7":
+                    SnacksLogic snacks = new SnacksLogic();
+                    snacks.ShowSnacks();
+                    break;
                 default:
                     Console.WriteLine("Unknown input registerd");
                     break;
+
             }
         }
     }
