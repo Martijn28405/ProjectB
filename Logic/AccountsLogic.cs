@@ -21,7 +21,7 @@ class AccountsLogic
         _accounts = _accessor.LoadAll();
     }
 
-public void CreateAccount()
+    public void CreateAccount()
     {
         AccountsLogic redoLogin = new AccountsLogic();
         Console.WriteLine("Full name:(Must contain a space)");
@@ -30,26 +30,37 @@ public void CreateAccount()
         Console.WriteLine("E-mailadress:(Must contain an @)");
         string emailAddress = Console.ReadLine();
 
-        Console.WriteLine("Password:(8-14 characters and must contain atleast 1 number.)");
+        Console.WriteLine("Password:(min 8 characters and must contain atleast 1 number, 1 upper case and 1 character..)");
         string password = Console.ReadLine();
         string passwordNum = "1234567890";
+        string passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        string passwordCharacters = "!@#$%^&*()_+";
 
         bool fullNameCheck = false;
         bool emailAddressCheck = false;
         bool passwordCheck = false;
         bool containsNumber = false;
+        bool containsUpper = false;
+        bool containsCharacter = false;
 
-        foreach (char num in passwordNum)
+        foreach (char c in password)
         {
-            if (char.IsDigit(num))
+            if (passwordNum.Contains(c))
             {
                 containsNumber = true;
             }
-
+            if (passwordCharacters.Contains(c))
+            {
+                containsCharacter = true;
+            }
+            if (passwordUpper.Contains(c))
+            {
+                containsUpper = true;
+            }
         }
 
-        if (fullName.Contains(" ") && emailAddress.Contains("@") &&
-                    containsNumber == true && password.Length >= 8 && password.Length <= 14)
+        if (fullName.Contains(" ") && emailAddress.Contains("@") && password.Length >= 8 &&
+                    containsNumber == true && containsUpper == true && containsCharacter == true)
         {
             fullNameCheck = true;
             emailAddressCheck = true;
