@@ -1,74 +1,73 @@
-using System.Xml.XPath;
-
-static class Menu
+using static System.Console;
+public class Menu
 {
+    private int SelectedIndex;
+    private string[] Options;
+    private string Prompt;
 
-    //This shows the menu. You can call back to this method to show the menu again
-    //after another presentation method is completed.
-    //You could edit this to show different menus depending on the user's role
-    static public void Start()
+    public Menu(string prompt, string[] options)
     {
-        Console.WriteLine("Welcome bij:");
-        string text = @"
- ___  ___  _______  _________        ________  ___  ________  ________  ________  ________  ________  ________      ___  _______      
-|\  \|\  \|\  ___ \|\___   ___\     |\   __  \|\  \|\   __  \|\   ____\|\   ____\|\   __  \|\   __  \|\   __  \    |\  \|\  ___ \     
-\ \  \\\  \ \   __/\|___ \  \_|     \ \  \|\ /\ \  \ \  \|\  \ \  \___|\ \  \___|\ \  \|\  \ \  \|\  \ \  \|\  \   \ \  \ \   __/|    
- \ \   __  \ \  \_|/__  \ \  \       \ \   __  \ \  \ \  \\\  \ \_____  \ \  \    \ \  \\\  \ \  \\\  \ \   ____\__ \ \  \ \  \_|/__  
-  \ \  \ \  \ \  \_|\ \  \ \  \       \ \  \|\  \ \  \ \  \\\  \|____|\  \ \  \____\ \  \\\  \ \  \\\  \ \  \___|\  \\_\  \ \  \_|\ \ 
-   \ \__\ \__\ \_______\  \ \__\       \ \_______\ \__\ \_______\____\_\  \ \_______\ \_______\ \_______\ \__\  \ \________\ \_______\
-    \|__|\|__|\|_______|   \|__|        \|_______|\|__|\|_______|\_________\|_______|\|_______|\|_______|\|__|   \|________|\|_______|
-                                                                \|_________|                                                          
-                                                                                                                                      
-                                                                                                                                      
-";
-        Console.WriteLine(text);
-        Console.WriteLine("Wij zijn gevestigd bij Wijnhaven 107, 3011 WN in Rotterdam");
-        Console.WriteLine("Met het openbaar vervoer. Neem dan vanaf Rotterdam Centraal Station metrolijn D richting De Akkers of E richting Slinge. ");
-        Console.WriteLine("Stap uit bij metrostation Beurs en loop 400 meter richting de Kamer van Koophandel");
-        Console.WriteLine("langs het water richting het zuiden."); ;
-        Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------");
+        Prompt = prompt;
+        Options = options;
+        SelectedIndex = 0;
+    }
 
-        while (true)
+    private void DisplayOptions()
+    {
+        WriteLine(Prompt);
+        for (int i = 0; i < Options.Length; i++)
         {
-            Console.WriteLine("Enter [1] too login");
-            Console.WriteLine("Enter [2] Login as Manager");
-            Console.WriteLine("Enter [3] Login as Co-Worker");
-            Console.WriteLine("Enter [4] add an account");
-            Console.WriteLine("Enter [5] add an movie");
-            string input = Console.ReadLine();
+            string currentOption = Options[i];
+            string prefix;
 
-            switch (input)
+            if (i == SelectedIndex)
             {
-                case "1":
-                    UserLogin.Start();
-                    break;
-                case "2":
-                    ManagerMenu.Start();
-                    break;
-                case "3":
-                    Co_Worker_menu.Start();
-                    break;
-                case "4":
-                    AccountsLogic login = new AccountsLogic();
-                    login.CreateAccount();
-                    break;
-                case "5":
-                    MoviesLogic addMovie = new MoviesLogic();
-                    addMovie.CreateMovie();
-                    break;
-                case "6":
-                    MoviesLogic show = new MoviesLogic();
-                    show.ShowMovies();
-                    break;
-                case "7":
-                    SnacksLogic snacks = new SnacksLogic();
-                    snacks.ShowSnacks();
-                    break;
-                default:
-                    Console.WriteLine("Unknown input registerd");
-                    break;
+                prefix = "*";
+                ForegroundColor = ConsoleColor.Black;
+                BackgroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                prefix = " ";
+                ForegroundColor = ConsoleColor.White;
+                BackgroundColor = ConsoleColor.Black;
+            }
+            WriteLine($"<< {prefix} {currentOption} >>");
+
+
+        }
+        ResetColor();
+    }
+
+    public int Run()
+    {
+        ConsoleKey keypressed;
+        do
+        {
+            Clear();
+            DisplayOptions();
+            ConsoleKeyInfo keyInfo = ReadKey(true);
+            keypressed = keyInfo.Key;
+            if (keypressed == ConsoleKey.UpArrow)
+            {
+                SelectedIndex--;
+                if (SelectedIndex == -1)
+                {
+                    SelectedIndex = Options.Length - 1;
+                }
+                
+            }
+            else if (keypressed == ConsoleKey.DownArrow)
+            {
+                SelectedIndex++;
+                if (SelectedIndex == Options.Length)
+                {
+                    SelectedIndex = 0;
+                }
 
             }
-        }
+            
+        } while (keypressed != ConsoleKey.Enter);
+        return SelectedIndex;
     }
 }

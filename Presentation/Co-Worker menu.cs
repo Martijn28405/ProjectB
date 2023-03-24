@@ -5,11 +5,9 @@ public class Co_Worker_menu
 {
 
     // This code wil only be excuted if the Co-worker called.
-    static public void Start()
+    public static void Start()
     {
-        Console.Clear();
-        Console.WriteLine("Welcome bij:");
-        string text = @"
+        string prompt = @"
    ____                      __      __                 __                         ____        __      __                           
   /\  _`\                   /\ \  __/\ \               /\ \                       /\  _`\     /\ \  __/\ \__  __                    
   \ \ \/\_\    ___          \ \ \/\ \ \ \    ___   _ __\ \ \/'\      __   _ __    \ \ \L\_\   \_\ \/\_\ \ ,_\/\_\    ___     ___    
@@ -19,62 +17,42 @@ public class Co_Worker_menu
       \/___/  \/___/            '\/__//__/  \/___/  \/_/   \/_/\/_/\/____/ \/_/       \/___/  \/__,_ /\/_/\/__/ \/_/\/___/  \/_/\/_/
                                                                                                                                                                                                                           
 ";
-        Console.WriteLine(text);
-        Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------");
-        
-        while (true)
+        string[] options = { "Login", "Add Account", "Back to Main Menu" };
+        Menu co_workermenu = new Menu(prompt, options);
+        int SelectedIndex = co_workermenu.Run();
+        switch (SelectedIndex)
         {
-            Console.WriteLine("Enter [1] too remove or add movies");
-            Console.WriteLine("Enter [2] too show inventory of the shop");
-            Console.WriteLine("Enter [3] too remove or add items too the shop");
-            Console.WriteLine("Enter [4] too show all the reservations");
-            Console.WriteLine("Enter [5] too remove reservations");
-            Console.WriteLine("Enter [6] go back to main menu");
-            string input = Console.ReadLine();
-            
-            switch (input)
-            {
-                case "1":
-                    Console.WriteLine("function is not implemented yet");
-                    break;
-                case "2":
-                    Console.WriteLine("function is not implemented yet");
-                    break;
-                case "3":
-                    Console.WriteLine("function is not implemented yet ");
-                    break;
-                case "4":
-                    Console.WriteLine("function is not implemented yet");
-                    break;
-                case "5":
-                    Console.WriteLine("function is not implemented yet");
-                    break;
-                case "6":
-                    Console.Clear();
-                    Menu.Start();
-                    break;
-                default: 
-                    Console.WriteLine("Unknown input registerd");
-                    break;
-            }
+            case 0:
+                UserLogin.Start();
+                break;
+            case 1:
+                break;
+            case 2:
+                Program.Main();
+                break;
+            case 3:
+                Console.WriteLine("press any key to exit the app");
+                Console.ReadKey(true);
+                Environment.Exit(0);
+                break;
+
+
+
+            // if (input == "1")
+            // {
+            //     UserLogin.Start();
+            // }
+            // else if (input == "2")
+            // {
+            //     Console.WriteLine("This feature is not yet implemented");
+            //     //add account
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Invalid input");
+            //     Start();
+            // }
+
         }
-
-
-
-        // if (input == "1")
-        // {
-        //     UserLogin.Start();
-        // }
-        // else if (input == "2")
-        // {
-        //     Console.WriteLine("This feature is not yet implemented");
-        //     //add account
-        // }
-        // else
-        // {
-        //     Console.WriteLine("Invalid input");
-        //     Start();
-        // }
-
     }
 }
