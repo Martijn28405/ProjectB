@@ -23,13 +23,13 @@ public class UserLogin
                     Console.WriteLine("Welcome back " + acc.FullName);
                     Console.WriteLine("Your e-mail is " + acc.EmailAddress);
                     AccountMenu.Start();
-                    }
-                    else
-                    {
-                        Console.WriteLine("No account found with that email and password");
-                        
-                    }
+                }
+                else
+                {
+                    Console.WriteLine("No account found with that email and password");
+
+                }
                 break;
-        }      
         }
     }
+}

@@ -17,7 +17,7 @@ public class SnacksLogic
         foreach (var item in snacks)
         {
             Console.WriteLine($"SNACK: {item.NameFood}");
-            Console.WriteLine($"PRICE: €{item.PriceFood}");
+            Console.WriteLine($"PRICE: {item.PriceFood}");
         }
     }
     public void AddSnacks()
