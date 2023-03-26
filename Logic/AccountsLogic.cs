@@ -108,7 +108,6 @@ class AccountsLogic
         {
             return null;
         }
-        // "i" veranderen naar account om de code leesbaarder te maken (dit kan op meerdere punten toegepast worden)
         CurrentAccount = _accounts.Find(account => account.EmailAddress == email && account.Password == password);
         return CurrentAccount;
     }
