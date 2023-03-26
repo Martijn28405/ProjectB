@@ -28,6 +28,9 @@ public class ManagerMenu
                 UserLogin.Start();
                 break;
             case 1:
+                Console.WriteLine("Not Implemented Yet");
+                Thread.Sleep(1000);
+                Start();
                 break;
             case 2:
                 MoviesLogic addmovie = new MoviesLogic();
