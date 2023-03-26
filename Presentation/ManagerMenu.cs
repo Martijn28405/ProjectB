@@ -19,7 +19,7 @@ public class ManagerMenu
                                           \_/__/                                                                 
                                                                                                                                
 ";
-        string[] options = { "Login", "Add Account", "Add Movie", "Back to Main Menu", "Exit App"};
+        string[] options = { "Login", "Add Account", "Add Movie", "Back to Main Menu", "Exit App" };
         Menu managermenu = new Menu(prompt, options);
         int SelectedIndex = managermenu.Run();
         switch (SelectedIndex)
@@ -34,7 +34,7 @@ public class ManagerMenu
                 break;
             case 2:
                 MoviesLogic addmovie = new MoviesLogic();
-                addmovie.CreateMovie();
+                addmovie.AddMovie();
                 break;
             case 3:
                 Program.Main();

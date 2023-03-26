@@ -12,15 +12,21 @@ public class MoviesLogic
         movies = _accesor.LoadAll();
     }
 
-    public void CreateMovie()
+    public void AddMovie()
     {
+        Console.WriteLine("The week in which the movie will play:");
         int week = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Movie Title:");
         string? movietitle = Console.ReadLine();
+        Console.WriteLine("Movie Director:");
         string? director = Console.ReadLine();
-        string? information = Console.ReadLine();
+        Console.WriteLine("Movie Description:");
+        string? description = Console.ReadLine();
+        Console.WriteLine("Movie Genre:");
         string? genre = Console.ReadLine();
+        Console.WriteLine("Movie Target Audience:");
         string? targetAudience = Console.ReadLine();
-        MovieModel movie = new MovieModel(week, movietitle, director, information, genre, targetAudience);
+        MovieModel movie = new MovieModel(week, movietitle, director, description, genre, targetAudience);
         movies.Add(movie);
         _accesor.WriteAll(movies);
     }
