@@ -2,7 +2,6 @@
 {
     public static void Start()
     {
-        Console.WriteLine("Welcome bij:");
         string prompt = (@"
  ________  ___  ___  _______   ________  _________        _____ ______   _______   ________   ___  ___     
 |\   ____\|\  \|\  \|\  ___ \ |\   ____\|\___   ___\     |\   _ \  _   \|\  ___ \ |\   ___  \|\  \|\  \    
@@ -19,21 +18,21 @@
 
             switch (SelectedIndex)
             {
-                case 1:
+                case 0:
                     MoviesLogic showMovies = new MoviesLogic();
                     showMovies.ShowMovies();
                     break;
-                case 2:
+                case 1:
                     SnacksLogic showSnacks = new SnacksLogic();
                     showSnacks.ShowSnacks();
                     break;
-                case 3:
+                case 2:
                     System.Console.WriteLine("this function is not yet available");
                     Thread.Sleep(1000);
                     Start();
                     //zorg ervoor dat email ook wordt ingevoerd.
                     break;
-                case 4:
+                case 3:
                     Program.Main();
                     break;
             }

@@ -5,7 +5,23 @@ public class UserLogin
 
     public static void Start()
     {
-        string prompt = "Welcome to the login page";
+        string prompt = @"
+
+ ___  ___  ________  _______   ________          ___       ________  ________  ___  ________           ________  ________  ________  _______      
+|\  \|\  \|\   ____\|\  ___ \ |\   __  \        |\  \     |\   __  \|\   ____\|\  \|\   ___  \        |\   __  \|\   __  \|\   ____\|\  ___ \     
+\ \  \\\  \ \  \___|\ \   __/|\ \  \|\  \       \ \  \    \ \  \|\  \ \  \___|\ \  \ \  \\ \  \       \ \  \|\  \ \  \|\  \ \  \___|\ \   __/|    
+ \ \  \\\  \ \_____  \ \  \_|/_\ \   _  _\       \ \  \    \ \  \\\  \ \  \  __\ \  \ \  \\ \  \       \ \   ____\ \   __  \ \  \  __\ \  \_|/__  
+  \ \  \\\  \|____|\  \ \  \_|\ \ \  \\  \|       \ \  \____\ \  \\\  \ \  \|\  \ \  \ \  \\ \  \       \ \  \___|\ \  \ \  \ \  \|\  \ \  \_|\ \ 
+   \ \_______\____\_\  \ \_______\ \__\\ _\        \ \_______\ \_______\ \_______\ \__\ \__\\ \__\       \ \__\    \ \__\ \__\ \_______\ \_______\
+    \|_______|\_________\|_______|\|__|\|__|        \|_______|\|_______|\|_______|\|__|\|__| \|__|        \|__|     \|__|\|__|\|_______|\|_______|
+             \|_________|                                                                                                                         
+                                                                                                                                                  
+                                                                                                                                                  
+   
+                                                                                                            
+                                                                                                            
+                                                                                                            
+";
         string[] options = { "Login" };
         Menu loginmenu = new Menu(prompt, options);
         int SelectedIndex = loginmenu.Run();
@@ -23,13 +39,13 @@ public class UserLogin
                     Console.WriteLine("Welcome back " + acc.FullName);
                     Console.WriteLine("Your e-mail is " + acc.EmailAddress);
                     AccountMenu.Start();
-                }
-                else
-                {
-                    Console.WriteLine("No account found with that email and password");
-
-                }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No account found with that email and password");
+                        
+                    }
                 break;
+        }      
         }
     }
-}
