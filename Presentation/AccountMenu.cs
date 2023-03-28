@@ -15,7 +15,7 @@
                                                                                                                                 
                                                                                                                                 
 ";
-        string[] options = { "View Movies", "View Catering",  "Back to Main Menu", "Log Out", "Exit App" };
+        string[] options = { "View Movies", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App" };
         Menu accountmenu = new Menu(prompt, options);
         int SelectedIndex = accountmenu.Run();
         switch (SelectedIndex)
@@ -29,10 +29,14 @@
                 viewsnacks.ShowSnacks();
                 break;
             case 2:
+                SnacksLogic buysnacks = new SnacksLogic();
+                buysnacks.BuySnacks();
+                break;
+            case 3:
                 Thread.Sleep(1000);
                 Program.Main();
                 break;
-            case 3:
+            case 4:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 Program.FullName = default;
@@ -40,11 +44,12 @@
                 Program.Password = default;
                 Program.Main();
                 break;
-            case 4:
+            case 5:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
                 break;
+
         }
 
     }
