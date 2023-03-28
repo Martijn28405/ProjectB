@@ -7,6 +7,7 @@ public class UserLogin
 
     public static void Start()
     {
+        Console.CursorVisible = false;
         string prompt = @"
 
  ___  ___  ________  _______   ________          ___       ________  ________  ___  ________           ________  ________  ________  _______      

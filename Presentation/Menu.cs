@@ -14,11 +14,11 @@ public class Menu
 
     private void DisplayOptions()
     {
-        WriteLine(Prompt);
         for (int i = 0; i < Options.Length; i++)
         {
             string currentOption = Options[i];
             string prefix;
+            CursorTop = i + 10;
 
             if (i == SelectedIndex)
             {
@@ -41,10 +41,10 @@ public class Menu
 
     public int Run()
     {
+        WriteLine(Prompt);
         ConsoleKey keypressed;
         do
         {
-            Clear();
             DisplayOptions();
             ConsoleKeyInfo keyInfo = ReadKey(true);
             keypressed = keyInfo.Key;

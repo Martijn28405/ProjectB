@@ -2,6 +2,7 @@
 {
     public static void Start()
     {
+        Console.CursorVisible = false;
 
         string prompt = @"
  ________  ________  ________  ________  ___  ___  ________   _________        _____ ______   _______   ________   ___  ___     

@@ -3,10 +3,10 @@ using System.Xml.XPath;
 
 public class Co_Worker_menu
 {
-
     // This code wil only be excuted if the Co-worker called.
     public static void Start()
     {
+        Console.CursorVisible = false;
         string prompt = @"
 
  ________  ________                 ___       __   ________  ________  ___  __    _______   ________          _____ ______   _______   ________   ___  ___     

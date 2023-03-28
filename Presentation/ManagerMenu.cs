@@ -6,6 +6,7 @@ public class ManagerMenu
     // This code wil only be excuted if the ManagerMenu called.
     static public void Start()
     {
+        Console.CursorVisible = false;
         string prompt = @"
 
                                                                                           
