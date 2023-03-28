@@ -6,6 +6,7 @@
  
  public static void Main()
  {
+  Console.CursorVisible = false;
   string prompt = @"
  ___  ___  _______  _________        ________  ___  ________  ________  ________  ________  ________  ________      ___  _______      
 |\  \|\  \|\  ___ \|\___   ___\     |\   __  \|\  \|\   __  \|\   ____\|\   ____\|\   __  \|\   __  \|\   __  \    |\  \|\  ___ \     
@@ -42,8 +43,9 @@
      break;
      case 5:
       Console.WriteLine("Press any button to exit the app");
-      Environment.Exit(0);
       Console.ReadKey(true);
+      Environment.Exit(0);
+      
       break;
   }
  }
