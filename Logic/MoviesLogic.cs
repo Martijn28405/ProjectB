@@ -29,6 +29,7 @@ public class MoviesLogic
         MovieModel movie = new MovieModel(week, movietitle, director, description, genre, targetAudience);
         movies.Add(movie);
         _accesor.WriteAll(movies);
+        AccountMenu.Start();
     }
     public void ShowMovies()
     {
@@ -48,6 +49,9 @@ public class MoviesLogic
             }
 
         }
+        Console.WriteLine("Press any key to return to menu");
+        Console.ReadKey(true);
+        AccountMenu.Start();
 
     }
 }

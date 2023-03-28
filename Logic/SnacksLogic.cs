@@ -19,6 +19,9 @@ public class SnacksLogic
             Console.WriteLine($"SNACK: {item.NameFood}");
             Console.WriteLine($"PRICE: {item.PriceFood}");
         }
+        Console.WriteLine("Press any key to return to main menu");
+        Console.ReadKey(true);
+        AccountMenu.Start();
     }
     public void AddSnacks()
     {
@@ -29,6 +32,7 @@ public class SnacksLogic
         SnackModel snack = new SnackModel(snackName, snackPrice);
         snacks.Add(snack);
         _accesor.WriteAll(snacks);
+        AccountMenu.Start();
     }
     public void BuySnacks()
     {

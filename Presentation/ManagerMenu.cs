@@ -38,7 +38,7 @@ public class ManagerMenu
                 break;
             case 2:
                 MoviesLogic addmovie = new MoviesLogic();
-                addmovie.CreateMovie();
+                addmovie.AddMovie();
                 break;
             case 3:
                 Program.Main();

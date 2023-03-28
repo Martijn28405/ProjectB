@@ -1,3 +1,5 @@
+using System.ComponentModel.Design;
+
 public class UserLogin
 {
     static private AccountsLogic accountsLogic = new AccountsLogic();
@@ -28,23 +30,41 @@ public class UserLogin
         switch (SelectedIndex)
         {
             case 0:
-                Console.WriteLine("Welcome to the login page");
-                Console.WriteLine("Please enter your email address:");
-                string email = Console.ReadLine();
-                Console.WriteLine("Please enter your password:");
-                string password = Console.ReadLine();
-                AccountModel acc = accountsLogic.CheckLogin(email, password);
-                if (acc != null)
+                if (Program.Email == null)
                 {
-                    Console.WriteLine("Welcome back " + acc.FullName);
-                    Console.WriteLine("Your e-mail is " + acc.EmailAddress);
-                    AccountMenu.Start();
+                    Console.WriteLine("Welcome to the login page");
+                    Console.WriteLine("Please enter your email address:");
+                    string email = Console.ReadLine();
+                    Console.WriteLine("Please enter your password:");
+                    string password = Console.ReadLine();
+                    AccountModel acc = accountsLogic.CheckLogin(email, password);
+                    if (acc != null)
+                    {
+                        Console.WriteLine("Welcome back " + acc.FullName);
+                        Console.WriteLine("Your e-mail is " + acc.EmailAddress);
+                        Program.FullName = acc.FullName;
+                        Program.Email = acc.EmailAddress;
+                        Program.Password = acc.Password;
+                        Console.WriteLine("Press any key to continue to the Menu");
+                        Console.ReadKey(true);
+                        AccountMenu.Start();
                     }
                     else
                     {
                         Console.WriteLine("No account found with that email and password");
-                        
+                        Console.WriteLine("Press any key to return to the login screen");
+                        Console.ReadKey(true);
+
                     }
+
+                }
+
+                else if (Program.Email != null)
+            {
+                Console.WriteLine("Welcome back " + Program.FullName);
+                AccountMenu.Start();
+            }
+
                 break;
         }      
         }

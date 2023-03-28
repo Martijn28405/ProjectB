@@ -1,5 +1,9 @@
-﻿public class Program
+﻿public static class Program
 {
+ public static string FullName = null;
+ public static string Email = null;
+ public static string Password = null;
+ 
  public static void Main()
  {
   string prompt = @"
@@ -28,19 +32,13 @@
     accountsLogic.CreateAccount();
     break;
    case 2:
-    Console.WriteLine("Not implemented");
-    Thread.Sleep(1000);
-    Main();
+    GuestMenu.Start();
     break;
    case 3:
-    Console.WriteLine("Not implemented");
-    Thread.Sleep(1000);
     ManagerMenu.Start();
     break;
     case 4:
-     Console.WriteLine("Not implemeted yet");
-     Thread.Sleep(1000);
-     Main();
+     Co_Worker_menu.Start();
      break;
      case 5:
       Console.WriteLine("Press any button to exit the app");
