@@ -41,6 +41,7 @@ public class Menu
 
     public int Run()
     {
+        Clear();
         WriteLine(Prompt);
         ConsoleKey keypressed;
         do
