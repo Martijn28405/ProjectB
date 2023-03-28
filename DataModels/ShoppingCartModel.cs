@@ -1,16 +1,17 @@
 using System.Text.Json.Serialization;
-public class SnackModel
+public class ShoppingCartModel
 {
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
     [JsonPropertyName("NameFood")]
     public string NameFood { get; set; }
     [JsonPropertyName("PriceFood")]
     public double PriceFood { get; set; }
+    [JsonPropertyName("Amount")]
+    public int Amount { get; set; }
 
-    public SnackModel(string nameFood, double priceFood)
+    public ShoppingCartModel(string nameFood, double priceFood, int amount)
     {
         NameFood = nameFood;
         PriceFood = priceFood;
+        Amount = amount;
     }
 }

@@ -1,14 +1,12 @@
 [
     {
+        "id": 1,
         "NameFood": "Suikerwafel",
-        "PriceFood": 2.50
+        "PriceFood": 1.22
     },
     {
+        "id": 2,
         "NameFood": "Popcorn",
-        "PriceFood": 3.00
-    },
-    {
-        "NameFood": "Cola",
-        "PriceFood": 3.99
+        "PriceFood": 2.75
     }
 ]

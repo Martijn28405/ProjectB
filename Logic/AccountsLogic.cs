@@ -30,7 +30,7 @@ class AccountsLogic
         Console.WriteLine("E-mailadress:(Must contain an @)");
         string emailAddress = Console.ReadLine();
 
-        Console.WriteLine("Password:(min 8 characters and must contain atleast 1 number, 1 upper case and 1 character..)");
+        Console.WriteLine("Password:(min 8 characters and must contain atleast 1 number, 1 upper case and 1 character.)");
         string password = Console.ReadLine();
         string passwordNum = "1234567890";
         string passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

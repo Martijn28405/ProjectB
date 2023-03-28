@@ -4,13 +4,16 @@ using System.IO;
 using System.Text.Json;
 public class SnacksLogic
 {
-    private JsonAccessor<SnackModel> _accesor;
+    private JsonAccessor<SnackModel> _productAccesor;
+    private JsonAccessor<ShoppingCartModel> _shoppingCartAccesor;
     public List<SnackModel> snacks;
-    public List<SnackModel>? shoppingBag;
+    public List<ShoppingCartModel>? shoppingCart;
     public SnacksLogic()
     {
-        _accesor = new JsonAccessor<SnackModel>(@"DataSources/snacks.json");
-        snacks = _accesor.LoadAll();
+        _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/snacks.json");
+        snacks = _productAccesor.LoadAll();
+        _shoppingCartAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
+        shoppingCart = _shoppingCartAccesor.LoadAll();
     }
     public void ShowSnacks()
     {
@@ -26,24 +29,27 @@ public class SnacksLogic
     }
     public void AddSnacks()
     {
+        int index = snacks.Any() ? snacks.Max(snack => snack.Id) + 1 : 1;
+        // checking if there is an id already in the JSON if not it becomes 1
+
         Console.WriteLine("The name of the snack:");
         string snackName = Console.ReadLine();
         Console.WriteLine("The price of the snack:");
         double snackPrice = Convert.ToDouble(Console.ReadLine());
         SnackModel snack = new SnackModel(snackName, snackPrice);
+        snack.Id = index;
         snacks.Add(snack);
-        _accesor.WriteAll(snacks);
+        _productAccesor.WriteAll(snacks);
         AccountMenu.Start();
     }
     public void BuySnacks()
     {
-        shoppingBag = new List<SnackModel>();
         while (true)
         {
             Console.WriteLine("Do you want to buy a snack?");
-            Console.WriteLine("Y/N");
-            string start = Console.ReadLine().ToUpper();
-            if (start == "Y")
+            Console.WriteLine("[1] Yes\n[2] No");
+            string start = Console.ReadLine();
+            if (start == "1")
             {
                 Console.WriteLine("What snack do you want to buy?");
                 foreach (var item in snacks)
@@ -61,9 +67,9 @@ public class SnacksLogic
                     }
                 }
                 Console.WriteLine("Do you want to buy this snack?");
-                Console.WriteLine("Y/N");
-                string answer = Console.ReadLine().ToUpper();
-                if (answer == "Y")
+                Console.WriteLine("[1] Yes\n[2] No");
+                string answer = Console.ReadLine();
+                if (answer == "1")
                 {
                     Console.WriteLine("How many do you want to buy?");
                     int amount = Convert.ToInt32(Console.ReadLine());
@@ -73,15 +79,18 @@ public class SnacksLogic
                         {
                             double totalPrice = item.PriceFood * amount;
                             Console.WriteLine($"The total price is: {totalPrice}");
-                            Console.WriteLine("Are you sure?");
-                            Console.WriteLine("Y/N");
-                            string answer2 = Console.ReadLine().ToUpper();
-                            if (answer2 == "Y")
+                            Console.WriteLine("Do you confirm your order?");
+                            Console.WriteLine("[1] Yes\n[2] No");
+                            string answer2 = Console.ReadLine();
+                            if (answer2 == "1")
                             {
-                                shoppingBag.Add(new SnackModel(snackName, item.PriceFood));
+                                ShoppingCartModel boughtSnack = new ShoppingCartModel(snackName, item.PriceFood, amount);
+                                shoppingCart.Add(boughtSnack);
+                                _shoppingCartAccesor.WriteAll(shoppingCart);
+
                                 Console.WriteLine($"Added {amount}x {snackName} to cart!");
                                 Console.WriteLine("Your current shopping bag:");
-                                foreach (var item2 in shoppingBag)
+                                foreach (var item2 in shoppingCart)
                                 {
                                     Console.WriteLine($"SNACK: {amount}x {item2.NameFood}");
                                     Console.WriteLine($"PRICE: {amount * item2.PriceFood}");

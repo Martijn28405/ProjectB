@@ -41,6 +41,7 @@ public class Menu
 
     public int Run()
     {
+        Clear();
         WriteLine(Prompt);
         ConsoleKey keypressed;
         do
@@ -55,7 +56,7 @@ public class Menu
                 {
                     SelectedIndex = Options.Length - 1;
                 }
-                
+
             }
             else if (keypressed == ConsoleKey.DownArrow)
             {
@@ -66,7 +67,7 @@ public class Menu
                 }
 
             }
-            
+
         } while (keypressed != ConsoleKey.Enter);
         return SelectedIndex;
     }
