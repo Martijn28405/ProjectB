@@ -9,6 +9,7 @@ public class SnacksLogic
     public List<SnackModel> snacks;
     public List<ShoppingCartModel>? shoppingCart;
     public SnacksLogic()
+    
     {
         _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/snacks.json");
         snacks = _productAccesor.LoadAll();
@@ -95,6 +96,9 @@ public class SnacksLogic
                                     Console.WriteLine($"SNACK: {amount}x {item2.NameFood}");
                                     Console.WriteLine($"PRICE: {amount * item2.PriceFood}");
                                 }
+                                Console.WriteLine("Press any key to return to the Account Menu");
+                                Console.ReadKey(true);
+                                AccountMenu.Start();
 
                             }
                             else

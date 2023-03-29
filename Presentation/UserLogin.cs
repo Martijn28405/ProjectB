@@ -62,7 +62,6 @@ public class UserLogin
 
                 else if (Program.Email != null)
             {
-                Console.WriteLine("Welcome back " + Program.FullName);
                 AccountMenu.Start();
             }
 

@@ -28,9 +28,14 @@ public class Co_Worker_menu
         switch (SelectedIndex)
         {
             case 0:
-                UserLogin.Start();
+                Console.WriteLine("Not Implemented Yet");
+                Thread.Sleep(1000);
+                Start();
                 break;
             case 1:
+                Console.WriteLine("Not Implemented Yet");
+                Thread.Sleep(1000);
+                Start();
                 break;
             case 2:
                 Program.Main();

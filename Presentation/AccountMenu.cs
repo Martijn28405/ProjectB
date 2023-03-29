@@ -42,7 +42,7 @@
                 Console.ReadKey(true);
                 Program.FullName = default;
                 Program.Email = default;
-                Program.Password = default;
+                Program.Password = default; ;
                 Program.Main();
                 break;
             case 5:

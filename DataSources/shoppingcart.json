@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "NameFood": "Popcorn",
+    "PriceFood": 2.75,
+    "Amount": 1
+  },
+  {
+    "NameFood": "Suikerwafel",
+    "PriceFood": 1.22,
+    "Amount": 1
+  },
+  {
+    "NameFood": "Popcorn",
+    "PriceFood": 2.75,
+    "Amount": 4
+  },
+  {
+    "NameFood": "Popcorn",
+    "PriceFood": 2.75,
+    "Amount": 1
+  },
+  {
+    "NameFood": "Popcorn",
+    "PriceFood": 2.75,
+    "Amount": 1
+  }
+]
