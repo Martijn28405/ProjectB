@@ -32,7 +32,7 @@ public class Menu
                 ForegroundColor = ConsoleColor.White;
                 BackgroundColor = ConsoleColor.Black;
             }
-            WriteLine($"<< {prefix} {currentOption} >>");
+            WriteLine($"{prefix} {currentOption}");
 
 
         }
