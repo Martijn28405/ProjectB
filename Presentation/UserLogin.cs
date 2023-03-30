@@ -41,6 +41,9 @@ public class UserLogin
                     AccountModel acc = accountsLogic.CheckLogin(email, password);
                     if (acc != null)
                     {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Login Successful");
+                        Console.ResetColor();
                         Console.WriteLine("Welcome back " + acc.FullName);
                         Console.WriteLine("Your e-mail is " + acc.EmailAddress);
                         Program.FullName = acc.FullName;
@@ -52,9 +55,13 @@ public class UserLogin
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Login Failed");
+                        Console.ResetColor();
                         Console.WriteLine("No account found with that email and password");
                         Console.WriteLine("Press any key to return to the login screen");
                         Console.ReadKey(true);
+                        Start();
 
                     }
 
