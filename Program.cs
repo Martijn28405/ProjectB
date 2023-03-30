@@ -45,7 +45,6 @@
       Console.WriteLine("Press any button to exit the app");
       Console.ReadKey(true);
       Environment.Exit(0);
-      
       break;
   }
  }

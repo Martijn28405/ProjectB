@@ -25,7 +25,7 @@ public class UserLogin
                                                                                                             
                                                                                                             
 ";
-        string[] options = { "Login" };
+        string[] options = { "Login", "Back to Main Menu" };
         Menu loginmenu = new Menu(prompt, options);
         int SelectedIndex = loginmenu.Run();
         switch (SelectedIndex)
@@ -72,6 +72,9 @@ public class UserLogin
                 AccountMenu.Start();
             }
 
+                break;
+            case 1:
+                Program.Main();
                 break;
         }      
         }
