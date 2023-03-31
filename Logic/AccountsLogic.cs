@@ -24,21 +24,49 @@ class AccountsLogic
     public void CreateAccount()
     {
         AccountsLogic redoLogin = new AccountsLogic();
+        string fullName = CreateFullName();
+        string emailAddress = CreateEmail();
+        string password = CreatePassword();
+
+        AccountModel acc = new AccountModel(emailAddress, password, fullName);
+        UpdateList(acc);
+        Console.WriteLine("Your account has been succesfully created!");
+
+    }
+    public string CreateFullName()
+    {
         Console.WriteLine("Full name:(Must contain a space)");
         string fullName = Console.ReadLine();
 
+        if (fullName.Contains(" "))
+        {
+            return fullName;
+        }
+        System.Console.WriteLine("Invalid input");
+        return CreateFullName();
+    }
+
+    public string CreateEmail()
+    {
         Console.WriteLine("E-mailadress:(Must contain an @)");
         string emailAddress = Console.ReadLine();
 
+        if (emailAddress.Contains("@"))
+        {
+            return emailAddress;
+        }
+        System.Console.WriteLine("Invalid input");
+        return CreateEmail();
+    }
+
+    public string CreatePassword()
+    {
         Console.WriteLine("Password:(min 8 characters and must contain atleast 1 number, 1 upper case and 1 character.)");
         string password = Console.ReadLine();
         string passwordNum = "1234567890";
         string passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         string passwordCharacters = "!@#$%^&*()_+";
 
-        bool fullNameCheck = false;
-        bool emailAddressCheck = false;
-        bool passwordCheck = false;
         bool containsNumber = false;
         bool containsUpper = false;
         bool containsCharacter = false;
@@ -59,24 +87,12 @@ class AccountsLogic
             }
         }
 
-        if (fullName.Contains(" ") && emailAddress.Contains("@") && password.Length >= 8 &&
-                    containsNumber == true && containsUpper == true && containsCharacter == true)
+        if (password.Length >= 8 && containsNumber == true && containsUpper == true && containsCharacter == true)
         {
-            fullNameCheck = true;
-            emailAddressCheck = true;
-            passwordCheck = true;
+            return password;
         }
-        else
-        {
-            System.Console.WriteLine("Invalid input");
-            redoLogin.CreateAccount();
-        }
-        if (fullNameCheck == true && emailAddressCheck == true && passwordCheck == true)
-        {
-            AccountModel acc = new AccountModel(emailAddress, password, fullName);
-            UpdateList(acc);
-            Console.WriteLine("Your account has been succesfully created!");
-        }
+        System.Console.WriteLine("Invalid input");
+        return CreatePassword();
     }
 
     public void UpdateList(AccountModel acc)
