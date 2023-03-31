@@ -31,6 +31,9 @@ class AccountsLogic
         AccountModel acc = new AccountModel(emailAddress, password, fullName);
         UpdateList(acc);
         Console.WriteLine("Your account has been succesfully created!");
+        Console.WriteLine("Press any key to return to the main menu");
+        Console.ReadKey(true);
+        Program.Main();
 
     }
     public string CreateFullName()
@@ -61,7 +64,7 @@ class AccountsLogic
 
     public string CreatePassword()
     {
-        Console.WriteLine("Password:(min 8 characters and must contain atleast 1 number, 1 upper case and 1 character.)");
+        Console.WriteLine("Password:(min 8 characters and must contain at least 1 number, 1 upper case and 1 character.)");
         string password = Console.ReadLine();
         string passwordNum = "1234567890";
         string passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
