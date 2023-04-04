@@ -24,33 +24,23 @@ public class ManagerMenu
                                                                
                                                                                                                                
 ";
-        string[] options = { "Login", "Add Account", "Add Movie", "Add Snack", "Back to Main Menu", "Exit App" };
+        string[] options = {"Add Movie", "Add Snack", "Back to Main Menu", "Exit App" };
         Menu managermenu = new Menu(prompt, options);
         int SelectedIndex = managermenu.Run();
         switch (SelectedIndex)
         {
             case 0:
-                Console.WriteLine("Not Implemented Yet");
-                Thread.Sleep(1000);
-                Start();
-                break;
-            case 1:
-                Console.WriteLine("Not Implemented Yet");
-                Thread.Sleep(1000);
-                Start();
-                break;
-            case 2:
                 MoviesLogic addmovie = new MoviesLogic();
                 addmovie.AddMovie();
                 break;
-            case 3:
+            case 1:
                 SnacksLogic addsnack = new SnacksLogic();
                 addsnack.AddSnacks();
                 break;
-            case 4:
+            case 2:
                 Program.Main();
                 break;
-            case 5:
+            case 3:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
