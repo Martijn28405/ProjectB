@@ -22,5 +22,10 @@
     "emailAddress": "1",
     "password": "1",
     "fullName": "1"
-  }
-]
+  },
+  {
+    "id": 5,
+    "emailAddress": "Jordina@Jordina.net",
+    "password": "Jordina123!",
+    "fullName": "Jordina van der Net"
+  }]
