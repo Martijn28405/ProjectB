@@ -6,6 +6,9 @@
  public static string Manager_Email = null;
  public static string Manager_Password = null;
  public static string Manager_FullName = null;
+ public static string co_worker_fullname = null;
+ public static string co_worker_email = null;
+ public static string co_worker_password = null;
  
  
  public static void Main()

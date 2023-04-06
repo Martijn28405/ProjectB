@@ -38,9 +38,9 @@
                         Console.ResetColor();
                         Console.WriteLine("Welcome back " + acc.FullName);
                         Console.WriteLine("Your e-mail is " + acc.EmailAddress);
-                        Program.Manager_FullName = acc.FullName;
-                        Program.Manager_Email = acc.EmailAddress;
-                        Program.Manager_Password = acc.Password;
+                        Program.co_worker_fullname = acc.FullName;
+                        Program.co_worker_email = acc.EmailAddress;
+                        Program.co_worker_password = acc.Password;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         Co_Worker_menu.Start();
@@ -61,7 +61,7 @@
 
                 else if (Program.Email != null)
                 {
-                    AccountMenu.Start();
+                    Co_Worker_menu.Start();
                 }
 
                 break;
