@@ -1,11 +1,12 @@
-class Seatmenu
+static class Seatmenu
 {
     // Small cinema
     static int selectedSeatIndex = 6; // Initially select the first seat
     static string[,] seats = new string[14, 12]; // 14x12 array of seats
 
-    static void Main(string[] args)
+    public static void Show_Seats()
     {
+        Console.CursorVisible = false;
         InitializeSeats(); // Initialize seats with "[ ]"
         DrawSeats(); // Draw initial seats
         while (true)

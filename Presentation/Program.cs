@@ -24,7 +24,7 @@
                                                                                                                                       
 ";
 
-  string[] options = { "Login", "Add Account", "Guest Login", "Manager Login", "Co-Worker Login", "Exit Code" };
+  string[] options = { "Login", "Add Account", "Guest Login", "Manager Login", "Co-Worker Login", "Exit Code", "Show Seats" };
   Menu mymenu = new Menu(prompt, options);
   int SelectedIndex = mymenu.Run();
   switch (SelectedIndex)
@@ -50,6 +50,10 @@
       Console.ReadKey(true);
       Environment.Exit(0);
       break;
+     case 6:
+      Seatmenu.Show_Seats();
+      break;
+      
   }
  }
 }
