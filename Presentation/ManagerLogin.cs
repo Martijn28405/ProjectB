@@ -30,7 +30,7 @@ public class ManagerLogin
         switch (SelectedIndex)
         {
             case 0:
-                if (Program.Email == null)
+                if (Program.Manager_Email == null)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
@@ -66,7 +66,7 @@ public class ManagerLogin
 
                 }
 
-                else if (Program.Email != null)
+                else if (Program.Manager_Email != null)
                 {
                     ManagerMenu.Start();
                 }

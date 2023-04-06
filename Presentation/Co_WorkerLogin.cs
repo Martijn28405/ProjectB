@@ -23,7 +23,7 @@
         switch (SelectedIndex)
         {
             case 0:
-                if (Program.Email == null)
+                if (Program.co_worker_email == null)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
@@ -59,7 +59,7 @@
 
                 }
 
-                else if (Program.Email != null)
+                else if (Program.co_worker_email != null)
                 {
                     Co_Worker_menu.Start();
                 }
