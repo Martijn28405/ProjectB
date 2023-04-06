@@ -3,6 +3,10 @@
  public static string FullName = null;
  public static string Email = null;
  public static string Password = null;
+ public static string Manager_Email = null;
+ public static string Manager_Password = null;
+ public static string Manager_FullName = null;
+ 
  
  public static void Main()
  {
@@ -36,7 +40,7 @@
     GuestMenu.Start();
     break;
    case 3:
-    ManagerMenu.Start();
+    ManagerLogin.Start();
     break;
     case 4:
      Co_Worker_menu.Start();
