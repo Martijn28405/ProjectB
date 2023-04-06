@@ -123,5 +123,8 @@ public class MoviesLogic
             Console.WriteLine($"GENRE:{item.Genre}");
             Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}\n");
         }
+        Console.WriteLine("Press any key to return to menu");
+        Console.ReadKey(true);
+        Co_Worker_menu.Start();
     }
 }
