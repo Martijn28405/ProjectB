@@ -24,7 +24,7 @@ public class ManagerMenu
                                                                
                                                                                                                                
 ";
-        string[] options = {"Add Movie", "Add Snack", "Back to Main Menu", "Exit App" };
+        string[] options = {"Add Movie", "Add Snack", "View Movies", "Back to Main Menu", "Exit App" };
         Menu managermenu = new Menu(prompt, options);
         int SelectedIndex = managermenu.Run();
         switch (SelectedIndex)
@@ -38,9 +38,13 @@ public class ManagerMenu
                 addsnack.AddSnacks();
                 break;
             case 2:
-                Program.Main();
+                MoviesLogic showmoviesworker = new MoviesLogic();
+                showmoviesworker.ShowMoviesWorker();
                 break;
             case 3:
+                Program.Main();
+                break;
+            case 4:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);

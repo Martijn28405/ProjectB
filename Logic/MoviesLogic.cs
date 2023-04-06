@@ -111,4 +111,17 @@ public class MoviesLogic
         Console.ReadKey(true);
         AccountMenu.Start();
     }
+
+    public void ShowMoviesWorker()
+    {
+        foreach (var item in movies)
+        {
+            Console.WriteLine($"WEEK: {item.Week}");
+            Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
+            Console.WriteLine($"DIRECTOR: {item.Director}");
+            Console.WriteLine($"INFORMATION: {item.Information}");
+            Console.WriteLine($"GENRE:{item.Genre}");
+            Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}\n");
+        }
+    }
 }

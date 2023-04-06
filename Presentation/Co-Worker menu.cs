@@ -22,25 +22,19 @@ public class Co_Worker_menu
 
                                                                                                                                                                                                                           
 ";
-        string[] options = { "Login", "Add Account", "Back to Main Menu", "Exit App" };
+        string[] options = {"Show Movies", "Back to Main Menu", "Exit App" };
         Menu co_workermenu = new Menu(prompt, options);
         int SelectedIndex = co_workermenu.Run();
         switch (SelectedIndex)
         {
             case 0:
-                Console.WriteLine("Not Implemented Yet");
-                Thread.Sleep(1000);
-                Start();
+                MoviesLogic showmoviesworker = new MoviesLogic();
+                showmoviesworker.ShowMoviesWorker();
                 break;
             case 1:
-                Console.WriteLine("Not Implemented Yet");
-                Thread.Sleep(1000);
-                Start();
-                break;
-            case 2:
                 Program.Main();
                 break;
-            case 3:
+            case 2:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);

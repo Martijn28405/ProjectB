@@ -147,6 +147,17 @@ static class Seatmenu
             
             Console.WriteLine("Seat selected!");
             DrawSeats();
+            Console.WriteLine("Back to main menu?");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "y":
+                    Program.Main();
+                    break;
+                case "n":
+                    DrawSeats();
+                    break;
+            }
         }
       
         else
