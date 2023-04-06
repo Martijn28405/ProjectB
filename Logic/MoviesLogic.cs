@@ -33,6 +33,16 @@ public class MoviesLogic
     }
     public void ShowMovies()
     {
+        System.Console.WriteLine("[1] Show all movies\n[2] Sort movies on genre\n[3] Sort movies on age");
+        int choice = Int32.Parse(Console.ReadLine());
+        if (choice == 2)
+        {
+            SortMoviesGenre();
+        }
+        else if (choice == 3)
+        {
+            SortMoviesAge();
+        }
         Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
 
@@ -53,5 +63,52 @@ public class MoviesLogic
         Console.ReadKey(true);
         AccountMenu.Start();
 
+    }
+    public void SortMoviesGenre()
+    {
+        //sort movies on genre
+        System.Console.WriteLine("Which week?");
+        int inputWeek = Convert.ToInt32(Console.ReadLine());
+        System.Console.WriteLine("Which genre?(Comedy,Action,Adventure)");
+        string inputGenre = Console.ReadLine();
+        foreach (var item in movies)
+        {
+            if (inputWeek == item.Week && inputGenre == item.Genre)
+            {
+                Console.WriteLine($"WEEK: {item.Week}");
+                Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
+                Console.WriteLine($"DIRECTOR: {item.Director}");
+                Console.WriteLine($"INFORMATION: {item.Information}");
+                Console.WriteLine($"GENRE:{item.Genre}");
+                Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}");
+            }
+        }
+        Console.WriteLine("Press any key to return to menu");
+        Console.ReadKey(true);
+        AccountMenu.Start();
+    }
+
+    public void SortMoviesAge()
+    {
+        //sort movies on age
+        System.Console.WriteLine("Which week?");
+        int inputWeek = Convert.ToInt32(Console.ReadLine());
+        System.Console.WriteLine("Minimum age?(6,12,18)");
+        string inputAge = Console.ReadLine();
+        foreach (var item in movies)
+        {
+            if (inputWeek == item.Week && inputAge == item.TargetAudience)
+            {
+                Console.WriteLine($"WEEK: {item.Week}");
+                Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
+                Console.WriteLine($"DIRECTOR: {item.Director}");
+                Console.WriteLine($"INFORMATION: {item.Information}");
+                Console.WriteLine($"GENRE:{item.Genre}");
+                Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}");
+            }
+        }
+        Console.WriteLine("Press any key to return to menu");
+        Console.ReadKey(true);
+        AccountMenu.Start();
     }
 }
