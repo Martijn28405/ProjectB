@@ -24,6 +24,10 @@ public class ManagerMenu
                                                                
                                                                                                                                
 ";
+        
+   
+        
+        
         string[] options = {"Add Movie", "Add Snack", "View Movies", "Back to Main Menu", "Exit App" };
         Menu managermenu = new Menu(prompt, options);
         int SelectedIndex = managermenu.Run();
