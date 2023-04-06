@@ -19,6 +19,11 @@ public class ManagerLogin
    \ \__\    \ \__\ \__\ \__\ \__\\ \__\ \__\ \__\ \_______\ \_______\ \__\\ _\        \ \_______\ \_______\ \_______\ \__\ \__\\ \__\
     \|__|     \|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|_______|\|__|\|__|        \|_______|\|_______|\|_______|\|__|\|__| \|___                                                                                                           
 ";
+        
+        
+        
+        
+        
         string[] options = { "Login", "Add Account", "Back to Main Menu" };
         Menu loginmenu = new Menu(prompt, options);
         int SelectedIndex = loginmenu.Run();
@@ -63,7 +68,7 @@ public class ManagerLogin
 
                 else if (Program.Email != null)
                 {
-                    AccountMenu.Start();
+                    ManagerMenu.Start();
                 }
 
                 break;

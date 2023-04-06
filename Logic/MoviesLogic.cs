@@ -29,7 +29,7 @@ public class MoviesLogic
         MovieModel movie = new MovieModel(week, movietitle, director, description, genre, targetAudience);
         movies.Add(movie);
         _accesor.WriteAll(movies);
-        AccountMenu.Start();
+        ManagerMenu.Start();
     }
     public void ShowMovies()
     {
@@ -126,5 +126,54 @@ public class MoviesLogic
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         Co_Worker_menu.Start();
+    }
+
+    public void DeleteMovie()
+    {
+        foreach (var item in movies)
+        {
+            Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
+        }
+
+        Console.WriteLine("Which movie do you want to delete?");
+        string inputMovie = Console.ReadLine();
+        foreach (var item in movies)
+        {
+            if (inputMovie == item.MovieTitle)
+            {
+                movies.Remove(item);
+                _accesor.WriteAll(movies);
+                Console.WriteLine("Movie deleted");
+                break;
+            }
+        }
+
+        System.Console.WriteLine("Press any key to return to menu");
+        Console.ReadKey(true);
+        ManagerMenu.Start();
+    }
+
+    public void ManageMovies()
+    {
+        //Add or delete movies ONLY as Admin
+        System.Console.WriteLine("[1] Add Movies\n[2] Delete Movies\n[3] Return to Menu");
+        int choice = Int32.Parse(Console.ReadLine());
+        if (choice == 1)
+        {
+            AddMovie();
+        }
+        else if (choice == 2)
+        {
+            DeleteMovie();
+        }
+        else if (choice == 3)
+        {
+            ManagerMenu.Start();
+        }
+        else
+        {
+            System.Console.WriteLine("Invalid input");
+            ManageMovies();
+        }
     }
 }
