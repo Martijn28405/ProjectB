@@ -5,15 +5,7 @@
     "Director": "Danny DeVito",
     "Information": "lorem ipsum",
     "Genre": "Comedy",
-    "Target Audience": "Families"
-  },
-  {
-    "Week": 4,
-    "Movie Title": "hoi",
-    "Director": "nee",
-    "Information": "hoi",
-    "Genre": "ja",
-    "Target Audience": "nee"
+    "Target Audience": "12"
   },
   {
     "Week": 1,
@@ -21,6 +13,6 @@
     "Director": "hoi",
     "Information": "nee",
     "Genre": "ja",
-    "Target Audience": "si"
+    "Target Audience": "6"
   }
 ]
