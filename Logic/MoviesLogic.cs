@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text.Json;
 public class MoviesLogic
@@ -26,11 +27,47 @@ public class MoviesLogic
         string? genre = Console.ReadLine();
         Console.WriteLine("Movie Target Audience:");
         string? targetAudience = Console.ReadLine();
-        MovieModel movie = new MovieModel(week, movietitle, director, description, genre, targetAudience);
+        Console.WriteLine("What is the play time in minutes?");
+        int playTime = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Start times:");
+        List<DateTime> dateTimes = CreateTime();
+
+        MovieModel movie = new MovieModel(week, movietitle, director, description, genre, targetAudience, playTime, dateTimes);
         movies.Add(movie);
         _accesor.WriteAll(movies);
         ManagerMenu.Start();
     }
+
+    private List<DateTime> CreateTime()
+    {
+        List<DateTime> dateTimes = new();
+        while (true)
+        {
+            Console.WriteLine("Input the playing date: (Format: Day-Month-Year For example: '31-01-2023')");
+            string date = Console.ReadLine();
+            Console.WriteLine("Input the playing Time: (Format: Hour:Minute For example: '15:00')");
+            string time = Console.ReadLine();
+
+            try
+            {
+                DateTime dateTime = DateTime.ParseExact($"{date} {time}", "dd-MM-yyyy HH:mm", null);
+                dateTimes.Add(dateTime);
+                Console.WriteLine("Add another? [1] yes, any other key: no");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Given format is not valid, would you like to try again? [1] yes, any other key: no");
+            }
+
+            if (Console.ReadKey().KeyChar != '1')
+            {
+                break;
+            }
+        }
+        return dateTimes;
+    }
+
+
     public void ShowMovies()
     {
         System.Console.WriteLine("[1] Show all movies\n[2] Sort movies on genre\n[3] Sort movies on age");
@@ -92,7 +129,13 @@ public class MoviesLogic
                         Console.WriteLine(movie.Genre);
                         break;
                     case "4":
-                        // times
+                        foreach (DateTime time in movie.StartTime)
+                        {
+                            Console.WriteLine(time.ToString("dd-MM-yyyy HH:mm"));
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Incorrect input, try again:");
                         break;
                 }
             }
@@ -159,7 +202,7 @@ public class MoviesLogic
         }
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
-        Co_Worker_menu.Start();
+        CoWorkerMenu.Start();
     }
 
     public void DeleteMovie()
