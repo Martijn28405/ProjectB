@@ -52,6 +52,40 @@ public class MoviesLogic
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         AccountMenu.Start();
+    }
 
+    public void MovieInformation()
+    {
+        Console.WriteLine("Of which movie would you like to receive some information?");
+        string userInput = Console.ReadLine();
+
+        foreach (MovieModel movie in movies)
+        {
+            if (userInput == movie.MovieTitle)
+            {
+                Console.WriteLine(@"Which information would you like to look at?
+                [1] The synopsis of the movie.
+                [2] The target audience of the movie.
+                [3] The genres of the movie.
+                [4] The times at which the movie is playing.");
+
+                string userChoice = Console.ReadLine();
+                switch (userChoice)
+                {
+                    case "1":
+                        Console.WriteLine(movie.Information);
+                        break;
+                    case "2":
+                        Console.WriteLine(movie.TargetAudience);
+                        break;
+                    case "3":
+                        Console.WriteLine(movie.Genre);
+                        break;
+                    case "4":
+                        // times
+                        break;
+                }
+            }
+        }
     }
 }
