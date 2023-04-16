@@ -1,4 +1,5 @@
-﻿public class AccountMenu
+﻿
+public class AccountMenu
 {
     public static void Start()
     {
@@ -16,7 +17,7 @@
                                                                                                                                 
                                                                                                                                 
 ";
-        string[] options = { "View Movies", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App" };
+        string[] options = { "View Movies", "View Movie Information", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App" };
         Menu accountmenu = new Menu(prompt, options);
         int SelectedIndex = accountmenu.Run();
         switch (SelectedIndex)
@@ -26,26 +27,28 @@
                 showmovies.ShowMovies();
                 break;
             case 1:
+                MoviesLogic movieInformation = new MoviesLogic();
+                movieInformation.MovieInformation();
+                break;
+            case 2:
                 SnacksLogic viewsnacks = new SnacksLogic();
                 viewsnacks.ShowSnacks();
                 break;
-            case 2:
+            case 3:
                 SnacksLogic buysnacks = new SnacksLogic();
                 buysnacks.BuySnacks();
                 break;
-            case 3:
+            case 4:
                 Thread.Sleep(1000);
                 Program.Main();
                 break;
-            case 4:
+            case 5:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
-                Program.FullName = default;
-                Program.Email = default;
-                Program.Password = default;
+                AccountSession.LoggedInAccount = null;
                 Program.Main();
                 break;
-            case 5:
+            case 6:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
