@@ -2,7 +2,7 @@ using System.ComponentModel.Design;
 
 public class UserLogin
 {
-    static private AccountsLogic accountsLogic = new AccountsLogic();
+    static private AccountsLogic accountsLogic = new AccountsLogic("accounts.json");
 
 
     public static void Start()
@@ -10,20 +10,15 @@ public class UserLogin
         Console.CursorVisible = false;
         string prompt = @"
 
- ___  ___  ________  _______   ________          ___       ________  ________  ___  ________           ________  ________  ________  _______      
-|\  \|\  \|\   ____\|\  ___ \ |\   __  \        |\  \     |\   __  \|\   ____\|\  \|\   ___  \        |\   __  \|\   __  \|\   ____\|\  ___ \     
-\ \  \\\  \ \  \___|\ \   __/|\ \  \|\  \       \ \  \    \ \  \|\  \ \  \___|\ \  \ \  \\ \  \       \ \  \|\  \ \  \|\  \ \  \___|\ \   __/|    
- \ \  \\\  \ \_____  \ \  \_|/_\ \   _  _\       \ \  \    \ \  \\\  \ \  \  __\ \  \ \  \\ \  \       \ \   ____\ \   __  \ \  \  __\ \  \_|/__  
-  \ \  \\\  \|____|\  \ \  \_|\ \ \  \\  \|       \ \  \____\ \  \\\  \ \  \|\  \ \  \ \  \\ \  \       \ \  \___|\ \  \ \  \ \  \|\  \ \  \_|\ \ 
-   \ \_______\____\_\  \ \_______\ \__\\ _\        \ \_______\ \_______\ \_______\ \__\ \__\\ \__\       \ \__\    \ \__\ \__\ \_______\ \_______\
-    \|_______|\_________\|_______|\|__|\|__|        \|_______|\|_______|\|_______|\|__|\|__| \|__|        \|__|     \|__|\|__|\|_______|\|_______|
+ ___  ___  ________  _______   ________          ___       ________  ________  ___  ________        
+|\  \|\  \|\   ____\|\  ___ \ |\   __  \        |\  \     |\   __  \|\   ____\|\  \|\   ___  \     
+\ \  \\\  \ \  \___|\ \   __/|\ \  \|\  \       \ \  \    \ \  \|\  \ \  \___|\ \  \ \  \\ \  \      
+ \ \  \\\  \ \_____  \ \  \_|/_\ \   _  _\       \ \  \    \ \  \\\  \ \  \  __\ \  \ \  \\ \  \      
+  \ \  \\\  \|____|\  \ \  \_|\ \ \  \\  \|       \ \  \____\ \  \\\  \ \  \|\  \ \  \ \  \\ \  \     
+   \ \_______\____\_\  \ \_______\ \__\\ _\        \ \_______\ \_______\ \_______\ \__\ \__\\ \__\    
+    \|_______|\_________\|_______|\|__|\|__|        \|_______|\|_______|\|_______|\|__|\|__| \|__|    
              \|_________|                                                                                                                         
-                                                                                                                                                  
-                                                                                                                                                  
-   
-                                                                                                            
-                                                                                                            
-                                                                                                            
+                                                                                                         
 ";
         string[] options = { "Login", "Back to Main Menu" };
         Menu loginmenu = new Menu(prompt, options);
@@ -31,24 +26,23 @@ public class UserLogin
         switch (SelectedIndex)
         {
             case 0:
-                if (Program.Email == null)
+                if (!AccountSession.IsLoggedIn)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
                     string email = Console.ReadLine();
                     Console.WriteLine("Please enter your password:");
                     string password = Console.ReadLine();
-                    AccountModel acc = accountsLogic.CheckLogin(email, password);
-                    if (acc != null)
+                    AccountModel account = accountsLogic.CheckLogin(email, password);
+                    if (account != null)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Login Successful");
                         Console.ResetColor();
-                        Console.WriteLine("Welcome back " + acc.FullName);
-                        Console.WriteLine("Your e-mail is " + acc.EmailAddress);
-                        Program.FullName = acc.FullName;
-                        Program.Email = acc.EmailAddress;
-                        Program.Password = acc.Password;
+                        Console.WriteLine("Welcome back " + account.FullName);
+                        Console.WriteLine("Your e-mail is " + account.EmailAddress);
+                        AccountSession.LoggedInAccount = account;
+                        AccountSession.Type = UserType.User;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         AccountMenu.Start();
@@ -62,15 +56,13 @@ public class UserLogin
                         Console.WriteLine("Press any key to return to the login screen");
                         Console.ReadKey(true);
                         Start();
-
                     }
-
                 }
 
-                else if (Program.Email != null)
-            {
-                AccountMenu.Start();
-            }
+                else
+                {
+                    AccountMenu.Start();
+                }
 
                 break;
             case 1:

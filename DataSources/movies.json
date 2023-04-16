@@ -5,7 +5,11 @@
     "Director": "Danny DeVito",
     "Information": "lorem ipsum",
     "Genre": "Comedy",
-    "Target Audience": "12"
+    "Target Audience": "12",
+    "Play Time In Minutes": 0,
+    "Times Playing": [
+      "2023-03-05T15:10:00"
+    ]
   },
   {
     "Week": 1,
@@ -13,6 +17,24 @@
     "Director": "hoi",
     "Information": "nee",
     "Genre": "ja",
-    "Target Audience": "6"
+    "Target Audience": "6",
+    "Play Time In Minutes": 0,
+    "Times Playing": [
+      "2023-01-30T15:10:00"
+    ]
+  },
+  {
+    "Week": 1,
+    "Movie Title": "The first moveh",
+    "Director": "1",
+    "Information": "1",
+    "Genre": "1",
+    "Target Audience": "1",
+    "Play Time In Minutes": 111,
+    "Times Playing": [
+      "2023-01-31T15:10:00",
+      "2023-01-30T12:10:00",
+      "2023-01-31T18:10:00"
+    ]
   }
 ]

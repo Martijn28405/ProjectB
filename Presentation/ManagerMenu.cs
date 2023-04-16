@@ -20,10 +20,7 @@ public class ManagerMenu
    \ \__\    \ \__\ \__\ \__\ \__\\ \__\ \__\ \__\ \_______\ \_______\ \__\\ _\        \ \__\    \ \__\ \_______\ \__\\ \__\ \_______\
     \|__|     \|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|_______|\|__|\|__|        \|__|     \|__|\|_______|\|__| \|__|\|_______|
                                                                                                                                       
-                                                                                                                                      
-                                                                                                                                      
-                                                               
-                                                                                                                               
+                                                                                                                                                                                                                                                
 ";
         
    
@@ -50,9 +47,7 @@ public class ManagerMenu
                 Program.Main();
                 break;
             case 4:
-                Program.Manager_Email = default;
-                Program.Manager_Password = default;
-                Program.Manager_FullName = default;
+                AccountSession.LoggedInAccount = null;
                 Program.Main();
                 break;
             case 5:

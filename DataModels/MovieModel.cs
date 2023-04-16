@@ -13,8 +13,19 @@ public class MovieModel
     public string Genre { get; set; }
     [JsonPropertyName("Target Audience")]
     public string TargetAudience { get; set; }
+    [JsonPropertyName("Play Time In Minutes")]
+    public int PlayTimeInMinutes { get; set; }
+    [JsonPropertyName("Times Playing")]
+    public List<DateTime> StartTime { get; set; }
 
-    public MovieModel(int week, string movietitle, string director, string information, string genre, string targetAudience)
+    public MovieModel(int week,
+        string movietitle,
+        string director,
+        string information,
+        string genre,
+        string targetAudience,
+        int playTimeInMinutes,
+        List<DateTime> startTime)
     {
         Week = week;
         MovieTitle = movietitle;
@@ -22,6 +33,7 @@ public class MovieModel
         Information = information;
         Genre = genre;
         TargetAudience = targetAudience;
-
+        PlayTimeInMinutes = playTimeInMinutes;
+        StartTime = startTime;
     }
 }

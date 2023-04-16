@@ -4,5 +4,11 @@
     "emailAddress": "admin",
     "password": "admin",
     "fullName": "Manager Elon"
+  },
+  {
+    "id": 2,
+    "emailAddress": "a@a.a",
+    "password": "1@AAAAAA",
+    "fullName": "a a"
   }
 ]

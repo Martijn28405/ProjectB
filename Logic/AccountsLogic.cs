@@ -15,20 +15,23 @@ class AccountsLogic
     //private set, so this can only be set by the class itself
     static public AccountModel? CurrentAccount { get; private set; }
 
-    public AccountsLogic()
+    public AccountsLogic(string fileName)
     {
-        _accessor = new JsonAccessor<AccountModel>(@"DataSources/accounts.json");
+        _accessor = new JsonAccessor<AccountModel>(@$"DataSources/{fileName}"); //accounts.json
         _accounts = _accessor.LoadAll();
     }
 
     public void CreateAccount()
     {
-        AccountsLogic redoLogin = new AccountsLogic();
         string fullName = CreateFullName();
         string emailAddress = CreateEmail();
         string password = CreatePassword();
-
-        AccountModel acc = new AccountModel(emailAddress, password, fullName);
+        AccountModel acc = new AccountModel() 
+        {
+            EmailAddress = emailAddress,
+            Password = password,
+            FullName = fullName
+        };
         UpdateList(acc);
         Console.WriteLine("Your account has been succesfully created!");
         Console.WriteLine("Press any key to return to the main menu");

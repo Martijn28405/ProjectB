@@ -1,16 +1,5 @@
 ﻿public static class Program
 {
- public static string FullName = null;
- public static string Email = null;
- public static string Password = null;
- public static string Manager_Email = null;
- public static string Manager_Password = null;
- public static string Manager_FullName = null;
- public static string co_worker_fullname = null;
- public static string co_worker_email = null;
- public static string co_worker_password = null;
- 
- 
  public static void Main()
  {
   Console.CursorVisible = false;
@@ -22,9 +11,8 @@
   \ \  \ \  \ \  \_|\ \  \ \  \       \ \  \|\  \ \  \ \  \\\  \|____|\  \ \  \____\ \  \\\  \ \  \\\  \ \  \___|\  \\_\  \ \  \_|\ \ 
    \ \__\ \__\ \_______\  \ \__\       \ \_______\ \__\ \_______\____\_\  \ \_______\ \_______\ \_______\ \__\  \ \________\ \_______\
     \|__|\|__|\|_______|   \|__|        \|_______|\|__|\|_______|\_________\|_______|\|_______|\|_______|\|__|   \|________|\|_______|
-                                                                \|_________|                                                          
-                                                                                                                                      
-                                                                                                                                      
+                                                                \|_________|             
+                                                                                                                                                                                                                              
 ";
 
   string[] options = { "Login", "Add Account", "Guest Login", "Manager Login", "Co-Worker Login", "Exit Code", "Show Seats" };
@@ -36,7 +24,7 @@
     UserLogin.Start();
     break;
    case 1:
-    AccountsLogic accountsLogic = new AccountsLogic();
+    AccountsLogic accountsLogic = new AccountsLogic("accounts.json");
     accountsLogic.CreateAccount();
     break;
    case 2:
@@ -46,7 +34,7 @@
     ManagerLogin.Start();
     break;
     case 4:
-     Co_WorkerLogin.Start();
+     CoWorkerLogin.Start();
      break;
      case 5:
       Console.WriteLine("Press any button to exit the app");
@@ -55,8 +43,7 @@
       break;
      case 6:
       Seatmenu.Show_Seats();
-      break;
-      
+      break;   
   }
  }
 }
