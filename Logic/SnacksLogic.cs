@@ -41,7 +41,9 @@ public class SnacksLogic
         snack.Id = index;
         snacks.Add(snack);
         _productAccesor.WriteAll(snacks);
-        AccountMenu.Start();
+        Console.WriteLine("Snack Added \n Press any key to return to the Manager menu");
+        Console.ReadKey(true);
+        ManagerMenu.Start();
     }
     public void BuySnacks()
     {
@@ -125,6 +127,53 @@ public class SnacksLogic
             }
         }
     }
+    public void ManageSnacks()
+    {
+        //Add or delete movies ONLY as Admin
+        Console.WriteLine("[1] Add Snacks\n[2] Delete Snacks\n[3] Return to  Manager Menu");
+        int choice = Int32.Parse(Console.ReadLine());
+        if (choice == 1)
+        {
+            AddSnacks();
+        }
+        else if (choice == 2)
+        {
+            DeleteSnack();
+        }
+        else if (choice == 3)
+        {
+            ManagerMenu.Start();
+        }
+        else
+        {
+            Console.WriteLine("Invalid input");
+            ManageSnacks();
+        }
+    }
+    public void DeleteSnack()
+    {
+        foreach (var item in snacks)
+        {
+            Console.WriteLine($"MOVIETITLE: {item.NameFood}");
+        }
 
+        Console.WriteLine("Which movie do you want to delete?");
+        string snack = Console.ReadLine();
+        foreach (var item in snacks)
+        {
+            if (snack == item.NameFood)
+            {
+                snacks.Remove(item);
+                _productAccesor.WriteAll(snacks);
+                Console.WriteLine("Snack deleted");
+                break;
+            }
+        }
+
+        Console.WriteLine("Press any key to return to menu");
+        Console.ReadKey(true);
+        ManagerMenu.Start();
+    }
+    
 }
 
