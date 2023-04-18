@@ -26,7 +26,7 @@ public class ManagerMenu
    
         
         
-        string[] options = {"Movie Management", "Add Snack", "View Movies", "Back to Main Menu", "Log Out", "Exit App" };
+        string[] options = {"Movie Management", "Snack Management", "View Movies", "Back to Main Menu", "Log Out", "Exit App" };
         Menu managermenu = new Menu(prompt, options);
         int SelectedIndex = managermenu.Run();
         switch (SelectedIndex)
@@ -36,8 +36,8 @@ public class ManagerMenu
                 manageMovies.ManageMovies();
                 break;
             case 1:
-                SnacksLogic addsnack = new SnacksLogic();
-                addsnack.AddSnacks();
+                SnacksLogic managesnacks = new SnacksLogic();
+                managesnacks.ManageSnacks();
                 break;
             case 2:
                 MoviesLogic showmoviesworker = new MoviesLogic();
