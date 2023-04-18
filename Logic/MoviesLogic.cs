@@ -147,9 +147,9 @@ public class MoviesLogic
     public void SortMoviesGenre()
     {
         //sort movies on genre
-        System.Console.WriteLine("Which week?");
+        Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
-        System.Console.WriteLine("Which genre?(Comedy,Action,Adventure)");
+        Console.WriteLine("Which genre?(Comedy,Action,Adventure)");
         string inputGenre = Console.ReadLine();
         foreach (var item in movies)
         {
@@ -171,9 +171,9 @@ public class MoviesLogic
     public void SortMoviesAge()
     {
         //sort movies on age
-        System.Console.WriteLine("Which week?");
+        Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
-        System.Console.WriteLine("Minimum age?(6,12,18)");
+        Console.WriteLine("Minimum age?(6,12,18)");
         string inputAge = Console.ReadLine();
         foreach (var item in movies)
         {
@@ -228,7 +228,7 @@ public class MoviesLogic
             }
         }
 
-        System.Console.WriteLine("Press any key to return to menu");
+        Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         ManagerMenu.Start();
     }
@@ -236,7 +236,7 @@ public class MoviesLogic
     public void ManageMovies()
     {
         //Add or delete movies ONLY as Admin
-        System.Console.WriteLine("[1] Add Movies\n[2] Delete Movies\n[3] Return to Menu");
+        Console.WriteLine("[1] Add Movies\n[2] Delete Movies\n[3] Return to Menu");
         int choice = Int32.Parse(Console.ReadLine());
         if (choice == 1)
         {
@@ -252,7 +252,7 @@ public class MoviesLogic
         }
         else
         {
-            System.Console.WriteLine("Invalid input");
+            Console.WriteLine("Invalid input");
             ManageMovies();
         }
     }
