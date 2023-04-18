@@ -26,7 +26,7 @@ public class UserLogin
         switch (SelectedIndex)
         {
             case 0:
-                if (!AccountSession.IsLoggedIn)
+                if (!AccountSession.IsLoggedIn || AccountSession.Type != UserType.User)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
@@ -68,6 +68,6 @@ public class UserLogin
             case 1:
                 Program.Main();
                 break;
-        }      
         }
     }
+}

@@ -28,7 +28,7 @@ public class ManagerLogin
         switch (SelectedIndex)
         {
             case 0:
-                if (!AccountSession.IsLoggedIn)
+                if (!AccountSession.IsLoggedIn || AccountSession.Type != UserType.Manager)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
