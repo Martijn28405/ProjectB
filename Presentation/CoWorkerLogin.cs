@@ -23,7 +23,7 @@
         switch (SelectedIndex)
         {
             case 0:
-                if (!AccountSession.IsLoggedIn)
+                if (!AccountSession.IsLoggedIn || AccountSession.Type != UserType.CoWorker)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
@@ -56,7 +56,7 @@
 
                     }
                 }
-                else 
+                else
                 {
                     CoWorkerMenu.Start();
                 }
