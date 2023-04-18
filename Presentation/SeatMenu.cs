@@ -48,7 +48,7 @@ static class Seatmenu
         }
 
         // Left upper corner (seats[y,x])
-        seats[0, 0] = "   ";
+        /*seats[0, 0] = "   ";
         seats[1,0] = "   ";
         seats[2,0] = "   ";
         seats[0,1] = "   ";
@@ -71,21 +71,22 @@ static class Seatmenu
         seats[13, 10] = "   ";
         seats[12, 10] = "   ";
         seats[12, 11] = "   ";
-        seats[11,11] = "   ";
+        seats[11,11] = "   ";*/
     }
 
     static void DrawSeats()
     {
-        Console.Clear();
+        Console.CursorTop = 10;
         Console.WriteLine("Select a seat:");
-        
+
         for (int i = 0; i < seats.GetLength(0); i++)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             for (int j = 0; j < seats.GetLength(1); j++)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 //Base Color setter in blue
-                CinemaBaseColor();
-                
+
                 // Base Color setter for yellow circle 
                 // CinemaBaseColorYellow();
 
@@ -135,6 +136,7 @@ static class Seatmenu
             DrawSeats();
         }
     }
+    
 
     static void SelectSeat()
     {
@@ -177,11 +179,11 @@ static class Seatmenu
     
     // Proberen maken van de clear functie zodat Color index werkt
 
-    private static void CinemaBaseColor()
+    /*private static void CinemaBaseColor()
     {
-        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        Console.ForegroundColor = ConsoleColor.Blue;
         
-    }
+    }*/
     
     
     private static  void CinemaBaseColorYellow()

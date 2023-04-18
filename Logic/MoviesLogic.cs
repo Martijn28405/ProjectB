@@ -138,6 +138,9 @@ public class MoviesLogic
                         Console.WriteLine("Incorrect input, try again:");
                         break;
                 }
+                Console.WriteLine("Press any key to return to the main menu");
+                Console.ReadKey(true);
+                AccountMenu.Start();
             }
         }
     }
