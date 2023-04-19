@@ -1,9 +1,79 @@
 [
   {
+    "Week": 1,
+    "Movie Title": "John Wick 4",
+    "Director": "Chad Stahelski",
+    "Information": "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
+    "Genre": "Action, Crime, Triller",
+    "Target Audience": "16",
+    "Play Time In Minutes": 180,
+    "Times Playing": [
+      "2023-01-01T19:20:00",
+      "2023-01-01T20:30:00",
+      "2023-01-02T21:00:00"
+    ]
+  },
+  {
+    "Week": 2,
+    "Movie Title": "Spider-Man: No Way Home",
+    "Director": "Jon Watts",
+    "Information": "For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Target Audience": "12",
+    "Play Time In Minutes": 150,
+    "Times Playing": [
+      "2023-01-05T18:30:00",
+      "2023-01-06T20:15:00",
+      "2023-01-07T22:00:00"
+    ]
+  },
+  {
+    "Week": 4,
+    "Movie Title": "Avatar 2",
+    "Director": "James Cameron",
+    "Information": "Avatar 2 continues the story of the Na'vi and their struggle against the human invaders of Pandora. The sequel explores new areas of the planet, introduces new characters, and promises to expand on the themes of the first film.",
+    "Genre": "Action, Adventure, Fantasy",
+    "Target Audience": "12",
+    "Play Time In Minutes": 180,
+    "Times Playing": [
+      "2023-01-19T19:00:00",
+      "2023-01-20T21:00:00",
+      "2023-01-22T23:00:00"
+    ]
+  },
+  {
+    "Week": 5,
+    "Movie Title": "Fantastic Beasts: The Secrets of Dumbledore",
+    "Director": "David Yates",
+    "Information": "The third installment in the Fantastic Beasts franchise follows Newt Scamander and Albus Dumbledore as they investigate the dark wizard Gellert Grindelwald's plans to increase his power and create a new order for the wizarding world.",
+    "Genre": "Adventure, Family, Fantasy",
+    "Target Audience": "10",
+    "Play Time In Minutes": 140,
+    "Times Playing": [
+      "2023-01-26T18:00:00",
+      "2023-01-27T20:00:00",
+      "2023-01-29T22:00:00"
+    ]
+  },
+  {
+    "Week": 6,
+    "Movie Title": "Jurassic World: Dominion",
+    "Director": "Colin Trevorrow",
+    "Information": "Jurassic World: Dominion is the third film in the Jurassic World trilogy and the sixth film in the Jurassic Park franchise. The movie will feature the return of the original cast members from the first Jurassic Park film, as well as new characters and dinosaurs.",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Target Audience": "12",
+    "Play Time In Minutes": 160,
+    "Times Playing": [
+      "2023-02-02T18:45:00",
+      "2023-02-03T20:30:00",
+      "2023-02-05T22:15:00"
+    ]
+  },
+  {
     "Week": 6,
     "Movie Title": "Mathilda",
     "Director": "Danny DeVito",
-    "Information": "lorem ipsum",
+    "Information": "Young genius Matilda Wormwood is mistreated by her Used car salesman father Harry, her mother Zinnia, and her older brother Michael. Smart and independent, she finds solace in the fictional worlds of books at the public library.",
     "Genre": "Comedy",
     "Target Audience": "12",
     "Play Time In Minutes": 0,
@@ -12,29 +82,124 @@
     ]
   },
   {
-    "Week": 1,
-    "Movie Title": "hi",
-    "Director": "hoi",
-    "Information": "nee",
-    "Genre": "ja",
-    "Target Audience": "6",
-    "Play Time In Minutes": 0,
+    "Week": 7,
+    "Movie Title": "The French Dispatch",
+    "Director": "Wes Anderson",
+    "Information": "A love letter to journalists set in an outpost of an American newspaper in a fictional 20th-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
+    "Genre": "Comedy, Drama",
+    "Target Audience": "16",
+    "Play Time In Minutes": 107,
     "Times Playing": [
-      "2023-01-30T15:10:00"
+      "2023-03-11T20:00:00",
+      "2023-03-12T15:30:00",
+      "2023-03-14T18:20:00",
+      "2023-03-16T21:40:00"
     ]
   },
   {
-    "Week": 1,
-    "Movie Title": "The first moveh",
-    "Director": "1",
-    "Information": "1",
-    "Genre": "1",
-    "Target Audience": "1",
-    "Play Time In Minutes": 111,
+    "Week": 8,
+    "Movie Title": "The Flash",
+    "Director": "Andy Muschietti",
+    "Information": "The Flash is a standalone film based on the DC Comics character of the same name. The movie will follow Barry Allen as he travels through time to prevent his mother's murder and faces off against his arch-nemesis, Reverse Flash.",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Target Audience": "12",
+    "Play Time In Minutes": 150,
     "Times Playing": [
-      "2023-01-31T15:10:00",
-      "2023-01-30T12:10:00",
-      "2023-01-31T18:10:00"
+      "2023-02-16T18:00:00",
+      "2023-02-17T20:00:00",
+      "2023-02-19T22:00:00"
+    ]
+  },
+  {
+    "Week": 8,
+    "Movie Title": "No Time to Die",
+    "Director": "Cary Joji Fukunaga",
+    "Information": "James Bond has left active service. His peace is short-lived when Felix Leiter, an old friend from the CIA, turns up asking for help, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
+    "Genre": "Action, Adventure, Thriller",
+    "Target Audience": "16",
+    "Play Time In Minutes": 163,
+    "Times Playing": [
+      "2023-03-19T19:30:00",
+      "2023-03-20T16:20:00",
+      "2023-03-22T21:00:00",
+      "2023-03-24T18:10:00",
+      "2023-03-26T14:30:00"
+    ]
+  },
+  {
+    "Week": 9,
+    "Movie Title": "Dune",
+    "Director": "Denis Villeneuve",
+    "Information": "Feature adaptation of Frank Herbert's science fiction novel, about the son of a noble family entrusted with the protection of the most valuable asset and most vital element in the galaxy.",
+    "Genre": "Action, Adventure, Drama",
+    "Target Audience": "16",
+    "Play Time In Minutes": 155,
+    "Times Playing": [
+      "2023-03-28T20:10:00",
+      "2023-03-30T18:00:00",
+      "2023-04-01T21:20:00",
+      "2023-04-03T16:30:00",
+      "2023-04-05T19:50:00"
+    ]
+  },
+  {
+    "Week": 10,
+    "Movie Title": "The Batman",
+    "Director": "Matt Reeves",
+    "Information": "In his second year of fighting crime, Batman explores corruption within Gotham City's police department as well as facing a new enemy known as The Riddler.",
+    "Genre": "Action, Crime, Drama",
+    "Target Audience": "16",
+    "Play Time In Minutes": 150,
+    "Times Playing": [
+      "2023-04-07T20:30:00",
+      "2023-04-09T15:45:00",
+      "2023-04-11T18:10:00",
+      "2023-04-13T21:00:00",
+      "2023-04-15T19:20:00"
+    ]
+  },
+  {
+    "Week": 11,
+    "Movie Title": "The Lost City",
+    "Director": "Adam and Aaron Nee",
+    "Information": "A reclusive romance novelist on a book tour with her cover model gets swept up in a kidnapping attempt that lands them both in a cutthroat jungle adventure.",
+    "Genre": "Action, Adventure, Comedy",
+    "Target Audience": "12",
+    "Play Time In Minutes": 110,
+    "Times Playing": [
+      "2023-04-17T15:10:00",
+      "2023-04-19T18:30:00",
+      "2023-04-21T21:00:00",
+      "2023-04-23T14:20:00",
+      "2023-04-25T16:50:00"
+    ]
+  },
+  {
+    "Week": 12,
+    "Movie Title": "Black Panther: Wakanda Forever",
+    "Director": "Ryan Coogler",
+    "Information": "The sequel to Black Panther (2018).",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Target Audience": "12",
+    "Play Time In Minutes": 0,
+    "Times Playing": [
+      "2023-04-27T20:00:00"
+    ]
+  },
+  {
+    "Week": 13,
+    "Movie Title": "Don't Look Up",
+    "Director": "Adam McKay",
+    "Information": "Two low-level astronomers must go on a giant media tour to warn mankind of an approaching comet that will destroy planet Earth.",
+    "Genre": "Comedy, Drama",
+    "Target Audience": "16",
+    "Play Time In Minutes": 138,
+    "Times Playing": [
+      "2023-04-29T19:30:00",
+      "2023-04-30T16:20:00",
+      "2023-05-01T20:40:00",
+      "2023-05-02T18:10:00",
+      "2023-05-04T21:00:00"
     ]
   }
 ]
