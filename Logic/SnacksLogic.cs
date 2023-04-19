@@ -9,7 +9,7 @@ public class SnacksLogic
     public List<SnackModel> snacks;
     public List<ShoppingCartModel>? shoppingCart;
     public SnacksLogic()
-    
+
     {
         _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/snacks.json");
         snacks = _productAccesor.LoadAll();
@@ -154,10 +154,10 @@ public class SnacksLogic
     {
         foreach (var item in snacks)
         {
-            Console.WriteLine($"MOVIETITLE: {item.NameFood}");
+            Console.WriteLine($"Snacks: {item.NameFood}");
         }
 
-        Console.WriteLine("Which movie do you want to delete?");
+        Console.WriteLine("Which snack do you want to delete?");
         string snack = Console.ReadLine();
         foreach (var item in snacks)
         {
@@ -174,6 +174,6 @@ public class SnacksLogic
         Console.ReadKey(true);
         ManagerMenu.Start();
     }
-    
+
 }
 
