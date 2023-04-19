@@ -164,11 +164,11 @@ public class MoviesLogic
         //sort movies on genre
         Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Which genre?(Comedy,Action,Adventure)");
+        Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
         foreach (var item in movies)
         {
-            if (inputWeek == item.Week && inputGenre == item.Genre)
+            if (inputWeek == item.Week && item.Genre.Contains(inputGenre))
             {
                 Console.WriteLine($"WEEK: {item.Week}");
                 Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
@@ -188,7 +188,7 @@ public class MoviesLogic
         //sort movies on age
         Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Minimum age?(6,12,18)");
+        Console.WriteLine("Minimum age?(6,10,12,16,18)");
         string inputAge = Console.ReadLine();
         foreach (var item in movies)
         {
