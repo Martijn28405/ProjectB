@@ -110,10 +110,6 @@ public class MoviesLogic
 
     public void MovieInformation()
     {
-        foreach (MovieModel movie in movies)
-        {
-            Console.WriteLine(movie.MovieTitle);
-        }
         Console.WriteLine("Of which movie would you like to receive some information?");
         string userInput = Console.ReadLine();
 
