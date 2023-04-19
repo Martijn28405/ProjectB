@@ -16,19 +16,22 @@ public class CoWorkerMenu
                                                                                                                                                                
                                                                                                                                                                                                                                                                                                                                                                                
 ";
-        string[] options = {"Show Movies", "Back to Main Menu", "Exit App" };
+        string[] options = {"Login","Show Movies", "Back to Main Menu", "Exit App" };
         Menu co_workermenu = new Menu(prompt, options);
         int SelectedIndex = co_workermenu.Run();
         switch (SelectedIndex)
         {
             case 0:
+                CoWorkerLogin.Start();
+                break;
+            case 1:
                 MoviesLogic showmoviesworker = new MoviesLogic();
                 showmoviesworker.ShowMoviesWorker();
                 break;
-            case 1:
+            case 2:
                 Program.Main();
                 break;
-            case 2:
+            case 3:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);

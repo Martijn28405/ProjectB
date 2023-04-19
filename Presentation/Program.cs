@@ -1,5 +1,10 @@
 ﻿public static class Program
 {
+ public static string FullName = null;
+ public static string Email = null;
+ public static string Password = null;
+ static private AccountsLogic _accountsLogic = new AccountsLogic("accounts.json");
+ 
  public static void Main()
  {
   Console.CursorVisible = false;
@@ -11,11 +16,12 @@
   \ \  \ \  \ \  \_|\ \  \ \  \       \ \  \|\  \ \  \ \  \\\  \|____|\  \ \  \____\ \  \\\  \ \  \\\  \ \  \___|\  \\_\  \ \  \_|\ \ 
    \ \__\ \__\ \_______\  \ \__\       \ \_______\ \__\ \_______\____\_\  \ \_______\ \_______\ \_______\ \__\  \ \________\ \_______\
     \|__|\|__|\|_______|   \|__|        \|_______|\|__|\|_______|\_________\|_______|\|_______|\|_______|\|__|   \|________|\|_______|
-                                                                \|_________|             
-                                                                                                                                                                                                                              
+                                                                \|_________|                                                          
+                                                                                                                                      
+                                                                                                                                      
 ";
 
-  string[] options = { "Login", "Add Account", "Guest Login", "Manager Login", "Co-Worker Login", "Exit Code", "Show Seats" };
+  string[] options = { "Login", "Add Account", "Guest Login", "Manager Login", "Co-Worker Login", "Exit Code" };
   Menu mymenu = new Menu(prompt, options);
   int SelectedIndex = mymenu.Run();
   switch (SelectedIndex)
@@ -24,8 +30,7 @@
     UserLogin.Start();
     break;
    case 1:
-    AccountsLogic accountsLogic = new AccountsLogic("accounts.json");
-    accountsLogic.CreateAccount();
+    _accountsLogic.CreateAccount();
     break;
    case 2:
     GuestMenu.Start();
@@ -41,9 +46,6 @@
       Console.ReadKey(true);
       Environment.Exit(0);
       break;
-     case 6:
-      Seats.Show_Seats();
-      break;   
   }
  }
 }

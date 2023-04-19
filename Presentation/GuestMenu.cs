@@ -28,9 +28,7 @@
                     showSnacks.ShowSnacks();
                     break;
                 case 2:
-                    System.Console.WriteLine("this function is not yet available");
-                    Thread.Sleep(1000);
-                    Start();
+                    Seats.Show_Seats();
                     //zorg ervoor dat email ook wordt ingevoerd.
                     break;
                 case 3:

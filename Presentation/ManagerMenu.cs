@@ -26,31 +26,34 @@ public class ManagerMenu
    
         
         
-        string[] options = {"Movie Management", "Snack Management", "View Movies", "Back to Main Menu", "Log Out", "Exit App" };
+        string[] options = {"Login","Movie Management", "Snack Management", "View Movies", "Back to Main Menu", "Log Out", "Exit App" };
         Menu managermenu = new Menu(prompt, options);
         int SelectedIndex = managermenu.Run();
         switch (SelectedIndex)
         {
             case 0:
+                ManagerLogin.Start();
+                break;
+            case 1:
                 MoviesLogic manageMovies = new MoviesLogic();
                 manageMovies.ManageMovies();
                 break;
-            case 1:
+            case 2:
                 SnacksLogic managesnacks = new SnacksLogic();
                 managesnacks.ManageSnacks();
                 break;
-            case 2:
+            case 3:
                 MoviesLogic showmoviesworker = new MoviesLogic();
                 showmoviesworker.ShowMoviesWorker();
                 break;
-            case 3:
-                Program.Main();
-                break;
             case 4:
-                AccountSession.LoggedInAccount = null;
                 Program.Main();
                 break;
             case 5:
+                AccountSession.LoggedInAccount = null;
+                Program.Main();
+                break;
+            case 6:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
