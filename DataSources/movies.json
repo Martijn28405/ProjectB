@@ -14,6 +14,20 @@
     ]
   },
   {
+    "Week": 1,
+    "Movie Title": "The Batman",
+    "Director": "Matt Reeves",
+    "Information": "In this gritty take on the Dark Knight, Robert Pattinson stars as Bruce Wayne/Batman as he takes on Gotham's underworld and faces off against iconic villains like The Riddler and Catwoman.",
+    "Genre": "Action, Crime, Drama",
+    "Target Audience": "16",
+    "Play Time In Minutes": 150,
+    "Times Playing": [
+      "2023-01-01T21:00:00",
+      "2023-01-02T18:30:00",
+      "2023-01-03T20:15:00"
+    ]
+  },
+  {
     "Week": 2,
     "Movie Title": "Spider-Man: No Way Home",
     "Director": "Jon Watts",
@@ -25,6 +39,48 @@
       "2023-01-05T18:30:00",
       "2023-01-06T20:15:00",
       "2023-01-07T22:00:00"
+    ]
+  },
+  {
+    "Week": 2,
+    "Movie Title": "The Notebook",
+    "Director": "Nick Cassavetes",
+    "Information": "In 1940s South Carolina, mill worker Noah Calhoun and rich girl Allie are desperately in love. But her parents don't approve. When Noah goes off to serve in World War II, it seems to mark the end of their love affair. In the interim, Allie becomes involved with another man. But when Noah returns to their small town years later, on the cusp of Allie's marriage, it soon becomes clear that their romance is anything but over.",
+    "Genre": "Drama, Romance",
+    "Target Audience": "PG-13",
+    "Play Time In Minutes": 123,
+    "Times Playing": [
+      "2023-01-08T18:30:00",
+      "2023-01-09T20:15:00",
+      "2023-01-10T22:00:00"
+    ]
+  },
+  {
+    "Week": 2,
+    "Movie Title": "The Fault in Our Stars",
+    "Director": "Josh Boone",
+    "Information": "Two teens, both with different cancer conditions, fall in love after meeting at a cancer support group.",
+    "Genre": "Drama, Romance",
+    "Target Audience": "PG-13",
+    "Play Time In Minutes": 126,
+    "Times Playing": [
+      "2023-01-08T16:00:00",
+      "2023-01-09T19:00:00",
+      "2023-01-10T21:00:00"
+    ]
+  },
+  {
+    "Week": 3,
+    "Movie Title": "La La Land",
+    "Director": "Damien Chazelle",
+    "Information": "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
+    "Genre": "Comedy, Drama, Music",
+    "Target Audience": "PG-13",
+    "Play Time In Minutes": 128,
+    "Times Playing": [
+      "2023-01-14T17:30:00",
+      "2023-01-16T19:30:00",
+      "2023-01-16T21:30:00"
     ]
   },
   {
@@ -140,22 +196,6 @@
       "2023-04-01T21:20:00",
       "2023-04-03T16:30:00",
       "2023-04-05T19:50:00"
-    ]
-  },
-  {
-    "Week": 10,
-    "Movie Title": "The Batman",
-    "Director": "Matt Reeves",
-    "Information": "In his second year of fighting crime, Batman explores corruption within Gotham City's police department as well as facing a new enemy known as The Riddler.",
-    "Genre": "Action, Crime, Drama",
-    "Target Audience": "16",
-    "Play Time In Minutes": 150,
-    "Times Playing": [
-      "2023-04-07T20:30:00",
-      "2023-04-09T15:45:00",
-      "2023-04-11T18:10:00",
-      "2023-04-13T21:00:00",
-      "2023-04-15T19:20:00"
     ]
   },
   {

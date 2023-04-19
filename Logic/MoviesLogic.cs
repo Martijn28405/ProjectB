@@ -83,16 +83,22 @@ public class MoviesLogic
         Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
 
-        foreach (var item in movies)
+        foreach (var movie in movies)
         {
-            if (inputWeek == item.Week)
+            if (inputWeek == movie.Week)
             {
-                Console.WriteLine($"WEEK: {item.Week}");
-                Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
-                Console.WriteLine($"DIRECTOR: {item.Director}");
-                Console.WriteLine($"INFORMATION: {item.Information}");
-                Console.WriteLine($"GENRE:{item.Genre}");
-                Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}");
+                Console.WriteLine($"WEEK: {movie.Week}");
+                Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+                Console.WriteLine($"DIRECTOR: {movie.Director}");
+                Console.WriteLine($"INFORMATION: {movie.Information}");
+                Console.WriteLine($"GENRE:{movie.Genre}");
+                Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
+                Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
+                foreach (DateTime time in movie.StartTime)
+                {
+                    string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
+                    Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
+                }
             }
 
         }
