@@ -157,7 +157,7 @@ public class SnacksLogic
             Console.WriteLine($"MOVIETITLE: {item.NameFood}");
         }
 
-        Console.WriteLine("Which movie do you want to delete?");
+        Console.WriteLine("Which snack do you want to delete?");
         string snack = Console.ReadLine();
         foreach (var item in snacks)
         {
