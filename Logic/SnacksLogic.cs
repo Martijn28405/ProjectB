@@ -129,7 +129,7 @@ public class SnacksLogic
     }
     public void ManageSnacks()
     {
-        //Add or delete movies ONLY as Admin
+        //Add or delete snacks ONLY as Admin
         Console.WriteLine("[1] Add Snacks\n[2] Delete Snacks\n[3] Return to  Manager Menu");
         int choice = Int32.Parse(Console.ReadLine());
         if (choice == 1)

@@ -2,6 +2,7 @@
 
 public class ManagerLogin
 {
+    static private string Manager_Email = null;
     static private AccountsLogic _accountsLogic = new AccountsLogic("managers.json");
 
 
@@ -9,15 +10,15 @@ public class ManagerLogin
     {
         Console.CursorVisible = false;
         string prompt = @"
-
-
  _____ ______   ________  ________   ________  ________  _______   ________          ___       ________  ________  ___  ________      
 |\   _ \  _   \|\   __  \|\   ___  \|\   __  \|\   ____\|\  ___ \ |\   __  \        |\  \     |\   __  \|\   ____\|\  \|\   ___  \    
 \ \  \\\__\ \  \ \  \|\  \ \  \\ \  \ \  \|\  \ \  \___|\ \   __/|\ \  \|\  \       \ \  \    \ \  \|\  \ \  \___|\ \  \ \  \\ \  \   
  \ \  \\|__| \  \ \   __  \ \  \\ \  \ \   __  \ \  \  __\ \  \_|/_\ \   _  _\       \ \  \    \ \  \\\  \ \  \  __\ \  \ \  \\ \  \  
   \ \  \    \ \  \ \  \ \  \ \  \\ \  \ \  \ \  \ \  \|\  \ \  \_|\ \ \  \\  \|       \ \  \____\ \  \\\  \ \  \|\  \ \  \ \  \\ \  \ 
    \ \__\    \ \__\ \__\ \__\ \__\\ \__\ \__\ \__\ \_______\ \_______\ \__\\ _\        \ \_______\ \_______\ \_______\ \__\ \__\\ \__\
-    \|__|     \|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|_______|\|__|\|__|        \|_______|\|_______|\|_______|\|__|\|__| \|___    
+    \|__|     \|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|_______|\|__|\|__|        \|_______|\|_______|\|_______|\|__|\|__| \|___ 
+
+   
           
                                                                                                            
 ";
@@ -28,7 +29,7 @@ public class ManagerLogin
         switch (SelectedIndex)
         {
             case 0:
-                if (!AccountSession.IsLoggedIn)
+                if (Manager_Email == null)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
@@ -43,8 +44,7 @@ public class ManagerLogin
                         Console.ResetColor();
                         Console.WriteLine("Welcome back " + acc.FullName);
                         Console.WriteLine("Your e-mail is " + acc.EmailAddress);
-                        AccountSession.LoggedInAccount = acc;
-                        AccountSession.Type = UserType.Manager;
+                        Manager_Email = acc.EmailAddress;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         ManagerMenu.Start();
