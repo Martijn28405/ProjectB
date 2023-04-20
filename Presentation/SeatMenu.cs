@@ -1,4 +1,4 @@
-﻿public class Seatmenu
+﻿public class SeatMenu
 {
     // Small cinema
     static int selectedSeatIndex = 6; // Initially select the first seat

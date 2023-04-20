@@ -27,7 +27,7 @@ public class UserLogin
         switch (SelectedIndex)
         {
             case 0:
-                if (!AccountSession.IsLoggedIn || AccountSession.Type != UserType.User)
+                if (User_Email == null)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");

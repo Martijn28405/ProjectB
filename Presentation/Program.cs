@@ -42,7 +42,7 @@
       Environment.Exit(0);
       break;
      case 6:
-      Seatmenu.Start();
+      SeatMenu.Start();
       break;   
   }
  }
