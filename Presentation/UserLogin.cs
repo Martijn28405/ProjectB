@@ -2,6 +2,7 @@ using System.ComponentModel.Design;
 
 public class UserLogin
 {
+    static private string User_Email = null;
     static private AccountsLogic accountsLogic = new AccountsLogic("accounts.json");
 
 
@@ -41,8 +42,7 @@ public class UserLogin
                         Console.ResetColor();
                         Console.WriteLine("Welcome back " + account.FullName);
                         Console.WriteLine("Your e-mail is " + account.EmailAddress);
-                        AccountSession.LoggedInAccount = account;
-                        AccountSession.Type = UserType.User;
+                        User_Email = account.EmailAddress;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         AccountMenu.Start();
