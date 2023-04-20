@@ -1,10 +1,10 @@
-static class Seats
+﻿public class Seatmenu
 {
     // Small cinema
     static int selectedSeatIndex = 6; // Initially select the first seat
-    static string[,] seats = new string[14, 12]; // 14x12 array of seats
+    static string[,] seats = new string[14, 12]; // 14x142 array of seats
 
-    public static void Show_Seats()
+    public static void Start()
     {
         Console.CursorVisible = false;
         InitializeSeats(); // Initialize seats with "[ ]"
@@ -48,7 +48,7 @@ static class Seats
         }
 
         // Left upper corner (seats[y,x])
-        /*seats[0, 0] = "   ";
+        seats[0, 0] = "   ";
         seats[1,0] = "   ";
         seats[2,0] = "   ";
         seats[0,1] = "   ";
@@ -71,7 +71,7 @@ static class Seats
         seats[13, 10] = "   ";
         seats[12, 10] = "   ";
         seats[12, 11] = "   ";
-        seats[11,11] = "   ";*/
+        seats[11,11] = "   ";
     }
 
     static void DrawSeats()
@@ -79,16 +79,26 @@ static class Seats
         Console.CursorTop = 10;
         Console.WriteLine("Select a seat:");
 
+        Dictionary<int, Tuple<int, int>> YellowSeats = new()
+        {
+            { 1, new Tuple<int, int>(1, 5) }
+        };
+
         for (int i = 0; i < seats.GetLength(0); i++)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
             for (int j = 0; j < seats.GetLength(1); j++)
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
                 //Base Color setter in blue
-
+                CinemaBaseColor();
+                
                 // Base Color setter for yellow circle 
+                
                 // CinemaBaseColorYellow();
+                if (YellowSeats.ContainsKey(i) &&
+                    YellowSeats[i].Item1 < j && j < YellowSeats[i].Item2)
+                {
+                    CinemaBaseColorYellow();
+                }
 
                 if (i == selectedSeatIndex / seats.GetLength(1) && j == selectedSeatIndex % seats.GetLength(1))
                 {
@@ -136,7 +146,6 @@ static class Seats
             DrawSeats();
         }
     }
-    
 
     static void SelectSeat()
     {
@@ -148,19 +157,7 @@ static class Seats
             
             
             Console.WriteLine("Seat selected!");
-            Console.WriteLine("[1] Select More seats \n [2] Go to checkout");
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "1":
-                    Console.Clear();
-                    DrawSeats();
-                    break;
-                case "2":
-                    Program.Main();
-                    break;
-            }
-
+            Choice();
 
         }
       
@@ -169,6 +166,23 @@ static class Seats
             Console.WriteLine("Seat already taken. Please select another seat.");
         }
 
+    }
+
+    static void Choice()
+    {
+        Console.WriteLine("[1] Select More Seats \n [2] Go to Checkout ");
+        string choice = Console.ReadLine();
+        switch (choice)
+        {
+            case "1":
+                Console.Clear();
+                DrawSeats();
+                break;
+            case "2":
+                Program.Main();
+                break;
+                    
+        }
     }
     
     // Hier komt de indx met de verschillende kleuren
@@ -181,17 +195,59 @@ static class Seats
     
     // Proberen maken van de clear functie zodat Color index werkt
 
-    /*private static void CinemaBaseColor()
+    private static void CinemaBaseColor()
     {
-        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
         
-    }*/
+    }
     
     
     private static  void CinemaBaseColorYellow()
     {
-
+        Console.ForegroundColor = ConsoleColor.Yellow;
 
     }
     
-}
+    /*private static void JsonEdditor()
+    {
+        {
+                // Lees de JSON uit het bestand
+                string json = System.IO.File.ReadAllText(@"Seat_Color.json");
+
+                // Deserialiseer de JSON in een JObject
+                JObject jObject = JObject.Parse(json);
+
+                // Zoek de 'Color_Seats_Small_Cinema'-array op
+                JArray seatsArray = (JArray)jObject["Color_Seats_Small_Cinema"];
+
+                // Loop door de array heen en vervang de codes door hun kleuren
+                
+                
+                
+                // hier wil je aan passesn dat de kleuren worden veranderd in de scinema seats
+                for (int i = 0; i < seatsArray.Count; i++)
+                {
+                    JArray seatRow = (JArray)seatsArray[i];
+                    for (int j = 0; j < seatRow.Count; j++)
+                    {
+                        string seatCode = seatRow[j].ToString();
+                        switch (seatCode)
+                        {
+                            case "B":
+                                seatRow[j] = "Blue";
+                                break;
+                            case "G":
+                                seatRow[j] = "Yellow";
+                                break;
+                            case "R":
+                                seatRow[j] = "Red";
+                                break;
+                        }
+                    }
+                }*/
+
+                // De gewijzigde JSON is nu opgeslagen in het jObject, dus je kunt de JSON nu weer wegschrijven naar het bestand als je dat wilt.
+                // Laatste stap is het opslaan van het gewijzigde JObject als JSON naar een string, en deze string kan weer worden weggeschreven naar het bestand.
+                /*string newJson = jObject.ToString();
+                System.IO.File.WriteAllText(@"Seat_Cinema.Json", newJson);*/
+        }
