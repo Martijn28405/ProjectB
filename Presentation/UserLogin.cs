@@ -2,7 +2,6 @@ using System.ComponentModel.Design;
 
 public class UserLogin
 {
-    public static string user_email = null;
     static private AccountsLogic accountsLogic = new AccountsLogic("accounts.json");
 
 
@@ -27,7 +26,7 @@ public class UserLogin
         switch (SelectedIndex)
         {
             case 0:
-                if (user_email == null)
+                if (!AccountSession.IsLoggedIn || AccountSession.Type != UserType.User)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
@@ -42,7 +41,8 @@ public class UserLogin
                         Console.ResetColor();
                         Console.WriteLine("Welcome back " + account.FullName);
                         Console.WriteLine("Your e-mail is " + account.EmailAddress);
-                        user_email = account.EmailAddress;
+                        AccountSession.LoggedInAccount = account;
+                        AccountSession.Type = UserType.User;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         AccountMenu.Start();
@@ -68,6 +68,6 @@ public class UserLogin
             case 1:
                 Program.Main();
                 break;
-        }      
         }
     }
+}

@@ -52,7 +52,7 @@ public class MoviesLogic
             {
                 DateTime dateTime = DateTime.ParseExact($"{date} {time}", "dd-MM-yyyy HH:mm", null);
                 dateTimes.Add(dateTime);
-                Console.WriteLine("Add another? [1] yes, any other key: no");
+                Console.WriteLine("Add another? [1] Yes, any other key: No");
             }
             catch (FormatException)
             {
@@ -83,16 +83,23 @@ public class MoviesLogic
         Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
 
-        foreach (var item in movies)
+        foreach (var movie in movies)
         {
-            if (inputWeek == item.Week)
+            if (inputWeek == movie.Week)
             {
-                Console.WriteLine($"WEEK: {item.Week}");
-                Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
-                Console.WriteLine($"DIRECTOR: {item.Director}");
-                Console.WriteLine($"INFORMATION: {item.Information}");
-                Console.WriteLine($"GENRE:{item.Genre}");
-                Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}");
+                Console.WriteLine($"WEEK: {movie.Week}");
+                Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+                Console.WriteLine($"DIRECTOR: {movie.Director}");
+                Console.WriteLine($"INFORMATION: {movie.Information}");
+                Console.WriteLine($"GENRE:{movie.Genre}");
+                Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
+                Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
+                foreach (DateTime time in movie.StartTime)
+                {
+                    string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
+                    Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
+                }
+                Console.WriteLine();
             }
 
         }
@@ -110,57 +117,75 @@ public class MoviesLogic
         {
             if (userInput == movie.MovieTitle)
             {
-                Console.WriteLine(@"Which information would you like to look at?
-                [1] The synopsis of the movie.
-                [2] The target audience of the movie.
-                [3] The genres of the movie.
-                [4] The times at which the movie is playing.");
-
-                string userChoice = Console.ReadLine();
-                switch (userChoice)
-                {
-                    case "1":
-                        Console.WriteLine(movie.Information);
-                        break;
-                    case "2":
-                        Console.WriteLine(movie.TargetAudience);
-                        break;
-                    case "3":
-                        Console.WriteLine(movie.Genre);
-                        break;
-                    case "4":
-                        foreach (DateTime time in movie.StartTime)
-                        {
-                            Console.WriteLine(time.ToString("dd-MM-yyyy HH:mm"));
-                        }
-                        break;
-                    default:
-                        Console.WriteLine("Incorrect input, try again:");
-                        break;
-                }
-                Console.WriteLine("Press any key to return to the main menu");
-                Console.ReadKey(true);
+                MovieInformationOptions(movie);
                 AccountMenu.Start();
             }
         }
     }
+
+    public void MovieInformationOptions(MovieModel movie)
+    {
+        while (true)
+        {
+            Console.WriteLine(@"
+[1] The synopsis of the movie.
+[2] The target audience of the movie.
+[3] The genres of the movie.
+[4] The times at which the movie is playing.
+[5] Exit Information Menu");
+
+            string userChoice = Console.ReadLine();
+            switch (userChoice)
+            {
+                case "1":
+                    Console.WriteLine($"Synopsis: {movie.Information}");
+                    break;
+                case "2":
+                    Console.WriteLine($"Target Audience: {movie.TargetAudience}");
+                    break;
+                case "3":
+                    Console.WriteLine($"Genre(s): {movie.Genre}");
+                    break;
+                case "4":
+                    foreach (DateTime time in movie.StartTime)
+                    {
+                        string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
+                        Console.WriteLine($"Dates and Times: {dateAndTime}");
+                    }
+                    break;
+                case "5":
+                    return;
+                default:
+                    Console.WriteLine("Incorrect input, try again:");
+                    break;
+            }
+        }
+    }
+
     public void SortMoviesGenre()
     {
         //sort movies on genre
-        System.Console.WriteLine("Which week?");
+        Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
-        System.Console.WriteLine("Which genre?(Comedy,Action,Adventure)");
+        Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
-        foreach (var item in movies)
+        foreach (var movie in movies)
         {
-            if (inputWeek == item.Week && inputGenre == item.Genre)
+            if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
             {
-                Console.WriteLine($"WEEK: {item.Week}");
-                Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
-                Console.WriteLine($"DIRECTOR: {item.Director}");
-                Console.WriteLine($"INFORMATION: {item.Information}");
-                Console.WriteLine($"GENRE:{item.Genre}");
-                Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}");
+                Console.WriteLine($"WEEK: {movie.Week}");
+                Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+                Console.WriteLine($"DIRECTOR: {movie.Director}");
+                Console.WriteLine($"INFORMATION: {movie.Information}");
+                Console.WriteLine($"GENRE:{movie.Genre}");
+                Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
+                Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
+                foreach (DateTime time in movie.StartTime)
+                {
+                    string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
+                    Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
+                }
+                Console.WriteLine();
             }
         }
         Console.WriteLine("Press any key to return to menu");
@@ -171,20 +196,27 @@ public class MoviesLogic
     public void SortMoviesAge()
     {
         //sort movies on age
-        System.Console.WriteLine("Which week?");
+        Console.WriteLine("Which week?");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
-        System.Console.WriteLine("Minimum age?(6,12,18)");
+        Console.WriteLine("Minimum age?(6,10,12,16,18)");
         string inputAge = Console.ReadLine();
-        foreach (var item in movies)
+        foreach (var movie in movies)
         {
-            if (inputWeek == item.Week && inputAge == item.TargetAudience)
+            if (inputWeek == movie.Week && inputAge == movie.TargetAudience)
             {
-                Console.WriteLine($"WEEK: {item.Week}");
-                Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
-                Console.WriteLine($"DIRECTOR: {item.Director}");
-                Console.WriteLine($"INFORMATION: {item.Information}");
-                Console.WriteLine($"GENRE:{item.Genre}");
-                Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}");
+                Console.WriteLine($"WEEK: {movie.Week}");
+                Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+                Console.WriteLine($"DIRECTOR: {movie.Director}");
+                Console.WriteLine($"INFORMATION: {movie.Information}");
+                Console.WriteLine($"GENRE:{movie.Genre}");
+                Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
+                Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
+                foreach (DateTime time in movie.StartTime)
+                {
+                    string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
+                    Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
+                }
+                Console.WriteLine();
             }
         }
         Console.WriteLine("Press any key to return to menu");
@@ -194,14 +226,21 @@ public class MoviesLogic
 
     public void ShowMoviesWorker()
     {
-        foreach (var item in movies)
+        foreach (var movie in movies)
         {
-            Console.WriteLine($"WEEK: {item.Week}");
-            Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
-            Console.WriteLine($"DIRECTOR: {item.Director}");
-            Console.WriteLine($"INFORMATION: {item.Information}");
-            Console.WriteLine($"GENRE:{item.Genre}");
-            Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}\n");
+            Console.WriteLine($"WEEK: {movie.Week}");
+            Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+            Console.WriteLine($"DIRECTOR: {movie.Director}");
+            Console.WriteLine($"INFORMATION: {movie.Information}");
+            Console.WriteLine($"GENRE:{movie.Genre}");
+            Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
+            Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
+            foreach (DateTime time in movie.StartTime)
+            {
+                string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
+                Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
+            }
+            Console.WriteLine();
         }
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
@@ -228,7 +267,7 @@ public class MoviesLogic
             }
         }
 
-        System.Console.WriteLine("Press any key to return to menu");
+        Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         ManagerMenu.Start();
     }
@@ -236,7 +275,7 @@ public class MoviesLogic
     public void ManageMovies()
     {
         //Add or delete movies ONLY as Admin
-        System.Console.WriteLine("[1] Add Movies\n[2] Delete Movies\n[3] Return to Menu");
+        Console.WriteLine("[1] Add Movies\n[2] Delete Movies\n[3] Return to Menu");
         int choice = Int32.Parse(Console.ReadLine());
         if (choice == 1)
         {
@@ -252,7 +291,7 @@ public class MoviesLogic
         }
         else
         {
-            System.Console.WriteLine("Invalid input");
+            Console.WriteLine("Invalid input");
             ManageMovies();
         }
     }

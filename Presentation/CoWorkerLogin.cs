@@ -1,6 +1,5 @@
 ﻿public class CoWorkerLogin
 {
-    private static string CoWorker_Email = null;
     private static AccountsLogic _accountsLogic = new AccountsLogic("coworkers.json");
 
 
@@ -9,19 +8,14 @@
         Console.CursorVisible = false;
         string prompt = @"
 
- ________  ________                 ___       __   ________  ________  ___  __    _______   ________          ___       ________  ________  ___  ________      
-|\   ____\|\   __  \               |\  \     |\  \|\   __  \|\   __  \|\  \|\  \ |\  ___ \ |\   __  \        |\  \     |\   __  \|\   ____\|\  \|\   ___  \    
-\ \  \___|\ \  \|\  \  ____________\ \  \    \ \  \ \  \|\  \ \  \|\  \ \  \/  /|\ \   __/|\ \  \|\  \       \ \  \    \ \  \|\  \ \  \___|\ \  \ \  \\ \  \   
- \ \  \    \ \  \\\  \|\____________\ \  \  __\ \  \ \  \\\  \ \   _  _\ \   ___  \ \  \_|/_\ \   _  _\       \ \  \    \ \  \\\  \ \  \  __\ \  \ \  \\ \  \  
-  \ \  \____\ \  \\\  \|____________|\ \  \|\__\_\  \ \  \\\  \ \  \\  \\ \  \\ \  \ \  \_|\ \ \  \\  \|       \ \  \____\ \  \\\  \ \  \|\  \ \  \ \  \\ \  \ 
-   \ \_______\ \_______\              \ \____________\ \_______\ \__\\ _\\ \__\\ \__\ \_______\ \__\\ _\        \ \_______\ \_______\ \_______\ \__\ \__\\ \__\
-    \|_______|\|_______|               \|____________|\|_______|\|__|\|__|\|__| \|__|\|_______|\|__|\|__|        \|_______|\|_______|\|_______|\|__|\|__| \|__|
-                                                                                                                                                               
-                                                                                                                                                               
-                                                                                                                                                               
 
-
-                                                                                                        
+ _____ ______   ________  ________   ________  ________  _______   ________          ___       ________  ________  ___  ________      
+|\   _ \  _   \|\   __  \|\   ___  \|\   __  \|\   ____\|\  ___ \ |\   __  \        |\  \     |\   __  \|\   ____\|\  \|\   ___  \    
+\ \  \\\__\ \  \ \  \|\  \ \  \\ \  \ \  \|\  \ \  \___|\ \   __/|\ \  \|\  \       \ \  \    \ \  \|\  \ \  \___|\ \  \ \  \\ \  \   
+ \ \  \\|__| \  \ \   __  \ \  \\ \  \ \   __  \ \  \  __\ \  \_|/_\ \   _  _\       \ \  \    \ \  \\\  \ \  \  __\ \  \ \  \\ \  \  
+  \ \  \    \ \  \ \  \ \  \ \  \\ \  \ \  \ \  \ \  \|\  \ \  \_|\ \ \  \\  \|       \ \  \____\ \  \\\  \ \  \|\  \ \  \ \  \\ \  \ 
+   \ \__\    \ \__\ \__\ \__\ \__\\ \__\ \__\ \__\ \_______\ \_______\ \__\\ _\        \ \_______\ \_______\ \_______\ \__\ \__\\ \__\
+    \|__|     \|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|_______|\|__|\|__|        \|_______|\|_______|\|_______|\|__|\|__| \|___                                                                                                           
 ";
         string[] options = { "Login", "Add Account", "Back to Main Menu" };
         Menu loginmenu = new Menu(prompt, options);
@@ -29,7 +23,7 @@
         switch (SelectedIndex)
         {
             case 0:
-                if (CoWorker_Email == null)
+                if (!AccountSession.IsLoggedIn || AccountSession.Type != UserType.CoWorker)
                 {
                     Console.WriteLine("Welcome to the login page");
                     Console.WriteLine("Please enter your email address:");
@@ -44,7 +38,8 @@
                         Console.ResetColor();
                         Console.WriteLine("Welcome back " + acc.FullName);
                         Console.WriteLine("Your e-mail is " + acc.EmailAddress);
-                        CoWorker_Email = acc.EmailAddress;
+                        AccountSession.LoggedInAccount = acc;
+                        AccountSession.Type = UserType.CoWorker;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         CoWorkerMenu.Start();
@@ -61,7 +56,7 @@
 
                     }
                 }
-                else 
+                else
                 {
                     CoWorkerMenu.Start();
                 }
