@@ -2,7 +2,7 @@ using System.ComponentModel.Design;
 
 public class UserLogin
 {
-    static private string User_Email = null;
+    public static string User_Email = null;
     static private AccountsLogic accountsLogic = new AccountsLogic("accounts.json");
 
 

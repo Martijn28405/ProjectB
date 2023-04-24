@@ -42,7 +42,9 @@ public class ManagerMenu
                 Program.Main();
                 break;
             case 4:
-                AccountSession.LoggedInAccount = null;
+                Console.WriteLine("Press any key to confirm");
+                Console.ReadKey(true);
+                ManagerLogin.Manager_Email = default;
                 Program.Main();
                 break;
             case 5:

@@ -39,13 +39,12 @@ public class AccountMenu
                 buysnacks.BuySnacks();
                 break;
             case 4:
-                Thread.Sleep(1000);
                 Program.Main();
                 break;
             case 5:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
-                AccountSession.LoggedInAccount = null;
+                UserLogin.User_Email = default;
                 Program.Main();
                 break;
             case 6:

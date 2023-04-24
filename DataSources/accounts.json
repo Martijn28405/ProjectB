@@ -28,4 +28,17 @@
     "emailAddress": "Jordina@Jordina.net",
     "password": "Jordina123!",
     "fullName": "Jordina van der Net"
-  }]
+  },
+  {
+    "id": 6,
+    "emailAddress": "Presentatie@presentatie",
+    "password": "Present@tie1",
+    "fullName": "Presentatie 1"
+  },
+  {
+    "id": 7,
+    "emailAddress": "p@p",
+    "password": "Present@tie1",
+    "fullName": "p p"
+  }
+]

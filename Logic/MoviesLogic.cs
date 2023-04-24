@@ -118,6 +118,8 @@ public class MoviesLogic
             if (userInput == movie.MovieTitle)
             {
                 MovieInformationOptions(movie);
+                Console.WriteLine("Press any key to return to the Account5 menu");
+                Console.ReadKey(true);
                 AccountMenu.Start();
             }
         }

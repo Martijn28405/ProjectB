@@ -2,7 +2,7 @@
 
 public class ManagerLogin
 {
-    static private string Manager_Email = null;
+    public static string Manager_Email = null;
     static private AccountsLogic _accountsLogic = new AccountsLogic("managers.json");
 
 

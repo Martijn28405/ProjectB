@@ -3,5 +3,35 @@
     "id": 1,
     "NameFood": "Popcorn",
     "PriceFood": 2.5
+  },
+  {
+    "id": 2,
+    "NameFood": "Nachos",
+    "PriceFood": 6.99
+  },
+  {
+    "id": 3,
+    "NameFood": "Hot dog",
+    "PriceFood": 4.99
+  },
+  {
+    "id": 4,
+    "NameFood": "Pretzel",
+    "PriceFood": 3.99
+  },
+  {
+    "id": 5,
+    "NameFood": "Soda",
+    "PriceFood": 2.99
+  },
+  {
+    "id": 6,
+    "NameFood": "Bottled water",
+    "PriceFood": 1.99
+  },
+  {
+    "id": 7,
+    "NameFood": "Juice",
+    "PriceFood": 3.99
   }
 ]

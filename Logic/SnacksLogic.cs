@@ -23,11 +23,28 @@ public class SnacksLogic
         {
             Console.WriteLine($"SNACK: {item.NameFood}");
             Console.WriteLine($"PRICE: {item.PriceFood}");
+            Console.WriteLine();
         }
         Console.WriteLine("Press any key to return to main menu");
         Console.ReadKey(true);
         AccountMenu.Start();
     }
+
+    public void ShowSnacksWorker()
+    {
+        List<SnackModel> food = new List<SnackModel>();
+        foreach (var item in snacks)
+        {
+            Console.WriteLine($"SNACK: {item.NameFood}");
+            Console.WriteLine($"PRICE: {item.PriceFood}");
+            Console.WriteLine();
+        }
+
+        Console.WriteLine("Press any key to return to Co Worker menu");
+        Console.ReadKey(true);
+       CoWorkerMenu.Start();
+    }
+
     public void AddSnacks()
     {
         int index = snacks.Any() ? snacks.Max(snack => snack.Id) + 1 : 1;

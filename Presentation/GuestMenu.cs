@@ -28,7 +28,7 @@
                     showSnacks.ShowSnacks();
                     break;
                 case 2:
-                    Seats.Show_Seats();
+                    SeatMenu.Start();
                     //zorg ervoor dat email ook wordt ingevoerd.
                     break;
                 case 3:

@@ -94,11 +94,11 @@
                 // Base Color setter for yellow circle 
                 
                 // CinemaBaseColorYellow();
-                if (YellowSeats.ContainsKey(i) &&
+                /*if (YellowSeats.ContainsKey(i) &&
                     YellowSeats[i].Item1 < j && j < YellowSeats[i].Item2)
                 {
                     CinemaBaseColorYellow();
-                }
+                }*/
 
                 if (i == selectedSeatIndex / seats.GetLength(1) && j == selectedSeatIndex % seats.GetLength(1))
                 {
