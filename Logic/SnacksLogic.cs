@@ -9,7 +9,7 @@ public class SnacksLogic
     public List<SnackModel> snacks;
     public List<ShoppingCartModel>? shoppingCart;
     public SnacksLogic()
-    
+
     {
         _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/snacks.json");
         snacks = _productAccesor.LoadAll();
@@ -129,7 +129,7 @@ public class SnacksLogic
     }
     public void ManageSnacks()
     {
-        //Add or delete movies ONLY as Admin
+        //Add or delete snacks ONLY as Admin
         Console.WriteLine("[1] Add Snacks\n[2] Delete Snacks\n[3] Return to  Manager Menu");
         int choice = Int32.Parse(Console.ReadLine());
         if (choice == 1)
@@ -154,7 +154,7 @@ public class SnacksLogic
     {
         foreach (var item in snacks)
         {
-            Console.WriteLine($"MOVIETITLE: {item.NameFood}");
+            Console.WriteLine($"Snacks: {item.NameFood}");
         }
 
         Console.WriteLine("Which snack do you want to delete?");
@@ -174,6 +174,6 @@ public class SnacksLogic
         Console.ReadKey(true);
         ManagerMenu.Start();
     }
-    
+
 }
 
