@@ -11,7 +11,7 @@ public class ReservationsLogic
     public List<ReservationModel> _reservations;
     public ReservationsLogic()
     {
-        accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservations.json");
+        accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
         _reservations = accesor.LoadAll();
     }
 
@@ -19,7 +19,11 @@ public class ReservationsLogic
     {
         foreach (var reservation in _reservations)
         {
-            Console.WriteLine($"WEEK: {reservation.Week}");
+            Console.WriteLine($"ROW: {reservation.Row}");
+            Console.WriteLine($"SEAT: {reservation.Seat}");
+            Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
+            Console.WriteLine($"MOVIE: {reservation.Movie}");
+            Console.WriteLine($"TIME: {reservation.Time}");
         }
 
     }

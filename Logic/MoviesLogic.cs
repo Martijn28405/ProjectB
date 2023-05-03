@@ -7,11 +7,20 @@ public class MoviesLogic
 {
     private JsonAccessor<MovieModel> _accesor;
     public List<MovieModel> movies;
+    private JsonAccessor<ReservationModel> accesor;
+    public List<ReservationModel> _reservations;
+
     public MoviesLogic()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
         movies = _accesor.LoadAll();
+        accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
+        _reservations = accesor.LoadAll();
     }
+
+
+
+
 
     public void AddMovie()
     {
@@ -103,7 +112,7 @@ public class MoviesLogic
             }
 
         }
-        Console.WriteLine("Press any key to return to menu");
+        Console.WriteLine("Would you like to see any of the reservations?");
         Console.ReadKey(true);
         AccountMenu.Start();
     }
@@ -244,9 +253,41 @@ public class MoviesLogic
             }
             Console.WriteLine();
         }
-        Console.WriteLine("Press any key to return to menu");
-        Console.ReadKey(true);
-        CoWorkerMenu.Start();
+
+        //hierzo bezig met een tasks dus heb dit heironder
+        // ff aangepast
+        Console.WriteLine("Would you like to see any of the reservations? Y/N");
+        string input = Console.ReadLine();
+        {
+            if (input == "Y" || input == "YES" || input == "y" || input == "yes")
+            {
+                Console.WriteLine("Of which movie would you like to see the reservations?");
+
+                foreach (ReservationModel reservation in _reservations)
+                {
+                    string movieInput = Console.ReadLine();
+                    if (movieInput == reservation.Movie)
+                    {
+
+                        Console.WriteLine($"ROW: {reservation.Row}");
+                        Console.WriteLine($"SEAT: {reservation.Seat}");
+                        Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
+                        Console.WriteLine($"MOVIE: {reservation.Movie}");
+                        Console.WriteLine($"TIME: {reservation.Time}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No reservations yet for this movie");
+                    }
+                }
+            }
+            else
+            {
+                CoWorkerMenu.Start();
+            }
+
+
+        }
     }
 
     public void DeleteMovie()

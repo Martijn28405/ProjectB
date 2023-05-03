@@ -16,7 +16,7 @@ public class CoWorkerMenu
                                                                                                                                                                
                                                                                                                                                                                                                                                                                                                                                                                
 ";
-        string[] options = {"Show Movies", "Show Snacks", "Log Out", "Back to Main Menu", "Exit App" };
+        string[] options = { "Show Movies", "Show Snacks", "Log Out", "Back to Main Menu", "Exit App" };
         Menu co_workermenu = new Menu(prompt, options);
         int SelectedIndex = co_workermenu.Run();
         switch (SelectedIndex)

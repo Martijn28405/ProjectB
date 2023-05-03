@@ -1,5 +1,9 @@
 [
     {
-        "Week": 1
+        "Row": 1,
+        "Seat": 25,
+        "EmailAddress": "luca@mail.com",
+        "Movie": "Dune",
+        "Time": 1405
     }
 ]
