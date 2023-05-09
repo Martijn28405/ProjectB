@@ -21,7 +21,7 @@ public class ManagerMenu
 
 
 
-        string[] options = { "Movie Management", "Snack Management", "View Movies", "Back to Main Menu", "View Reservations", "Log Out", "Exit App" };
+        string[] options = { "Movie Management", "Snack Management", "View Movies", "Back to Main Menu", "View Reservations", "Edit Reservations", "Log Out", "Exit App" };
         Menu managermenu = new Menu(prompt, options);
         int SelectedIndex = managermenu.Run();
         switch (SelectedIndex)
@@ -46,12 +46,14 @@ public class ManagerMenu
                 showreservations.ShowReservations();
                 break;
             case 5:
+                break;
+            case 6:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 ManagerLogin.Manager_Email = default;
                 Program.Main();
                 break;
-            case 6:
+            case 7:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
