@@ -104,11 +104,14 @@ public class MoviesLogic
 
         }
         Console.ReadKey(true);
-        AccountMenu.Start();
     }
 
     public void MovieInformation()
     {
+        foreach (var movie in movies)
+        {
+            Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+        }
         Console.WriteLine("Of which movie would you like to receive some information?");
         string userInput = Console.ReadLine();
 
@@ -225,7 +228,7 @@ public class MoviesLogic
         AccountMenu.Start();
     }
 
-    public void ShowMoviesWorker()
+    /*public void ShowMoviesWorker()
     {
         foreach (var movie in movies)
         {
@@ -246,7 +249,7 @@ public class MoviesLogic
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         CoWorkerMenu.Start();
-    }
+    }*/
 
     public void DeleteMovie()
     {

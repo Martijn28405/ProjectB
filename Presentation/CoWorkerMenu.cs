@@ -23,7 +23,8 @@ public class CoWorkerMenu
         {
             case 0:
                 MoviesLogic showmoviesworker = new MoviesLogic();
-                showmoviesworker.ShowMoviesWorker();
+                showmoviesworker.ShowMovies();
+                Start();
                 break;
             case 1:
                 SnacksLogic viewsnacks = new SnacksLogic();
