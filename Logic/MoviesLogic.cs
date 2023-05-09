@@ -7,15 +7,10 @@ public class MoviesLogic
 {
     private JsonAccessor<MovieModel> _accesor;
     public List<MovieModel> movies;
-    private JsonAccessor<ReservationModel> accesor;
-    public List<ReservationModel> _reservations;
-
     public MoviesLogic()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
         movies = _accesor.LoadAll();
-        accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
-        _reservations = accesor.LoadAll();
     }
 
     public void AddMovie()
@@ -108,7 +103,7 @@ public class MoviesLogic
             }
 
         }
-        Console.WriteLine("Would you like to see any of the reservations?");
+        Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         AccountMenu.Start();
     }
@@ -123,7 +118,7 @@ public class MoviesLogic
             if (userInput == movie.MovieTitle)
             {
                 MovieInformationOptions(movie);
-                Console.WriteLine("Press any key to return to the Account5 menu");
+                Console.WriteLine("Press any key to return to the Account menu");
                 Console.ReadKey(true);
                 AccountMenu.Start();
             }
@@ -249,8 +244,10 @@ public class MoviesLogic
             }
             Console.WriteLine();
         }
+        Console.WriteLine("Press any key to return to menu");
+        Console.ReadKey(true);
+        CoWorkerMenu.Start();
     }
-
 
     public void DeleteMovie()
     {

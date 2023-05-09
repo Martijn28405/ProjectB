@@ -13,7 +13,8 @@ public class AccountModel
     public string Password { get; set; }
 
     [JsonPropertyName("fullName")]
-    public string FullName { get; set; }
+    public string FullName { get; set;}
+
 
 }
 
