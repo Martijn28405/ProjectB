@@ -1,6 +1,6 @@
 ﻿public class CoWorkerLogin
 {
-    public static string Co_WorkerEmail = null; 
+    public static string Co_WorkerEmail = null;
     private static AccountsLogic _accountsLogic = new AccountsLogic("coworkers.json");
 
 
