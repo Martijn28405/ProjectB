@@ -2,9 +2,9 @@
 
   {
     "id": 1,
-    "emailAddress": "admin",
+    "emailAddress": "admin@admin.nl",
     "password": "admin",
-    "fullName": "Manager Elon"
+    "fullName": "Manager 1"
   },
   {
     "id": 2,
