@@ -1,32 +1,44 @@
 [
   {
     "id": 1,
-    "emailAddress": "n@b.c",
-    "password": "xyz",
-    "fullName": "Nikola Tesla"
+    "emailAddress": "j@j.j",
+    "password": "1@AAAAAA",
+    "fullName": "j ka",
+    "accountType": "User"
   },
   {
     "id": 2,
-    "emailAddress": "t@b.c",
-    "password": "xyz",
-    "fullName": "Thomas Edison"
+    "emailAddress": "m@m.nl",
+    "password": "M@nager1",
+    "fullName": "m anager",
+    "accountType": "Manager"
   },
   {
     "id": 3,
-    "emailAddress": "njaj@pinda",
-    "password": "123",
-    "fullName": "gavin"
+    "emailAddress": "co@worker.nl",
+    "password": "C0worker!",
+    "fullName": "co worker",
+    "accountType": "Co-Worker"
   },
   {
     "id": 4,
     "emailAddress": "1",
     "password": "1",
-    "fullName": "1"
+    "fullName": "1",
+    "accountType": "User"
   },
   {
     "id": 5,
-    "emailAddress": "Jordina@Jordina.net",
-    "password": "Jordina123!",
-    "fullName": "Jordina van der Net"
+    "emailAddress": "2",
+    "password": "2",
+    "fullName": "2",
+    "accountType": "Co-Worker"
+  },
+  {
+    "id": 6,
+    "emailAddress": "3",
+    "password": "3",
+    "fullName": "3",
+    "accountType": "Manager"
   }
 ]

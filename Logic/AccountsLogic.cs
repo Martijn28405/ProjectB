@@ -15,23 +15,26 @@ class AccountsLogic
     //private set, so this can only be set by the class itself
     static public AccountModel? CurrentAccount { get; private set; }
 
-    public AccountsLogic(string fileName)
+    public AccountsLogic()
     {
-        _accessor = new JsonAccessor<AccountModel>(@$"DataSources/{fileName}"); //accounts.json
+        _accessor = new JsonAccessor<AccountModel>("DataSources/accounts.json"); //accounts.json
         _accounts = _accessor.LoadAll();
     }
 
-    public void CreateAccount()
+    public void CreateAccount(string accountType)
     {
         string fullName = CreateFullName();
         string emailAddress = CreateEmail();
         string password = CreatePassword();
-        AccountModel acc = new AccountModel() 
+        
+        AccountModel acc = new AccountModel()
         {
             EmailAddress = emailAddress,
             Password = password,
-            FullName = fullName
+            FullName = fullName,
+            AccountType = accountType
         };
+
         UpdateList(acc);
         Console.WriteLine("Your account has been succesfully created!");
         Console.WriteLine("Press any key to return to the main menu");
@@ -113,7 +116,8 @@ class AccountsLogic
         }
         else
         {
-            acc.Id = _accounts.Max(account => account.Id) + 1;
+            // Check if there is any account present in the accounts list. 
+            acc.Id = _accounts.Any() ? _accounts.Max(account => account.Id) + 1 : 1;
             _accounts.Add(acc);
         }
         _accessor.WriteAll(_accounts);

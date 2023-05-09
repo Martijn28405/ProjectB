@@ -1,9 +1,7 @@
 ﻿public class CoWorkerLogin
 {
     public static string Co_WorkerEmail = null;
-    private static AccountsLogic _accountsLogic = new AccountsLogic("coworkers.json");
-
-
+    private static AccountsLogic _accountsLogic = new AccountsLogic();
     public static void Start()
     {
         Console.CursorVisible = false;
@@ -40,7 +38,8 @@
                     Console.WriteLine("Please enter your password:");
                     string password = Console.ReadLine();
                     AccountModel acc = _accountsLogic.CheckLogin(email, password);
-                    if (acc != null)
+                    
+                    if (acc != null && acc.AccountType == "Co-Worker")
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Login Successful");
@@ -61,7 +60,6 @@
                         Console.WriteLine("Press any key to return to the login screen");
                         Console.ReadKey(true);
                         Start();
-
                     }
                 }
                 else
@@ -71,7 +69,7 @@
 
                 break;
             case 1:
-                _accountsLogic.CreateAccount();
+                _accountsLogic.CreateAccount("Co-Worker");
                 break;
             case 2:
                 Program.Main();

@@ -3,7 +3,7 @@
 public class ManagerLogin
 {
     public static string Manager_Email = null;
-    static private AccountsLogic _accountsLogic = new AccountsLogic("managers.json");
+    static private AccountsLogic _accountsLogic = new AccountsLogic();
 
 
     public static void Start()
@@ -40,7 +40,7 @@ public class ManagerLogin
                     Console.WriteLine("Please enter your password:");
                     string password = Console.ReadLine();
                     AccountModel acc = _accountsLogic.CheckLogin(email, password);
-                    if (acc != null)
+                    if (acc != null && acc.AccountType == "Manager")
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Login Successful");
@@ -72,7 +72,7 @@ public class ManagerLogin
 
                 break;
             case 1:
-                _accountsLogic.CreateAccount();
+                _accountsLogic.CreateAccount("Manager");
                 break;
             case 2:
                 Program.Main();

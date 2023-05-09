@@ -3,7 +3,7 @@ using System.ComponentModel.Design;
 public class UserLogin
 {
     public static string User_Email = null;
-    static private AccountsLogic accountsLogic = new AccountsLogic("accounts.json");
+    static private AccountsLogic accountsLogic = new AccountsLogic();
 
 
     public static void Start()
@@ -36,15 +36,15 @@ public class UserLogin
                     string email = Console.ReadLine();
                     Console.WriteLine("Please enter your password:");
                     string password = Console.ReadLine();
-                    AccountModel account = accountsLogic.CheckLogin(email, password);
-                    if (account != null)
+                    AccountModel acc = accountsLogic.CheckLogin(email, password);
+                    if (acc != null && acc.AccountType == "User")
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Login Successful");
                         Console.ResetColor();
-                        Console.WriteLine("Welcome back " + account.FullName);
-                        Console.WriteLine("Your e-mail is " + account.EmailAddress);
-                        User_Email = account.EmailAddress;
+                        Console.WriteLine("Welcome back " + acc.FullName);
+                        Console.WriteLine("Your e-mail is " + acc.EmailAddress);
+                        User_Email = acc.EmailAddress;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         AccountMenu.Start();

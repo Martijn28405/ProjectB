@@ -103,7 +103,6 @@ public class MoviesLogic
             }
 
         }
-        Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         AccountMenu.Start();
     }
