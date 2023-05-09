@@ -9,13 +9,16 @@ public class ManagerMenu
     {
         Console.CursorVisible = false;
         string prompt = @"
- _____ ______   ________  ________   ________  ________  _______   ________          _____ ______   _______   ________   ___  ___     
-|\   _ \  _   \|\   __  \|\   ___  \|\   __  \|\   ____\|\  ___ \ |\   __  \        |\   _ \  _   \|\  ___ \ |\   ___  \|\  \|\  \    
-\ \  \\\__\ \  \ \  \|\  \ \  \\ \  \ \  \|\  \ \  \___|\ \   __/|\ \  \|\  \       \ \  \\\__\ \  \ \   __/|\ \  \\ \  \ \  \\\  \   
- \ \  \\|__| \  \ \   __  \ \  \\ \  \ \   __  \ \  \  __\ \  \_|/_\ \   _  _\       \ \  \\|__| \  \ \  \_|/_\ \  \\ \  \ \  \\\  \  
-  \ \  \    \ \  \ \  \ \  \ \  \\ \  \ \  \ \  \ \  \|\  \ \  \_|\ \ \  \\  \|       \ \  \    \ \  \ \  \_|\ \ \  \\ \  \ \  \\\  \ 
-   \ \__\    \ \__\ \__\ \__\ \__\\ \__\ \__\ \__\ \_______\ \_______\ \__\\ _\        \ \__\    \ \__\ \_______\ \__\\ \__\ \_______\
-    \|__|     \|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|_______|\|__|\|__|        \|__|     \|__|\|_______|\|__| \|__|\|_______|                                                                                                                                                                                                                                               
+
+  __  __                                     __  __                  
+ |  \/  |                                   |  \/  |                 
+ | \  / | __ _ _ __   __ _  __ _  ___ _ __  | \  / | ___ _ __  _   _ 
+ | |\/| |/ _` | '_ \ / _` |/ _` |/ _ \ '__| | |\/| |/ _ \ '_ \| | | |
+ | |  | | (_| | | | | (_| | (_| |  __/ |    | |  | |  __/ | | | |_| |
+ |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|    |_|  |_|\___|_| |_|\__,_|
+                            __/ |                                    
+                           |___/                                     
+                                                                                                                                                                                                                                              
 ";
 
 
@@ -36,7 +39,8 @@ public class ManagerMenu
                 break;
             case 2:
                 MoviesLogic showmoviesworker = new MoviesLogic();
-                showmoviesworker.ShowMoviesWorker();
+                showmoviesworker.ShowMovies();
+                Start();
                 break;
             case 3:
                 Program.Main();
@@ -44,6 +48,9 @@ public class ManagerMenu
             case 4:
                 ReservationsLogic showreservations = new ReservationsLogic();
                 showreservations.ShowReservations();
+                Console.WriteLine("Press any button to return to the Menu");
+                Console.ReadKey(true);
+                Start();
                 break;
             case 5:
                 break;

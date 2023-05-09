@@ -22,17 +22,14 @@ public class Menu
 
             if (i == SelectedIndex)
             {
-                prefix = "*";
-                ForegroundColor = ConsoleColor.Black;
-                BackgroundColor = ConsoleColor.White;
+                
+                ForegroundColor = ConsoleColor.Green;
             }
             else
             {
-                prefix = " ";
                 ForegroundColor = ConsoleColor.White;
-                BackgroundColor = ConsoleColor.Black;
             }
-            WriteLine($"{prefix} {currentOption}");
+            WriteLine($"  {currentOption}");
 
 
         }

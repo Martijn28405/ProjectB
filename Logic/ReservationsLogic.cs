@@ -24,6 +24,7 @@ public class ReservationsLogic
             Console.WriteLine($"START TIME: {reservation.StartTime}");
             Console.WriteLine($"DURATION: {reservation.Duration}");
         }
+        
 
     }
 

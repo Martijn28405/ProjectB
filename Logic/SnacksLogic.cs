@@ -25,24 +25,8 @@ public class SnacksLogic
             Console.WriteLine($"PRICE: {item.PriceFood}");
             Console.WriteLine();
         }
-        Console.WriteLine("Press any key to return to main menu");
+        Console.WriteLine("Press any key to return to the menu");
         Console.ReadKey(true);
-        AccountMenu.Start();
-    }
-
-    public void ShowSnacksWorker()
-    {
-        List<SnackModel> food = new List<SnackModel>();
-        foreach (var item in snacks)
-        {
-            Console.WriteLine($"SNACK: {item.NameFood}");
-            Console.WriteLine($"PRICE: {item.PriceFood}");
-            Console.WriteLine();
-        }
-
-        Console.WriteLine("Press any key to return to Co Worker menu");
-        Console.ReadKey(true);
-       CoWorkerMenu.Start();
     }
 
     public void AddSnacks()
@@ -190,6 +174,15 @@ public class SnacksLogic
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         ManagerMenu.Start();
+    }
+
+    public void EmptyShoppingCart()
+    {
+        foreach (var item in shoppingCart)
+        {
+            shoppingCart.Remove(item);
+            _shoppingCartAccesor.WriteAll(shoppingCart);
+        }
     }
 
 }

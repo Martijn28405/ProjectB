@@ -6,18 +6,21 @@ public class AccountMenu
         Console.CursorVisible = false;
 
         string prompt = @"
- ________  ________  ________  ________  ___  ___  ________   _________        _____ ______   _______   ________   ___  ___     
-|\   __  \|\   ____\|\   ____\|\   __  \|\  \|\  \|\   ___  \|\___   ___\     |\   _ \  _   \|\  ___ \ |\   ___  \|\  \|\  \    
-\ \  \|\  \ \  \___|\ \  \___|\ \  \|\  \ \  \\\  \ \  \\ \  \|___ \  \_|     \ \  \\\__\ \  \ \   __/|\ \  \\ \  \ \  \\\  \   
- \ \   __  \ \  \    \ \  \    \ \  \\\  \ \  \\\  \ \  \\ \  \   \ \  \       \ \  \\|__| \  \ \  \_|/_\ \  \\ \  \ \  \\\  \  
-  \ \  \ \  \ \  \____\ \  \____\ \  \\\  \ \  \\\  \ \  \\ \  \   \ \  \       \ \  \    \ \  \ \  \_|\ \ \  \\ \  \ \  \\\  \ 
-   \ \__\ \__\ \_______\ \_______\ \_______\ \_______\ \__\\ \__\   \ \__\       \ \__\    \ \__\ \_______\ \__\\ \__\ \_______\
-    \|__|\|__|\|_______|\|_______|\|_______|\|_______|\|__| \|__|    \|__|        \|__|     \|__|\|_______|\|__| \|__|\|_______|
+
+                                    _     __  __                  
+     /\                            | |   |  \/  |                 
+    /  \   ___ ___ ___  _   _ _ __ | |_  | \  / | ___ _ __  _   _ 
+   / /\ \ / __/ __/ _ \| | | | '_ \| __| | |\/| |/ _ \ '_ \| | | |
+  / ____ \ (_| (_| (_) | |_| | | | | |_  | |  | |  __/ | | | |_| |
+ /_/    \_\___\___\___/ \__,_|_| |_|\__| |_|  |_|\___|_| |_|\__,_|
+                                                                  
+                                                                  
+
                                                                                                                                 
                                                                                                                                 
                                                                                                                                 
 ";
-        string[] options = { "View Movies", "View Movie Information", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App" };
+        string[] options = { "View Movies Per Week", "View Movie Information", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App", "Empty Shopping Cart" };
         Menu accountmenu = new Menu(prompt, options);
         int SelectedIndex = accountmenu.Run();
         switch (SelectedIndex)
@@ -25,6 +28,7 @@ public class AccountMenu
             case 0:
                 MoviesLogic showmovies = new MoviesLogic();
                 showmovies.ShowMovies();
+                Start();
                 break;
             case 1:
                 MoviesLogic movieInformation = new MoviesLogic();
@@ -33,6 +37,7 @@ public class AccountMenu
             case 2:
                 SnacksLogic viewsnacks = new SnacksLogic();
                 viewsnacks.ShowSnacks();
+                Start();
                 break;
             case 3:
                 SnacksLogic buysnacks = new SnacksLogic();
@@ -45,6 +50,8 @@ public class AccountMenu
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 UserLogin.User_Email = default;
+                SnacksLogic emptyshoppingcart = new SnacksLogic();
+                emptyshoppingcart.EmptyShoppingCart();
                 Program.Main();
                 break;
             case 6:
