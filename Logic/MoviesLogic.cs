@@ -105,7 +105,6 @@ public class MoviesLogic
         }
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
-        AccountMenu.Start();
     }
 
     public void MovieInformation()
@@ -230,7 +229,7 @@ public class MoviesLogic
         AccountMenu.Start();
     }
 
-    public void ShowMoviesWorker()
+    /*public void ShowMoviesWorker()
     {
         foreach (var movie in movies)
         {
@@ -251,7 +250,7 @@ public class MoviesLogic
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
         CoWorkerMenu.Start();
-    }
+    }*/
 
     public void DeleteMovie()
     {
