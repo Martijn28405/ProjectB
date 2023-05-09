@@ -108,13 +108,16 @@ public class MoviesLogic
             }
 
         }
-        Console.WriteLine("Would you like to see any of the reservations?");
         Console.ReadKey(true);
         AccountMenu.Start();
     }
 
     public void MovieInformation()
     {
+        foreach (var movie in movies)
+        {
+            Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+        }
         Console.WriteLine("Of which movie would you like to receive some information?");
         string userInput = Console.ReadLine();
 
