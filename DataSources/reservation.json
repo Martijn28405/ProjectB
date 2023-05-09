@@ -4,6 +4,7 @@
         "Seat": 25,
         "EmailAddress": "luca@mail.com",
         "Movie": "Dune",
-        "Time": 1405
+        "Start Time": 1405,
+        "Duration": 90
     }
 ]

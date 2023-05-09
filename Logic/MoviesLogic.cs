@@ -18,10 +18,6 @@ public class MoviesLogic
         _reservations = accesor.LoadAll();
     }
 
-
-
-
-
     public void AddMovie()
     {
         Console.WriteLine("The week in which the movie will play:");
@@ -272,8 +268,8 @@ public class MoviesLogic
                         Console.WriteLine($"ROW: {reservation.Row}");
                         Console.WriteLine($"SEAT: {reservation.Seat}");
                         Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
-                        Console.WriteLine($"MOVIE: {reservation.Movie}");
-                        Console.WriteLine($"TIME: {reservation.Time}");
+                        Console.WriteLine($"START TIME: {reservation.StartTime}");
+                        Console.WriteLine($"DURATION: {reservation.Duration}");
                     }
                     else
                     {

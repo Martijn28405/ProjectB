@@ -10,15 +10,18 @@ public class ReservationModel
     public string EmailAddress { get; set; }
     [JsonPropertyName("Movie")]
     public string Movie { get; set; }
-    [JsonPropertyName("Time")]
-    public int Time { get; set; }
+    [JsonPropertyName("Start Time")]
+    public int StartTime { get; set; }
+    [JsonPropertyName("Duration")]
+    public int Duration { get; set; }
 
-    public ReservationModel(int row, int seat, string emailAddress, string movie, int time)
+    public ReservationModel(int row, int seat, string emailAddress, string movie, int startTime, int duration)
     {
         Row = row;
         Seat = seat;
         EmailAddress = emailAddress;
         Movie = movie;
-        Time = time;
+        StartTime = startTime;
+        Duration = duration;
     }
 }

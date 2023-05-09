@@ -5,8 +5,6 @@ using System.IO;
 using System.Text.Json;
 public class ReservationsLogic
 {
-
-
     private JsonAccessor<ReservationModel> accesor;
     public List<ReservationModel> _reservations;
     public ReservationsLogic()
@@ -23,7 +21,8 @@ public class ReservationsLogic
             Console.WriteLine($"SEAT: {reservation.Seat}");
             Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
             Console.WriteLine($"MOVIE: {reservation.Movie}");
-            Console.WriteLine($"TIME: {reservation.Time}");
+            Console.WriteLine($"START TIME: {reservation.StartTime}");
+            Console.WriteLine($"DURATION: {reservation.Duration}");
         }
 
     }
