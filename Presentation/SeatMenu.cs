@@ -1,8 +1,16 @@
-﻿public class SeatMenu
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+
+public class SeatMenu
 {
     // Small cinema
     static int selectedSeatIndex = 6; // Initially select the first seat
     static string[,] seats = new string[14, 12]; // 14x142 array of seats
+    static bool[,] takenSeats = new bool[14, 12]; 
 
     public static void Start()
     {
@@ -35,17 +43,19 @@
 
     static void InitializeSeats()
     {
+        string jsonFilePath = "DataSources/Seat_Color.json";
+        string jsonText = File.ReadAllText(jsonFilePath);
+        JObject jsonObj = JObject.Parse(jsonText);
+        JArray seatColorArray = (JArray)jsonObj["Color_Seats_Small_Cinema"];
+
         for (int i = 0; i < seats.GetLength(0); i++)
         {
             for (int j = 0; j < seats.GetLength(1); j++)
             {
-                
-                seats[i, j] = "[ ]";
-                
-
+                seats[i, j] = "[" + seatColorArray[i][j].ToString() + "]";
             }
-            
         }
+    
 
         // Left upper corner (seats[y,x])
         seats[0, 0] = "   ";
@@ -79,32 +89,34 @@
         Console.CursorTop = 10;
         Console.WriteLine("Select a seat:");
 
-        Dictionary<int, Tuple<int, int>> YellowSeats = new()
-        {
-            { 1, new Tuple<int, int>(1, 5) }
-        };
-
         for (int i = 0; i < seats.GetLength(0); i++)
         {
             for (int j = 0; j < seats.GetLength(1); j++)
             {
-                //Base Color setter in blue
-                CinemaBaseColor();
-                
-                // Base Color setter for yellow circle 
-                
-                // CinemaBaseColorYellow();
-                /*if (YellowSeats.ContainsKey(i) &&
-                    YellowSeats[i].Item1 < j && j < YellowSeats[i].Item2)
-                {
-                    CinemaBaseColorYellow();
-                }*/
+                char colorChar = seats[i, j][1];
+                ConsoleColor seatColor = ConsoleColor.Blue;
 
+                if (colorChar == 'G') seatColor = ConsoleColor.Yellow;
+                else if (colorChar == 'R') seatColor = ConsoleColor.Red;
+
+                Console.ForegroundColor = seatColor;
                 if (i == selectedSeatIndex / seats.GetLength(1) && j == selectedSeatIndex % seats.GetLength(1))
                 {
-                    Console.ForegroundColor = ConsoleColor.Green; // Highlight selected seat
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
                 }
-                Console.Write(seats[i, j] + " ");
+                
+                if (seats[i, j] == "   ")
+                {
+                    Console.Write(seats[i, j] + " ");
+                }
+                else if(takenSeats[i, j] == true)
+                {
+                    Console.Write("[X] ");
+                }
+                else
+                {
+                    Console.Write("[ ] ");
+                }
                 Console.ResetColor();
             }
             Console.WriteLine();
@@ -151,14 +163,12 @@
     {
         int row = selectedSeatIndex / seats.GetLength(1);
         int col = selectedSeatIndex % seats.GetLength(1);
-        if (seats[row, col] == "[ ]")
+        if (seats[row, col] != "[X]")
         {
-            seats[row, col] = "[X]"; // Mark the seat as taken
-            
+            takenSeats[row, col] = true;// Mark the seat as taken
             
             Console.WriteLine("Seat selected!");
             Choice();
-
         }
       
         else
@@ -251,3 +261,9 @@
                 /*string newJson = jObject.ToString();
                 System.IO.File.WriteAllText(@"Seat_Cinema.Json", newJson);*/
         }
+
+
+ 
+
+
+     
