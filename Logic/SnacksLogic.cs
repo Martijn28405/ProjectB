@@ -42,7 +42,7 @@ public class SnacksLogic
         snack.Id = index;
         snacks.Add(snack);
         _productAccesor.WriteAll(snacks);
-        Console.WriteLine("Snack Added \n Press any key to return to the Manager menu");
+        Console.WriteLine("Snack Added \nPress any key to return to the Manager menu");
         Console.ReadKey(true);
         ManagerMenu.Start();
     }

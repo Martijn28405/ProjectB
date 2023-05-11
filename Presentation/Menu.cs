@@ -22,7 +22,6 @@ public class Menu
 
             if (i == SelectedIndex)
             {
-                
                 ForegroundColor = ConsoleColor.Green;
             }
             else
@@ -30,8 +29,6 @@ public class Menu
                 ForegroundColor = ConsoleColor.White;
             }
             WriteLine($"  {currentOption}");
-
-
         }
         ResetColor();
     }
@@ -53,7 +50,6 @@ public class Menu
                 {
                     SelectedIndex = Options.Length - 1;
                 }
-
             }
             else if (keypressed == ConsoleKey.DownArrow)
             {
@@ -62,9 +58,7 @@ public class Menu
                 {
                     SelectedIndex = 0;
                 }
-
             }
-
         } while (keypressed != ConsoleKey.Enter);
         return SelectedIndex;
     }

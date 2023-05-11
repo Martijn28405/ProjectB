@@ -61,9 +61,7 @@ public class ManagerLogin
                         Console.WriteLine("Press any key to return to the login screen");
                         Console.ReadKey(true);
                         Start();
-
                     }
-
                 }
                 else
                 {
