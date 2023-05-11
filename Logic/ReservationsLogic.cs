@@ -49,22 +49,69 @@ public class ReservationsLogic
         }
 
         Console.WriteLine("What would you like to edit?");
-        Console.WriteLine("Row, Seat, Email, Movie or Start Time");
-        var inputEdit = Console.ReadLine();
-        if (inputEdit == "Email")
+        Console.WriteLine("1. Row");
+        Console.WriteLine("2. Seat");
+        Console.WriteLine("3. Email");
+        Console.WriteLine("4. Movie");
+        Console.WriteLine("5. Start time");
+        Console.WriteLine("6. Duration");
+        Console.WriteLine("7. Exit");
+        string? input = Console.ReadLine();
+        switch (input)
         {
-            Console.WriteLine("Enter the Email");
-            string inputEmail = Console.ReadLine();
-            foreach (var reservation in _reservations)
-            {
-                if (inputEmail == reservation.EmailAddress)
+            case "1":
+                Console.WriteLine("Enter new row:");
+                int rowInput = Int32.Parse(Console.ReadLine());
+                foreach (var reservation in filteredReservations)
                 {
-                    _reservations.Remove(reservation);
-                    _accesor.WriteAll(_reservations);
-                    Console.WriteLine("Emailaddress deleted");
-                    break;
+                    reservation.Row = rowInput;
                 }
-            }
+                break;
+            case "2":
+                Console.WriteLine("Enter new seat:");
+                int seatInput = Int32.Parse(Console.ReadLine());
+                foreach (var reservation in filteredReservations)
+                {
+                    reservation.Seat = seatInput;
+                }
+                break;
+            case "3":
+                Console.WriteLine("Enter new email:");
+                string? emailInput = Console.ReadLine();
+                foreach (var reservation in filteredReservations)
+                {
+                    reservation.EmailAddress = emailInput;
+                }
+                break;
+            case "4":
+                Console.WriteLine("Enter new movie:");
+                string? movieInput2 = Console.ReadLine();
+                foreach (var reservation in filteredReservations)
+                {
+                    reservation.Movie = movieInput2;
+                }
+                break;
+            case "5":
+                Console.WriteLine("Enter new start time:");
+                int startTimeInput = Int32.Parse(Console.ReadLine());
+                foreach (var reservation in filteredReservations)
+                {
+                    reservation.StartTime = startTimeInput;
+                }
+                break;
+            case "6":
+                Console.WriteLine("Enter new duration:");
+                int durationInput = Int32.Parse(Console.ReadLine());
+                foreach (var reservation in filteredReservations)
+                {
+                    reservation.Duration = durationInput;
+                }
+                break;
+            case "7":
+                break;
+            default:
+                Console.WriteLine("Invalid input");
+                break;
         }
 
 

@@ -299,4 +299,10 @@ public class MoviesLogic
             ManageMovies();
         }
     }
+    public void SelectMovie()
+    {
+        // in het menu een mogelijkheid om een movie te kiezen per week.
+
+        // stuur de geselecteerde movie naar de zaal voor reservatie.
+    }
 }
