@@ -10,7 +10,7 @@ public class SeatMenu
     // Small cinema
     static int selectedSeatIndex = 6; // Initially select the first seat
     static string[,] seats = new string[14, 12]; // 14x142 array of seats
-    static bool[,] takenSeats = new bool[14, 12]; 
+    static bool[,] takenSeats = new bool[14, 12];
 
     public static void Start()
     {
@@ -55,33 +55,33 @@ public class SeatMenu
                 seats[i, j] = "[" + seatColorArray[i][j].ToString() + "]";
             }
         }
-    
+
 
         // Left upper corner (seats[y,x])
         seats[0, 0] = "   ";
-        seats[1,0] = "   ";
-        seats[2,0] = "   ";
-        seats[0,1] = "   ";
-        
+        seats[1, 0] = "   ";
+        seats[2, 0] = "   ";
+        seats[0, 1] = "   ";
+
         // Right upper corner
         seats[0, 11] = "   ";
         seats[1, 11] = "   ";
         seats[2, 11] = "   ";
         seats[0, 10] = "   ";
-        
+
         // Lower left corner
         seats[13, 0] = "   ";
         seats[13, 1] = "   ";
         seats[12, 0] = "   ";
         seats[12, 1] = "   ";
-        seats[11,0] = "   ";
-        
+        seats[11, 0] = "   ";
+
         // lower right corner
         seats[13, 11] = "   ";
         seats[13, 10] = "   ";
         seats[12, 10] = "   ";
         seats[12, 11] = "   ";
-        seats[11,11] = "   ";
+        seats[11, 11] = "   ";
     }
 
     static void DrawSeats()
@@ -104,12 +104,12 @@ public class SeatMenu
                 {
                     Console.BackgroundColor = ConsoleColor.DarkBlue;
                 }
-                
+
                 if (seats[i, j] == "   ")
                 {
                     Console.Write(seats[i, j] + " ");
                 }
-                else if(takenSeats[i, j] == true)
+                else if (takenSeats[i, j] == true)
                 {
                     Console.Write("[X] ");
                 }
@@ -166,11 +166,11 @@ public class SeatMenu
         if (seats[row, col] != "[X]")
         {
             takenSeats[row, col] = true;// Mark the seat as taken
-            
+
             Console.WriteLine("Seat selected!");
             Choice();
         }
-      
+
         else
         {
             Console.WriteLine("Seat already taken. Please select another seat.");
@@ -180,7 +180,7 @@ public class SeatMenu
 
     static void Choice()
     {
-        Console.WriteLine("[1] Select More Seats \n [2] Go to Checkout ");
+        Console.WriteLine("[1] Select More Seats \n[2] Go to Checkout ");
         string choice = Console.ReadLine();
         switch (choice)
         {
@@ -191,10 +191,10 @@ public class SeatMenu
             case "2":
                 Program.Main();
                 break;
-                    
+
         }
     }
-    
+
     // Hier komt de indx met de verschillende kleuren
 
     static void ColorIndex()
@@ -202,22 +202,22 @@ public class SeatMenu
 
 
     }
-    
+
     // Proberen maken van de clear functie zodat Color index werkt
 
     private static void CinemaBaseColor()
     {
         Console.ForegroundColor = ConsoleColor.DarkBlue;
-        
+
     }
-    
-    
-    private static  void CinemaBaseColorYellow()
+
+
+    private static void CinemaBaseColorYellow()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
 
     }
-    
+
     /*private static void JsonEdditor()
     {
         {
@@ -256,14 +256,14 @@ public class SeatMenu
                     }
                 }*/
 
-                // De gewijzigde JSON is nu opgeslagen in het jObject, dus je kunt de JSON nu weer wegschrijven naar het bestand als je dat wilt.
-                // Laatste stap is het opslaan van het gewijzigde JObject als JSON naar een string, en deze string kan weer worden weggeschreven naar het bestand.
-                /*string newJson = jObject.ToString();
-                System.IO.File.WriteAllText(@"Seat_Cinema.Json", newJson);*/
-        }
+    // De gewijzigde JSON is nu opgeslagen in het jObject, dus je kunt de JSON nu weer wegschrijven naar het bestand als je dat wilt.
+    // Laatste stap is het opslaan van het gewijzigde JObject als JSON naar een string, en deze string kan weer worden weggeschreven naar het bestand.
+    /*string newJson = jObject.ToString();
+    System.IO.File.WriteAllText(@"Seat_Cinema.Json", newJson);*/
+}
 
 
- 
 
 
-     
+
+
