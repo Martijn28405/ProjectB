@@ -54,7 +54,7 @@ public class ManagerMenu
                 break;
             case 5:
                 ReservationsLogic modifyReservations = new ReservationsLogic();
-                modifyReservations.ModifyReservations();
+                modifyReservations.modifyReservations();
                 break;
             case 6:
                 Console.WriteLine("Press any key to confirm");
