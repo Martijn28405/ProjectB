@@ -58,6 +58,7 @@ public class SnacksLogic
                 Console.WriteLine($"PRICE: {item.PriceFood}");
             }
             string snackName = Console.ReadLine();
+            // snacks is the list of available snacks. FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
             var snack = snacks.FirstOrDefault(snack => snack.NameFood == snackName);
             if (snack == null)
             {
