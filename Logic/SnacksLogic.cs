@@ -54,19 +54,23 @@ public class SnacksLogic
             Console.WriteLine("What do you want to buy?");
             foreach (var item in snacks)
             {
+                Console.WriteLine($"ITEM ID: {item.Id}");
                 Console.WriteLine($"SNACK: {item.NameFood}");
                 Console.WriteLine($"PRICE: {item.PriceFood}");
+                Console.WriteLine();
             }
-            string snackName = Console.ReadLine();
+            int itemId = Convert.ToInt32(Console.ReadLine());
             // snacks is the list of available snacks. FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
-            var snack = snacks.FirstOrDefault(snack => snack.NameFood == snackName);
+            var snack = snacks.FirstOrDefault(snack => snack.Id == itemId);
             if (snack == null)
             {
                 Console.WriteLine("Invalid, please try again.");
                 continue;
             }
+            Console.WriteLine($"ITEM ID: {snack.Id}");
             Console.WriteLine($"SNACK: {snack.NameFood}");
             Console.WriteLine($"PRICE: {snack.PriceFood}");
+            Console.WriteLine();
 
             Console.WriteLine("How many do you want to buy?");
             int amount = Convert.ToInt32(Console.ReadLine());
