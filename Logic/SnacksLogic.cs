@@ -46,88 +46,67 @@ public class SnacksLogic
         Console.ReadKey(true);
         ManagerMenu.Start();
     }
+
     public void BuySnacks()
     {
         while (true)
         {
-            Console.WriteLine("Do you want to buy a snack?");
-            Console.WriteLine("[1] Yes\n[2] No");
-            string start = Console.ReadLine();
-            if (start == "1")
+            Console.WriteLine("What do you want to buy?");
+            foreach (var item in snacks)
             {
-                Console.WriteLine("What snack do you want to buy?");
-                foreach (var item in snacks)
-                {
-                    Console.WriteLine($"SNACK: {item.NameFood}");
-                    Console.WriteLine($"PRICE: {item.PriceFood}");
-                }
-                string snackName = Console.ReadLine();
-                foreach (var item in snacks)
-                {
-                    if (item.NameFood == snackName)
-                    {
-                        Console.WriteLine($"SNACK: {item.NameFood}");
-                        Console.WriteLine($"PRICE: {item.PriceFood}");
-                    }
-                }
-                Console.WriteLine("Do you want to buy this snack?");
-                Console.WriteLine("[1] Yes\n[2] No");
-                string answer = Console.ReadLine();
-                if (answer == "1")
-                {
-                    Console.WriteLine("How many do you want to buy?");
-                    int amount = Convert.ToInt32(Console.ReadLine());
-                    foreach (var item in snacks)
-                    {
-                        if (item.NameFood == snackName)
-                        {
-                            double totalPrice = item.PriceFood * amount;
-                            Console.WriteLine($"The total price is: {totalPrice}");
-                            Console.WriteLine("Do you confirm your order?");
-                            Console.WriteLine("[1] Yes\n[2] No");
-                            string answer2 = Console.ReadLine();
-                            if (answer2 == "1")
-                            {
-                                ShoppingCartModel boughtSnack = new ShoppingCartModel(snackName, item.PriceFood, amount);
-                                shoppingCart.Add(boughtSnack);
-                                _shoppingCartAccesor.WriteAll(shoppingCart);
+                Console.WriteLine($"SNACK: {item.NameFood}");
+                Console.WriteLine($"PRICE: {item.PriceFood}");
+            }
+            string snackName = Console.ReadLine();
+            var snack = snacks.FirstOrDefault(snack => snack.NameFood == snackName);
+            if (snack == null)
+            {
+                Console.WriteLine("Invalid, please try again.");
+                continue;
+            }
+            Console.WriteLine($"SNACK: {snack.NameFood}");
+            Console.WriteLine($"PRICE: {snack.PriceFood}");
 
-                                Console.WriteLine($"Added {amount}x {snackName} to cart!");
-                                Console.WriteLine("Your current shopping bag:");
-                                foreach (var item2 in shoppingCart)
-                                {
-                                    Console.WriteLine($"SNACK: {amount}x {item2.NameFood}");
-                                    Console.WriteLine($"PRICE: {amount * item2.PriceFood}");
-                                }
-                                Console.WriteLine("Press any key to return to the Account Menu");
-                                Console.ReadKey(true);
-                                AccountMenu.Start();
+            Console.WriteLine("How many do you want to buy?");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            double totalPrice = snack.PriceFood * amount;
+            Console.WriteLine($"The total price is: {totalPrice}");
 
-                            }
-                            else
-                            {
-                                Console.WriteLine("Press any key to return to main menu");
-                                Console.ReadKey(true);
-                                AccountMenu.Start();
-                            }
-                        }
-                    }
-                }
-                else
+            Console.WriteLine("Do you want to add this to your cart?");
+            Console.WriteLine("[1] Yes\n[2] No");
+            string answer = Console.ReadLine();
+            if (answer == "1")
+            {
+                ShoppingCartModel boughtSnack = new ShoppingCartModel(snack.NameFood, snack.PriceFood, amount);
+                shoppingCart.Add(boughtSnack);
+                _shoppingCartAccesor.WriteAll(shoppingCart);
+
+                Console.WriteLine($"Added {amount}x {snack.NameFood} to cart!");
+                Console.WriteLine("Your current shopping bag:");
+                foreach (var item2 in shoppingCart)
                 {
-                    Console.WriteLine("Press any key to return to main menu");
-                    Console.ReadKey(true);
-                    AccountMenu.Start();
+                    Console.WriteLine($"SNACK: {item2.NameFood}");
+                    Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
                 }
+            }
+            Console.WriteLine("Do you want to buy another snack?");
+            Console.WriteLine("[1] Yes\n[2] No");
+            string anotherSnack = Console.ReadLine();
+            if (anotherSnack == "1")
+            {
+                continue;
             }
             else
             {
-                Console.WriteLine("Press any key to return to main menu");
+                Console.WriteLine("Press any key to return to the Account Menu");
                 Console.ReadKey(true);
                 AccountMenu.Start();
+                break;
             }
         }
     }
+
+
     public void ManageSnacks()
     {
         //Add or delete snacks ONLY as Admin
