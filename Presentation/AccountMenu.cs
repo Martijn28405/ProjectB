@@ -20,7 +20,7 @@ public class AccountMenu
                                                                                                                                 
                                                                                                                                 
 ";
-        string[] options = { "View Movies Per Week", "View Movie Information", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App", "Empty Shopping Cart" };
+        string[] options = { "View Movies Per Week", "View Movie Information", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App", "Manage Shopping Cart" };
         Menu accountmenu = new Menu(prompt, options);
         int SelectedIndex = accountmenu.Run();
         switch (SelectedIndex)
@@ -50,14 +50,15 @@ public class AccountMenu
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 UserLogin.User_Email = default;
-                SnacksLogic emptyshoppingcart = new SnacksLogic();
-                emptyshoppingcart.EmptyShoppingCart();
                 Program.Main();
                 break;
             case 6:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
+                break;
+            case 7:
+                ManageShoppingCart.Start();
                 break;
 
         }

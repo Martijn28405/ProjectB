@@ -101,6 +101,10 @@ public class MoviesLogic
                 }
                 Console.WriteLine();
             }
+            else
+            {
+                Console.WriteLine("No movies found for this week");
+            }
 
         }
         Console.ReadKey(true);
@@ -191,6 +195,10 @@ public class MoviesLogic
                 }
                 Console.WriteLine();
             }
+            else
+            {
+                Console.WriteLine("No movies found for this week with this criteria");
+            }
         }
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
@@ -222,6 +230,11 @@ public class MoviesLogic
                 }
                 Console.WriteLine();
             }
+            /*else
+            {
+                Console.WriteLine("No movies found for this week with this criteria");
+                break;
+            }*/
         }
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);

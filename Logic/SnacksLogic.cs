@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 public class SnacksLogic
@@ -166,6 +167,14 @@ public class SnacksLogic
         {
             shoppingCart.Remove(item);
             _shoppingCartAccesor.WriteAll(shoppingCart);
+        }
+    }
+
+    public void ViewShoppingCart()
+    {
+        foreach (var item in shoppingCart)
+        {
+            Console.WriteLine((item.ToString()));
         }
     }
 
