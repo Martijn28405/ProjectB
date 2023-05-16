@@ -189,7 +189,8 @@ public class SeatMenu
                 DrawSeats();
                 break;
             case "2":
-                Program.Main();
+                ReservationsLogic reservationsLogic = new ReservationsLogic();
+                reservationsLogic.CreateReservation();
                 break;
 
         }

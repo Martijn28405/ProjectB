@@ -134,6 +134,27 @@ public class ReservationsLogic
         // nieuwe vragen
         // dit toevoegen
     }
+    public void CreateReservation()
+    {
+        //moet row, seat en movie ontvangen van de seatmenu later
+        Console.WriteLine("Enter row:");
+        int rowInput = Int32.Parse(Console.ReadLine());
+        Console.WriteLine("Enter seat:");
+        int seatInput = Int32.Parse(Console.ReadLine());
+        Console.WriteLine("Enter email:");
+        string? emailInput = Console.ReadLine();
+        Console.WriteLine("Enter movie:");
+        string? movieInput = Console.ReadLine();
+        Console.WriteLine("Enter start time:");
+        int startTimeInput = Int32.Parse(Console.ReadLine());
+        Console.WriteLine("Enter duration:");
+        int durationInput = Int32.Parse(Console.ReadLine());
+        ReservationModel newReservation = new ReservationModel(rowInput, seatInput, emailInput, movieInput, startTimeInput, durationInput);
+        _reservations.Add(newReservation);
+        _accesor.WriteAll(_reservations);
+        Console.WriteLine("Reservation created");
+        Program.Main();
+    }
 }
 
 
