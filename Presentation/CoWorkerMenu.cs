@@ -16,7 +16,7 @@ public class CoWorkerMenu
                                                                                                                                                                
                                                                                                                                                                                                                                                                                                                                                                                
 ";
-        string[] options = {"Show Movies", "Show Snacks", "Log Out", "Back to Main Menu", "Exit App" };
+        string[] options = { "Show Movies", "Show Snacks", "View Reservations", "Edit Reservations", "Log Out", "Back to Main Menu", "Exit App" };
         Menu co_workermenu = new Menu(prompt, options);
         int SelectedIndex = co_workermenu.Run();
         switch (SelectedIndex)
@@ -31,15 +31,26 @@ public class CoWorkerMenu
                 viewsnacks.ShowSnacks();
                 break;
             case 2:
+                ReservationsLogic showreservations = new ReservationsLogic();
+                showreservations.ShowReservations();
+                Console.WriteLine("Press any button to return to the Menu");
+                Console.ReadKey(true);
+                Start();
+                break;
+            case 3:
+                ReservationsLogic modifyReservations = new ReservationsLogic();
+                modifyReservations.modifyReservations();
+                break;
+            case 4:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 CoWorkerLogin.Co_WorkerEmail = default;
                 Program.Main();
                 break;
-            case 3:
+            case 5:
                 Program.Main();
                 break;
-            case 4:
+            case 6:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
