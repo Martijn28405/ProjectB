@@ -122,6 +122,7 @@ public class ReservationsLogic
         else
         {
             _accesor.WriteAll(_reservations);
+            ManagerMenu.Start();
         }
 
         // string input = Console.ReadLine();
