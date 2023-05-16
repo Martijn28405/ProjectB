@@ -113,8 +113,16 @@ public class ReservationsLogic
                 Console.WriteLine("Invalid input");
                 break;
         }
-
-
+        System.Console.WriteLine("Dop you want to change another reservation? (y/n)");
+        string? input2 = Console.ReadLine();
+        if (input2 == "y")
+        {
+            modifyReservations();
+        }
+        else
+        {
+            _accesor.WriteAll(_reservations);
+        }
 
         // string input = Console.ReadLine();
 

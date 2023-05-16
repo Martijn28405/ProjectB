@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "Row": 15,
+    "Seat": 33,
+    "EmailAddress": "admin1",
+    "Movie": "joe",
+    "Start Time": 0,
+    "Duration": 2
+  }
+]
