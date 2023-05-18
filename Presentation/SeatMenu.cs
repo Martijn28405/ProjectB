@@ -10,8 +10,6 @@ public class SeatMenu
     // Small cinema
     public static int row = 0;
     public static int col = 0;
-    public static int row = 0;
-    public static int col = 0;
     static int selectedSeatIndex = 6; // Initially select the first seat
     static string[,] seats = new string[14, 12]; // 14x142 array of seats
     static bool[,] takenSeats = new bool[14, 12];
