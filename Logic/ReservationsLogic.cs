@@ -136,23 +136,53 @@ public class ReservationsLogic
     }
     public void CreateReservation()
     {
-        //moet row, seat en movie ontvangen van de seatmenu later
-        Console.WriteLine("Enter row:");
-        int rowInput = Int32.Parse(Console.ReadLine());
-        Console.WriteLine("Enter seat:");
-        int seatInput = Int32.Parse(Console.ReadLine());
-        Console.WriteLine("Enter email:");
-        string? emailInput = Console.ReadLine();
-        Console.WriteLine("Enter movie:");
-        string? movieInput = Console.ReadLine();
-        Console.WriteLine("Enter start time:");
-        int startTimeInput = Int32.Parse(Console.ReadLine());
-        Console.WriteLine("Enter duration:");
-        int durationInput = Int32.Parse(Console.ReadLine());
-        ReservationModel newReservation = new ReservationModel(rowInput, seatInput, emailInput, movieInput, startTimeInput, durationInput);
+        //get the row from the seatmenu
+        SeatMenu seatMenu = new SeatMenu();
+        int row = SeatMenu.row;
+        //get the seat from the seatmenu
+        int seat = SeatMenu.col;
+        //get the emailaddress from the user
+        var email = UserLogin.User_Email;
+        // get the selected movie from movieslogic
+        MoviesLogic moviesLogic = new MoviesLogic();
+        string selectedMovie = MoviesLogic.SelectedMovie;
+        Console.WriteLine(selectedMovie);
+        // get the start time and duration from the selected movie out of the json
+        int durationInput = 1;
+        int selectedTime = 1;
+        List<DateTime> startingTimes = new List<DateTime>();
+        foreach (var movie in moviesLogic.movies)
+        {
+            if (movie.MovieTitle == selectedMovie)
+            {
+
+                //create a list of starting times and let the user select one
+
+                foreach (var time in movie.StartTime)
+                {
+                    startingTimes.Add(time);
+                }
+                // int selectedTime = Int32.Parse(Console.ReadLine());
+                // startTimeInput = selectedTime;
+                //get the duration of the movie
+                Console.WriteLine("Which time would you like to reserve?");
+                foreach (var x in startingTimes)
+                {
+                    Console.WriteLine(x);
+                }
+                //Let the user choose one of the times and put the selected time in startTimeInput
+                selectedTime = Int32.Parse(Console.ReadLine());
+                Console.WriteLine(startingTimes[selectedTime - 1]);
+
+                durationInput = movie.PlayTimeInMinutes;
+            }
+        }
+        ReservationModel newReservation = new ReservationModel(row, seat, email, selectedMovie, selectedTime, durationInput);//selectedTime moeten nog worden aangepast
         _reservations.Add(newReservation);
         _accesor.WriteAll(_reservations);
         Console.WriteLine("Reservation created");
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey();
         Program.Main();
     }
 }
