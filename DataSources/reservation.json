@@ -4,7 +4,7 @@
     "Seat": 333,
     "EmailAddress": "admin1",
     "Movie": "joe",
-    "Start Time": 0,
+    "Start Time": "0001-01-01T00:00:00",
     "Duration": 2
   },
   {
@@ -12,7 +12,71 @@
     "Seat": 2,
     "EmailAddress": "j@g",
     "Movie": "movie",
-    "Start Time": 200,
+    "Start Time": "0001-01-01T00:00:00",
     "Duration": 200
+  },
+  {
+    "Row": 1,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
+  },
+  {
+    "Row": 1,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
+  },
+  {
+    "Row": 1,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 150
+  },
+  {
+    "Row": 1,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "2023-01-02T18:30:00",
+    "Duration": 150
+  },
+  {
+    "Row": 6,
+    "Seat": 9,
+    "EmailAddress": "1",
+    "Movie": "John Wick 4",
+    "Start Time": "2023-01-02T21:00:00",
+    "Duration": 180
+  },
+  {
+    "Row": 3,
+    "Seat": 3,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "2023-01-03T20:15:00",
+    "Duration": 150
+  },
+  {
+    "Row": 7,
+    "Seat": 5,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "2023-01-03T20:15:00",
+    "Duration": 150
+  },
+  {
+    "Row": 6,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "2023-01-03T20:15:00",
+    "Duration": 150
   }
 ]

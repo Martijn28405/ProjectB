@@ -11,11 +11,11 @@ public class ReservationModel
     [JsonPropertyName("Movie")]
     public string Movie { get; set; }
     [JsonPropertyName("Start Time")]
-    public int StartTime { get; set; }
+    public DateTime StartTime { get; set; }
     [JsonPropertyName("Duration")]
     public int Duration { get; set; }
 
-    public ReservationModel(int row, int seat, string emailAddress, string movie, int startTime, int duration)
+    public ReservationModel(int row, int seat, string emailAddress, string movie, DateTime startTime, int duration)
     {
         Row = row;
         Seat = seat;
