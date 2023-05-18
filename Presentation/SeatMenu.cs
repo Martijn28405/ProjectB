@@ -8,12 +8,15 @@ using Newtonsoft.Json.Linq;
 public class SeatMenu
 {
     // Small cinema
+    public static int row = 0;
+    public static int col = 0;
     static int selectedSeatIndex = 6; // Initially select the first seat
     static string[,] seats = new string[14, 12]; // 14x142 array of seats
     static bool[,] takenSeats = new bool[14, 12];
 
     public static void Start()
     {
+        Console.Clear();
         Console.CursorVisible = false;
         InitializeSeats(); // Initialize seats with "[ ]"
         DrawSeats(); // Draw initial seats
@@ -159,15 +162,18 @@ public class SeatMenu
         }
     }
 
-    static void SelectSeat()
+    public static void SelectSeat()
     {
-        int row = selectedSeatIndex / seats.GetLength(1);
-        int col = selectedSeatIndex % seats.GetLength(1);
+        row = selectedSeatIndex / seats.GetLength(1);
+        row += 1;
+        col = selectedSeatIndex % seats.GetLength(1);
         if (seats[row, col] != "[X]")
         {
             takenSeats[row, col] = true;// Mark the seat as taken
 
             Console.WriteLine("Seat selected!");
+            Console.WriteLine($"Row: {row}");
+            Console.WriteLine($"Seat: {col}");
             Choice();
         }
 

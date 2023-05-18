@@ -7,6 +7,7 @@ public class MoviesLogic
 {
     private JsonAccessor<MovieModel> _accesor;
     public List<MovieModel> movies;
+    public static string? SelectedMovie = null;
     public MoviesLogic()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
@@ -101,13 +102,19 @@ public class MoviesLogic
                 }
                 Console.WriteLine();
             }
-            else
-            {
-                Console.WriteLine("No movies found for this week");
-            }
-
         }
-        Console.ReadKey(true);
+        Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
+        int userChoice = Convert.ToInt32(Console.ReadLine());
+        if (userChoice == 1)
+        {
+            SelectMovie();
+        }
+        else
+        {
+            Console.WriteLine("Press any key to return to the Account menu");
+            Console.ReadKey(true);
+            AccountMenu.Start();
+        }
     }
 
     public void MovieInformation()
@@ -195,15 +202,21 @@ public class MoviesLogic
                 }
                 Console.WriteLine();
             }
-            else
-            {
-                Console.WriteLine("No movies found for this week with this criteria");
-            }
         }
-        Console.WriteLine("Press any key to return to menu");
-        Console.ReadKey(true);
-        AccountMenu.Start();
+        Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
+        int userChoice = Convert.ToInt32(Console.ReadLine());
+        if (userChoice == 1)
+        {
+            SelectMovie();
+        }
+        else
+        {
+            Console.WriteLine("Press any key to return to the Account menu");
+            Console.ReadKey(true);
+            AccountMenu.Start();
+        }
     }
+
 
     public void SortMoviesAge()
     {
@@ -230,15 +243,19 @@ public class MoviesLogic
                 }
                 Console.WriteLine();
             }
-            /*else
-            {
-                Console.WriteLine("No movies found for this week with this criteria");
-                break;
-            }*/
         }
-        Console.WriteLine("Press any key to return to menu");
-        Console.ReadKey(true);
-        AccountMenu.Start();
+        Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
+        int userChoice = Convert.ToInt32(Console.ReadLine());
+        if (userChoice == 1)
+        {
+            SelectMovie();
+        }
+        else
+        {
+            Console.WriteLine("Press any key to return to the Account menu");
+            Console.ReadKey(true);
+            AccountMenu.Start();
+        }
     }
 
     /*public void ShowMoviesWorker()
@@ -315,7 +332,21 @@ public class MoviesLogic
     public void SelectMovie()
     {
         // in het menu een mogelijkheid om een movie te kiezen per week.
-
+        // de geselecteerde movie wordt dan doorgegeven aan de zaal.
+        Console.WriteLine("Which movie do you want to select?");
+        string inputMovie = Console.ReadLine();
         // stuur de geselecteerde movie naar de zaal voor reservatie.
+        foreach (var item in movies)
+        {
+            if (inputMovie == item.MovieTitle)
+            {
+
+                SelectedMovie = inputMovie;
+                Console.WriteLine($"{SelectedMovie} selected");
+                Console.WriteLine("Press any key to reserve a seat");
+                Console.ReadKey(true);
+                SeatMenu.Start();
+            }
+        }
     }
 }

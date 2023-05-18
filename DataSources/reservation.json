@@ -14,5 +14,29 @@
     "Movie": "movie",
     "Start Time": 200,
     "Duration": 200
+  },
+  {
+    "Row": 1,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": 1,
+    "Duration": 150
+  },
+  {
+    "Row": 1,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": 1,
+    "Duration": 150
+  },
+  {
+    "Row": 1,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": 1,
+    "Duration": 150
   }
 ]
