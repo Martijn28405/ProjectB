@@ -78,5 +78,29 @@
     "Movie": "The Batman",
     "Start Time": "2023-01-03T20:15:00",
     "Duration": 150
+  },
+  {
+    "Row": 0,
+    "Seat": 0,
+    "EmailAddress": "1",
+    "Movie": "The Fault in Our Stars",
+    "Start Time": "2023-01-10T21:00:00",
+    "Duration": 126
+  },
+  {
+    "Row": 0,
+    "Seat": 0,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "2023-01-03T20:15:00",
+    "Duration": 150
+  },
+  {
+    "Row": 4,
+    "Seat": 8,
+    "EmailAddress": "1",
+    "Movie": "The Notebook",
+    "Start Time": "2023-01-08T18:30:00",
+    "Duration": 123
   }
 ]

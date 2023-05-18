@@ -169,8 +169,8 @@ public class SeatMenu
 
     public static void SelectSeat()
     {
-        int row = selectedSeatIndex / seats.GetLength(1);
-        int col = selectedSeatIndex % seats.GetLength(1);
+        row = selectedSeatIndex / seats.GetLength(1);
+        col = selectedSeatIndex % seats.GetLength(1);
         if (seats[row, col] != "[X]")
         {
             takenSeats[row, col] = true;// Mark the seat as taken
