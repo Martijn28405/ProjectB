@@ -117,6 +117,7 @@ public class ReservationsLogic
         else
         {
             _accesor.WriteAll(_reservations);
+            ManagerMenu.Start();
         }
 
         // string input = Console.ReadLine();
@@ -167,7 +168,7 @@ public class ReservationsLogic
                 }
                 //Let the user choose one of the times and put the selected time in startTimeInput
                 int selectedTime = Int32.Parse(Console.ReadLine());
-                startTimeInput = startingTimes[selectedTime - - 1];
+                startTimeInput = startingTimes[selectedTime - -1];
 
                 durationInput = movie.PlayTimeInMinutes;
             }
