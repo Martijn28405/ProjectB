@@ -3,6 +3,7 @@ using System.ComponentModel.Design;
 public class UserLogin
 {
     public static string User_Email = null;
+    public static string User_Name = null;
     static private AccountsLogic accountsLogic = new AccountsLogic();
 
 

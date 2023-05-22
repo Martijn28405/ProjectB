@@ -177,6 +177,9 @@ public class ReservationsLogic
         _reservations.Add(newReservation);
         _accesor.WriteAll(_reservations);
         Console.WriteLine("Reservation created");
+        /*EmailLogic sendemail = new EmailLogic();
+        sendemail.SendEmail();*/
+        Console.WriteLine("an email has been send to your account with further detail.");
         Console.WriteLine("Press any key to continue");
         Console.ReadKey();
         Program.Main();

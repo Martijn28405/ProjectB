@@ -16,7 +16,7 @@
                                                                                                                                                                                                                                  
 ";
 
-        string[] options = { "Login", "Add Account", "Guest Login", "Manager Login", "Co-Worker Login", "Exit Code", "Show Seats" };
+        string[] options = { "Login", "Add Account", "Guest Login", "Manager Login", "Co-Worker Login", "Exit Code" };
         Menu mymenu = new Menu(prompt, options);
         int SelectedIndex = mymenu.Run();
         switch (SelectedIndex)
@@ -42,9 +42,6 @@
                 Console.WriteLine("Press any button to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
-                break;
-            case 6:
-                SeatMenu.Start();
                 break;
         }
     }

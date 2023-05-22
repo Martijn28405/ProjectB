@@ -1,5 +1,6 @@
 ﻿static class GuestMenu
 {
+    public static string Guest_Email = null;
     public static void Start()
     {
         Console.CursorVisible = false;
@@ -27,8 +28,10 @@
                     showSnacks.ShowSnacks();
                     break;
                 case 2:
-                    SeatMenu.Start();
-                    //zorg ervoor dat email ook wordt ingevoerd.
+                    Console.WriteLine("Enter your e-mail (we will send you a confirmation here");
+                    Guest_Email = Console.ReadLine();
+                    MoviesLogic showmovies = new MoviesLogic();
+                    showmovies.ShowMovies();
                     break;
                 case 3:
                     Program.Main();
