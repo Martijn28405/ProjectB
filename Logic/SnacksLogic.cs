@@ -174,7 +174,9 @@ public class SnacksLogic
     {
         foreach (var item in shoppingCart)
         {
-            Console.WriteLine((item.ToString()));
+            Console.WriteLine($"Snack: {item.NameFood}");
+            Console.WriteLine($"Amount: {item.Amount}");
+            Console.WriteLine($"Price: {item.PriceFood}");
         }
     }
 

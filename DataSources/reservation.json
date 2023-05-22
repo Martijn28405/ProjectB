@@ -166,5 +166,21 @@
     "Movie": "John Wick 4",
     "Start Time": "2023-01-01T20:30:00",
     "Duration": 180
+  },
+  {
+    "Row": 8,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "2023-01-01T21:00:00",
+    "Duration": 150
+  },
+  {
+    "Row": 0,
+    "Seat": 6,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "2023-01-01T21:00:00",
+    "Duration": 150
   }
 ]
