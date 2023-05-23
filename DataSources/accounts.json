@@ -40,5 +40,12 @@
     "password": "3",
     "fullName": "3",
     "accountType": "Manager"
+  },
+  {
+    "id": 7,
+    "emailAddress": "Martijn28405@gmail.com",
+    "password": "M@rtijn2005",
+    "fullName": "Martijn Verwoert",
+    "accountType": "User"
   }
 ]

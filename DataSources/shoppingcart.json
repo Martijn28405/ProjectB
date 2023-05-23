@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "NameFood": "Juice",
+    "PriceFood": 3.99,
+    "Amount": 5
+  }
+]

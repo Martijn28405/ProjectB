@@ -46,6 +46,7 @@ public class UserLogin
                         Console.WriteLine("Welcome back " + acc.FullName);
                         Console.WriteLine("Your e-mail is " + acc.EmailAddress);
                         User_Email = acc.EmailAddress;
+                        User_Name = acc.FullName;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         AccountMenu.Start();
