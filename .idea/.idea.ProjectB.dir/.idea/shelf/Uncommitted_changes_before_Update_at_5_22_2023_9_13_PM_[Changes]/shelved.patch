@@ -1,0 +1,21 @@
+Index: DataSources/shoppingcart.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[\r\n  {\r\n    \"NameFood\": \"Popcorn\",\r\n    \"PriceFood\": 2.5,\r\n    \"Amount\": 5\r\n  }\r\n]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DataSources/shoppingcart.json b/DataSources/shoppingcart.json
+--- a/DataSources/shoppingcart.json	(revision 79a1977d31f411c83e664bc83f72f94f22cf1429)
++++ b/DataSources/shoppingcart.json	(date 1684243088258)
+@@ -1,7 +1,7 @@
+ [
+   {
+-    "NameFood": "Popcorn",
+-    "PriceFood": 2.5,
++    "NameFood": "Juice",
++    "PriceFood": 3.99,
+     "Amount": 5
+   }
+ ]
+\ No newline at end of file

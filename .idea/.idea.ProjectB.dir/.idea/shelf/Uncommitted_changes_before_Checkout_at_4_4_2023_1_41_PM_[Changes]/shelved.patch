@@ -1,0 +1,63 @@
+Index: DataSources/shoppingcart.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[\r\n  {\r\n    \"NameFood\": \"Popcorn\",\r\n    \"PriceFood\": 2.75,\r\n    \"Amount\": 1\r\n  },\r\n  {\r\n    \"NameFood\": \"Suikerwafel\",\r\n    \"PriceFood\": 1.22,\r\n    \"Amount\": 1\r\n  },\r\n  {\r\n    \"NameFood\": \"Popcorn\",\r\n    \"PriceFood\": 2.75,\r\n    \"Amount\": 4\r\n  },\r\n  {\r\n    \"NameFood\": \"Popcorn\",\r\n    \"PriceFood\": 2.75,\r\n    \"Amount\": 1\r\n  },\r\n  {\r\n    \"NameFood\": \"Popcorn\",\r\n    \"PriceFood\": 2.75,\r\n    \"Amount\": 1\r\n  }\r\n]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DataSources/shoppingcart.json b/DataSources/shoppingcart.json
+--- a/DataSources/shoppingcart.json	
++++ b/DataSources/shoppingcart.json	
+@@ -23,5 +23,10 @@
+     "NameFood": "Popcorn",
+     "PriceFood": 2.75,
+     "Amount": 1
++  },
++  {
++    "NameFood": "Popcorn",
++    "PriceFood": 2.75,
++    "Amount": 1
+   }
+ ]
+\ No newline at end of file
+Index: Presentation/ManagerMenu.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System.Xml.XPath;\r\n\r\npublic class ManagerMenu\r\n{\r\n\r\n    // This code wil only be excuted if the ManagerMenu called.\r\n    static public void Start()\r\n    {\r\n        Console.CursorVisible = false;\r\n        string prompt = @\"\r\n\r\n                                                                                          \r\n\r\n _____ ______   ________  ________   ________  ________  _______   ________          _____ ______   _______   ________   ___  ___     \r\n|\\   _ \\  _   \\|\\   __  \\|\\   ___  \\|\\   __  \\|\\   ____\\|\\  ___ \\ |\\   __  \\        |\\   _ \\  _   \\|\\  ___ \\ |\\   ___  \\|\\  \\|\\  \\    \r\n\\ \\  \\\\\\__\\ \\  \\ \\  \\|\\  \\ \\  \\\\ \\  \\ \\  \\|\\  \\ \\  \\___|\\ \\   __/|\\ \\  \\|\\  \\       \\ \\  \\\\\\__\\ \\  \\ \\   __/|\\ \\  \\\\ \\  \\ \\  \\\\\\  \\   \r\n \\ \\  \\\\|__| \\  \\ \\   __  \\ \\  \\\\ \\  \\ \\   __  \\ \\  \\  __\\ \\  \\_|/_\\ \\   _  _\\       \\ \\  \\\\|__| \\  \\ \\  \\_|/_\\ \\  \\\\ \\  \\ \\  \\\\\\  \\  \r\n  \\ \\  \\    \\ \\  \\ \\  \\ \\  \\ \\  \\\\ \\  \\ \\  \\ \\  \\ \\  \\|\\  \\ \\  \\_|\\ \\ \\  \\\\  \\|       \\ \\  \\    \\ \\  \\ \\  \\_|\\ \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\ \\__\\ \\__\\\\ \\__\\ \\__\\ \\__\\ \\_______\\ \\_______\\ \\__\\\\ _\\        \\ \\__\\    \\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__|\\|__|\\|__| \\|__|\\|__|\\|__|\\|_______|\\|_______|\\|__|\\|__|        \\|__|     \\|__|\\|_______|\\|__| \\|__|\\|_______|\r\n                                                                                                                                      \r\n                                                                                                                                      \r\n                                                                                                                                      \r\n                                                               \r\n                                                                                                                               \r\n\";\r\n        string[] options = { \"Login\", \"Add Account\", \"Add Movie\", \"Add Snack\", \"Back to Main Menu\", \"Exit App\" };\r\n        Menu managermenu = new Menu(prompt, options);\r\n        int SelectedIndex = managermenu.Run();\r\n        switch (SelectedIndex)\r\n        {\r\n            case 0:\r\n                Console.WriteLine(\"Not Implemented Yet\");\r\n                Thread.Sleep(1000);\r\n                Start();\r\n                break;\r\n            case 1:\r\n                Console.WriteLine(\"Not Implemented Yet\");\r\n                Thread.Sleep(1000);\r\n                Start();\r\n                break;\r\n            case 2:\r\n                MoviesLogic addmovie = new MoviesLogic();\r\n                addmovie.AddMovie();\r\n                break;\r\n            case 3:\r\n                SnacksLogic addsnack = new SnacksLogic();\r\n                addsnack.AddSnacks();\r\n                break;\r\n            case 4:\r\n                Program.Main();\r\n                break;\r\n            case 5:\r\n                Console.WriteLine(\"press any key to exit the app\");\r\n                Console.ReadKey(true);\r\n                Environment.Exit(0);\r\n                break;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Presentation/ManagerMenu.cs b/Presentation/ManagerMenu.cs
+--- a/Presentation/ManagerMenu.cs	
++++ b/Presentation/ManagerMenu.cs	
+@@ -30,9 +30,7 @@
+         switch (SelectedIndex)
+         {
+             case 0:
+-                Console.WriteLine("Not Implemented Yet");
+-                Thread.Sleep(1000);
+-                Start();
++                ManagerLogin.Start();
+                 break;
+             case 1:
+                 Console.WriteLine("Not Implemented Yet");
+Index: Program.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public static class Program\r\n{\r\n public static string FullName = null;\r\n public static string Email = null;\r\n public static string Password = null;\r\n \r\n public static void Main()\r\n {\r\n  Console.CursorVisible = false;\r\n  string prompt = @\"\r\n ___  ___  _______  _________        ________  ___  ________  ________  ________  ________  ________  ________      ___  _______      \r\n|\\  \\|\\  \\|\\  ___ \\|\\___   ___\\     |\\   __  \\|\\  \\|\\   __  \\|\\   ____\\|\\   ____\\|\\   __  \\|\\   __  \\|\\   __  \\    |\\  \\|\\  ___ \\     \r\n\\ \\  \\\\\\  \\ \\   __/\\|___ \\  \\_|     \\ \\  \\|\\ /\\ \\  \\ \\  \\|\\  \\ \\  \\___|\\ \\  \\___|\\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\|\\  \\   \\ \\  \\ \\   __/|    \r\n \\ \\   __  \\ \\  \\_|/__  \\ \\  \\       \\ \\   __  \\ \\  \\ \\  \\\\\\  \\ \\_____  \\ \\  \\    \\ \\  \\\\\\  \\ \\  \\\\\\  \\ \\   ____\\__ \\ \\  \\ \\  \\_|/__  \r\n  \\ \\  \\ \\  \\ \\  \\_|\\ \\  \\ \\  \\       \\ \\  \\|\\  \\ \\  \\ \\  \\\\\\  \\|____|\\  \\ \\  \\____\\ \\  \\\\\\  \\ \\  \\\\\\  \\ \\  \\___|\\  \\\\_\\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\ \\__\\ \\_______\\  \\ \\__\\       \\ \\_______\\ \\__\\ \\_______\\____\\_\\  \\ \\_______\\ \\_______\\ \\_______\\ \\__\\  \\ \\________\\ \\_______\\\r\n    \\|__|\\|__|\\|_______|   \\|__|        \\|_______|\\|__|\\|_______|\\_________\\|_______|\\|_______|\\|_______|\\|__|   \\|________|\\|_______|\r\n                                                                \\|_________|                                                          \r\n                                                                                                                                      \r\n                                                                                                                                      \r\n\";\r\n\r\n  string[] options = { \"Login\", \"Add Account\", \"Guest Login\", \"Manager Login\", \"Co-Worker Login\", \"Exit Code\" };\r\n  Menu mymenu = new Menu(prompt, options);\r\n  int SelectedIndex = mymenu.Run();\r\n  switch (SelectedIndex)\r\n  {\r\n   case 0:\r\n    UserLogin.Start();\r\n    break;\r\n   case 1:\r\n    AccountsLogic accountsLogic = new AccountsLogic();\r\n    accountsLogic.CreateAccount();\r\n    break;\r\n   case 2:\r\n    GuestMenu.Start();\r\n    break;\r\n   case 3:\r\n    ManagerMenu.Start();\r\n    break;\r\n    case 4:\r\n     Co_Worker_menu.Start();\r\n     break;\r\n     case 5:\r\n      Console.WriteLine(\"Press any button to exit the app\");\r\n      Console.ReadKey(true);\r\n      Environment.Exit(0);\r\n      break;\r\n  }\r\n }\r\n}
+===================================================================
+diff --git a/Program.cs b/Program.cs
+--- a/Program.cs	
++++ b/Program.cs	
+@@ -36,7 +36,10 @@
+     GuestMenu.Start();
+     break;
+    case 3:
+-    ManagerMenu.Start();
++    Console.WriteLine("Not implemented yet");
++    Console.WriteLine("Press any key to return");
++    Console.ReadKey(true);
++    Main();
+     break;
+     case 4:
+      Co_Worker_menu.Start();
