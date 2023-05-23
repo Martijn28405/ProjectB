@@ -178,11 +178,22 @@ public class ReservationsLogic
         _accesor.WriteAll(_reservations);
         Console.WriteLine("Reservation created");
         EmailLogic sendemail = new EmailLogic();
-        sendemail.SendEmail();
-        Console.WriteLine("an email has been send to your account with further detail.");
-        Console.WriteLine("Press any key to continue");
-        Console.ReadKey();
-        Program.Main();
+        try
+        {
+            sendemail.SendEmail();
+            Console.WriteLine("an email has been send to your account with further detail.");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey(true);
+            AccountMenu.Start();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("The email could not be send. But your reservation has been created.");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey(true);
+            Program.Main();
+        }
+        
     }
 }
 

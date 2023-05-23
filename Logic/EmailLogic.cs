@@ -7,9 +7,7 @@ public class EmailLogic
     public void SendEmail()
     {
         ReservationsLogic newReservationsLogic = new ReservationsLogic();
-        try
-        {
-            var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+        var smtpClient = new SmtpClient("smtp.gmail.com", 587);
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = new NetworkCredential("info.hetbioscoopje@gmail.com", "pqqlwfrqeplyfyll");
             smtpClient.EnableSsl = true; ;
@@ -28,13 +26,5 @@ public class EmailLogic
             smtpClient.Send(MailMessage);
 
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-            
-        }
-        
 
-    }
 }
