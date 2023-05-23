@@ -230,5 +230,13 @@
     "Movie": "The Batman",
     "Start Time": "2023-01-01T21:00:00",
     "Duration": 150
+  },
+  {
+    "Row": 1,
+    "Seat": 5,
+    "EmailAddress": "1",
+    "Movie": "The Batman",
+    "Start Time": "2023-01-01T21:00:00",
+    "Duration": 150
   }
 ]

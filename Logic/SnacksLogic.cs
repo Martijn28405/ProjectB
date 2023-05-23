@@ -167,6 +167,7 @@ public class SnacksLogic
         {
             shoppingCart.Remove(item);
             _shoppingCartAccesor.WriteAll(shoppingCart);
+            Console.WriteLine("Shopping cart emptied");
         }
     }
 
@@ -174,9 +175,17 @@ public class SnacksLogic
     {
         foreach (var item in shoppingCart)
         {
-            Console.WriteLine($"Snack: {item.NameFood}");
-            Console.WriteLine($"Amount: {item.Amount}");
-            Console.WriteLine($"Price: {item.PriceFood}");
+            if (shoppingCart != null)
+            {
+                Console.WriteLine($"Snack: {item.NameFood}");
+                Console.WriteLine($"Amount: {item.Amount}");
+                Console.WriteLine($"Price: {item.PriceFood}"); 
+            }
+            else
+            {
+                Console.WriteLine("Your shopping cart is empty");
+            }
+            
         }
     }
 
