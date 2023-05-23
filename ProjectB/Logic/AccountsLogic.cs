@@ -2,23 +2,25 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using ProjectB.Logic;
 
 
 //This class is not static so later on we can use inheritance and interfaces
-class AccountsLogic
+public class AccountsLogic
 {
     private JsonAccessor<AccountModel> _accessor;
     private List<AccountModel> _accounts;
-
+    private readonly ValidationsLogic _validationLogic;
     //Static properties are shared across all instances of the class
     //This can be used to get the current logged in account from anywhere in the program
     //private set, so this can only be set by the class itself
-    static public AccountModel? CurrentAccount { get; private set; }
+    public static AccountModel? CurrentAccount { get; private set; }
 
     public AccountsLogic()
     {
         _accessor = new JsonAccessor<AccountModel>("DataSources/accounts.json"); //accounts.json
         _accounts = _accessor.LoadAll();
+        _validationLogic = new ValidationsLogic();
     }
 
     public void CreateAccount(string accountType)
@@ -26,7 +28,7 @@ class AccountsLogic
         string fullName = CreateFullName();
         string emailAddress = CreateEmail();
         string password = CreatePassword();
-        
+
         AccountModel acc = new AccountModel()
         {
             EmailAddress = emailAddress,
@@ -40,14 +42,14 @@ class AccountsLogic
         Console.WriteLine("Press any key to return to the main menu");
         Console.ReadKey(true);
         Program.Main();
-
     }
+
     public string CreateFullName()
     {
         Console.WriteLine("Full name:(Must contain a space)");
         string fullName = Console.ReadLine();
 
-        if (fullName.Contains(" "))
+        if (_validationLogic.ValidateName(fullName))
         {
             return fullName;
         }
@@ -60,7 +62,7 @@ class AccountsLogic
         Console.WriteLine("E-mailadress:(Must contain an @)");
         string emailAddress = Console.ReadLine();
 
-        if (emailAddress.Contains("@"))
+        if (_validationLogic.ValidateEmail(emailAddress))
         {
             return emailAddress;
         }
@@ -72,31 +74,7 @@ class AccountsLogic
     {
         Console.WriteLine("Password:(min 8 characters and must contain at least 1 number, 1 upper case and 1 character.)");
         string password = Console.ReadLine();
-        string passwordNum = "1234567890";
-        string passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        string passwordCharacters = "!@#$%^&*()_+";
-
-        bool containsNumber = false;
-        bool containsUpper = false;
-        bool containsCharacter = false;
-
-        foreach (char c in password)
-        {
-            if (passwordNum.Contains(c))
-            {
-                containsNumber = true;
-            }
-            if (passwordCharacters.Contains(c))
-            {
-                containsCharacter = true;
-            }
-            if (passwordUpper.Contains(c))
-            {
-                containsUpper = true;
-            }
-        }
-
-        if (password.Length >= 8 && containsNumber == true && containsUpper == true && containsCharacter == true)
+        if (_validationLogic.ValidatePassword(password))
         {
             return password;
         }
