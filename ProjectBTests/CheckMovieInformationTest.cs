@@ -41,7 +41,7 @@ public class CheckMovieInformationTest
         string movieinformation = "Non-existing Movie";
 
         // Act
-        var result = checkMovieInformation.MovieInformation(movieToDelete);
+        var result = checkMovieInformation.MovieInformation(movieinformation);
 
         // Assert
         Assert.Equals(result, "Movie not found");
