@@ -7,7 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="" />
+    <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +79,7 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.ProjectB">
     <configuration name="ProjectB" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -178,6 +180,8 @@
       <workItem from="1684861266169" duration="41000" />
       <workItem from="1684861335957" duration="695000" />
       <workItem from="1684862055411" duration="46000" />
+      <workItem from="1684862121469" duration="125000" />
+      <workItem from="1684914274716" duration="2704000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -347,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684848478067</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Mijn eigen Unit test toegevoegd">
+      <created>1684862209188</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1684862209189</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +403,7 @@
     <MESSAGE value="user krijgt nu een email met informatie" />
     <MESSAGE value="Emails worden nu gestuurd na een reservering" />
     <MESSAGE value="Code exit nu niet als de email niet bestaat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code exit nu niet als de email niet bestaat" />
+    <MESSAGE value="Mijn eigen Unit test toegevoegd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mijn eigen Unit test toegevoegd" />
   </component>
 </project>
