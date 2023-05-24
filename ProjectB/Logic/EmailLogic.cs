@@ -6,7 +6,6 @@ public class EmailLogic
 {
     public void SendEmail()
     {
-        ReservationsLogic newReservationsLogic = new ReservationsLogic();
         var smtpClient = new SmtpClient("smtp.gmail.com", 587);
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = new NetworkCredential("info.hetbioscoopje@gmail.com", "pqqlwfrqeplyfyll");
@@ -18,7 +17,7 @@ public class EmailLogic
                 Subject = "Your Reservation at Het Bioscoopje",
                 Body = $"<h1>Dear {UserLogin.User_Name},\n" +
                        "Thank you for your reservation at Het Bioscoopje</h1>" +
-                       $"<h2>this email includes the tickets for {MoviesLogic.SelectedMovie} \n"+
+                       $"<h2>this email includes the tickets for {MoviesLogic.SelectedMovie} \n" +
                        "We will see you at the movie!</h2>",
                 IsBodyHtml = true
             };

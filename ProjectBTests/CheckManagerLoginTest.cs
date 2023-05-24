@@ -5,7 +5,6 @@ public class CheckManagerLoginTest
 {
     private string Manager_Email = null;
     private AccountsLogic _accountsLogic = new AccountsLogic();
-    private AccountsLogic accountsLogic = new AccountsLogic();
     private StringWriter consoleOutput;
     private StringReader consoleInput;
 
