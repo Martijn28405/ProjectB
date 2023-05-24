@@ -1,4 +1,4 @@
-namespace ProjectB.Logic;
+﻿namespace ProjectB.Logic;
 
 public class DeleteMoviesLogic
 {
