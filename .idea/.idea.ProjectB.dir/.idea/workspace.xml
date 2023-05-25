@@ -9,6 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBTests/CheckManagerLoginTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBTests/CheckManagerLoginTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -79,7 +81,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.ProjectB">
+  <component name="RunManager">
     <configuration name="ProjectB" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -181,7 +183,13 @@
       <workItem from="1684861335957" duration="695000" />
       <workItem from="1684862055411" duration="46000" />
       <workItem from="1684862121469" duration="125000" />
-      <workItem from="1684914274716" duration="2704000" />
+      <workItem from="1684914274716" duration="4075000" />
+      <workItem from="1684918553848" duration="1057000" />
+      <workItem from="1684919731672" duration="527000" />
+      <workItem from="1684920506563" duration="412000" />
+      <workItem from="1684921095726" duration="543000" />
+      <workItem from="1684921819927" duration="22000" />
+      <workItem from="1684921863999" duration="925000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -358,7 +366,28 @@
       <option name="project" value="LOCAL" />
       <updated>1684862209189</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Nieuwe unit tests toegevoegd">
+      <created>1684917020656</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1684917020656</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Nieuwe Unit Tests toegevoegd">
+      <created>1684917049829</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1684917049829</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Files terug op hun plek gezet">
+      <created>1684917329418</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1684917329418</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,9 +408,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="&quot;Menu options aangepast&quot;" />
-    <MESSAGE value="&quot;Login Successful en Login Failed met kleuren toegevoegd&quot;" />
-    <MESSAGE value="Accountaccess.cs en MovieAccess.cs weggehaald." />
     <MESSAGE value="Manager kan nu een account aanmaken en inloggen" />
     <MESSAGE value="Manager kan nu inloggen en een account aanmaken" />
     <MESSAGE value="Seats toegevoegd en Program.cs aangepast zodat de seats weergegeven kunnen worden." />
@@ -404,6 +430,9 @@
     <MESSAGE value="Emails worden nu gestuurd na een reservering" />
     <MESSAGE value="Code exit nu niet als de email niet bestaat" />
     <MESSAGE value="Mijn eigen Unit test toegevoegd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mijn eigen Unit test toegevoegd" />
+    <MESSAGE value="Nieuwe unit tests toegevoegd" />
+    <MESSAGE value="Nieuwe Unit Tests toegevoegd" />
+    <MESSAGE value="Files terug op hun plek gezet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Files terug op hun plek gezet" />
   </component>
 </project>
