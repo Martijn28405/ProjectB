@@ -20,7 +20,7 @@ public class AccountMenu
                                                                                                                                 
                                                                                                                                 
 ";
-        string[] options = { "View Movies Per Week", "View Movie Information", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App", "Manage Shopping Cart" };
+        string[] options = { "Make A Reservation/Show Movies", "View Movie Information", "View Catering", "Buy Snacks", "Back to Main Menu", "Log Out", "Exit App", "Manage Shopping Cart" };
         Menu accountmenu = new Menu(prompt, options);
         int SelectedIndex = accountmenu.Run();
         switch (SelectedIndex)

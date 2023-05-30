@@ -8,9 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_22_2023_9_13_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_22_2023_9_13_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/accounts.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/accounts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBTests/CheckManagerLoginTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBTests/CheckManagerLoginTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Presentation/AccountMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Presentation/AccountMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBTests/SendEmailTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBTests/SendEmailTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +46,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3b9684f72bc2cc435eb694f7cc86eca8c240d2d1cefa1e8697a61f1f2f27f/SafeFileHandle.Windows.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Logic/DeleteMovies.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/EmailLogic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectBTests/CheckMovieInformationTest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectBTests/CheckMovieInformationTest.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -189,7 +197,13 @@
       <workItem from="1684920506563" duration="412000" />
       <workItem from="1684921095726" duration="543000" />
       <workItem from="1684921819927" duration="22000" />
-      <workItem from="1684921863999" duration="925000" />
+      <workItem from="1684921863999" duration="1106000" />
+      <workItem from="1685004085181" duration="1833000" />
+      <workItem from="1685019428825" duration="946000" />
+      <workItem from="1685020770229" duration="3372000" />
+      <workItem from="1685025294012" duration="26000" />
+      <workItem from="1685436655389" duration="852000" />
+      <workItem from="1685439062806" duration="1313000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -387,7 +401,28 @@
       <option name="project" value="LOCAL" />
       <updated>1684917329418</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="MovieInformationTest added (Luca)">
+      <created>1684923090415</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684923090415</updated>
+    </task>
+    <task id="LOCAL-00030" summary="MovieInformationTest added (Luca)">
+      <created>1684923133618</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1684923133618</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Movie Information Test Added (Luca)">
+      <created>1684923176539</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1684923176539</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,8 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Manager kan nu een account aanmaken en inloggen" />
-    <MESSAGE value="Manager kan nu inloggen en een account aanmaken" />
     <MESSAGE value="Seats toegevoegd en Program.cs aangepast zodat de seats weergegeven kunnen worden." />
     <MESSAGE value="Show movies toegevoegd aan ManagerMenu.cs en Co-Worker menu.cs" />
     <MESSAGE value="Co worker kan nu ook inloggen" />
@@ -433,6 +466,8 @@
     <MESSAGE value="Nieuwe unit tests toegevoegd" />
     <MESSAGE value="Nieuwe Unit Tests toegevoegd" />
     <MESSAGE value="Files terug op hun plek gezet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Files terug op hun plek gezet" />
+    <MESSAGE value="MovieInformationTest added (Luca)" />
+    <MESSAGE value="Movie Information Test Added (Luca)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movie Information Test Added (Luca)" />
   </component>
 </project>

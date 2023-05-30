@@ -29,7 +29,7 @@ public class EmailLogicTests
         mailMessage.To.Add("test@example.com");
 
         // Act
-        emailLogic.SendEmail();
+        emailLogic.SendReservationEmail();
 
         // Assert
         using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
