@@ -6,7 +6,9 @@ using System.Text.Json;
 public class SnacksLogic
 {
     private JsonAccessor<SnackModel> _productAccesor;
+    private JsonAccessor<DiscountModel> _discountAccesor;
     private JsonAccessor<ShoppingCartModel> _shoppingCartAccesor;
+    public List<DiscountModel> discounts;
     public List<SnackModel> snacks;
     public List<ShoppingCartModel>? shoppingCart;
     public SnacksLogic()
@@ -14,8 +16,12 @@ public class SnacksLogic
     {
         _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/snacks.json");
         snacks = _productAccesor.LoadAll();
+
         _shoppingCartAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
         shoppingCart = _shoppingCartAccesor.LoadAll();
+
+        _discountAccesor = new JsonAccessor<DiscountModel>(@"DataSources/actieSnack.json");
+        discounts = _discountAccesor.LoadAll();
     }
     public void ShowSnacks()
     {
@@ -179,15 +185,60 @@ public class SnacksLogic
             {
                 Console.WriteLine($"Snack: {item.NameFood}");
                 Console.WriteLine($"Amount: {item.Amount}");
-                Console.WriteLine($"Price: {item.PriceFood}"); 
+                Console.WriteLine($"Price: {item.PriceFood}");
             }
             else
             {
                 Console.WriteLine("Your shopping cart is empty");
             }
-            
+
         }
     }
 
+    public void ActieBox()
+    {
+        Console.WriteLine("Overzicht van onze verschillende actie boxen:\n");
+        foreach (var item in discounts)
+        {
+            Console.WriteLine($"{item.Discription}\n{item.NameFood} {item.PriceFood} euro");
+
+        }
+        Console.WriteLine("Would you like to add something to your cart?");
+        Console.WriteLine("[1] Yes\n[2] No");
+
+
+        foreach (var item in discounts)
+        {
+            string answer = Console.ReadLine();
+            if (answer == "1")
+            {
+                Console.WriteLine("How many do you want to buy?");
+                int amount = Convert.ToInt32(Console.ReadLine());
+                ShoppingCartModel boughtSnack = new ShoppingCartModel(item.NameFood, item.PriceFood, amount);
+                shoppingCart.Add(boughtSnack);
+                _shoppingCartAccesor.WriteAll(shoppingCart);
+
+                Console.WriteLine($"Added {amount}x {item.NameFood} to cart!");
+                Console.WriteLine("Your current shopping bag:");
+                foreach (var item2 in shoppingCart)
+                {
+                    Console.WriteLine($"SNACK: {item2.NameFood}");
+                    Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
+                }
+            }
+            if (answer == "2")
+            {
+                Console.WriteLine("Press any key to return to the Account Menu");
+                Console.ReadKey(true);
+                AccountMenu.Start();
+                break;
+
+            }
+        }
+    }
+
+
 }
+
+
 
