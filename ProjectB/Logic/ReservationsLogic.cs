@@ -12,10 +12,6 @@ public class ReservationsLogic
     private JsonAccessor<ReservationModel> _accesor;
     public List<ReservationModel> _reservations;
     public DateTime startTimeInput;
-    EmailLogic Modifiedemial = new EmailLogic();
-    public static string new_movie { get; set; }
-    public static string new_email { get; set; }
-    public static int new_seat { get; set; }
     public ReservationsLogic()
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
@@ -77,9 +73,7 @@ public class ReservationsLogic
                 foreach (var reservation in filteredReservations)
                 {
                     reservation.Seat = seatInput;
-                    seatInput = new_seat;
                 }
-                Modifiedemial.SendModifiedSeatEmail();
                 break;
             case "3":
                 Console.WriteLine("Enter new email:");
@@ -87,18 +81,14 @@ public class ReservationsLogic
                 foreach (var reservation in filteredReservations)
                 {
                     reservation.EmailAddress = emailInput;
-                    emailInput = new_email;
                 }
-                Modifiedemial.SendModifiedEmail();
                 break;
             case "4":
                 Console.WriteLine("Enter new movie:");
                 string? movieInput2 = Console.ReadLine();
                 foreach (var reservation in filteredReservations)
                 {
-                    movieInput2 = new_movie;
                     reservation.Movie = movieInput2;
-                    
                 }
                 break;
             case "5":
@@ -118,10 +108,7 @@ public class ReservationsLogic
                 Console.WriteLine("Invalid input");
                 break;
         }
-
-        
-        Modifiedemial.SendModifiedMovieEmail();
-        System.Console.WriteLine("Do you want to change another reservation? (y/n)");
+        System.Console.WriteLine("Dop you want to change another reservation? (y/n)");
         string? input2 = Console.ReadLine();
         if (input2 == "y")
         {
@@ -193,7 +180,7 @@ public class ReservationsLogic
         EmailLogic sendemail = new EmailLogic();
         try
         {
-            sendemail.SendReservationEmail();
+            sendemail.SendReservationEmail(UserLogin.User_Email,UserLogin.User_Name);
             Console.WriteLine("an email has been send to your account with further detail.");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
@@ -206,23 +193,13 @@ public class ReservationsLogic
             Console.ReadKey(true);
             Program.Main();
         }
-        EmailLogic sendmodifiedemail = new EmailLogic();
-        if (new_email != null)
-        {
-            sendmodifiedemail.SendModifiedEmail();
-        }
 
-        if (new_seat != null)
-        {
-            sendmodifiedemail.SendModifiedSeatEmail();
-        }
-
-        if (new_movie != null)
-        {
-            sendmodifiedemail.SendModifiedMovieEmail();
-        }
-        
     }
+
+    /*public void SendModifiedEmails()
+    {
+        
+    }*/
 }
 
 
