@@ -10,7 +10,7 @@ public class EmailLogic
 
 {
 
-    public void SendReservationEmail(string mail, string name)
+    public void SendReservationEmail(string mail, string name, string movie, int row, int seat, DateTime startTime, int duration)
 
     {
 
@@ -590,7 +590,12 @@ public class EmailLogic
 
         htmlBody +=
             "                                                                        align=\"center\">Uw Reservering:</h3>\n";
-        htmlBody += $"                                                                <h3>align=\"center\">Tickets voor {MoviesLogic.SelectedMovie}:</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Tickets voor {movie}:</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Row: {row}:</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Seat:{seat}:</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Start Time:{startTime}:</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Duration:{duration}:</h3>\n";
+        
 
         htmlBody += "                                                                    <h1 class=\"text-4xl fw-800\"\n";
 
