@@ -180,7 +180,7 @@ public class ReservationsLogic
         EmailLogic sendemail = new EmailLogic();
         try
         {
-            sendemail.SendReservationEmail(UserLogin.User_Email,UserLogin.User_Name);
+            sendemail.SendReservationEmail(UserLogin.User_Email,UserLogin.User_Name, MoviesLogic.SelectedMovie, row,seat, startTimeInput,durationInput);
             Console.WriteLine("an email has been send to your account with further detail.");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
