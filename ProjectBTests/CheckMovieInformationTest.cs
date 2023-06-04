@@ -1,5 +1,6 @@
 using ProjectB.Logic;
 [TestClass]
+// DEZE TEST GEMAAKT DOOR LUCA
 public class CheckMovieInformationTest
 {
     private CheckMovieInformation checkMovieInformation;
@@ -18,7 +19,7 @@ public class CheckMovieInformationTest
         checkMovieInformation.movies = movies;
     }
     [TestMethod]
-    public void DeleteMovies_ExistingMovie_RemovesMovieFromList()
+    public void CheckMovieInformaiton()
     {
         // Arrange
         // Welke input je in de  method stopt van CheckMovieInformaiton
@@ -35,7 +36,7 @@ public class CheckMovieInformationTest
 
     }
     [TestMethod]
-    public void DeleteMovies_NonExistingMovie_KeepsMovieListUnchanged()
+    public void CheckMovieInformaitonIsWright()
     {
         // Arrange
         string movieinformation = "Non-existing Movie";
