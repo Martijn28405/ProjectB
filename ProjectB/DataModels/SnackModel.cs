@@ -10,6 +10,7 @@ public class SnackModel
 
     public SnackModel(string nameFood, double priceFood)
     {
+
         NameFood = nameFood;
         PriceFood = priceFood;
     }

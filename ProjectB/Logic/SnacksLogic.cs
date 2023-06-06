@@ -200,8 +200,7 @@ public class SnacksLogic
         Console.WriteLine("Overzicht van onze verschillende actie boxen:\n");
         foreach (var item in discounts)
         {
-            Console.WriteLine($"{item.Discription}\n{item.NameFood} {item.PriceFood} euro");
-
+            Console.WriteLine($"[{item.Id}]{item.NameFood}\n   {item.Discription}\n   {item.PriceFood} euro");
         }
         Console.WriteLine("Would you like to add something to your cart?");
         Console.WriteLine("[1] Yes\n[2] No");
@@ -212,26 +211,44 @@ public class SnacksLogic
             string answer = Console.ReadLine();
             if (answer == "1")
             {
-                Console.WriteLine("How many do you want to buy?");
-                int amount = Convert.ToInt32(Console.ReadLine());
-                ShoppingCartModel boughtSnack = new ShoppingCartModel(item.NameFood, item.PriceFood, amount);
-                shoppingCart.Add(boughtSnack);
-                _shoppingCartAccesor.WriteAll(shoppingCart);
-
-                Console.WriteLine($"Added {amount}x {item.NameFood} to cart!");
-                Console.WriteLine("Your current shopping bag:");
-                foreach (var item2 in shoppingCart)
+                Console.WriteLine("Which box would you like to buy: 1, 2 or 3? ");
+                int input = Convert.ToInt32(Console.ReadLine());
+                foreach (var id in discounts)
                 {
-                    Console.WriteLine($"SNACK: {item2.NameFood}");
-                    Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
+                    if (id.Id == input)
+                    {
+                        System.Console.WriteLine(id.NameFood);
+                        System.Console.WriteLine($"{id.PriceFood} euro's");
+                        Console.WriteLine("How many do you want to buy?");
+                        int amounts = Convert.ToInt32(Console.ReadLine());
+                        ShoppingCartModel boughtSnacks = new ShoppingCartModel(id.NameFood, id.PriceFood, amounts);
+                        shoppingCart.Add(boughtSnacks);
+                        _shoppingCartAccesor.WriteAll(shoppingCart);
+
+                        Console.WriteLine("Your current shopping bag:");
+                        foreach (var item2 in shoppingCart)
+                        {
+                            if (item2.NameFood != null)
+                            {
+                                Console.WriteLine($"SNACK: {item2.NameFood}");
+                                Console.WriteLine($"PRICE: {amounts}x {item2.PriceFood}");
+                            }
+                        }
+                        Console.WriteLine("Press any key to return to the Account Menu");
+                        Console.ReadKey(true);
+                        AccountMenu.Start();
+                        break;
+
+
+                    }
                 }
             }
-            if (answer == "2")
+
             {
-                Console.WriteLine("Press any key to return to the Account Menu");
-                Console.ReadKey(true);
-                AccountMenu.Start();
-                break;
+                // Console.WriteLine("Press any key to return to the Account Menu");
+                // Console.ReadKey(true);
+                // AccountMenu.Start();
+                // break;
 
             }
         }

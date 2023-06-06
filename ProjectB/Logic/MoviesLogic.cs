@@ -86,7 +86,8 @@ public class MoviesLogic
 
         foreach (var movie in movies)
         {
-            if (inputWeek == 1)
+
+            if (inputWeek == movie.Week)
             {
                 Console.WriteLine($"WEEK: {movie.Week}");
                 Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
