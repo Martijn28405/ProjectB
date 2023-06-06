@@ -21,7 +21,6 @@ public class ReservationsLogic
     {
         foreach (var reservation in _reservations)
         {
-            Console.WriteLine($"ROW: {reservation.Row}");
             Console.WriteLine($"SEAT: {reservation.Seat}");
             Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
             Console.WriteLine($"MOVIE: {reservation.Movie}");
@@ -40,7 +39,6 @@ public class ReservationsLogic
         var filteredReservations = _reservations.Where(r => r.EmailAddress == EmailInput && r.Movie == movieInput);
         foreach (var reservation in filteredReservations)
         {
-            Console.WriteLine($"ROW: {reservation.Row}");
             Console.WriteLine($"SEAT: {reservation.Seat}");
             Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
             Console.WriteLine($"MOVIE: {reservation.Movie}");
@@ -49,33 +47,25 @@ public class ReservationsLogic
         }
 
         Console.WriteLine("What would you like to edit?");
-        Console.WriteLine("1. Row");
-        Console.WriteLine("2. Seat");
-        Console.WriteLine("3. Email");
-        Console.WriteLine("4. Movie");
-        Console.WriteLine("5. Start time");
-        Console.WriteLine("6. Duration");
-        Console.WriteLine("7. Exit");
+        Console.WriteLine("1. Seat");
+        Console.WriteLine("2. Email");
+        Console.WriteLine("3. Movie");
+        Console.WriteLine("4. Start time");
+        Console.WriteLine("5. Duration");
+        Console.WriteLine("6. Exit");
         string? input = Console.ReadLine();
         switch (input)
         {
             case "1":
-                Console.WriteLine("Enter new row:");
-                int rowInput = Int32.Parse(Console.ReadLine());
-                foreach (var reservation in filteredReservations)
-                {
-                    reservation.Row = rowInput;
-                }
-                break;
-            case "2":
                 Console.WriteLine("Enter new seat:");
-                int seatInput = Int32.Parse(Console.ReadLine());
+                List<string> seatInput = new List<string>();
+                seatInput.Add(Console.ReadLine());
                 foreach (var reservation in filteredReservations)
                 {
                     reservation.Seat = seatInput;
                 }
                 break;
-            case "3":
+            case "2":
                 Console.WriteLine("Enter new email:");
                 string? emailInput = Console.ReadLine();
                 foreach (var reservation in filteredReservations)
@@ -83,7 +73,7 @@ public class ReservationsLogic
                     reservation.EmailAddress = emailInput;
                 }
                 break;
-            case "4":
+            case "3":
                 Console.WriteLine("Enter new movie:");
                 string? movieInput2 = Console.ReadLine();
                 foreach (var reservation in filteredReservations)
@@ -91,10 +81,16 @@ public class ReservationsLogic
                     reservation.Movie = movieInput2;
                 }
                 break;
-            case "5":
+            case "4":
+                Console.WriteLine("Enter new start time:");
+                DateTime startTimeInput = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                foreach (var reservation in filteredReservations)
+                {
+                    reservation.StartTime = startTimeInput;
+                }
 
                 break;
-            case "6":
+            case "5":
                 Console.WriteLine("Enter new duration:");
                 int durationInput = Int32.Parse(Console.ReadLine());
                 foreach (var reservation in filteredReservations)
@@ -102,7 +98,7 @@ public class ReservationsLogic
                     reservation.Duration = durationInput;
                 }
                 break;
-            case "7":
+            case "6":
                 break;
             default:
                 Console.WriteLine("Invalid input");
@@ -133,18 +129,11 @@ public class ReservationsLogic
 
     public void CreateReservation()
     {
-        //get the row from the seatmenu
-        SeatMenu seatMenu = new SeatMenu();
-        int row = SeatMenu.row;
-        //get the seat from the seatmenu
-        int seat = SeatMenu.col;
-        //get the emailaddress from the user
+        List<string> seat = SeatMenu.selectedSeats;
         var email = UserLogin.User_Email;
-        // get the selected movie from movieslogic
         MoviesLogic moviesLogic = new MoviesLogic();
         string selectedMovie = MoviesLogic.SelectedMovie;
         Console.WriteLine(selectedMovie);
-        // get the start time and duration from the selected movie out of the json
         int durationInput = 1;
         foreach (var movie in moviesLogic.movies)
         {
@@ -173,14 +162,14 @@ public class ReservationsLogic
                 durationInput = movie.PlayTimeInMinutes;
             }
         }
-        ReservationModel newReservation = new ReservationModel(row, seat, email, selectedMovie, startTimeInput, durationInput);
+        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, startTimeInput, durationInput);
         _reservations.Add(newReservation);
         _accesor.WriteAll(_reservations);
         Console.WriteLine("Reservation created");
         EmailLogic sendemail = new EmailLogic();
         try
         {
-            sendemail.SendReservationEmail(UserLogin.User_Email,UserLogin.User_Name, MoviesLogic.SelectedMovie, row,seat, startTimeInput,durationInput);
+            sendemail.SendReservationEmail(UserLogin.User_Email, UserLogin.User_Name, MoviesLogic.SelectedMovie, seat, startTimeInput, durationInput);
             Console.WriteLine("an email has been send to your account with further detail.");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
