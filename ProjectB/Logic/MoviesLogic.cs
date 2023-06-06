@@ -84,9 +84,10 @@ public class MoviesLogic
         Console.WriteLine("Would you like to see:\n[1] Current week\n[2] Next week");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
 
+
         foreach (var movie in movies)
         {
-            if (inputWeek == 1)
+            if (inputWeek == movie.Week)
             {
                 Console.WriteLine($"WEEK: {movie.Week}");
                 Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
@@ -102,24 +103,10 @@ public class MoviesLogic
                 }
                 Console.WriteLine();
             }
-            if (inputWeek == 2)
-            {
-                Console.WriteLine($"WEEK: {movie.Week}");
-                Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
-                Console.WriteLine($"DIRECTOR: {movie.Director}");
-                Console.WriteLine($"INFORMATION: {movie.Information}");
-                Console.WriteLine($"GENRE:{movie.Genre}");
-                Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
-                Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
-                foreach (DateTime time in movie.StartTime)
-                {
-                    string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
-                    Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
-                }
-                Console.WriteLine();
-
-            }
+            Console.WriteLine("Invallid input");
+            break;
         }
+
         Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
         int userChoice = Convert.ToInt32(Console.ReadLine());
         if (userChoice == 1)

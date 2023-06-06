@@ -1,7 +1,12 @@
 [
   {
-    "NameFood": "2 x Popcorn",
-    "PriceFood": 4,
-    "Amount": 1
+    "NameFood": null,
+    "PriceFood": 0,
+    "Amount": 0
+  },
+  {
+    "NameFood": "Pretzel and juice Action Box",
+    "PriceFood": 6,
+    "Amount": 2
   }
 ]

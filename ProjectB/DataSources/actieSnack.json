@@ -2,7 +2,19 @@
     {
         "Id": 1,
         "Discription": "save 1 euro by buying this box",
-        "NameFood": "2 x Popcorn",
+        "NameFood": "Popcorn Action Box",
         "PriceFood": 4
+    },
+    {
+        "Id": 2,
+        "Discription": "Buy 3 soda's for 7.50 euro instead of 9 euro's",
+        "NameFood": "Soda Action Box",
+        "PriceFood": 7.50
+    },
+    {
+        "Id": 3,
+        "Discription": "Buy a pretzel and a juice and save 2 euro's",
+        "NameFood": "Pretzel and juice Action Box",
+        "PriceFood": 6
     }
 ]
