@@ -67,7 +67,8 @@ public class SnacksLogic
                 Console.WriteLine();
             }
             int itemId = Convert.ToInt32(Console.ReadLine());
-            // snacks is the list of available snacks. FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
+            // snacks is the list of available snacks.
+            // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
             var snack = snacks.FirstOrDefault(snack => snack.Id == itemId);
             if (snack == null)
             {
