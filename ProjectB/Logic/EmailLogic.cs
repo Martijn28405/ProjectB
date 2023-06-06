@@ -12,7 +12,9 @@ public class EmailLogic
     static JsonAccessor<ShoppingCartModel> _shoppingCartAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
     public static List<ShoppingCartModel>? shoppingCart;
     public static List<string> shopping_cart_list = new List<string>();
+    public static List<string> seats_list = new List<string>();
     string shopping_cart = string.Join(",", shopping_cart_list);
+    string seats = string.Join(",", seats_list);
 
 
 
@@ -597,7 +599,7 @@ public class EmailLogic
             "                                                                        align=\"center\">Uw Reservering:</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Tickets voor {movie}:</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Seats: {seat},</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Seats: {seats},</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Start Time: {startTime},</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Duration: {duration},</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";

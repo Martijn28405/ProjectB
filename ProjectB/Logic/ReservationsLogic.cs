@@ -17,6 +17,7 @@ public class ReservationsLogic
     public ReservationsLogic()
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
+		_cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
         _reservations = _accesor.LoadAll();
         _carts = _cartAccesor.LoadAll();
     }
@@ -29,6 +30,14 @@ public class ReservationsLogic
             Console.WriteLine($"MOVIE: {reservation.Movie}");
             Console.WriteLine($"START TIME: {reservation.StartTime}");
             Console.WriteLine($"DURATION: {reservation.Duration}");
+        }
+    }
+	public void AddReservation()
+    {
+        foreach (var item in _carts)
+        {
+            
+            EmailLogic.seats_list.Add(item.Seat.ToString());
         }
     }
 

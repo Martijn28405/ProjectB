@@ -6,5 +6,23 @@
     ],
     "TotalPrice": 20,
     "MovieName": "John Wick 4"
+  },
+  {
+    "Seat": [
+      "Row: 4 Seat: 5",
+      "Row: 5 Seat: 7",
+      "Row: 6 Seat: 6"
+    ],
+    "TotalPrice": 20,
+    "MovieName": "John Wick 4"
+  },
+  {
+    "Seat": [
+      "Row: 4 Seat: 5",
+      "Row: 5 Seat: 6",
+      "Row: 6 Seat: 5"
+    ],
+    "TotalPrice": 40,
+    "MovieName": "John Wick 4"
   }
 ]
