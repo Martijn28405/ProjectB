@@ -35,6 +35,15 @@ public class SnacksLogic
         Console.WriteLine("Press any key to return to the menu");
         Console.ReadKey(true);
     }
+    public void AddShoppingCart()
+    {
+        foreach (var item in shoppingCart)
+        {
+            
+            EmailLogic.shopping_cart_list.Add(item.NameFood);
+            EmailLogic.shopping_cart_list.Add(item.PriceFood.ToString());
+        }
+    }
 
     public void AddSnacks()
     {
@@ -101,6 +110,7 @@ public class SnacksLogic
                     Console.WriteLine($"SNACK: {item2.NameFood}");
                     Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
                 }
+                AddShoppingCart();
             }
             Console.WriteLine("Do you want to buy another snack?");
             Console.WriteLine("[1] Yes\n[2] No");

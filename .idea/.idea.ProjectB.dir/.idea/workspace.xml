@@ -8,15 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_22_2023_9_13_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_22_2023_9_13_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2023_1_41_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2023_1_41_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_2023_3_02_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_2023_3_02_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/accounts.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/accounts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/SeatsCart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/SeatsCart.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/Presentation/AccountMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Presentation/AccountMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBTests/SendEmailTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBTests/SendEmailTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/SnacksLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/SnacksLogic.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,6 +204,7 @@
       <workItem from="1685025294012" duration="26000" />
       <workItem from="1685436655389" duration="852000" />
       <workItem from="1685439062806" duration="1313000" />
+      <workItem from="1686058882825" duration="966000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>

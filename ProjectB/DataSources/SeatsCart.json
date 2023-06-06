@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "Seat": [
+      "Row: 4 Seat: 5",
+      "Row: 5 Seat: 6"
+    ],
+    "TotalPrice": 20,
+    "MovieName": "John Wick 4"
+  }
+]

@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 public class EmailLogic
 
 {
+    static JsonAccessor<ShoppingCartModel> _shoppingCartAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
+    public static List<ShoppingCartModel>? shoppingCart;
+    public static List<string> shopping_cart_list = new List<string>();
+    string shopping_cart = string.Join(",", shopping_cart_list);
+
+
+
 
     public void SendReservationEmail(string mail, string name, string movie, List<string> seat, DateTime startTime, int duration)
-
     {
-
         string fromMail = "info.hetbioscoopje@gmail.com";
 
         string fromPassword = "xiqngqxgmictafgk";
@@ -500,7 +505,7 @@ public class EmailLogic
 
         htmlBody += "                                                            style=\"line-height: 24px; font-size: 16px; width: 100%; margin: 0;\"\n";
 
-        htmlBody += $"                                                            align=\"left\">Bedankt {name} dat u heeft gereserveerd bij Het Bioscoopje\n";
+        htmlBody += $"                                                            align=\"center\">Bedankt {name} dat u heeft gereserveerd bij Het Bioscoopje\n";
 
         htmlBody += "                                                        </p>\n";
 
@@ -591,10 +596,13 @@ public class EmailLogic
         htmlBody +=
             "                                                                        align=\"center\">Uw Reservering:</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Tickets voor {movie}:</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Seat:{seat}:</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Start Time:{startTime}:</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Duration:{duration}:</h3>\n";
-
+        htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Seats: {seat},</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Start Time: {startTime},</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Duration: {duration},</h3>\n";
+        htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items:{shopping_cart}</h3>\n";
+        
 
         htmlBody += "                                                                    <h1 class=\"text-4xl fw-800\"\n";
 
@@ -683,7 +691,6 @@ public class EmailLogic
         htmlBody += "</table>\n";
 
         htmlBody += "<p style=\"line-height: 24px; font-size: 16px; color:darkgray; width: 100%; margin: 0;\"\n";
-
         htmlBody += "align=\"left\">Als u vragen heeft kun u ons\n";
 
         htmlBody += "bellen via: 06-485768857\n";
@@ -809,25 +816,25 @@ public class EmailLogic
         MailMessage.To.Add(UserLogin.User_Email);
         smtpClient.Send(MailMessage);*/
 
-}
-/*public void SendModifiedSeatEmail()
-{
-    var smtpClient = new SmtpClient("smtp.gmail.com", 587);
-    smtpClient.UseDefaultCredentials = false;
-    smtpClient.Credentials = new NetworkCredential("info.hetbioscoopje@gmail.com", "pqqlwfrqeplyfyll");
-    smtpClient.EnableSsl = true; ;
-
-    var MailMessage = new MailMessage
+    }
+    /*public void SendModifiedSeatEmail()
     {
-        From = new MailAddress("info.hetbioscoopje@gmail.com"),
-        Subject = "Your Reservation has been Modified",
-        Body = $"<h1>Dear {UserLogin.User_Name},\n" +
-               "Your reservation has been Modified</h1>" +
-               $"<h2>Your seat has changed to seat {ReservationsLogic.new_seat}</h2>",
-        IsBodyHtml = true
-    };
-    MailMessage.To.Add(UserLogin.User_Email);
-    smtpClient.Send(MailMessage);*/
+        var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+        smtpClient.UseDefaultCredentials = false;
+        smtpClient.Credentials = new NetworkCredential("info.hetbioscoopje@gmail.com", "pqqlwfrqeplyfyll");
+        smtpClient.EnableSsl = true; ;
+
+        var MailMessage = new MailMessage
+        {
+            From = new MailAddress("info.hetbioscoopje@gmail.com"),
+            Subject = "Your Reservation has been Modified",
+            Body = $"<h1>Dear {UserLogin.User_Name},\n" +
+                   "Your reservation has been Modified</h1>" +
+                   $"<h2>Your seat has changed to seat {ReservationsLogic.new_seat}</h2>",
+            IsBodyHtml = true
+        };
+        MailMessage.To.Add(UserLogin.User_Email);
+        smtpClient.Send(MailMessage);*/
 
 /*public void SendModifiedEmail()
 {
@@ -849,7 +856,7 @@ public class EmailLogic
     smtpClient.Send(MailMessage);*/
 
 
-/*public void SendModifiedEmails()
-{
-
-}*/
+    /*public void SendModifiedEmails()
+    {
+        
+    }*/

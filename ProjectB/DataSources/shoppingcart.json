@@ -8,5 +8,10 @@
     "NameFood": "Pretzel and juice Action Box",
     "PriceFood": 6,
     "Amount": 2
+  },
+  {
+    "NameFood": "Nachos",
+    "PriceFood": 6.99,
+    "Amount": 1
   }
 ]

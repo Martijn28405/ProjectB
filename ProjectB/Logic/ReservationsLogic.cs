@@ -10,6 +10,7 @@ public class ReservationsLogic
 {
     private JsonAccessor<ReservationModel> _accesor;
     private JsonAccessor<SeatsCartModel> _cartAccesor;
+    public List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
     public DateTime startTimeInput;
     public int TotalPrice;
@@ -17,6 +18,7 @@ public class ReservationsLogic
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
         _reservations = _accesor.LoadAll();
+        _carts = _cartAccesor.LoadAll();
     }
     public void ShowReservations()
     {
