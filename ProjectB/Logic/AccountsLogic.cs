@@ -11,9 +11,6 @@ public class AccountsLogic
     private JsonAccessor<AccountModel> _accessor;
     private List<AccountModel> _accounts;
     private readonly ValidationsLogic _validationLogic;
-    //Static properties are shared across all instances of the class
-    //This can be used to get the current logged in account from anywhere in the program
-    //private set, so this can only be set by the class itself
     public static AccountModel? CurrentAccount { get; private set; }
 
     public AccountsLogic()

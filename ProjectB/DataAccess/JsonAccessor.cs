@@ -1,7 +1,7 @@
 using System.Text.Json;
 // "T" is een "generic". Dit houdt in dat T een ander type heeft. 
-// Het is dus mogelijk om elke keer als JsonACcessor wordt aangemaakt het type dat opgeslagen moet worden te wijzigen.
-// Zie voorbeeld in Accounts Logic & movie Logic
+// Het is dus mogelijk om elke keer als de JsonAccessor wordt aangemaakt het type dat opgeslagen moet worden te wijzigen.
+// Zie voorbeeld in AccountsLogic & MoviesLogic
 public class JsonAccessor<T>
 {
     private string _path;
