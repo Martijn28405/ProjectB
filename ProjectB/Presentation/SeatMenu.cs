@@ -13,6 +13,7 @@ public class SeatMenu
     static int selectedSeatIndex = 6; // Initially select the first seat
     static string[,] seats = new string[14, 12]; // 14x142 array of seats
     static bool[,] takenSeats = new bool[14, 12];
+    public static List<string> selectedSeats = new List<string>();
 
     public static void Start()
     {
@@ -171,6 +172,7 @@ public class SeatMenu
     {
         row = selectedSeatIndex / seats.GetLength(1);
         col = selectedSeatIndex % seats.GetLength(1);
+
         if (seats[row, col] != "[X]")
         {
             takenSeats[row, col] = true;// Mark the seat as taken
@@ -178,6 +180,7 @@ public class SeatMenu
             Console.WriteLine("Seat selected!");
             Console.WriteLine($"Row: {row}");
             Console.WriteLine($"Seat: {col}");
+            selectedSeats.Add($"Row: {row} Seat: {col}");
             Choice();
         }
 
@@ -190,6 +193,10 @@ public class SeatMenu
 
     static void Choice()
     {
+        foreach (var seat in selectedSeats)
+        {
+            Console.WriteLine(seat);
+        }
         Console.WriteLine("[1] Select More Seats \n[2] Go to Checkout ");
         string choice = Console.ReadLine();
         switch (choice)
@@ -202,8 +209,9 @@ public class SeatMenu
                 ReservationsLogic reservationsLogic = new ReservationsLogic();
                 reservationsLogic.CreateReservation();
                 break;
-
         }
+        // Send the price of all selected seats and which seats are selected to the checkout
+
     }
 
     // Hier komt de indx met de verschillende kleuren

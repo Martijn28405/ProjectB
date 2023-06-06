@@ -14,6 +14,7 @@ public class SeatMenu2
     static int selectedSeatIndex = 6; // Initially select the first seat
     static string[,] seats = new string[19, 18]; // 14x142 array of seats
     static bool[,] takenSeats = new bool[19, 18];
+    static List<string> selectedSeats = new List<string>();
 
     public static void Start()
     {
@@ -164,6 +165,7 @@ public class SeatMenu2
             }
             Console.WriteLine();
         }
+
     }
 
     static void MoveSelectionUp()
@@ -201,9 +203,9 @@ public class SeatMenu2
             {
                 selectedSeatIndex++;
                 DrawSeats();
-                
+
             }
-            
+
         }
     }
 
@@ -218,9 +220,9 @@ public class SeatMenu2
             Console.WriteLine("Seat selected!");
             Console.WriteLine($"Row: {row}");
             Console.WriteLine($"Seat: {col}");
+            selectedSeats.Add($"Row: {row} Seat: {col}");
             Choice();
         }
-
         else
         {
             Console.WriteLine("Seat already taken. Please select another seat.");
@@ -230,6 +232,10 @@ public class SeatMenu2
 
     static void Choice()
     {
+        foreach (var seat in selectedSeats)
+        {
+            Console.WriteLine(seat);
+        }
         Console.WriteLine("[1] Select More Seats \n[2] Go to Checkout ");
         string choice = Console.ReadLine();
         switch (choice)

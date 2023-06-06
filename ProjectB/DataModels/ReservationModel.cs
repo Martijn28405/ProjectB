@@ -1,11 +1,9 @@
 using System.Text.Json.Serialization;
 public class ReservationModel
 {
-    [JsonPropertyName("Row")]
-    public int Row { get; set; }
-
     [JsonPropertyName("Seat")]
-    public int Seat { get; set; }
+    public List<string> Seat { get; set; }
+
     [JsonPropertyName("EmailAddress")]
     public string EmailAddress { get; set; }
     [JsonPropertyName("Movie")]
@@ -15,9 +13,8 @@ public class ReservationModel
     [JsonPropertyName("Duration")]
     public int Duration { get; set; }
 
-    public ReservationModel(int row, int seat, string emailAddress, string movie, DateTime startTime, int duration)
+    public ReservationModel(List<string> seat, string emailAddress, string movie, DateTime startTime, int duration)
     {
-        Row = row;
         Seat = seat;
         EmailAddress = emailAddress;
         Movie = movie;

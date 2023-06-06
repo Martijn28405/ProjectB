@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "Seat": [
+      "Row: 0 Seat: 6",
+      "Row: 1 Seat: 8",
+      "Row: 2 Seat: 8"
+    ],
+    "EmailAddress": "Martijn28405@gmail.com",
+    "Movie": "Black Panther: Wakanda Forever",
+    "Start Time": "2023-06-23T20:00:00",
+    "Duration": 0
+  }
+]
