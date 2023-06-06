@@ -4,14 +4,15 @@ using System.Globalization;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-
-
+using ProjectB.DataModels;
 
 public class ReservationsLogic
 {
     private JsonAccessor<ReservationModel> _accesor;
+    private JsonAccessor<SeatsCartModel> _cartAccesor;
     public List<ReservationModel> _reservations;
     public DateTime startTimeInput;
+    public int TotalPrice;
     public ReservationsLogic()
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
@@ -166,6 +167,7 @@ public class ReservationsLogic
         _reservations.Add(newReservation);
         _accesor.WriteAll(_reservations);
         Console.WriteLine("Reservation created");
+        SeatPricing();
         EmailLogic sendemail = new EmailLogic();
         try
         {
@@ -184,7 +186,36 @@ public class ReservationsLogic
         }
 
     }
+    public void SeatPricing()
+    {
+        List<string> colors = SeatMenu.selectedSeatsColor;
+        foreach (var item in colors)
+        {
+            if (item == "[R]")
+            {
+                TotalPrice += 20;
+            }
+            else if (item == "[Y]")
+            {
+                TotalPrice += 15;
+            }
+            else if (item == "[B]")
+            {
+                TotalPrice += 10;
+            }
+        }
 
+        MoviesLogic moviesLogic = new MoviesLogic();
+        string selectedMovie = MoviesLogic.SelectedMovie;
+
+        List<string> seat = SeatMenu.selectedSeats;
+        //send everything to the seatscart json
+        SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice);
+        JsonAccessor<SeatsCartModel> _accesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
+        List<SeatsCartModel> _seatsCart = _accesor.LoadAll();
+        _seatsCart.Add(newSeat);
+        _accesor.WriteAll(_seatsCart);
+    }
     /*public void SendModifiedEmails()
     {
         

@@ -2,14 +2,16 @@
 using System.Text.Json.Serialization;
 public class SeatsCartModel
 {
-    [JsonPropertyName("SeatColor")]
-    public string SeatColor { get; set; }
+    [JsonPropertyName("Seat")]
+    public List<string> Seat { get; set; }
     [JsonPropertyName("TotalPrice")]
     public double TotalPrice { get; set; }
-
-    public SeatsCartModel(string seatColor, double totalPrice)
+    [JsonPropertyName("MovieName")]
+    public string MovieName { get; set; }
+    public SeatsCartModel(List<string> seat, string movieName, double totalPrice)
     {
-        SeatColor = seatColor;
+        Seat = seat;
+        MovieName = movieName;
         TotalPrice = totalPrice;
     }
 }

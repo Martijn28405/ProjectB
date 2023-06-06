@@ -16,6 +16,7 @@ public class SeatMenu2
     static bool[,] takenSeats = new bool[19, 18];
     static List<string> selectedSeats = new List<string>();
 
+
     public static void Start()
     {
         Console.Clear();

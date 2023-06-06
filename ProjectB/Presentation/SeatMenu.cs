@@ -14,6 +14,7 @@ public class SeatMenu
     static string[,] seats = new string[14, 12]; // 14x142 array of seats
     static bool[,] takenSeats = new bool[14, 12];
     public static List<string> selectedSeats = new List<string>();
+    public static List<string> selectedSeatsColor = new List<string>();
 
     public static void Start()
     {
@@ -181,6 +182,7 @@ public class SeatMenu
             Console.WriteLine($"Row: {row}");
             Console.WriteLine($"Seat: {col}");
             selectedSeats.Add($"Row: {row} Seat: {col}");
+            selectedSeatsColor.Add(seats[row, col]);
             Choice();
         }
 
@@ -197,6 +199,7 @@ public class SeatMenu
         {
             Console.WriteLine(seat);
         }
+        Console.WriteLine("Would you like to select more seats or go to checkout?");
         Console.WriteLine("[1] Select More Seats \n[2] Go to Checkout ");
         string choice = Console.ReadLine();
         switch (choice)
