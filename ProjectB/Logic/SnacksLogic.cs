@@ -39,7 +39,7 @@ public class SnacksLogic
     {
         foreach (var item in shoppingCart)
         {
-            
+
             EmailLogic.shopping_cart_list.Add(item.NameFood);
             EmailLogic.shopping_cart_list.Add(item.PriceFood.ToString());
         }
@@ -78,7 +78,7 @@ public class SnacksLogic
             int itemId = Convert.ToInt32(Console.ReadLine());
             // snacks is the list of available snacks.
             // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
-            var snack = snacks.FirstOrDefault(snack => snack.Id == itemId);
+            SnackModel? snack = snacks.FirstOrDefault(snack => snack.Id == itemId);
             if (snack == null)
             {
                 Console.WriteLine("Invalid, please try again.");
@@ -119,13 +119,7 @@ public class SnacksLogic
             {
                 continue;
             }
-            else
-            {
-                Console.WriteLine("Press any key to return to the Account Menu");
-                Console.ReadKey(true);
-                AccountMenu.Start();
-                break;
-            }
+            return;
         }
     }
 

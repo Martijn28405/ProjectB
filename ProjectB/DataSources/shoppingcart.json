@@ -1,22 +1,12 @@
 [
   {
-    "NameFood": null,
-    "PriceFood": 0,
-    "Amount": 0
-  },
-  {
-    "NameFood": "Pretzel and juice Action Box",
-    "PriceFood": 6,
+    "NameFood": "Juice",
+    "PriceFood": 3.99,
     "Amount": 2
   },
   {
     "NameFood": "Nachos",
     "PriceFood": 6.99,
-    "Amount": 1
-  },
-  {
-    "NameFood": "Soda Action Box",
-    "PriceFood": 7.5,
     "Amount": 1
   }
 ]

@@ -13,11 +13,11 @@ public class ReservationsLogic
     public List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
     public DateTime startTimeInput;
-    public int TotalPrice;
+    private int TotalPrice;
     public ReservationsLogic()
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
-		_cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
+        _cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
         _reservations = _accesor.LoadAll();
         _carts = _cartAccesor.LoadAll();
     }
@@ -32,11 +32,11 @@ public class ReservationsLogic
             Console.WriteLine($"DURATION: {reservation.Duration}");
         }
     }
-	public void AddReservation()
+    public void AddReservation()
     {
         foreach (var item in _carts)
         {
-            
+
             EmailLogic.seats_list.Add(item.Seat.ToString());
         }
     }
@@ -116,7 +116,7 @@ public class ReservationsLogic
                 Console.WriteLine("Invalid input");
                 break;
         }
-        System.Console.WriteLine("Dop you want to change another reservation? (y/n)");
+        System.Console.WriteLine("Do you want to change another reservation? (y/n)");
         string? input2 = Console.ReadLine();
         if (input2 == "y")
         {
@@ -139,7 +139,7 @@ public class ReservationsLogic
         // dit toevoegen
     }
 
-    public void CreateReservation()
+    public void CreateReservation(List<ShoppingCartModel> shoppingCart)
     {
         List<string> seat = SeatMenu.selectedSeats;
         var email = UserLogin.User_Email;
@@ -175,28 +175,26 @@ public class ReservationsLogic
             }
         }
         ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, startTimeInput, durationInput);
-        _reservations.Add(newReservation);
-        _accesor.WriteAll(_reservations);
-        Console.WriteLine("Reservation created");
+
         SeatPricing();
-        EmailLogic sendemail = new EmailLogic();
-        try
-        {
-            sendemail.SendReservationEmail(UserLogin.User_Email, UserLogin.User_Name, MoviesLogic.SelectedMovie, seat, startTimeInput, durationInput);
-            Console.WriteLine("an email has been send to your account with further detail.");
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey(true);
-            AccountMenu.Start();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("The email could not be send. But your reservation has been created.");
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey(true);
-            Program.Main();
-        }
+        ProceedCheckout(shoppingCart, newReservation);
+
+        Console.WriteLine("Return to Homepage");
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey(true);
+    }
+
+    private void ProceedCheckout(List<ShoppingCartModel> snacks, ReservationModel reservationModel)
+    {
+        PaymentLogic paymentLogic = new PaymentLogic();
+        paymentLogic.CheckOut(_carts, snacks);
+        _reservations.Add(reservationModel);
+        _accesor.WriteAll(_reservations);
+        paymentLogic.FinalizeReservation();
+
 
     }
+
     public void SeatPricing()
     {
         List<string> colors = SeatMenu.selectedSeatsColor;

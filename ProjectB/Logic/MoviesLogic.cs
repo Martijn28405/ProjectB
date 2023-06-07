@@ -107,7 +107,7 @@ public class MoviesLogic
             break;
         }
 
-        Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
+        Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
         int userChoice = Convert.ToInt32(Console.ReadLine());
         if (userChoice == 1)
         {

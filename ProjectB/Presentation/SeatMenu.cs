@@ -199,9 +199,12 @@ public class SeatMenu
         {
             Console.WriteLine(seat);
         }
-        Console.WriteLine("Would you like to select more seats or go to checkout?");
-        Console.WriteLine("[1] Select More Seats \n[2] Go to Checkout ");
+        Console.WriteLine("Would you like to select more seats, buy some snacks or continue to checkout?");
+        Console.WriteLine("[1] Select More Seats \n[2] Buy Snacks \n[3] Go to Checkout ");
         string choice = Console.ReadLine();
+        SnacksLogic snacksLogic = new SnacksLogic();
+        ReservationsLogic reservationsLogic = new ReservationsLogic();
+
         switch (choice)
         {
             case "1":
@@ -209,8 +212,11 @@ public class SeatMenu
                 DrawSeats();
                 break;
             case "2":
-                ReservationsLogic reservationsLogic = new ReservationsLogic();
-                reservationsLogic.CreateReservation();
+                snacksLogic.BuySnacks();
+                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                break;
+            case "3":
+                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
         }
         // Send the price of all selected seats and which seats are selected to the checkout

@@ -50,7 +50,7 @@ public class AccountsLogic
         {
             return fullName;
         }
-        System.Console.WriteLine("Invalid input");
+        Console.WriteLine("Invalid input");
         return CreateFullName();
     }
 
@@ -63,7 +63,7 @@ public class AccountsLogic
         {
             return emailAddress;
         }
-        System.Console.WriteLine("Invalid input");
+        Console.WriteLine("Invalid input");
         return CreateEmail();
     }
 
@@ -75,7 +75,7 @@ public class AccountsLogic
         {
             return password;
         }
-        System.Console.WriteLine("Invalid input");
+        Console.WriteLine("Invalid input");
         return CreatePassword();
     }
 
