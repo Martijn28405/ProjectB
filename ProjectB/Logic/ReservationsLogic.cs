@@ -147,8 +147,7 @@ public class ReservationsLogic
         string selectedMovie = MoviesLogic.SelectedMovie;
         Console.WriteLine(selectedMovie);
         int durationInput = 1;
-        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput);
-
+        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput, PaymentLogic.randomcodestring);
         SeatPricing();
         ProceedCheckout(shoppingCart, newReservation);
 

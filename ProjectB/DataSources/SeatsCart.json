@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "Seat": [
+      "Row: 5 Seat: 5"
+    ],
+    "TotalPrice": 20,
+    "MovieName": "The Lost City"
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 5",
+      "Row: 2 Seat: 6",
+      "Row: 3 Seat: 4"
+    ],
+    "TotalPrice": 30,
+    "MovieName": "Dune"
+  }
+]

@@ -13,7 +13,9 @@ public class ReservationModel
     [JsonPropertyName("Duration")]
     public int Duration { get; set; }
 
-    public ReservationModel(List<string> seat, string emailAddress, string movie, DateTime startTime, int duration)
+    public string RandomCode { get; set; }
+
+    public ReservationModel(List<string> seat, string emailAddress, string movie, DateTime startTime, int duration, string randomCode)
     {
         Seat = seat;
         EmailAddress = emailAddress;

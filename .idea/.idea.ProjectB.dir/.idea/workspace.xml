@@ -7,11 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="">
+    <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="Reservaties Aangepast">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataModels/ReservationModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataModels/ReservationModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/SeatsCart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/SeatsCart.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/PaymentLogic/PaymentLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/PaymentLogic/PaymentLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" afterDir="false" />
@@ -43,7 +43,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/ProjectB/Logic/CheckMovieInformation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectB/Logic/CheckMovieInformation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteMovies.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteSnacks.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" root0="FORCE_HIGHLIGHTING" />
@@ -208,7 +208,7 @@
       <workItem from="1686075881397" duration="682000" />
       <workItem from="1686227811697" duration="2155000" />
       <workItem from="1686230107268" duration="20000" />
-      <workItem from="1686230305255" duration="2115000" />
+      <workItem from="1686230305255" duration="3465000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -434,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686229366692</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Reservaties Aangepast">
+      <created>1686232600806</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1686232600806</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +462,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Show movies toegevoegd aan ManagerMenu.cs en Co-Worker menu.cs" />
     <MESSAGE value="Co worker kan nu ook inloggen" />
     <MESSAGE value="ManagerMenu.cs logo bug fixed" />
     <MESSAGE value="MoviesLogic Wordt nu teruggestuurd naar de menu na het showen van de movies" />
@@ -480,6 +486,7 @@
     <MESSAGE value="MovieInformationTest added (Luca)" />
     <MESSAGE value="Movie Information Test Added (Luca)" />
     <MESSAGE value="Volgorde reservering aangepast" />
-    <option name="LAST_COMMIT_MESSAGE" value="Volgorde reservering aangepast" />
+    <MESSAGE value="Reservaties Aangepast" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reservaties Aangepast" />
   </component>
 </project>
