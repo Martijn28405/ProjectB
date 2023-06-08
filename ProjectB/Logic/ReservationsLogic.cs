@@ -12,8 +12,7 @@ public class ReservationsLogic
     private JsonAccessor<SeatsCartModel> _cartAccesor;
     public static List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
-    public static Random randomcode = new Random();
-    public static string randomcodestring = null;
+    
 
     private int TotalPrice;
     public ReservationsLogic()
@@ -149,7 +148,7 @@ public class ReservationsLogic
         string selectedMovie = MoviesLogic.SelectedMovie;
         Console.WriteLine(selectedMovie);
         int durationInput = 1;
-        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput, randomcode.Next());
+        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput);
         SeatPricing();
         ProceedCheckout(shoppingCart, newReservation);
 

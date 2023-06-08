@@ -20,5 +20,15 @@
     "Start Time": "2023-07-01T19:30:00",
     "Duration": 1,
     "RandomCode": null
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": null,
+    "Movie": "Dune",
+    "Start Time": "2023-07-01T22:00:00",
+    "Duration": 1,
+    "RandomCode": null
   }
 ]
