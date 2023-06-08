@@ -8,6 +8,7 @@ public class MoviesLogic
     private JsonAccessor<MovieModel> _accesor;
     public List<MovieModel> movies;
     public static string? SelectedMovie = null;
+    public static DateTime startTimeInput;
     public MoviesLogic()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
@@ -347,6 +348,34 @@ public class MoviesLogic
 
                 SelectedMovie = inputMovie;
                 Console.WriteLine($"{SelectedMovie} selected");
+                int durationInput = 1;
+                foreach (var movie in movies)
+                {
+                    if (movie.MovieTitle == SelectedMovie)
+                    {
+                        //create a list of starting times and let the user select one
+                        List<DateTime> startingTimes = new List<DateTime>();
+                        foreach (var time in movie.StartTime)
+                        {
+                            startingTimes.Add(time);
+                        }
+                        // int selectedTime = Int32.Parse(Console.ReadLine());
+                        // startTimeInput = selectedTime;
+                        //get the duration of the movie
+                        Console.WriteLine("Which time would you like to reserve?");
+                        int y = 1;
+                        foreach (var x in startingTimes)
+                        {
+                            Console.WriteLine($"[{y}]. {x}");
+                            y++;
+                        }
+                        //Let the user choose one of the times and put the selected time in startTimeInput
+                        int selectedTime = Int32.Parse(Console.ReadLine());
+                        startTimeInput = startingTimes[selectedTime - 1];
+
+                        durationInput = movie.PlayTimeInMinutes;
+                    }
+                }
                 Console.WriteLine("Press any key to reserve a seat");
                 Console.ReadKey(true);
                 SeatMenu.Start();

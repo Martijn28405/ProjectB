@@ -19,7 +19,7 @@ public class EmailLogic
 
 
 
-    public void SendReservationEmail(string mail, string movie, List<string> seat, DateTime startTime, int duration)
+    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, int duration)
     {
         string fromMail = "info.hetbioscoopje@gmail.com";
 

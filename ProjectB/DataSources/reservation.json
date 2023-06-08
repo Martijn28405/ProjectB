@@ -105,5 +105,44 @@
     "Movie": "John Wick 4",
     "Start Time": "2023-06-18T21:00:00",
     "Duration": 180
+  },
+  {
+    "Seat": [
+      "Row: 4 Seat: 5"
+    ],
+    "EmailAddress": "1",
+    "Movie": "John Wick 4",
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 4 Seat: 5",
+      "Row: 7 Seat: 4"
+    ],
+    "EmailAddress": "1",
+    "Movie": "John Wick 4",
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 4 Seat: 5",
+      "Row: 5 Seat: 6"
+    ],
+    "EmailAddress": "1",
+    "Movie": "John Wick 4",
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 5 Seat: 5",
+      "Row: 6 Seat: 6"
+    ],
+    "EmailAddress": "1",
+    "Movie": "John Wick 4",
+    "Start Time": "2023-06-18T20:30:00",
+    "Duration": 1
   }
 ]
