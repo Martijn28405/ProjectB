@@ -2,6 +2,10 @@ using ProjectB.DataModels;
 
 public class PaymentLogic
 {
+    public static List<string> shopping_cart_list = new List<string>();
+    public static List<string> seats_list = new List<string>();
+    string shopping_cart = string.Join(",", shopping_cart_list);
+    string seat = string.Join(",", seats_list);
     private decimal ShowReceipt(List<SeatsCartModel> cart, List<ShoppingCartModel> snacks)
     {
         decimal totalPrice = 0;
@@ -99,7 +103,7 @@ public class PaymentLogic
         try
         {
             // seat, starttime en durationtime nog toevoegen.
-            // sendemail.SendReservationEmail(GuestMenu.Guest_Email, MoviesLogic.SelectedMovie, seat, startTimeInput, durationInput);
+            /*sendemail.SendReservationEmail(GuestMenu.Guest_Email, MoviesLogic.SelectedMovie, seat, startTimeInput, durationInput);*/
             Console.WriteLine("an email has been send to your account with further detail.");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);

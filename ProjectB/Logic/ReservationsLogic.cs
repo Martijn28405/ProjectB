@@ -12,7 +12,7 @@ public class ReservationsLogic
     private JsonAccessor<SeatsCartModel> _cartAccesor;
     public List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
-    public DateTime startTimeInput;
+
     private int TotalPrice;
     public ReservationsLogic()
     {
@@ -147,34 +147,7 @@ public class ReservationsLogic
         string selectedMovie = MoviesLogic.SelectedMovie;
         Console.WriteLine(selectedMovie);
         int durationInput = 1;
-        foreach (var movie in moviesLogic.movies)
-        {
-            if (movie.MovieTitle == selectedMovie)
-            {
-                //create a list of starting times and let the user select one
-                List<DateTime> startingTimes = new List<DateTime>();
-                foreach (var time in movie.StartTime)
-                {
-                    startingTimes.Add(time);
-                }
-                // int selectedTime = Int32.Parse(Console.ReadLine());
-                // startTimeInput = selectedTime;
-                //get the duration of the movie
-                Console.WriteLine("Which time would you like to reserve?");
-                int y = 1;
-                foreach (var x in startingTimes)
-                {
-                    Console.WriteLine($"[{y}]. {x}");
-                    y++;
-                }
-                //Let the user choose one of the times and put the selected time in startTimeInput
-                int selectedTime = Int32.Parse(Console.ReadLine());
-                startTimeInput = startingTimes[selectedTime - 1];
-
-                durationInput = movie.PlayTimeInMinutes;
-            }
-        }
-        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, startTimeInput, durationInput);
+        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput);
 
         SeatPricing();
         ProceedCheckout(shoppingCart, newReservation);
