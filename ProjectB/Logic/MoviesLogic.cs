@@ -104,8 +104,8 @@ public class MoviesLogic
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("Invallid input");
-            break;
+            // Console.WriteLine("Invallid input");
+            // break;
         }
 
         Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
