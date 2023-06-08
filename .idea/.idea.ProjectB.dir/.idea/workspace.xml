@@ -13,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/PaymentLogic/PaymentLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/PaymentLogic/PaymentLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" afterDir="false" />
     </list>
@@ -48,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteMovies.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteSnacks.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/EmailLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/ValidationsLogic.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -66,29 +66,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Marti\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Marti\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Marti\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Marti\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Marti\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Marti\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ProjectB" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -206,7 +206,9 @@
       <workItem from="1685439062806" duration="1313000" />
       <workItem from="1686058882825" duration="966000" />
       <workItem from="1686075881397" duration="682000" />
-      <workItem from="1686227811697" duration="1511000" />
+      <workItem from="1686227811697" duration="2155000" />
+      <workItem from="1686230107268" duration="20000" />
+      <workItem from="1686230305255" duration="2115000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -425,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684923176539</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Volgorde reservering aangepast">
+      <created>1686229366692</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1686229366692</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +455,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Seats toegevoegd en Program.cs aangepast zodat de seats weergegeven kunnen worden." />
     <MESSAGE value="Show movies toegevoegd aan ManagerMenu.cs en Co-Worker menu.cs" />
     <MESSAGE value="Co worker kan nu ook inloggen" />
     <MESSAGE value="ManagerMenu.cs logo bug fixed" />
@@ -471,6 +479,7 @@
     <MESSAGE value="Files terug op hun plek gezet" />
     <MESSAGE value="MovieInformationTest added (Luca)" />
     <MESSAGE value="Movie Information Test Added (Luca)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Movie Information Test Added (Luca)" />
+    <MESSAGE value="Volgorde reservering aangepast" />
+    <option name="LAST_COMMIT_MESSAGE" value="Volgorde reservering aangepast" />
   </component>
 </project>

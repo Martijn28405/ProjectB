@@ -13,13 +13,13 @@ public class EmailLogic
     public static List<ShoppingCartModel>? shoppingCart;
     public static List<string> shopping_cart_list = new List<string>();
     public static List<string> seats_list = new List<string>();
-    string shopping_cart = string.Join(",", shopping_cart_list);
+    string shopping_cart = string.Join(", ", shopping_cart_list);
     string seats = string.Join(",", seats_list);
 
 
 
 
-    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, int duration)
+    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, decimal Totalprice)
     {
         string fromMail = "info.hetbioscoopje@gmail.com";
 
@@ -601,9 +601,9 @@ public class EmailLogic
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Seats: {seats},</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Start Time: {startTime},</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Duration: {duration},</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items:{shopping_cart}</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items: {shopping_cart}</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Total price: {Totalprice}</h3>\n";
 
 
         htmlBody += "                                                                    <h1 class=\"text-4xl fw-800\"\n";

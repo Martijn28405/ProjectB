@@ -10,7 +10,7 @@ public class ReservationsLogic
 {
     private JsonAccessor<ReservationModel> _accesor;
     private JsonAccessor<SeatsCartModel> _cartAccesor;
-    public List<SeatsCartModel> _carts;
+    public static List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
 
     private int TotalPrice;
@@ -32,14 +32,14 @@ public class ReservationsLogic
             Console.WriteLine($"DURATION: {reservation.Duration}");
         }
     }
-    public void AddReservation()
+    /*public static void AddReservation()
     {
         foreach (var item in _carts)
         {
 
             EmailLogic.seats_list.Add(item.Seat.ToString());
         }
-    }
+    }*/
 
     public void modifyReservations()
     {
