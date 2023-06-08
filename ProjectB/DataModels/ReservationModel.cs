@@ -15,7 +15,7 @@ public class ReservationModel
 
     public string RandomCode { get; set; }
 
-    public ReservationModel(List<string> seat, string emailAddress, string movie, DateTime startTime, int duration, string randomCode)
+    public ReservationModel(List<string> seat, string emailAddress, string movie, DateTime startTime, int duration, int randomCode)
     {
         Seat = seat;
         EmailAddress = emailAddress;

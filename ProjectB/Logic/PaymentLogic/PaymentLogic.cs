@@ -7,8 +7,6 @@ public class PaymentLogic
     string shopping_cart = string.Join(",", shopping_cart_list);
     string seat = string.Join(",", seats_list);
     decimal totalPrice = 0;
-    public static Random randomcode = new Random();
-    public static string randomcodestring = randomcode.ToString();
     private decimal ShowReceipt(List<SeatsCartModel> cart, List<ShoppingCartModel> snacks)
     {
         
@@ -106,7 +104,7 @@ public class PaymentLogic
         try
         {
             // seat, starttime en durationtime nog toevoegen.
-            sendemail.SendReservationEmail(GuestMenu.Guest_Email, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
+            sendemail.SendReservationEmail(GuestMenu.Guest_Email, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, ReservationsLogic.randomcodestring);
             Console.WriteLine("an email has been send to your account with further detail.");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
