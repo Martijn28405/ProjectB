@@ -185,7 +185,7 @@ public class MoviesLogic
     public void SortMoviesGenre()
     {
         //sort movies on genre
-        Console.WriteLine("Which week?");
+        Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
@@ -226,9 +226,9 @@ public class MoviesLogic
     public void SortMoviesAge()
     {
         //sort movies on age
-        Console.WriteLine("Which week?");
+        Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
         int inputWeek = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Minimum age?(6,10,12,16,18)");
+        Console.WriteLine("Minimum age?(10,12,16)");
         string inputAge = Console.ReadLine();
         foreach (var movie in movies)
         {
@@ -340,7 +340,6 @@ public class MoviesLogic
         // de geselecteerde movie wordt dan doorgegeven aan de zaal.
         Console.WriteLine("Which movie do you want to select?");
         string inputMovie = Console.ReadLine();
-        // stuur de geselecteerde movie naar de zaal voor reservatie.
         foreach (var item in movies)
         {
             if (inputMovie == item.MovieTitle)
@@ -359,9 +358,6 @@ public class MoviesLogic
                         {
                             startingTimes.Add(time);
                         }
-                        // int selectedTime = Int32.Parse(Console.ReadLine());
-                        // startTimeInput = selectedTime;
-                        //get the duration of the movie
                         Console.WriteLine("Which time would you like to reserve?");
                         int y = 1;
                         foreach (var x in startingTimes)

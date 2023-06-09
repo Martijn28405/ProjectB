@@ -174,7 +174,7 @@ public class SeatMenu
         row = selectedSeatIndex / seats.GetLength(1);
         col = selectedSeatIndex % seats.GetLength(1);
 
-        if (seats[row, col] != "[X]")
+        if (takenSeats[row, col] != true)
         {
             takenSeats[row, col] = true;// Mark the seat as taken
 
@@ -185,11 +185,21 @@ public class SeatMenu
             selectedSeatsColor.Add(seats[row, col]);
             Choice();
         }
-
+        else if (takenSeats[row, col] == true)
+        {
+            takenSeats[row, col] = false;
+            selectedSeats.Remove($"Row: {row} Seat: {col}");
+            selectedSeatsColor.Remove(seats[row, col]);
+            Console.WriteLine("Seat deselected!");
+            Console.WriteLine($"Row: {row}");
+            Console.WriteLine($"Seat: {col}");
+            Choice();
+        }
         else
         {
             Console.WriteLine("Seat already taken. Please select another seat.");
         }
+
 
     }
 
