@@ -124,22 +124,25 @@ public class MoviesLogic
 
     public void MovieInformation()
     {
+        Console.WriteLine("Of which movie would you like to receive some information?\n");
         foreach (var movie in movies)
         {
             Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
         }
-        Console.WriteLine("Of which movie would you like to receive some information?");
-        string userInput = Console.ReadLine();
+        Console.WriteLine("Enter title:");
+        string userInput = string.Empty;
+        userInput = Console.ReadLine();
 
         foreach (MovieModel movie in movies)
         {
             if (userInput == movie.MovieTitle)
             {
+
                 MovieInformationOptions(movie);
-                Console.WriteLine("Press any key to return to the Account menu");
-                Console.ReadKey(true);
                 AccountMenu.Start();
+
             }
+
         }
     }
 
