@@ -54,5 +54,14 @@
     "Movie": "Dune",
     "Start Time": "2023-07-01T17:20:00",
     "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 4 Seat: 6"
+    ],
+    "EmailAddress": "1",
+    "Movie": "Dune",
+    "Start Time": "2023-07-01T22:00:00",
+    "Duration": 1
   }
 ]

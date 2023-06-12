@@ -67,7 +67,8 @@ public class SnacksLogic
     {
         while (true)
         {
-            Console.WriteLine("What do you want to buy?");
+            Console.WriteLine("What would you like to buy? Pleaswe enter ID:");
+            Console.WriteLine();
             foreach (var item in snacks)
             {
                 Console.WriteLine($"ITEM ID: {item.Id}");
@@ -94,7 +95,7 @@ public class SnacksLogic
             double totalPrice = snack.PriceFood * amount;
             Console.WriteLine($"The total price is: {totalPrice}");
 
-            Console.WriteLine("Do you want to add this to your cart?");
+            Console.WriteLine("Would you like to add this to your cart?");
             Console.WriteLine("[1] Yes\n[2] No");
             string answer = Console.ReadLine();
             if (answer == "1")
@@ -112,7 +113,7 @@ public class SnacksLogic
                 }
                 AddShoppingCart();
             }
-            Console.WriteLine("Do you want to buy another snack?");
+            Console.WriteLine("Would you like to buy another snack?");
             Console.WriteLine("[1] Yes\n[2] No");
             string anotherSnack = Console.ReadLine();
             if (anotherSnack == "1")

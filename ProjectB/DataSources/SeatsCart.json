@@ -42,5 +42,12 @@
     ],
     "TotalPrice": 10,
     "MovieName": "Dune"
+  },
+  {
+    "Seat": [
+      "Row: 4 Seat: 6"
+    ],
+    "TotalPrice": 0,
+    "MovieName": "Dune"
   }
 ]
