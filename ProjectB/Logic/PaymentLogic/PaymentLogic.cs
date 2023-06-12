@@ -92,10 +92,23 @@ public class PaymentLogic
 
     public void UserPayment()
     {
-        Console.WriteLine("Your reservation has been made, you can look at your reservations in your account.");
-        Console.WriteLine("Press any key to return to the menu");
-        Console.ReadKey(true);
-        AccountMenu.Start();
+        Console.WriteLine("Your reservation has been made, you will receive an e-mail with the information.");
+        EmailLogic sendemail = new EmailLogic();
+        try
+        {
+            // seat, starttime en durationtime nog toevoegen.
+            sendemail.SendReservationEmail(UserLogin.User_Email, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey(true);
+            GuestMenu.Start();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("The email could not be send. But your reservation has been created.");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey(true);
+            GuestMenu.Start();
+        }
     }
 
     public void GuestPayment()
@@ -106,7 +119,6 @@ public class PaymentLogic
         {
             // seat, starttime en durationtime nog toevoegen.
             sendemail.SendReservationEmail(GuestMenu.Guest_Email, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
-            Console.WriteLine("an email has been send to your account with further detail.");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
             GuestMenu.Start();

@@ -29,7 +29,8 @@
                     break;
                 case 2:
                     Console.WriteLine("Enter your e-mail (we will send you a confirmation here");
-                    Guest_Email = Console.ReadLine();
+                    string Guest_Email_Input = Console.ReadLine();
+                    Guest_Email = Guest_Email_Input;
                     MoviesLogic showmovies = new MoviesLogic();
                     showmovies.ShowMovies();
                     break;

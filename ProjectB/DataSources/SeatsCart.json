@@ -49,5 +49,21 @@
     ],
     "TotalPrice": 0,
     "MovieName": "Dune"
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6",
+      "Row: 1 Seat: 5"
+    ],
+    "TotalPrice": 20,
+    "MovieName": "Dune"
+  },
+  {
+    "Seat": [
+      "Row: 3 Seat: 5",
+      "Row: 4 Seat: 6"
+    ],
+    "TotalPrice": 0,
+    "MovieName": "Dune"
   }
 ]
