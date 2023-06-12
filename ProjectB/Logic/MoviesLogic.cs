@@ -172,26 +172,48 @@ public class MoviesLogic
 
     public void MovieInformation()
     {
+
+        //  foreach (MovieModel movie in movies)
+        // {
+        //     while (userInput == movie.MovieTitle)
+        //     {
+
+        //         MovieInformationOptions(movie);
+        //         AccountMenu.Start();
+
+        //     }
         Console.WriteLine("Of which movie would you like to receive some information?\n");
         foreach (var movie in movies)
         {
             Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
         }
-        Console.WriteLine("Enter title:");
         string userInput = string.Empty;
-        userInput = Console.ReadLine();
-
-        foreach (MovieModel movie in movies)
+        while (true)
         {
-            if (userInput == movie.MovieTitle)
+            Console.WriteLine("Enter title:");
+            userInput = Console.ReadLine();
+            bool valid = false;
+
+            foreach (MovieModel movie in movies)
             {
-
-                MovieInformationOptions(movie);
-                AccountMenu.Start();
-
+                if (userInput == movie.MovieTitle)
+                {
+                    valid = true;
+                    MovieInformationOptions(movie);
+                    AccountMenu.Start();
+                }
+            }
+            if (valid)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please try again");
             }
 
         }
+
     }
 
     public void MovieInformationOptions(MovieModel movie)
