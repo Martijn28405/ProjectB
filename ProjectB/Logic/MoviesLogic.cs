@@ -72,9 +72,61 @@ public class MoviesLogic
 
     public void ShowMovies()
     {
-        System.Console.WriteLine("[1] Show all movies\n[2] Sort movies on genre\n[3] Sort movies on age");
-        int choice = Int32.Parse(Console.ReadLine());
-        if (choice == 2)
+
+
+        int choice = 0;
+        try
+        {
+            Console.WriteLine("[1] Show all movies\n[2] Sort movies on genre\n[3] Sort movies on age");
+            choice = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid input");
+            ShowMovies();
+        }
+
+        if (choice == 1)
+        {
+            int inputWeek = 0;
+            try
+            {
+                Console.WriteLine("Would you like to see:\n[1] Current week\n[2] Next week");
+                inputWeek = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input");
+                ShowMovies();
+            }
+            if (inputWeek != 1 && inputWeek != 2)
+            {
+                Console.WriteLine("Invalid input");
+                ShowMovies();
+            }
+            Console.WriteLine();
+
+            foreach (var movie in movies)
+            {
+                if (inputWeek == movie.Week)
+                {
+                    Console.WriteLine($"WEEK: {movie.Week}");
+                    Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+                    Console.WriteLine($"DIRECTOR: {movie.Director}");
+                    Console.WriteLine($"INFORMATION: {movie.Information}");
+                    Console.WriteLine($"GENRE:{movie.Genre}");
+                    Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
+                    Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
+                    foreach (DateTime time in movie.StartTime)
+                    {
+                        string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
+                        Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+        else if (choice == 2)
         {
             SortMoviesGenre();
         }
@@ -82,43 +134,39 @@ public class MoviesLogic
         {
             SortMoviesAge();
         }
-        Console.WriteLine("Would you like to see:\n[1] Current week\n[2] Next week");
-        int inputWeek = Convert.ToInt32(Console.ReadLine());
-
-
-        foreach (var movie in movies)
+        else
         {
-            if (inputWeek == movie.Week)
-            {
-                Console.WriteLine($"WEEK: {movie.Week}");
-                Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
-                Console.WriteLine($"DIRECTOR: {movie.Director}");
-                Console.WriteLine($"INFORMATION: {movie.Information}");
-                Console.WriteLine($"GENRE:{movie.Genre}");
-                Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
-                Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
-                foreach (DateTime time in movie.StartTime)
-                {
-                    string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
-                    Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
-                }
-                Console.WriteLine();
-            }
-            // Console.WriteLine("Invallid input");
-            // break;
+            Console.WriteLine("Invalid input");
+            ShowMovies();
         }
 
-        Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
-        int userChoice = Convert.ToInt32(Console.ReadLine());
+
+        int userChoice = 0;
+        try
+        {
+            Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
+            userChoice = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid input");
+            ShowMovies();
+        }
+
         if (userChoice == 1)
         {
             SelectMovie();
         }
-        else
+        else if (userChoice == 2)
         {
             Console.WriteLine("Press any key to return to the Account menu");
             Console.ReadKey(true);
             AccountMenu.Start();
+        }
+        else
+        {
+            Console.WriteLine("Invalid input");
+            ShowMovies();
         }
     }
 
@@ -185,10 +233,30 @@ public class MoviesLogic
     public void SortMoviesGenre()
     {
         //sort movies on genre
-        Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
-        int inputWeek = Convert.ToInt32(Console.ReadLine());
+
+        int inputWeek = 0;
+        try
+        {
+            Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
+            inputWeek = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesGenre();
+        }
+        if (inputWeek != 1 && inputWeek != 2)
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesGenre();
+        }
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
+        if (inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesGenre();
+        }
         foreach (var movie in movies)
         {
             if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
@@ -208,17 +276,33 @@ public class MoviesLogic
                 Console.WriteLine();
             }
         }
-        Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
-        int userChoice = Convert.ToInt32(Console.ReadLine());
+
+        int userChoice = 0;
+        try
+        {
+            Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
+            userChoice = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesGenre();
+        }
+
         if (userChoice == 1)
         {
             SelectMovie();
         }
-        else
+        else if (userChoice == 2)
         {
             Console.WriteLine("Press any key to return to the Account menu");
             Console.ReadKey(true);
             AccountMenu.Start();
+        }
+        else
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesGenre();
         }
     }
 
@@ -226,10 +310,31 @@ public class MoviesLogic
     public void SortMoviesAge()
     {
         //sort movies on age
-        Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
-        int inputWeek = Convert.ToInt32(Console.ReadLine());
+
+        int inputWeek = 0;
+        try
+        {
+            Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
+            inputWeek = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesAge();
+        }
+        if (inputWeek != 1 && inputWeek != 2)
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesAge();
+        }
+
         Console.WriteLine("Minimum age?(10,12,16)");
         string inputAge = Console.ReadLine();
+        if (inputAge != "10" && inputAge != "12" && inputAge != "16")
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesAge();
+        }
         foreach (var movie in movies)
         {
             if (inputWeek == movie.Week && inputAge == movie.TargetAudience)
@@ -249,18 +354,34 @@ public class MoviesLogic
                 Console.WriteLine();
             }
         }
-        Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
-        int userChoice = Convert.ToInt32(Console.ReadLine());
+        int userChoice = 0;
+        try
+        {
+            Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2]: No");
+            userChoice = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesAge();
+        }
+
         if (userChoice == 1)
         {
             SelectMovie();
         }
-        else
+        else if (userChoice == 2)
         {
             Console.WriteLine("Press any key to return to the Account menu");
             Console.ReadKey(true);
             AccountMenu.Start();
         }
+        else
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesAge();
+        }
+
     }
 
     /*public void ShowMoviesWorker()
