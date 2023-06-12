@@ -1,23 +1,46 @@
 [
   {
-    "Seat": null,
-    "TotalPrice": 0,
-    "MovieName": null
-  },
-  {
     "Seat": [
-      "Row: 9 Seat: 5",
-      "Row: 6 Seat: 9",
       "Row: 5 Seat: 5"
     ],
-    "TotalPrice": 30,
-    "MovieName": "Don\u0027t Look Up"
+    "TotalPrice": 20,
+    "MovieName": "The Lost City"
   },
   {
     "Seat": [
-      "Row: 5 Seat: 6"
+      "Row: 1 Seat: 5",
+      "Row: 2 Seat: 6",
+      "Row: 3 Seat: 4"
     ],
-    "TotalPrice": 20,
-    "MovieName": "Don\u0027t Look Up"
+    "TotalPrice": 30,
+    "MovieName": "Dune"
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "TotalPrice": 10,
+    "MovieName": "Dune"
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "TotalPrice": 10,
+    "MovieName": "Dune"
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "TotalPrice": 10,
+    "MovieName": "Dune"
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "TotalPrice": 10,
+    "MovieName": "Dune"
   }
 ]

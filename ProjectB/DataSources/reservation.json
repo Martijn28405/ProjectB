@@ -1,3 +1,58 @@
 [
-  {}
+  {
+    "Seat": [
+      "Row: 5 Seat: 5"
+    ],
+    "EmailAddress": null,
+    "Movie": "The Lost City",
+    "Start Time": "2023-06-22T20:30:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 5",
+      "Row: 2 Seat: 6",
+      "Row: 3 Seat: 4"
+    ],
+    "EmailAddress": null,
+    "Movie": "Dune",
+    "Start Time": "2023-07-01T19:30:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": null,
+    "Movie": "Dune",
+    "Start Time": "2023-07-01T22:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": "Martijn28405@gmail.com",
+    "Movie": "Dune",
+    "Start Time": "2023-07-01T17:20:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "EmailAddress": "1",
+    "Movie": "Dune",
+    "Start Time": "2023-07-01T17:20:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "EmailAddress": "1",
+    "Movie": "Dune",
+    "Start Time": "2023-07-01T17:20:00",
+    "Duration": 1
+  }
 ]
