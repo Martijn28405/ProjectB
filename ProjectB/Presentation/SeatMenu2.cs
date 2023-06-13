@@ -265,10 +265,10 @@ public class SeatMenu2
                 break;
             case "2":
                 snacksLogic.BuySnacks();
-                reservationsLogic.CreateReservation2(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
             case "3":
-                reservationsLogic.CreateReservation2(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
 
         }

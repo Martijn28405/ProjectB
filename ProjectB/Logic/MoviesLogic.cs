@@ -484,46 +484,81 @@ public class MoviesLogic
 
     public void SelectMovie()
     {
+        Console.WriteLine("[1]: Current Week\n[2]: Next Week");
+        int Weekinput = Int32.Parse(Console.ReadLine());
+        if (Weekinput != 1 && Weekinput != 2)
+        {
+            Console.WriteLine("Invalid Input");
+            SelectMovie();
+        }
+
         // in het menu een mogelijkheid om een movie te kiezen per week.
         // de geselecteerde movie wordt dan doorgegeven aan de zaal.
         foreach (var item in movies)
         {
-            Console.WriteLine($"ID: {item.ID}");
-            Console.WriteLine($"TITLE: {item.MovieTitle}");
-            Console.WriteLine($"GENRE: {item.Genre}");
-            Console.WriteLine("INFO:" + item.Information);
-            Console.WriteLine();
+            if (Weekinput == item.Week)
+            {
+                Console.WriteLine($"ID: {item.ID}");
+                Console.WriteLine($"Week: {item.Week}");
+                Console.WriteLine($"TITLE: {item.MovieTitle}");
+                Console.WriteLine($"GENRE: {item.Genre}");
+                Console.WriteLine("INFO:" + item.Information);
+                Console.WriteLine();
+            }
+
         }
-        Console.WriteLine("Which movie do you want to select?");
-        int itemId = Convert.ToInt32(Console.ReadLine());
-        // snacks is the list of available snacks.
-        // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
-        MovieModel? movie = movies.FirstOrDefault(snack => snack.ID == itemId);
-        if (movie == null)
+
+        Console.WriteLine("Do you want to select a movie?");
+        Console.WriteLine("[1] Yes\n[2] No");
+        int userChoice = Convert.ToInt32(Console.ReadLine());
+        if (userChoice == 1)
         {
-            Console.WriteLine("Invalid, please try again.");
+            Console.WriteLine("Enter a movie ID");
+            int itemId = Convert.ToInt32(Console.ReadLine());
+            // snacks is the list of available snacks.
+            // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
+            MovieModel? movie = movies.FirstOrDefault(movie => movie.ID == itemId);
+            if (movie == null)
+            {
+                Console.WriteLine("Invalid, please try again.");
+                SelectMovie();
+            }
+
+            SelectedMovie = movie.MovieTitle;
+            Console.WriteLine($"{SelectedMovie} Selected!");
+            List<DateTime> startingTimes = new List<DateTime>();
+            foreach (var time in movie.StartTime)
+            {
+                startingTimes.Add(time);
+            }
+
+            Console.WriteLine("Which time would you like to reserve?");
+            int y = 1;
+            foreach (var x in startingTimes)
+            {
+                Console.WriteLine($"[{y}]. {x}");
+                y++;
+            }
+
+            //Let the user choose one of the times and put the selected time in startTimeInput
+            int selectedTime = Int32.Parse(Console.ReadLine());
+            startTimeInput = startingTimes[selectedTime - 1];
+            Console.WriteLine("Press any key to select seats");
+            Console.ReadKey(true);
+            
+            SeatMenu.Start();
+            duration = movie.PlayTimeInMinutes;
+        }
+        else if (userChoice == 2)
+        {
+            Console.WriteLine("Press any key to return to the Account menu");
+            Console.ReadKey(true);
+            AccountMenu.Start();
+        }
+        else
+        {
+            Console.WriteLine("Invalid input");
             SelectMovie();
         }
-        SelectedMovie = movie.MovieTitle;
-        Console.WriteLine($"{SelectedMovie} Selected!");
-        List<DateTime> startingTimes = new List<DateTime>();
-        foreach (var time in movie.StartTime)
-        {
-            startingTimes.Add(time);
-        }
-        Console.WriteLine("Which time would you like to reserve?");
-        int y = 1;
-        foreach (var x in startingTimes)
-        {
-            Console.WriteLine($"[{y}]. {x}");
-            y++;
-        }
-        //Let the user choose one of the times and put the selected time in startTimeInput
-        int selectedTime = Int32.Parse(Console.ReadLine());
-        startTimeInput = startingTimes[selectedTime - 1];
-        Console.WriteLine("Press any key to select seats");
-        Console.ReadKey(true);
-        SeatMenu.Start();
-        duration = movie.PlayTimeInMinutes;
     }
 }
