@@ -26,7 +26,11 @@ public class IdealPaymentLogic : IPaymentLogic
             if (username != null && password != null)
             {
                 Console.WriteLine($"Your login was correct, you've paid {price} succesfully.");
+                ReservationsLogic.EmptySeatCarts();
+                SnacksLogic shoppingcartempty = new SnacksLogic();
+                shoppingcartempty.EmptyShoppingCart();
                 return;
+                
             }
 
             Console.WriteLine("Login failed");

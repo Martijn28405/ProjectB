@@ -9,15 +9,13 @@
   <component name="ChangeListManager">
     <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/DataModels/MovieModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataModels/MovieModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/SeatsCart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/SeatsCart.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/movies.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/movies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/PaymentLogic/IdealPaymentLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/PaymentLogic/IdealPaymentLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/PaymentLogic/PaymentLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/PaymentLogic/PaymentLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/ReservationsLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/SnacksLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/SnacksLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/Presentation/AccountMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Presentation/AccountMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +49,7 @@
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteSnacks.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/ValidationsLogic.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Presentation/GuestMenu.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Presentation/AccountMenu.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -215,7 +213,8 @@
       <workItem from="1686588036691" duration="314000" />
       <workItem from="1686588374409" duration="35000" />
       <workItem from="1686640759898" duration="91000" />
-      <workItem from="1686641130182" duration="4574000" />
+      <workItem from="1686641130182" duration="7144000" />
+      <workItem from="1686649123085" duration="1027000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -476,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686588289508</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Movie can be selected with ID">
+      <created>1686645792015</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1686645792016</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +503,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Manager en co_worker kunnen nu ook uitloggen en de gegevens worden onthouden bij co_worker" />
     <MESSAGE value="ManagerLogin.cs en Co_WorkerLogin.cs checken nu op de juiste fields in program" />
     <MESSAGE value="Movie Information word nu teruggestuurd naar Accountmenu." />
     <MESSAGE value="Manager kan nu snacks verwijderen en toevoegen." />
@@ -522,6 +527,7 @@
     <MESSAGE value="Reservation code added to email and reservations json" />
     <MESSAGE value="Reservation code added to email" />
     <MESSAGE value="E-mail is now also being sent to User accounts" />
-    <option name="LAST_COMMIT_MESSAGE" value="E-mail is now also being sent to User accounts" />
+    <MESSAGE value="Movie can be selected with ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movie can be selected with ID" />
   </component>
 </project>

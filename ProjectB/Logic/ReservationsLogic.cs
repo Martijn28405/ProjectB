@@ -9,7 +9,7 @@ using ProjectB.DataModels;
 public class ReservationsLogic
 {
     private JsonAccessor<ReservationModel> _accesor;
-    private JsonAccessor<SeatsCartModel> _cartAccesor;
+    public static JsonAccessor<SeatsCartModel> _cartAccesor;
     public static List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
     
@@ -175,15 +175,15 @@ public class ReservationsLogic
         {
             if (item == "[R]")
             {
-                TotalPrice += 20;
+                PaymentLogic.totalPrice += 20;
             }
             else if (item == "[Y]")
             {
-                TotalPrice += 15;
+                PaymentLogic.totalPrice += 15;
             }
             else if (item == "[B]")
             {
-                TotalPrice += 10;
+                PaymentLogic.totalPrice += 10;
             }
         }
 
@@ -197,6 +197,12 @@ public class ReservationsLogic
         List<SeatsCartModel> _seatsCart = _accesor.LoadAll();
         _seatsCart.Add(newSeat);
         _accesor.WriteAll(_seatsCart);
+    }
+    public static void EmptySeatCarts()
+    {
+        _carts.Clear();
+        _cartAccesor.WriteAll(_carts);
+        
     }
     /*public void SendModifiedEmails()
     {

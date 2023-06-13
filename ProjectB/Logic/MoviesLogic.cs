@@ -9,6 +9,7 @@ public class MoviesLogic
     public List<MovieModel> movies;
     public static string? SelectedMovie = null;
     public static DateTime startTimeInput;
+    public static int duration;
     public MoviesLogic()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
@@ -523,5 +524,6 @@ public class MoviesLogic
         Console.WriteLine("Press any key to select seats");
         Console.ReadKey(true);
         SeatMenu.Start();
+        duration = movie.PlayTimeInMinutes;
     }
 }

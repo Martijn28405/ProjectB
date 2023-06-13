@@ -6,7 +6,7 @@ public class PaymentLogic
     public static List<string> seats_list = new List<string>();
     string shopping_cart = string.Join(",", shopping_cart_list);
     string seat = string.Join(",", seats_list);
-    double totalPrice = 0;
+    public static double totalPrice = 0;
     public static Random randomcode = new Random();
     private double ShowReceipt(List<SeatsCartModel> cart, List<ShoppingCartModel> snacks)
     {
@@ -14,6 +14,7 @@ public class PaymentLogic
         foreach (var seat in cart)
         {
             Console.WriteLine($"Seat(s): {string.Join(' ', seat.Seat)}");
+            Console.WriteLine("Seats" + seat.Seat);
             Console.WriteLine($"Total Price: {seat.TotalPrice}");
             totalPrice += seat.TotalPrice;
         }
@@ -49,7 +50,7 @@ public class PaymentLogic
                 AccountMenu.Start();
                 return;
             }
-            Console.WriteLine("Invalid idnput");
+            Console.WriteLine("Invalid input");
         }
     }
 
@@ -100,14 +101,14 @@ public class PaymentLogic
             sendemail.SendReservationEmail(UserLogin.User_Email, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
-            GuestMenu.Start();
+            AccountMenu.Start();
         }
         catch (Exception)
         {
             Console.WriteLine("The email could not be send. But your reservation has been created.");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
-            GuestMenu.Start();
+            AccountMenu.Start();
         }
     }
 

@@ -176,12 +176,9 @@ public class SnacksLogic
 
     public void EmptyShoppingCart()
     {
-        foreach (var item in shoppingCart)
-        {
-            shoppingCart.Remove(item);
-            _shoppingCartAccesor.WriteAll(shoppingCart);
-            Console.WriteLine("Shopping cart emptied");
-        }
+        shoppingCart.Clear();
+        _shoppingCartAccesor.WriteAll(shoppingCart);
+        
     }
 
     public void ViewShoppingCart()
