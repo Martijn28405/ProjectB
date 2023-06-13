@@ -54,7 +54,8 @@ public class SnacksLogic
         string snackName = Console.ReadLine();
         Console.WriteLine("The price of the snack:");
         double snackPrice = Convert.ToDouble(Console.ReadLine());
-        SnackModel snack = new SnackModel(snackName, snackPrice);
+        string snackDescprition = null;
+        SnackModel snack = new SnackModel(snackName, snackDescprition, snackPrice);
         snack.Id = index;
         snacks.Add(snack);
         _productAccesor.WriteAll(snacks);
