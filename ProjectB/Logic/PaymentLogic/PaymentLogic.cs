@@ -15,7 +15,6 @@ public class PaymentLogic
         {
             Console.WriteLine($"Seat(s): {string.Join(' ', seat.Seat)}");
             Console.WriteLine($"Total Price: {seat.TotalPrice}");
-            Console.WriteLine($"Movie Title: {seat.MovieName}");
             totalPrice += (decimal)seat.TotalPrice;
         }
 
@@ -47,6 +46,7 @@ public class PaymentLogic
             }
             if (userInput == 2)
             {
+                AccountMenu.Start();
                 return;
             }
             Console.WriteLine("Invalid idnput");

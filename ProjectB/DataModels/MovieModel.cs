@@ -1,6 +1,8 @@
 using System.Text.Json.Serialization;
 public class MovieModel
 {
+    [JsonPropertyName("ID")]
+    public int ID { get; set; }
     [JsonPropertyName("Week")]
     public int Week { get; set; }
     [JsonPropertyName("Movie Title")]
