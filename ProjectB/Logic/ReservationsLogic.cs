@@ -12,9 +12,8 @@ public class ReservationsLogic
     private JsonAccessor<SeatsCartModel> _cartAccesor;
     public static List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
-    
-
     private int TotalPrice;
+    private int TotalPrice2;
     public ReservationsLogic()
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
@@ -156,6 +155,22 @@ public class ReservationsLogic
         Console.WriteLine("Press any key to continue");
         Console.ReadKey(true);
     }
+    public void CreateReservation2(List<ShoppingCartModel> shoppingCart)
+    {
+        List<string> seat = SeatMenu2.selectedSeats;
+        var email = UserLogin.User_Email;
+        MoviesLogic moviesLogic = new MoviesLogic();
+        string selectedMovie = MoviesLogic.SelectedMovie;
+        Console.WriteLine(selectedMovie);
+        int durationInput = 1;
+        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput);
+        SeatPricing2();
+        ProceedCheckout(shoppingCart, newReservation);
+
+        Console.WriteLine("Return to Homepage");
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey(true);
+    }
 
     private void ProceedCheckout(List<ShoppingCartModel> snacks, ReservationModel reservationModel)
     {
@@ -193,6 +208,37 @@ public class ReservationsLogic
         List<string> seat = SeatMenu.selectedSeats;
         //send everything to the seatscart json
         SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice);
+        JsonAccessor<SeatsCartModel> _accesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
+        List<SeatsCartModel> _seatsCart = _accesor.LoadAll();
+        _seatsCart.Add(newSeat);
+        _accesor.WriteAll(_seatsCart);
+    }
+
+    public void SeatPricing2()
+    {
+        List<string> colors = SeatMenu2.selectedSeatsColor;
+        foreach (var item in colors)
+        {
+            if (item == "[R]")
+            {
+                TotalPrice2 += 20;
+            }
+            else if (item == "[Y]")
+            {
+                TotalPrice2 += 15;
+            }
+            else if (item == "[B]")
+            {
+                TotalPrice2 += 10;
+            }
+        }
+
+        MoviesLogic moviesLogic = new MoviesLogic();
+        string selectedMovie = MoviesLogic.SelectedMovie;
+
+        List<string> seat = SeatMenu2.selectedSeats;
+        //send everything to the seatscart json
+        SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice2);
         JsonAccessor<SeatsCartModel> _accesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
         List<SeatsCartModel> _seatsCart = _accesor.LoadAll();
         _seatsCart.Add(newSeat);

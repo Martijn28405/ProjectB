@@ -522,6 +522,23 @@ public class MoviesLogic
         startTimeInput = startingTimes[selectedTime - 1];
         Console.WriteLine("Press any key to select seats");
         Console.ReadKey(true);
-        SeatMenu.Start();
+        if (itemId <= 6)
+        {
+            SeatMenu.Start();
+        }
+        else if (itemId > 6 && itemId <= 12)
+        {
+            SeatMenu2.Start();
+        }
+        else if (itemId > 12 && itemId <= 17)
+        {
+            //SeatMenu3.start();
+        }
+        else
+        {
+            System.Console.WriteLine("invalid input");
+            SelectMovie();
+        }
+
     }
 }

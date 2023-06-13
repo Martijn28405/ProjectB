@@ -14,7 +14,8 @@ public class SeatMenu2
     static int selectedSeatIndex = 6; // Initially select the first seat
     static string[,] seats = new string[19, 18]; // 14x142 array of seats
     static bool[,] takenSeats = new bool[19, 18];
-    static List<string> selectedSeats = new List<string>();
+    public static List<string> selectedSeats = new List<string>();
+    public static List<string> selectedSeatsColor = new List<string>();
 
 
     public static void Start()
@@ -214,7 +215,8 @@ public class SeatMenu2
     {
         row = selectedSeatIndex / seats.GetLength(1);
         col = selectedSeatIndex % seats.GetLength(1);
-        if (seats[row, col] != "[X]")
+
+        if (takenSeats[row, col] != true)
         {
             takenSeats[row, col] = true;// Mark the seat as taken
 
@@ -222,12 +224,24 @@ public class SeatMenu2
             Console.WriteLine($"Row: {row}");
             Console.WriteLine($"Seat: {col}");
             selectedSeats.Add($"Row: {row} Seat: {col}");
+            selectedSeatsColor.Add(seats[row, col]);
+            Choice();
+        }
+        else if (takenSeats[row, col] == true)
+        {
+            takenSeats[row, col] = false;
+            selectedSeats.Remove($"Row: {row} Seat: {col}");
+            selectedSeatsColor.Remove(seats[row, col]);
+            Console.WriteLine("Seat deselected!");
+            Console.WriteLine($"Row: {row}");
+            Console.WriteLine($"Seat: {col}");
             Choice();
         }
         else
         {
             Console.WriteLine("Seat already taken. Please select another seat.");
         }
+
 
     }
 
@@ -251,10 +265,10 @@ public class SeatMenu2
                 break;
             case "2":
                 snacksLogic.BuySnacks();
-                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                reservationsLogic.CreateReservation2(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
             case "3":
-                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                reservationsLogic.CreateReservation2(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
 
         }
