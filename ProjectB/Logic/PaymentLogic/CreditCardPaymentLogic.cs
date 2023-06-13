@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 public class CreditCardPaymentLogic : IPaymentLogic
 {
-    public void Payment(decimal price)
+    public void Payment(double price)
     {
         Console.WriteLine("Cardholder's name: ");
         string cardholderName = Console.ReadLine();
@@ -18,7 +18,7 @@ public class CreditCardPaymentLogic : IPaymentLogic
         string expiryDate;
         do
         {
-            Console.WriteLine("Expiry date (mm/yyyy): "); 
+            Console.WriteLine("Expiry date (mm/yyyy): ");
             expiryDate = Console.ReadLine();
         } while (!CreditCardExpiryDate(expiryDate));
 
@@ -56,7 +56,7 @@ public class CreditCardPaymentLogic : IPaymentLogic
             Console.WriteLine("Creditcard has been expired.");
             return false;
         }
-        
+
         return true;
     }
 

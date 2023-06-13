@@ -6,16 +6,16 @@ public class PaymentLogic
     public static List<string> seats_list = new List<string>();
     string shopping_cart = string.Join(",", shopping_cart_list);
     string seat = string.Join(",", seats_list);
-    decimal totalPrice = 0;
+    double totalPrice = 0;
     public static Random randomcode = new Random();
-    private decimal ShowReceipt(List<SeatsCartModel> cart, List<ShoppingCartModel> snacks)
+    private double ShowReceipt(List<SeatsCartModel> cart, List<ShoppingCartModel> snacks)
     {
-        
+
         foreach (var seat in cart)
         {
             Console.WriteLine($"Seat(s): {string.Join(' ', seat.Seat)}");
             Console.WriteLine($"Total Price: {seat.TotalPrice}");
-            totalPrice += (decimal)seat.TotalPrice;
+            totalPrice += seat.TotalPrice;
         }
 
         foreach (var snack in snacks)
@@ -23,7 +23,7 @@ public class PaymentLogic
             Console.WriteLine($"Snack: {snack.NameFood}");
             Console.WriteLine($"Amount: {snack.Amount}");
             Console.WriteLine($"Price: {snack.PriceFood}");
-            totalPrice += (decimal)snack.PriceFood;
+            totalPrice += snack.PriceFood;
         }
 
         Console.WriteLine($"The total price of your shopping cart is {totalPrice}.");
@@ -53,7 +53,7 @@ public class PaymentLogic
         }
     }
 
-    public void Payment(decimal price)
+    public void Payment(double price)
     {
         Console.WriteLine("Would you like to pay with:\n[1] iDeal\n[2] Creditcard\n[3] PayPal");
         string paymentChoice = Console.ReadLine();

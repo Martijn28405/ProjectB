@@ -11,7 +11,7 @@ public class IdealPaymentLogic : IPaymentLogic
         SNS,
         Triodos
     }
-    public void Payment(decimal price)
+    public void Payment(double price)
     {
         Console.WriteLine("With which bank would you like to pay?\n[1] ABN AMBRO\n[2] ASN\n[3] ING\n[4] Knab\n[5] Rabobank\n[6] Regiobank\n[7] SNS\n[8] Triodos");
         int bankChoice = Convert.ToInt32(Console.ReadLine());

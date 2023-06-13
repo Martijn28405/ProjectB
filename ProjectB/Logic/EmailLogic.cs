@@ -19,7 +19,7 @@ public class EmailLogic
 
 
 
-    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, decimal Totalprice, int randomcode)
+    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, double Totalprice, int randomcode)
     {
         string fromMail = "info.hetbioscoopje@gmail.com";
 
@@ -606,7 +606,7 @@ public class EmailLogic
         htmlBody += $"                                                                <h3 align=\"center\">Total price: {Totalprice}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Reservation Code: {randomcode}</h3>\n";
-        
+
 
 
         htmlBody += "                                                                    <h1 class=\"text-4xl fw-800\"\n";
