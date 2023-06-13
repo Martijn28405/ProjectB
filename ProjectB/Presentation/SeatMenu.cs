@@ -93,6 +93,10 @@ public class SeatMenu
     {
 
         Console.CursorTop = 10;
+        Console.WriteLine("The blue seats are our standard seats, which are great and comfortable.\n" +
+                  "Our yellow seats are handwoven and have a better position for the screen.\n" +
+                  "Our red seats are the best seats we have to offer.\n" +
+                  "The acoustics are excellent, and your position is ideal for enjoying the film.");
         Console.WriteLine("Prices: \n");
         Console.WriteLine("Blue: $10");
         Console.WriteLine("Yellow: $15");
