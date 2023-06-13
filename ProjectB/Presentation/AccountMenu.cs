@@ -20,7 +20,7 @@ public class AccountMenu
                                                                                                                                 
                                                                                                                                 
 ";
-        string[] options = { "Make A Reservation/Show Movies", "View Movie Information", "View Catering", "Go to ACTION BOX'S", "Back to Main Menu", "Log Out", "Exit App", "Manage Shopping Cart" };
+        string[] options = { "Make A Reservation/Show Movies", "View Movie Information", "View Catering", "Back to Main Menu", "Log Out", "Exit App", "Manage Shopping Cart" };
         Menu accountmenu = new Menu(prompt, options);
         int SelectedIndex = accountmenu.Run();
         switch (SelectedIndex)
@@ -40,24 +40,20 @@ public class AccountMenu
                 Start();
                 break;
             case 3:
-                SnacksLogic actions = new SnacksLogic();
-                actions.ActieBox();
-                break;
-            case 4:
                 Program.Main();
                 break;
-            case 5:
+            case 4:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 UserLogin.User_Email = default;
                 Program.Main();
                 break;
-            case 6:
+            case 5:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
                 break;
-            case 7:
+            case 6:
                 ManageShoppingCart.Start();
                 break;
 
