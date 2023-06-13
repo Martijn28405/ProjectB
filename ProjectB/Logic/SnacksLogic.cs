@@ -67,7 +67,7 @@ public class SnacksLogic
     {
         while (true)
         {
-            Console.WriteLine("What would you like to buy? Pleaswe enter ID:");
+            Console.WriteLine("What would you like to buy? Please enter ID:");
             Console.WriteLine();
             foreach (var item in snacks)
             {

@@ -1,17 +1,1 @@
-[
-  {
-    "NameFood": null,
-    "PriceFood": 0,
-    "Amount": 0
-  },
-  {
-    "NameFood": "Bottled water",
-    "PriceFood": 1.99,
-    "Amount": 2
-  },
-  {
-    "NameFood": "Popcorn",
-    "PriceFood": 2.5,
-    "Amount": 1
-  }
-]
+[]
