@@ -9,8 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="Totalprice is now correctly shown">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/Seat_Color_Medium_Cinema.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/Seat_Color_Medium_Cinema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/SeatsCart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/SeatsCart.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/shoppingcart.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Presentation/SeatMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Presentation/SeatMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Presentation/SeatMenu2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Presentation/SeatMenu2.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
