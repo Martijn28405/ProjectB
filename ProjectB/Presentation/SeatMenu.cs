@@ -135,6 +135,8 @@
              }
              Console.WriteLine();
          }
+         Console.WriteLine("                    Screen");
+         Console.WriteLine("------------------------------------------");
      }
 
      static void MoveSelectionUp()

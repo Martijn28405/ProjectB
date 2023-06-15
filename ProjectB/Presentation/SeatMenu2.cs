@@ -167,6 +167,8 @@ public class SeatMenu2
             }
             Console.WriteLine();
         }
+        Console.WriteLine("                                 Screen");
+        Console.WriteLine("-------------------------------------------------------------------------------");
 
     }
 

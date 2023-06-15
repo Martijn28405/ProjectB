@@ -249,6 +249,9 @@ public class SeatMenu3
             }
             Console.WriteLine();
         }
+        Console.WriteLine("                                                     Screen");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------------------------");
+
 
     }
 
