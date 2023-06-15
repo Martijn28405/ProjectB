@@ -68,26 +68,26 @@ public class SeatMenu3
         seats[0, 1] = "   ";
         seats[0, 2] = "   ";
         seats[0, 3] = "   ";
-        
+
         seats[1, 0] = "   ";
         seats[1, 1] = "   ";
         seats[1, 2] = "   ";
-        
+
         seats[2, 0] = "   ";
         seats[2, 1] = "   ";
         seats[2, 2] = "   ";
-        
+
         seats[3, 0] = "   ";
         seats[3, 1] = "   ";
         seats[3, 2] = "   ";
-        
+
         seats[4, 0] = "   ";
         seats[4, 1] = "   ";
         seats[4, 2] = "   ";
-        
+
         seats[5, 0] = "   ";
         seats[5, 1] = "   ";
-        
+
         seats[6, 0] = "   ";
 
 
@@ -96,39 +96,39 @@ public class SeatMenu3
         seats[0, 28] = "   ";
         seats[0, 27] = "   ";
         seats[0, 26] = "   ";
-        
+
         seats[1, 29] = "   ";
         seats[1, 28] = "   ";
         seats[1, 27] = "   ";
-        
+
         seats[2, 29] = "   ";
         seats[2, 28] = "   ";
         seats[2, 27] = "   ";
-        
+
         seats[3, 29] = "   ";
         seats[3, 28] = "   ";
         seats[3, 27] = "   ";
-        
+
         seats[4, 29] = "   ";
         seats[4, 28] = "   ";
         seats[4, 27] = "   ";
-        
+
         seats[5, 29] = "   ";
         seats[5, 28] = "   ";
-        
+
         seats[6, 29] = "   ";
 
         // right lower corner
 
         seats[19, 0] = "   ";
-        seats[19, 1] = "   ";        
+        seats[19, 1] = "   ";
         seats[19, 2] = "   ";
         seats[19, 3] = "   ";
         seats[19, 4] = "   ";
         seats[19, 5] = "   ";
         seats[19, 6] = "   ";
         seats[19, 7] = "   ";
-        
+
         seats[18, 0] = "   ";
         seats[18, 1] = "   ";
         seats[18, 2] = "   ";
@@ -136,41 +136,41 @@ public class SeatMenu3
         seats[18, 4] = "   ";
         seats[18, 5] = "   ";
         seats[18, 6] = "   ";
-        
+
         seats[17, 0] = "   ";
         seats[17, 1] = "   ";
         seats[17, 2] = "   ";
         seats[17, 3] = "   ";
         seats[17, 4] = "   ";
-        
+
         seats[16, 0] = "   ";
         seats[16, 1] = "   ";
         seats[16, 2] = "   ";
-        
+
         seats[15, 0] = "   ";
         seats[15, 1] = "   ";
         seats[15, 2] = "   ";
-        
+
         seats[14, 0] = "   ";
         seats[14, 1] = "   ";
-        
+
         seats[13, 0] = "   ";
         seats[13, 1] = "   ";
-        
+
         seats[12, 0] = "   ";
-        
-        
+
+
         // right lower corner
 
         seats[19, 29] = "   ";
-        seats[19, 28] = "   ";        
+        seats[19, 28] = "   ";
         seats[19, 27] = "   ";
         seats[19, 26] = "   ";
         seats[19, 25] = "   ";
         seats[19, 24] = "   ";
         seats[19, 23] = "   ";
         seats[19, 22] = "   ";
-        
+
         seats[18, 29] = "   ";
         seats[18, 28] = "   ";
         seats[18, 27] = "   ";
@@ -178,27 +178,27 @@ public class SeatMenu3
         seats[18, 25] = "   ";
         seats[18, 24] = "   ";
         seats[18, 23] = "   ";
-        
+
         seats[17, 29] = "   ";
         seats[17, 28] = "   ";
         seats[17, 27] = "   ";
         seats[17, 26] = "   ";
         seats[17, 25] = "   ";
-        
+
         seats[16, 29] = "   ";
         seats[16, 28] = "   ";
         seats[16, 27] = "   ";
-        
+
         seats[15, 29] = "   ";
         seats[15, 28] = "   ";
         seats[15, 27] = "   ";
-        
+
         seats[14, 29] = "   ";
         seats[14, 28] = "   ";
-        
+
         seats[13, 29] = "   ";
         seats[13, 28] = "   ";
-        
+
         seats[12, 29] = "   ";
     }
 
@@ -347,10 +347,10 @@ public class SeatMenu3
                 break;
             case "2":
                 snacksLogic.BuySnacks();
-                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                reservationsLogic.CreateReservation3(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
             case "3":
-                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                reservationsLogic.CreateReservation3(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
 
         }
