@@ -204,7 +204,7 @@ public class SnacksLogic
         Console.WriteLine("Overzicht van onze verschillende actie boxen:\n");
         foreach (var item in discounts)
         {
-            Console.WriteLine($"[{item.Id}]{item.NameFood}\n   {item.Discription}\n   {item.PriceFood} euro");
+            Console.WriteLine($"[{item.Id}]{item.NameFood}\n   {item.Description}\n   {item.PriceFood} euro");
         }
         Console.WriteLine("Would you like to add something to your cart?");
         Console.WriteLine("[1] Yes\n[2] No");
