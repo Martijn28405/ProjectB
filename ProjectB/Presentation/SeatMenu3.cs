@@ -50,10 +50,10 @@ public class SeatMenu3
 
     static void InitializeSeats()
     {
-        string jsonFilePath = "DataSources/Seat_Color_Medium_Cinema.json";
+        string jsonFilePath = "DataSources/Seat_Color_Big_Cinema.json";
         string jsonText = File.ReadAllText(jsonFilePath);
         JObject jsonObj = JObject.Parse(jsonText);
-        JArray seatColorArray = (JArray)jsonObj["Seat_Color_medium_cinema"];
+        JArray seatColorArray = (JArray)jsonObj["Seat_Color_Big_cinema"];
 
         for (int i = 0; i < seats.GetLength(0); i++)
         {

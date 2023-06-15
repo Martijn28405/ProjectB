@@ -174,8 +174,13 @@ public class SeatMenu2
     {
         if (selectedSeatIndex >= seats.GetLength(1))
         {
-            selectedSeatIndex -= seats.GetLength(1);
-            DrawSeats();
+            var wantedseat = selectedSeatIndex - seats.GetLength(1);
+            if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
+            {
+                selectedSeatIndex -= seats.GetLength(1);
+                DrawSeats();
+
+            }
         }
     }
 
@@ -183,17 +188,29 @@ public class SeatMenu2
     {
         if (selectedSeatIndex < seats.GetLength(0) * seats.GetLength(1) - seats.GetLength(1))
         {
-            selectedSeatIndex += seats.GetLength(1);
-            DrawSeats();
+            var wantedseat = selectedSeatIndex + seats.GetLength(1);
+            if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
+            {
+               selectedSeatIndex += seats.GetLength(1);
+               DrawSeats();
+
+            }
+            
+            
         }
     }
 
     static void MoveSelectionLeft()
     {
         if (selectedSeatIndex % seats.GetLength(1) > 0)
-        {
-            selectedSeatIndex--;
-            DrawSeats();
+        { 
+            var wantedseat = selectedSeatIndex - 1;
+            if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
+            {
+                selectedSeatIndex--;
+                DrawSeats();
+
+            }
         }
     }
 
@@ -201,7 +218,8 @@ public class SeatMenu2
     {
         if (selectedSeatIndex % seats.GetLength(1) < seats.GetLength(1) - 1)
         {
-            if (seats[(selectedSeatIndex + 1) / seats.GetLength(1), (selectedSeatIndex + 1) % seats.GetLength(1)] != "   ")
+            var wantedseat = selectedSeatIndex + 1;
+            if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
             {
                 selectedSeatIndex++;
                 DrawSeats();
