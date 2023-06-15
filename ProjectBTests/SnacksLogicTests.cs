@@ -12,9 +12,9 @@ public class DeleteSnackTest
         deleteSnackLogic = new DeleteSnackLogic();
         snacks = new List<SnackModel>
         {
-            new SnackModel("1",0.5),
-            new SnackModel("2",1.5),
-            new SnackModel("3",2.5)
+            new SnackModel("1", "Description 1",0.5),
+            new SnackModel("2", "Description 2",1.5),
+            new SnackModel("3","Description 3",2.5)
         };
         deleteSnackLogic.snacks = snacks;
     }
