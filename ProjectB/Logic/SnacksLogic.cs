@@ -19,9 +19,6 @@ public class SnacksLogic
 
         _shoppingCartAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
         shoppingCart = _shoppingCartAccesor.LoadAll();
-
-        _discountAccesor = new JsonAccessor<DiscountModel>(@"DataSources/actieSnack.json");
-        discounts = _discountAccesor.LoadAll();
     }
     public void ShowSnacks()
     {

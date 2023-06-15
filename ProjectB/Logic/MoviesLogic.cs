@@ -510,7 +510,16 @@ public class MoviesLogic
 
         Console.WriteLine("Do you want to select a movie?");
         Console.WriteLine("[1] Yes\n[2] No");
-        int userChoice = Convert.ToInt32(Console.ReadLine());
+        var userChoice = Convert.ToInt32(Console.ReadLine());
+        try
+        {
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
         if (userChoice == 1)
         {
             Console.WriteLine("Enter a movie ID");
@@ -569,7 +578,7 @@ public class MoviesLogic
             Console.ReadKey(true);
             AccountMenu.Start();
         }
-        else
+        else if (userChoice.GetType() != typeof(int))
         {
             Console.WriteLine("Invalid input");
             SelectMovie();

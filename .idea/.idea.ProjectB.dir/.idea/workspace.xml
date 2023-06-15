@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/Logic/SnacksLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/SnacksLogic.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,12 +43,7 @@
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteMovies.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteSnacks.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/MoviesLogic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/MoviesLogic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/MoviesLogic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/PaymentLogic/IdealPaymentLogic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/ReservationsLogic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/ReservationsLogic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/SnacksLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/ValidationsLogic.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -217,7 +213,8 @@
       <workItem from="1686659810280" duration="598000" />
       <workItem from="1686730375480" duration="371000" />
       <workItem from="1686817209745" duration="407000" />
-      <workItem from="1686819421924" duration="546000" />
+      <workItem from="1686819421924" duration="1814000" />
+      <workItem from="1686822635331" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -506,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686817550324</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Fixed SnacksLogic.cs">
+      <created>1686819982178</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1686819982178</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,11 +519,38 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -527,7 +558,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Login systeem teruggezet naar stabiele systeem" />
     <MESSAGE value="Oude login systeem teruggebracht voor stabiliteit + Logo co worker login aangepast" />
     <MESSAGE value="Seats aangepast. teruggaan is nu mogelijk" />
     <MESSAGE value="Class names aangepast en login bug in UserLogin.cs gefixt" />
@@ -552,6 +582,7 @@
     <MESSAGE value="Totalprice is now correctly shown" />
     <MESSAGE value="Movieslogic.cs Updated/stable" />
     <MESSAGE value="Fixed some spelling errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some spelling errors" />
+    <MESSAGE value="Fixed SnacksLogic.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed SnacksLogic.cs" />
   </component>
 </project>
