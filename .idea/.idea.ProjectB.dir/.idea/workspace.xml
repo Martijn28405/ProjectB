@@ -7,11 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="Totalprice is now correctly shown">
+    <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="Movieslogic.cs Updated/stable">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataModels/DiscountModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataModels/DiscountModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/accounts.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/accounts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/actieSnack.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/Presentation/SeatMenu2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Presentation/SeatMenu2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/snacks.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/snacks.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteMovies.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteSnacks.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/MoviesLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/MoviesLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/MoviesLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/PaymentLogic/IdealPaymentLogic.cs" root0="SKIP_HIGHLIGHTING" />
@@ -214,7 +217,10 @@
       <workItem from="1686588374409" duration="35000" />
       <workItem from="1686640759898" duration="91000" />
       <workItem from="1686641130182" duration="7144000" />
-      <workItem from="1686649123085" duration="3557000" />
+      <workItem from="1686649123085" duration="4690000" />
+      <workItem from="1686659810280" duration="598000" />
+      <workItem from="1686730375480" duration="371000" />
+      <workItem from="1686817209745" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -489,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686650288144</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Movieslogic.cs Updated/stable">
+      <created>1686656526537</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1686656526537</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +523,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Movie Information word nu teruggestuurd naar Accountmenu." />
     <MESSAGE value="Manager kan nu snacks verwijderen en toevoegen." />
     <MESSAGE value="Login systeem teruggezet naar stabiele systeem" />
     <MESSAGE value="Oude login systeem teruggebracht voor stabiliteit + Logo co worker login aangepast" />
@@ -535,6 +547,7 @@
     <MESSAGE value="E-mail is now also being sent to User accounts" />
     <MESSAGE value="Movie can be selected with ID" />
     <MESSAGE value="Totalprice is now correctly shown" />
-    <option name="LAST_COMMIT_MESSAGE" value="Totalprice is now correctly shown" />
+    <MESSAGE value="Movieslogic.cs Updated/stable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movieslogic.cs Updated/stable" />
   </component>
 </project>

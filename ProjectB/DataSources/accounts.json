@@ -51,8 +51,22 @@
   {
     "id": 8,
     "emailAddress": "vanderhof75@icloud.com",
-    "password": "Testen&7",
+    "password": "Testen\u00267",
     "fullName": "Marcia van der Hof",
+    "accountType": "User"
+  },
+  {
+    "id": 9,
+    "emailAddress": "Martijn28405@gmail.com",
+    "password": "H@llo123456!",
+    "fullName": "Martijn Verwoert",
+    "accountType": "User"
+  },
+  {
+    "id": 10,
+    "emailAddress": "Martijn28405@gmail.com",
+    "password": "H@llo123456!",
+    "fullName": "Martijn Verwoert",
     "accountType": "User"
   }
 ]

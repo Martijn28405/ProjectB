@@ -44,19 +44,19 @@
   {
     "id": 8,
     "NameFood": "Popcorn Action Box",
-    "Description": "save 1 euro by buying this box",
+    "Description": "save €1 by buying this box",
     "PriceFood": 4
   },
   {
     "id": 9,
     "NameFood": "Soda Action Box",
-    "Description": "Buy 3 soda's for 7.50 euro instead of 9 euro's",
+    "Description": "Buy 3 soda's for €7.50 instead of €9",
     "PriceFood": 7.50
   },
   {
     "id": 10,
     "NameFood": "Pretzel and juice Action Box",
-    "Description": "Buy a pretzel and a juice and save 2 euro's",
+    "Description": "Buy a pretzel and a juice and save €2",
     "PriceFood": 6
   }
 ]

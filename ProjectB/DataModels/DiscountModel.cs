@@ -3,17 +3,17 @@ public class DiscountModel
 {
     [JsonPropertyName("Id")]
     public int Id { get; set; }
-    [JsonPropertyName("Discription")]
-    public string Discription { get; set; }
+    [JsonPropertyName("Description")]
+    public string Description { get; set; }
     [JsonPropertyName("NameFood")]
     public string NameFood { get; set; }
     [JsonPropertyName("PriceFood")]
     public double PriceFood { get; set; }
 
-    public DiscountModel(int id, string discription, string nameFood, double priceFood)
+    public DiscountModel(int id, string description, string nameFood, double priceFood)
     {
         Id = id;
-        Discription = discription;
+        Description = description;
         NameFood = nameFood;
         PriceFood = priceFood;
     }
