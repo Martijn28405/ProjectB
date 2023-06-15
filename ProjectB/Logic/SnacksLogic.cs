@@ -71,6 +71,7 @@ public class SnacksLogic
             {
                 Console.WriteLine($"ITEM ID: {item.Id}");
                 Console.WriteLine($"SNACK: {item.NameFood}");
+                Console.WriteLine($"DESCRIPTION: {item.Description}");
                 Console.WriteLine($"PRICE: {item.PriceFood}");
                 Console.WriteLine();
             }
@@ -85,6 +86,7 @@ public class SnacksLogic
             }
             Console.WriteLine($"ITEM ID: {snack.Id}");
             Console.WriteLine($"SNACK: {snack.NameFood}");
+            Console.WriteLine($"DESCRIPTION: {snack.Description}");
             Console.WriteLine($"PRICE: {snack.PriceFood}");
             Console.WriteLine();
 
@@ -175,7 +177,7 @@ public class SnacksLogic
     {
         shoppingCart.Clear();
         _shoppingCartAccesor.WriteAll(shoppingCart);
-        
+
     }
 
     public void ViewShoppingCart()

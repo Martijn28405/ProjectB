@@ -5,10 +5,9 @@ public class SnackModel
     public int Id { get; set; }
     [JsonPropertyName("NameFood")]
     public string NameFood { get; set; }
-    [JsonPropertyName("Descreption")]
+    [JsonPropertyName("Description")]
     public string Description { get; set; }
     [JsonPropertyName("PriceFood")]
-
     public double PriceFood { get; set; }
 
     public SnackModel(string nameFood, string description, double priceFood)
