@@ -7,11 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="Fixed unit tests">
+    <list default="true" id="041a49ab-8e11-4f08-8e82-9c5e981ba037" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectB.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/accounts.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/accounts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/movies.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/movies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/DataSources/reservation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Logic/MoviesLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectB/Presentation/AccountMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectB/Presentation/AccountMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,11 +41,16 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/DataModels/MovieModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/DataModels/MovieModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/CheckMovieInformation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteMovies.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/DeleteSnacks.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/EmailLogic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/MoviesLogic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/MoviesLogic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/PaymentLogic/PaymentLogic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Marti/Git/ProjectB/ProjectB/Logic/PaymentLogic/PaymentLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectB/Logic/ValidationsLogic.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -215,7 +221,10 @@
       <workItem from="1686730375480" duration="371000" />
       <workItem from="1686817209745" duration="407000" />
       <workItem from="1686819421924" duration="1814000" />
-      <workItem from="1686822635331" duration="2343000" />
+      <workItem from="1686822635331" duration="3008000" />
+      <workItem from="1686832869938" duration="227000" />
+      <workItem from="1686834573451" duration="254000" />
+      <workItem from="1686835802012" duration="1107000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Menu options aangepast&quot;">
       <created>1680166433551</created>
@@ -525,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686823732142</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Email bijgewerkt">
+      <created>1686826261792</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1686826261792</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +589,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Class names aangepast en login bug in UserLogin.cs gefixt" />
     <MESSAGE value="Menu changes + New temporary logos + ReservationsLogic.cs link to ManagerMenu.cs" />
     <MESSAGE value="Account User kan nu zijn/haar shopping cart leegmaken en zien" />
     <MESSAGE value="user krijgt nu een email met informatie" />
@@ -598,6 +613,7 @@
     <MESSAGE value="Fixed SnacksLogic.cs" />
     <MESSAGE value="Fixed JSON error" />
     <MESSAGE value="Fixed unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed unit tests" />
+    <MESSAGE value="Email bijgewerkt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Email bijgewerkt" />
   </component>
 </project>

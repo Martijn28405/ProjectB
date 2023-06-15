@@ -27,7 +27,7 @@ public class AccountMenu
         {
             case 0:
                 MoviesLogic showmovies = new MoviesLogic();
-                showmovies.SelectMovie();
+                showmovies.ShowMovies();
                 Start();
                 break;
             case 1:
