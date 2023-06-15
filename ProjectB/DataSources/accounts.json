@@ -68,5 +68,19 @@
     "password": "H@llo123456!",
     "fullName": "Martijn Verwoert",
     "accountType": "User"
+  },
+  {
+    "id": 11,
+    "emailAddress": "Martijn28405@gmail.com",
+    "password": "H@llo123456!",
+    "fullName": "Martijn Verwoert",
+    "accountType": "User"
+  },
+  {
+    "id": 12,
+    "emailAddress": "Martijn28405@gmail.com",
+    "password": "H@llo123456!",
+    "fullName": "Martijn Verwoert",
+    "accountType": "User"
   }
 ]
