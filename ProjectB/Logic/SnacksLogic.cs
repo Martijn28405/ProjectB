@@ -65,7 +65,6 @@ public class SnacksLogic
     {
         while (true)
         {
-            Console.WriteLine("What would you like to buy? Please enter ID:");
             Console.WriteLine();
             foreach (var item in snacks)
             {
@@ -75,6 +74,7 @@ public class SnacksLogic
                 Console.WriteLine($"PRICE: {item.PriceFood}");
                 Console.WriteLine();
             }
+            Console.WriteLine("What would you like to buy? Please enter ID:");
             int itemId = Convert.ToInt32(Console.ReadLine());
             // snacks is the list of available snacks.
             // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.

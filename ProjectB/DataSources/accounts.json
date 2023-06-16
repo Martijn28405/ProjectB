@@ -1,86 +1,23 @@
 [
   {
     "id": 1,
-    "emailAddress": "j@j.j",
-    "password": "1@AAAAAA",
-    "fullName": "j ka",
-    "accountType": "User"
-  },
-  {
-    "id": 2,
-    "emailAddress": "m@m.nl",
-    "password": "M@nager1",
-    "fullName": "manager",
-    "accountType": "Manager"
-  },
-  {
-    "id": 3,
-    "emailAddress": "co@worker.nl",
-    "password": "C0worker!",
-    "fullName": "co worker",
-    "accountType": "Co-Worker"
-  },
-  {
-    "id": 4,
     "emailAddress": "1",
     "password": "1",
     "fullName": "1",
     "accountType": "User"
   },
   {
-    "id": 5,
+    "id": 2,
     "emailAddress": "2",
     "password": "2",
     "fullName": "2",
     "accountType": "Co-Worker"
   },
   {
-    "id": 6,
+    "id": 3,
     "emailAddress": "3",
     "password": "3",
     "fullName": "3",
     "accountType": "Manager"
-  },
-  {
-    "id": 7,
-    "emailAddress": "Martijn28405@gmail.com",
-    "password": "H@llo123456!",
-    "fullName": "Martijn Verwoert",
-    "accountType": "User"
-  },
-  {
-    "id": 8,
-    "emailAddress": "vanderhof75@icloud.com",
-    "password": "Testen\u00267",
-    "fullName": "Marcia van der Hof",
-    "accountType": "User"
-  },
-  {
-    "id": 9,
-    "emailAddress": "Martijn28405@gmail.com",
-    "password": "H@llo123456!",
-    "fullName": "Martijn Verwoert",
-    "accountType": "User"
-  },
-  {
-    "id": 10,
-    "emailAddress": "Martijn28405@gmail.com",
-    "password": "H@llo123456!",
-    "fullName": "Martijn Verwoert",
-    "accountType": "User"
-  },
-  {
-    "id": 11,
-    "emailAddress": "Martijn28405@gmail.com",
-    "password": "H@llo123456!",
-    "fullName": "Martijn Verwoert",
-    "accountType": "User"
-  },
-  {
-    "id": 12,
-    "emailAddress": "Martijn28405@gmail.com",
-    "password": "H@llo123456!",
-    "fullName": "Martijn Verwoert",
-    "accountType": "User"
   }
 ]

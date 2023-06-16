@@ -13,13 +13,16 @@
  | |__| | |_| |  __/\__ \ |_  | |  | |  __/ | | | |_| |
   \_____|\__,_|\___||___/\__| |_|  |_|\___|_| |_|\__,_|                                                              
         ");
-        string[] options = { "Show Movies", "Show Catering", "Make a Reservation", "Back to Main Menu" };
+        string[] options = { "Show Movies/Make a Reservation", "Show Catering", "Back to Main Menu" };
         Menu guestmenu = new Menu(prompt, options);
         int SelectedIndex = guestmenu.Run();
 
             switch (SelectedIndex)
             {
                 case 0:
+                    Console.WriteLine("Enter your e-mail (we will send you a confirmation here");
+                    string Guest_Email_Input = Console.ReadLine();
+                    Guest_Email = Guest_Email_Input;
                     MoviesLogic showMovies = new MoviesLogic();
                     showMovies.ShowMovies();
                     break;
@@ -28,13 +31,6 @@
                     showSnacks.ShowSnacks();
                     break;
                 case 2:
-                    Console.WriteLine("Enter your e-mail (we will send you a confirmation here");
-                    string Guest_Email_Input = Console.ReadLine();
-                    Guest_Email = Guest_Email_Input;
-                    MoviesLogic showmovies = new MoviesLogic();
-                    showmovies.ShowMovies();
-                    break;
-                case 3:
                     Program.Main();
                     break;
             }
