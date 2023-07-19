@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "Seat": [
+      "Row: 5 Seat: 6"
+    ],
+    "EmailAddress": "1",
+    "Movie": "Avatar 2",
+    "Start Time": "2023-06-27T16:30:00",
+    "Duration": 1
+  }
+]

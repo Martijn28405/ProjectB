@@ -188,10 +188,8 @@ public class SnacksLogic
                 Console.WriteLine("This item was not found, can you try again\n");
                 return DeleteSnack();
             }
-
         }
         return (snackDeleted, statusMessage);
-
     }
 
 

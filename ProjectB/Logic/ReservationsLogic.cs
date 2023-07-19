@@ -29,11 +29,14 @@ public class ReservationsLogic
             Console.WriteLine($"MOVIE: {reservation.Movie}");
             Console.WriteLine($"START TIME: {reservation.StartTime}");
             Console.WriteLine($"DURATION: {reservation.Duration}");
+            return;
         }
+        Console.WriteLine("There are no reservations at this moment\n");
     }
     /*public static void AddReservation()
     {
         foreach (var item in _carts)
+
         {
 
             EmailLogic.seats_list.Add(item.Seat.ToString());
@@ -47,6 +50,7 @@ public class ReservationsLogic
         string? movieInput = Console.ReadLine();
         Console.WriteLine("Enter e-mail:");
         string? EmailInput = Console.ReadLine();
+
         var filteredReservations = _reservations.Where(r => r.EmailAddress == EmailInput && r.Movie == movieInput);
         foreach (var reservation in filteredReservations)
         {
