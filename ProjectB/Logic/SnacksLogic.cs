@@ -76,10 +76,11 @@ public class SnacksLogic
             }
             Console.WriteLine("What would you like to buy? Please enter ID:");
             int itemId = Convert.ToInt32(Console.ReadLine());
+            string idToString = Convert.ToString(itemId);
             // snacks is the list of available snacks.
             // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
             SnackModel? snack = snacks.FirstOrDefault(snack => snack.Id == itemId);
-            if (snack == null)
+            if (snack == null || itemId > snack.Id || itemId < snack.Id)
             {
                 Console.WriteLine("Invalid, please try again.");
                 continue;
