@@ -169,15 +169,6 @@ public class MoviesLogic
     public void MovieInformation()
     {
 
-        //  foreach (MovieModel movie in movies)
-        // {
-        //     while (userInput == movie.MovieTitle)
-        //     {
-
-        //         MovieInformationOptions(movie);
-        //         AccountMenu.Start();
-
-        //     }
         Console.WriteLine("Of which movie would you like to receive some information?\n");
         foreach (var movie in movies)
         {
@@ -333,7 +324,7 @@ public class MoviesLogic
                 Console.WriteLine("INFO:" + movie.Information);
                 Console.WriteLine();
             }
-            
+
         }
         SelectMovie();
 

@@ -52,7 +52,7 @@ public class SnacksLogic
         Console.WriteLine("The price of the snack:");
         double snackPrice = Convert.ToDouble(Console.ReadLine());
         string snackDescprition = null;
-        SnackModel snack = new SnackModel(snackName, snackDescprition, snackPrice);
+        SnackModel snack = new SnackModel(index, snackName, snackDescprition, snackPrice);
         snack.Id = index;
         snacks.Add(snack);
         _productAccesor.WriteAll(snacks);
@@ -136,7 +136,18 @@ public class SnacksLogic
         }
         else if (choice == 2)
         {
-            DeleteSnack();
+            var result = DeleteSnack();
+            if (result.Item1)
+            {
+                Console.WriteLine(result.Item2);
+            }
+            else
+            {
+                Console.WriteLine(result.Item2);
+            }
+            Console.WriteLine("Press any key to return to menu");
+            Console.ReadKey(true);
+            ManagerMenu.Start();
         }
         else if (choice == 3)
         {
@@ -148,31 +159,66 @@ public class SnacksLogic
             ManageSnacks();
         }
     }
-    public void DeleteSnack()
+    public (bool, string) DeleteSnack()
     {
         foreach (var item in snacks)
         {
-            Console.WriteLine($"Snacks: {item.NameFood}");
+            Console.WriteLine($"Snacks: {item.Id} {item.NameFood}");
         }
 
         Console.WriteLine("Which snack do you want to delete?");
-        string snack = Console.ReadLine();
+        int snack = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine();
+
+        bool snackDeleted = false;
+        string statusMessage = "Snack not found";
+
         foreach (var item in snacks)
         {
-            if (snack == item.NameFood)
+            if (snack == item.Id)
             {
                 snacks.Remove(item);
                 _productAccesor.WriteAll(snacks);
-                Console.WriteLine("Snack deleted");
+                snackDeleted = true;
+                statusMessage = "Snack deleted";
                 break;
             }
-        }
+            else if (snack != item.Id)
+            {
+                Console.WriteLine("This item was not found, can you try again\n");
+                return DeleteSnack();
+            }
 
-        Console.WriteLine("Press any key to return to menu");
-        Console.ReadKey(true);
-        ManagerMenu.Start();
+        }
+        return (snackDeleted, statusMessage);
+
     }
 
+
+    // public void DeleteSnack()
+    //     {
+    //         foreach (var item in snacks)
+    //         {
+    //             Console.WriteLine($"Snacks: {item.NameFood}");
+    //         }
+
+    //         Console.WriteLine("Which snack do you want to delete?");
+    //         string snack = Console.ReadLine();
+    //         foreach (var item in snacks)
+    //         {
+    //             if (snack == item.NameFood)
+    //             {
+    //                 snacks.Remove(item);
+    //                 _productAccesor.WriteAll(snacks);
+    //                 Console.WriteLine("Snack deleted");
+    //                 break;
+    //             }
+    //         }
+
+    //         Console.WriteLine("Press any key to return to menu");
+    //         Console.ReadKey(true);
+    //         ManagerMenu.Start();
+    //     }
     public void EmptyShoppingCart()
     {
         shoppingCart.Clear();

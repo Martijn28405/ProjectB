@@ -1,62 +1,26 @@
 [
   {
-    "id": 1,
-    "NameFood": "Popcorn",
-    "Description": "A salty snack.",
-    "PriceFood": 2.5
-  },
-  {
-    "id": 2,
-    "NameFood": "Nachos",
-    "Description": "Some round salty corn chips, includes 2 sauces.",
-    "PriceFood": 6.99
-  },
-  {
-    "id": 3,
-    "NameFood": "Hot dog",
-    "Description": "A hot dog in a bun with mustard and ketchup.",
-    "PriceFood": 4.99
-  },
-  {
-    "id": 4,
-    "NameFood": "Pretzel",
-    "Description": "A salty dough snack.",
-    "PriceFood": 3.99
-  },
-  {
-    "id": 5,
-    "NameFood": "Soda",
-    "Description": "A fizzy drink to clench your thirst.",
-    "PriceFood": 2.99
-  },
-  {
-    "id": 6,
-    "NameFood": "Bottled water",
-    "Description": "A fresh bottle of water.",
-    "PriceFood": 1.99
-  },
-  {
-    "id": 7,
-    "NameFood": "Juice",
-    "Description": "Some freshly squeezed juice.",
-    "PriceFood": 3.99
-  },
-  {
-    "id": 8,
-    "NameFood": "Popcorn Action Box",
-    "Description": "Save 1 euro by buying this popcorn action box!",
-    "PriceFood": 4
-  },
-  {
     "id": 9,
     "NameFood": "Soda Action Box",
-    "Description": "Get 3 soda's for 7 euro's instead of 9 euro's!",
-    "PriceFood": 7.50
+    "Description": "Get 3 soda\u0027s for 7 euro\u0027s instead of 9 euro\u0027s!",
+    "PriceFood": 7.5
   },
   {
     "id": 10,
     "NameFood": "Pretzel and juice Action Box",
-    "Description": "Buy a salty pretzel and some fresh juice to save 2 euro's!",
+    "Description": "Buy a salty pretzel and some fresh juice to save 2 euro\u0027s!",
     "PriceFood": 6
+  },
+  {
+    "id": 11,
+    "NameFood": "Popcorn",
+    "Description": null,
+    "PriceFood": 2
+  },
+  {
+    "id": 12,
+    "NameFood": "Candy",
+    "Description": null,
+    "PriceFood": 1.75
   }
 ]

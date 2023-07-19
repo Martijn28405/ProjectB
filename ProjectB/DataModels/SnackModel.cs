@@ -10,9 +10,9 @@ public class SnackModel
     [JsonPropertyName("PriceFood")]
     public double PriceFood { get; set; }
 
-    public SnackModel(string nameFood, string description, double priceFood)
+    public SnackModel(int id, string nameFood, string description, double priceFood)
     {
-
+        Id = id;
         NameFood = nameFood;
         Description = description;
         PriceFood = priceFood;

@@ -1,333 +1,333 @@
- using System;
- using System.Collections.Generic;
- using System.IO;
- using Newtonsoft.Json;
- using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 
- public class SeatMenu
- {
-     // Small cinema
-     public static int row = 0;
-     public static int col = 0;
-     static int selectedSeatIndex = 6; // Initially select the first seat
-     static string[,] seats = new string[14, 12]; // 14x142 array of seats
-     static bool[,] takenSeats = new bool[14, 12];
-     public static List<string> selectedSeats = new List<string>();
-     public static List<string> selectedSeatsColor = new List<string>();
+public class SeatMenu
+{
+    // Small cinema
+    public static int row = 0;
+    public static int col = 0;
+    static int selectedSeatIndex = 6; // Initially select the first seat
+    static string[,] seats = new string[14, 12]; // 14x142 array of seats
+    static bool[,] takenSeats = new bool[14, 12];
+    public static List<string> selectedSeats = new List<string>();
+    public static List<string> selectedSeatsColor = new List<string>();
 
-     public static void Start()
-     {
-         Console.Clear();
-         Console.CursorVisible = false;
-         InitializeSeats(); // Initialize seats with "[ ]"
-         DrawSeats(); // Draw initial seats
-         while (true)
-         {
-             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-             switch (keyInfo.Key)
-             {
-                 case ConsoleKey.UpArrow:
-                     MoveSelectionUp();
-                     break;
-                 case ConsoleKey.DownArrow:
-                     MoveSelectionDown();
-                     break;
-                 case ConsoleKey.LeftArrow:
-                     MoveSelectionLeft();
-                     break;
-                 case ConsoleKey.RightArrow:
-                     MoveSelectionRight();
-                     break;
-                 case ConsoleKey.Enter:
-                     SelectSeat();
-                     break;
-             }
-         }
-     }
+    public static void Start()
+    {
+        Console.Clear();
+        Console.CursorVisible = false;
+        InitializeSeats(); // Initialize seats with "[ ]"
+        DrawSeats(); // Draw initial seats
+        while (true)
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    MoveSelectionUp();
+                    break;
+                case ConsoleKey.DownArrow:
+                    MoveSelectionDown();
+                    break;
+                case ConsoleKey.LeftArrow:
+                    MoveSelectionLeft();
+                    break;
+                case ConsoleKey.RightArrow:
+                    MoveSelectionRight();
+                    break;
+                case ConsoleKey.Enter:
+                    SelectSeat();
+                    break;
+            }
+        }
+    }
 
-     static void InitializeSeats()
-     {
-         string jsonFilePath = "DataSources/Seat_Color.json";
-         string jsonText = File.ReadAllText(jsonFilePath);
-         JObject jsonObj = JObject.Parse(jsonText);
-         JArray seatColorArray = (JArray)jsonObj["Color_Seats_Small_Cinema"];
+    static void InitializeSeats()
+    {
+        string jsonFilePath = "DataSources/Seat_Color.json";
+        string jsonText = File.ReadAllText(jsonFilePath);
+        JObject jsonObj = JObject.Parse(jsonText);
+        JArray seatColorArray = (JArray)jsonObj["Color_Seats_Small_Cinema"];
 
-         for (int i = 0; i < seats.GetLength(0); i++)
-         {
-             for (int j = 0; j < seats.GetLength(1); j++)
-             {
-                 seats[i, j] = "[" + seatColorArray[i][j].ToString() + "]";
-             }
-         }
-
-
-         // Left upper corner (seats[y,x])
-         seats[0, 0] = "   ";
-         seats[1, 0] = "   ";
-         seats[2, 0] = "   ";
-         seats[0, 1] = "   ";
-
-         // Right upper corner
-         seats[0, 11] = "   ";
-         seats[1, 11] = "   ";
-         seats[2, 11] = "   ";
-         seats[0, 10] = "   ";
-
-         // Lower left corner
-         seats[13, 0] = "   ";
-         seats[13, 1] = "   ";
-         seats[12, 0] = "   ";
-         seats[12, 1] = "   ";
-         seats[11, 0] = "   ";
-
-         // lower right corner
-         seats[13, 11] = "   ";
-         seats[13, 10] = "   ";
-         seats[12, 10] = "   ";
-         seats[12, 11] = "   ";
-         seats[11, 11] = "   ";
-     }
-
-     static void DrawSeats()
-     {
-
-         Console.CursorTop = 10;
-         Console.WriteLine("The blue seats are our standard seats, which are great and comfortable.\n" +
-                   "Our yellow seats are handwoven and have a better position for the screen.\n" +
-                   "Our red seats are the best seats we have to offer.\n" +
-                   "The acoustics are excellent, and your position is ideal for enjoying the film.");
-         Console.WriteLine("Prices: \n");
-         Console.WriteLine("Blue: $10");
-         Console.WriteLine("Yellow: $15");
-         Console.WriteLine("Red: $20");
-         Console.WriteLine("Select a seat:");
-
-         for (int i = 0; i < seats.GetLength(0); i++)
-         {
-             for (int j = 0; j < seats.GetLength(1); j++)
-             {
-                 char colorChar = seats[i, j][1];
-                 ConsoleColor seatColor = ConsoleColor.Blue;
-
-                 if (colorChar == 'G') seatColor = ConsoleColor.Yellow;
-                 else if (colorChar == 'R') seatColor = ConsoleColor.Red;
-
-                 Console.ForegroundColor = seatColor;
-                 if (i == selectedSeatIndex / seats.GetLength(1) && j == selectedSeatIndex % seats.GetLength(1))
-                 {
-                     Console.BackgroundColor = ConsoleColor.DarkBlue;
-                 }
-
-                 if (seats[i, j] == "   ")
-                 {
-                     Console.Write(seats[i, j] + " ");
-                 }
-                 else if (takenSeats[i, j] == true)
-                 {
-                     Console.Write("[X] ");
-                 }
-                 else
-                 {
-                     Console.Write("[ ] ");
-                 }
-                 Console.ResetColor();
-             }
-             Console.WriteLine();
-         }
-         Console.WriteLine("                    Screen");
-         Console.WriteLine("------------------------------------------");
-     }
-
-     static void MoveSelectionUp()
-     {
-         if (selectedSeatIndex >= seats.GetLength(1))
-         {
-             var wantedseat = selectedSeatIndex - seats.GetLength(1);
-             if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
-             {
-                 selectedSeatIndex -= seats.GetLength(1);
-                 DrawSeats();
-
-             }
-         }
-     }
-
-     static void MoveSelectionDown()
-     {
-         if (selectedSeatIndex < seats.GetLength(0) * seats.GetLength(1) - seats.GetLength(1))
-         {
-             var wantedseat = selectedSeatIndex + seats.GetLength(1);
-             if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
-             {
-                 selectedSeatIndex += seats.GetLength(1);
-                 DrawSeats();
-
-             }
-            
-            
-         }
-     }
-
-     static void MoveSelectionLeft()
-     {
-         if (selectedSeatIndex % seats.GetLength(1) > 0)
-         { 
-             var wantedseat = selectedSeatIndex - 1;
-             if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
-             {
-                 selectedSeatIndex--;
-                 DrawSeats();
-
-             }
-         }
-     }
-
-     static void MoveSelectionRight()
-     {
-         if (selectedSeatIndex % seats.GetLength(1) < seats.GetLength(1) - 1)
-         {
-             var wantedseat = selectedSeatIndex + 1;
-             if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
-             {
-                 selectedSeatIndex++;
-                 DrawSeats();
-
-             }
-
-         }
-     }
-
-     public static void SelectSeat()
-     {
-         row = selectedSeatIndex / seats.GetLength(1);
-         col = selectedSeatIndex % seats.GetLength(1);
-
-         if (takenSeats[row, col] != true)
-         {
-             takenSeats[row, col] = true;// Mark the seat as taken
-
-             Console.WriteLine("Seat selected!");
-             Console.WriteLine($"Row: {row}");
-             Console.WriteLine($"Seat: {col}");
-             selectedSeats.Add($"Row: {row} Seat: {col}");
-             selectedSeatsColor.Add(seats[row, col]);
-             Choice();
-         }
-         else if (takenSeats[row, col] == true)
-         {
-             takenSeats[row, col] = false;
-             selectedSeats.Remove($"Row: {row} Seat: {col}");
-             selectedSeatsColor.Remove(seats[row, col]);
-             Console.WriteLine("Seat deselected!");
-             Console.WriteLine($"Row: {row}");
-             Console.WriteLine($"Seat: {col}");
-             Choice();
-         }
-         else
-         {
-             Console.WriteLine("Seat already taken. Please select another seat.");
-         }
+        for (int i = 0; i < seats.GetLength(0); i++)
+        {
+            for (int j = 0; j < seats.GetLength(1); j++)
+            {
+                seats[i, j] = "[" + seatColorArray[i][j].ToString() + "]";
+            }
+        }
 
 
-     }
+        // Left upper corner (seats[y,x])
+        seats[0, 0] = "   ";
+        seats[1, 0] = "   ";
+        seats[2, 0] = "   ";
+        seats[0, 1] = "   ";
 
-     static void Choice()
-     {
-         foreach (var seat in selectedSeats)
-         {
-             Console.WriteLine(seat);
-         }
-         Console.WriteLine("Would you like to select more seats, buy some snacks or continue to checkout?");
-         Console.WriteLine("[1] Select More Seats \n[2] Buy Snacks \n[3] Go to Checkout ");
-         string choice = Console.ReadLine();
-         SnacksLogic snacksLogic = new SnacksLogic();
-         ReservationsLogic reservationsLogic = new ReservationsLogic();
+        // Right upper corner
+        seats[0, 11] = "   ";
+        seats[1, 11] = "   ";
+        seats[2, 11] = "   ";
+        seats[0, 10] = "   ";
 
-         switch (choice)
-         {
-             case "1":
-                 Console.Clear();
-                 DrawSeats();
-                 break;
-             case "2":
-                 snacksLogic.BuySnacks();
-                 reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
-                 break;
-             case "3":
-                 reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
-                 break;
-         }
-         // Send the price of all selected seats and which seats are selected to the checkout
+        // Lower left corner
+        seats[13, 0] = "   ";
+        seats[13, 1] = "   ";
+        seats[12, 0] = "   ";
+        seats[12, 1] = "   ";
+        seats[11, 0] = "   ";
 
-     }
+        // lower right corner
+        seats[13, 11] = "   ";
+        seats[13, 10] = "   ";
+        seats[12, 10] = "   ";
+        seats[12, 11] = "   ";
+        seats[11, 11] = "   ";
+    }
 
-     // Hier komt de indx met de verschillende kleuren
+    static void DrawSeats()
+    {
 
-     static void ColorIndex()
-     {
+        Console.CursorTop = 10;
+        Console.WriteLine("The blue seats are our standard seats, which are great and comfortable.\n" +
+                  "Our yellow seats are handwoven and have a better position for the screen.\n" +
+                  "Our red seats are the best seats we have to offer.\n" +
+                  "The acoustics are excellent, and your position is ideal for enjoying the film.");
+        Console.WriteLine("Prices: \n");
+        Console.WriteLine("Blue: $10");
+        Console.WriteLine("Yellow: $15");
+        Console.WriteLine("Red: $20");
+        Console.WriteLine("Select a seat:");
+
+        for (int i = 0; i < seats.GetLength(0); i++)
+        {
+            for (int j = 0; j < seats.GetLength(1); j++)
+            {
+                char colorChar = seats[i, j][1];
+                ConsoleColor seatColor = ConsoleColor.Blue;
+
+                if (colorChar == 'G') seatColor = ConsoleColor.Yellow;
+                else if (colorChar == 'R') seatColor = ConsoleColor.Red;
+
+                Console.ForegroundColor = seatColor;
+                if (i == selectedSeatIndex / seats.GetLength(1) && j == selectedSeatIndex % seats.GetLength(1))
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                }
+
+                if (seats[i, j] == "   ")
+                {
+                    Console.Write(seats[i, j] + " ");
+                }
+                else if (takenSeats[i, j] == true)
+                {
+                    Console.Write("[X] ");
+                }
+                else
+                {
+                    Console.Write("[ ] ");
+                }
+                Console.ResetColor();
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine("                    Screen");
+        Console.WriteLine("------------------------------------------");
+    }
+
+    static void MoveSelectionUp()
+    {
+        if (selectedSeatIndex >= seats.GetLength(1))
+        {
+            var wantedseat = selectedSeatIndex - seats.GetLength(1);
+            if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
+            {
+                selectedSeatIndex -= seats.GetLength(1);
+                DrawSeats();
+
+            }
+        }
+    }
+
+    static void MoveSelectionDown()
+    {
+        if (selectedSeatIndex < seats.GetLength(0) * seats.GetLength(1) - seats.GetLength(1))
+        {
+            var wantedseat = selectedSeatIndex + seats.GetLength(1);
+            if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
+            {
+                selectedSeatIndex += seats.GetLength(1);
+                DrawSeats();
+
+            }
 
 
-     }
+        }
+    }
 
-     // Proberen maken van de clear functie zodat Color index werkt
+    static void MoveSelectionLeft()
+    {
+        if (selectedSeatIndex % seats.GetLength(1) > 0)
+        {
+            var wantedseat = selectedSeatIndex - 1;
+            if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
+            {
+                selectedSeatIndex--;
+                DrawSeats();
 
-     private static void CinemaBaseColor()
-     {
-         Console.ForegroundColor = ConsoleColor.DarkBlue;
+            }
+        }
+    }
 
-     }
+    static void MoveSelectionRight()
+    {
+        if (selectedSeatIndex % seats.GetLength(1) < seats.GetLength(1) - 1)
+        {
+            var wantedseat = selectedSeatIndex + 1;
+            if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
+            {
+                selectedSeatIndex++;
+                DrawSeats();
+
+            }
+
+        }
+    }
+
+    public static void SelectSeat()
+    {
+        row = selectedSeatIndex / seats.GetLength(1);
+        col = selectedSeatIndex % seats.GetLength(1);
+
+        if (takenSeats[row, col] != true)
+        {
+            takenSeats[row, col] = true;// Mark the seat as taken
+
+            Console.WriteLine("Seat selected!");
+            Console.WriteLine($"Row: {row}");
+            Console.WriteLine($"Seat: {col}");
+            selectedSeats.Add($"Row: {row} Seat: {col}");
+            selectedSeatsColor.Add(seats[row, col]);
+            Choice();
+        }
+        else if (takenSeats[row, col] == true)
+        {
+            takenSeats[row, col] = false;
+            selectedSeats.Remove($"Row: {row} Seat: {col}");
+            selectedSeatsColor.Remove(seats[row, col]);
+            Console.WriteLine("Seat deselected!");
+            Console.WriteLine($"Row: {row}");
+            Console.WriteLine($"Seat: {col}");
+            Choice();
+        }
+        else
+        {
+            Console.WriteLine("Seat already taken. Please select another seat.");
+        }
 
 
-     private static void CinemaBaseColorYellow()
-     {
-         Console.ForegroundColor = ConsoleColor.Yellow;
+    }
 
-     }
+    static void Choice()
+    {
+        foreach (var seat in selectedSeats)
+        {
+            Console.WriteLine(seat);
+        }
+        Console.WriteLine("Would you like to select more seats, buy some snacks or continue to checkout?");
+        Console.WriteLine("[1] Select More Seats \n[2] Buy Snacks \n[3] Go to Checkout ");
+        string choice = Console.ReadLine();
+        SnacksLogic snacksLogic = new SnacksLogic();
+        ReservationsLogic reservationsLogic = new ReservationsLogic();
 
-     /*private static void JsonEdditor()
-     {
-         {
-                 // Lees de JSON uit het bestand
-                 string json = System.IO.File.ReadAllText(@"Seat_Color.json");
+        switch (choice)
+        {
+            case "1":
+                Console.Clear();
+                DrawSeats();
+                break;
+            case "2":
+                snacksLogic.BuySnacks();
+                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                break;
+            case "3":
+                reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
+                break;
+        }
+        // Send the price of all selected seats and which seats are selected to the checkout
 
-                 // Deserialiseer de JSON in een JObject
-                 JObject jObject = JObject.Parse(json);
+    }
 
-                 // Zoek de 'Color_Seats_Small_Cinema'-array op
-                 JArray seatsArray = (JArray)jObject["Color_Seats_Small_Cinema"];
+    // Hier komt de indx met de verschillende kleuren
 
-                 // Loop door de array heen en vervang de codes door hun kleuren
-                 
-                 
-                 
-                 // hier wil je aan passesn dat de kleuren worden veranderd in de scinema seats
-                 for (int i = 0; i < seatsArray.Count; i++)
-                 {
-                     JArray seatRow = (JArray)seatsArray[i];
-                     for (int j = 0; j < seatRow.Count; j++)
-                     {
-                         string seatCode = seatRow[j].ToString();
-                         switch (seatCode)
-                         {
-                             case "B":
-                                 seatRow[j] = "Blue";
-                                 break;
-                             case "G":
-                                 seatRow[j] = "Yellow";
-                                 break;
-                             case "R":
-                                 seatRow[j] = "Red";
-                                 break;
-                         }
-                     }
-                 }*/
+    static void ColorIndex()
+    {
 
-     // De gewijzigde JSON is nu opgeslagen in het jObject, dus je kunt de JSON nu weer wegschrijven naar het bestand als je dat wilt.
-     // Laatste stap is het opslaan van het gewijzigde JObject als JSON naar een string, en deze string kan weer worden weggeschreven naar het bestand.
-     /*string newJson = jObject.ToString();
-     System.IO.File.WriteAllText(@"Seat_Cinema.Json", newJson);*/
- }
+
+    }
+
+    // Proberen maken van de clear functie zodat Color index werkt
+
+    private static void CinemaBaseColor()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+
+    }
+
+
+    private static void CinemaBaseColorYellow()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+
+    }
+
+    /*private static void JsonEdditor()
+    {
+        {
+                // Lees de JSON uit het bestand
+                string json = System.IO.File.ReadAllText(@"Seat_Color.json");
+
+                // Deserialiseer de JSON in een JObject
+                JObject jObject = JObject.Parse(json);
+
+                // Zoek de 'Color_Seats_Small_Cinema'-array op
+                JArray seatsArray = (JArray)jObject["Color_Seats_Small_Cinema"];
+
+                // Loop door de array heen en vervang de codes door hun kleuren
+
+
+
+                // hier wil je aan passesn dat de kleuren worden veranderd in de scinema seats
+                for (int i = 0; i < seatsArray.Count; i++)
+                {
+                    JArray seatRow = (JArray)seatsArray[i];
+                    for (int j = 0; j < seatRow.Count; j++)
+                    {
+                        string seatCode = seatRow[j].ToString();
+                        switch (seatCode)
+                        {
+                            case "B":
+                                seatRow[j] = "Blue";
+                                break;
+                            case "G":
+                                seatRow[j] = "Yellow";
+                                break;
+                            case "R":
+                                seatRow[j] = "Red";
+                                break;
+                        }
+                    }
+                }*/
+
+    // De gewijzigde JSON is nu opgeslagen in het jObject, dus je kunt de JSON nu weer wegschrijven naar het bestand als je dat wilt.
+    // Laatste stap is het opslaan van het gewijzigde JObject als JSON naar een string, en deze string kan weer worden weggeschreven naar het bestand.
+    /*string newJson = jObject.ToString();
+    System.IO.File.WriteAllText(@"Seat_Cinema.Json", newJson);*/
+}
 
 
 

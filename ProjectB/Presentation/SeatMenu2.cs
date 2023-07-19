@@ -193,19 +193,19 @@ public class SeatMenu2
             var wantedseat = selectedSeatIndex + seats.GetLength(1);
             if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
             {
-               selectedSeatIndex += seats.GetLength(1);
-               DrawSeats();
+                selectedSeatIndex += seats.GetLength(1);
+                DrawSeats();
 
             }
-            
-            
+
+
         }
     }
 
     static void MoveSelectionLeft()
     {
         if (selectedSeatIndex % seats.GetLength(1) > 0)
-        { 
+        {
             var wantedseat = selectedSeatIndex - 1;
             if (seats[(wantedseat) / seats.GetLength(1), (wantedseat) % seats.GetLength(1)] != "   ")
             {
