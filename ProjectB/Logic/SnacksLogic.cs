@@ -168,28 +168,30 @@ public class SnacksLogic
         }
 
         Console.WriteLine("Which snack do you want to delete?");
-        int snack = Convert.ToInt32(Console.ReadLine());
+        int snackId = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
 
         bool snackDeleted = false;
         string statusMessage = "Snack not found";
 
-        foreach (var item in snacks)
+        for (int i = 0; i < snacks.Count; i++)
         {
-            if (snack == item.Id)
+            if (snacks[i].Id == snackId)
             {
-                snacks.Remove(item);
+                snacks.RemoveAt(i);
                 _productAccesor.WriteAll(snacks);
                 snackDeleted = true;
                 statusMessage = "Snack deleted";
                 break;
             }
-            else if (snack != item.Id)
-            {
-                Console.WriteLine("This item was not found, can you try again\n");
-                return DeleteSnack();
-            }
         }
+
+        if (!snackDeleted)
+        {
+            Console.WriteLine("This item was not found, can you try again\n");
+            DeleteSnack();
+        }
+
         return (snackDeleted, statusMessage);
     }
 

@@ -1,26 +1,26 @@
 [
   {
-    "id": 9,
-    "NameFood": "Soda Action Box",
-    "Description": "Get 3 soda\u0027s for 7 euro\u0027s instead of 9 euro\u0027s!",
-    "PriceFood": 7.5
-  },
-  {
-    "id": 10,
-    "NameFood": "Pretzel and juice Action Box",
-    "Description": "Buy a salty pretzel and some fresh juice to save 2 euro\u0027s!",
+    "id": 1,
+    "NameFood": "Popcorn",
+    "Description": "A salty corn-based snack.",
     "PriceFood": 6
   },
   {
-    "id": 11,
-    "NameFood": "Popcorn",
-    "Description": null,
-    "PriceFood": 2
+    "id": 2,
+    "NameFood": "Nachos",
+    "Description": "Tortilla chips served with melted cheese and jalapenos.",
+    "PriceFood": 8
   },
   {
-    "id": 12,
-    "NameFood": "Candy",
-    "Description": null,
-    "PriceFood": 1.75
+    "id": 3,
+    "NameFood": "Hot Dog",
+    "Description": "A grilled sausage served in a bun with various toppings.",
+    "PriceFood": 5.5
+  },
+  {
+    "id": 4,
+    "NameFood": "Soda",
+    "Description": "Carbonated soft drinks available in various flavors.",
+    "PriceFood": 4
   }
 ]
