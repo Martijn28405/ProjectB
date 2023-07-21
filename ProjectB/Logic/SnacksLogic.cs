@@ -167,7 +167,8 @@ public class SnacksLogic
             Console.WriteLine($"Snacks: {item.Id} {item.NameFood}");
         }
 
-        Console.WriteLine("Which snack do you want to delete?");
+
+        Console.WriteLine("Which snack do you want to delete? Pleas enter ID:");
         int snackId = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
 

@@ -1,11 +1,5 @@
 [
   {
-    "id": 1,
-    "NameFood": "Popcorn",
-    "Description": "A salty corn-based snack.",
-    "PriceFood": 6
-  },
-  {
     "id": 2,
     "NameFood": "Nachos",
     "Description": "Tortilla chips served with melted cheese and jalapenos.",
