@@ -164,7 +164,7 @@ public class SnacksLogic
     {
         foreach (var item in snacks)
         {
-            Console.WriteLine($"Snacks: {item.Id} {item.NameFood}");
+            Console.WriteLine($"ID: {item.Id}  Snack: {item.NameFood}");
         }
 
 
