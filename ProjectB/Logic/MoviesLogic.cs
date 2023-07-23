@@ -320,51 +320,38 @@ public class MoviesLogic
 
         }
         SelectMovie();
-
     }
 
-    /*public void ShowMoviesWorker()
+    public void DeleteMovie(int movieId)
     {
-        foreach (var movie in movies)
+        MovieModel movieById = movies.FirstOrDefault(movie => movie.ID == movieId);
+        if (movieById == null)
         {
-            Console.WriteLine($"WEEK: {movie.Week}");
-            Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
-            Console.WriteLine($"DIRECTOR: {movie.Director}");
-            Console.WriteLine($"INFORMATION: {movie.Information}");
-            Console.WriteLine($"GENRE:{movie.Genre}");
-            Console.WriteLine($"TARGET AUDIENCE: {movie.TargetAudience}");
-            Console.WriteLine($"PLAY TIME IN MINUTES: {movie.PlayTimeInMinutes}");
-            foreach (DateTime time in movie.StartTime)
-            {
-                string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
-                Console.WriteLine($"DATE AND TIME PLAYING: {dateAndTime}");
-            }
-            Console.WriteLine();
+            Console.WriteLine("Movie not found. Please try again.");
+            return;
         }
+
+        movies.Remove(movieById);
+        _accesor.WriteAll(movies);
+        Console.WriteLine("Movie deleted");
+
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
-        CoWorkerMenu.Start();
-    }*/
+        ManagerMenu.Start();
+    }
 
-    public void DeleteMovie()
+    public void DeleteMovie(string movieTitle)
     {
-        foreach (var item in movies)
+        MovieModel movieByTitle = movies.FirstOrDefault(movie => movie.MovieTitle == movieTitle);
+        if (movieByTitle == null)
         {
-            Console.WriteLine($"MOVIETITLE: {item.MovieTitle}");
+            Console.WriteLine("Movie not found. Please try again.");
+            return;
         }
 
-        Console.WriteLine("Which movie do you want to delete?");
-        string inputMovie = Console.ReadLine();
-        foreach (var item in movies)
-        {
-            if (inputMovie == item.MovieTitle)
-            {
-                movies.Remove(item);
-                _accesor.WriteAll(movies);
-                Console.WriteLine("Movie deleted");
-                break;
-            }
-        }
+        movies.Remove(movieByTitle);
+        _accesor.WriteAll(movies);
+        Console.WriteLine("Movie deleted");
 
         Console.WriteLine("Press any key to return to menu");
         Console.ReadKey(true);
@@ -382,7 +369,28 @@ public class MoviesLogic
         }
         else if (choice == 2)
         {
-            DeleteMovie();
+            Console.WriteLine("Do you want to delete a movie based on [1] ID or [2] Title?");
+            string userInput = Console.ReadLine();
+            if (userInput == "1")
+            {
+                foreach (var item in movies)
+                {
+                    Console.WriteLine($"ID: {item.ID}, Title: {item.MovieTitle}");
+                }
+                Console.WriteLine("Which ID?");
+                int movieID = Convert.ToInt32(Console.ReadLine());
+                DeleteMovie(movieID);
+            }
+            else if (userInput == "2")
+            {
+                foreach (var item in movies)
+                {
+                    Console.WriteLine($"ID: {item.ID}, Title: {item.MovieTitle}");
+                }
+                Console.WriteLine("Which title?");
+                string movieTitle = Console.ReadLine();
+                DeleteMovie(movieTitle);
+            }
         }
         else if (choice == 3)
         {
