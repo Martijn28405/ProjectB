@@ -299,7 +299,7 @@ public class MoviesLogic
             SortMoviesAge();
         }
 
-        Console.WriteLine("Minimum age?(10,12,16)");
+        Console.WriteLine("Minimum age?(10, 12, 16)");
         string inputAge = Console.ReadLine();
         if (inputAge != "10" && inputAge != "12" && inputAge != "16")
         {
@@ -317,7 +317,6 @@ public class MoviesLogic
                 Console.WriteLine("INFO:" + movie.Information);
                 Console.WriteLine();
             }
-
         }
         SelectMovie();
     }
@@ -411,15 +410,6 @@ public class MoviesLogic
         Console.WriteLine("Do you want to select a movie?");
         Console.WriteLine("[1] Yes\n[2] No");
         var userChoice = Convert.ToInt32(Console.ReadLine());
-        try
-        {
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
         if (userChoice == 1)
         {
             Console.WriteLine("Enter a movie ID");

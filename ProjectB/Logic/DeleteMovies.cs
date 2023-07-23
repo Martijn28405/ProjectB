@@ -26,7 +26,6 @@
                 {
                     Console.WriteLine("Movie not found");
                 }
-
             }
         }
     }

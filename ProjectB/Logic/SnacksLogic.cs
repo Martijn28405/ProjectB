@@ -187,7 +187,7 @@ public class SnacksLogic
         }
 
 
-        Console.WriteLine("Which snack do you want to delete? Pleas enter ID:");
+        Console.WriteLine("Which snack do you want to delete? Please enter ID:");
         int snackId = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
 
