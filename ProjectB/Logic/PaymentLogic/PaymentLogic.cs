@@ -83,53 +83,44 @@ public class PaymentLogic
     {
         if (UserLogin.User_Email == null)
         {
-            GuestPayment();
+            FinalPayment(GuestMenu.Guest_Email, GuestMenu.Start);
         }
         else
         {
-            UserPayment();
+            FinalPayment(UserLogin.User_Email, AccountMenu.Start);
         }
     }
 
-    public void UserPayment()
+    public void FinalPayment(string userEmail, Action nextMenu)
     {
         Console.WriteLine("Your reservation has been made, you will receive an e-mail with the information.");
         EmailLogic sendemail = new EmailLogic();
         try
         {
             // seat, starttime en durationtime nog toevoegen.
-            sendemail.SendReservationEmail(UserLogin.User_Email, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
+            sendemail.SendReservationEmail(userEmail, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
-            AccountMenu.Start();
+            nextMenu();
         }
         catch (Exception)
         {
-            Console.WriteLine("The email could not be send. But your reservation has been created.");
+            Console.WriteLine("The email could not be sent. But your reservation has been created.");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
-            AccountMenu.Start();
+            nextMenu();
         }
     }
 
-    public void GuestPayment()
+    public void FinalPayment()
     {
-        Console.WriteLine("Your reservation has been made, you will receive an e-mail with the information.");
-        EmailLogic sendemail = new EmailLogic();
-        try
+        if (UserLogin.User_Email == null)
         {
-            // seat, starttime en durationtime nog toevoegen.
-            sendemail.SendReservationEmail(GuestMenu.Guest_Email, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey(true);
-            GuestMenu.Start();
+            FinalPayment(GuestMenu.Guest_Email, GuestMenu.Start);
         }
-        catch (Exception)
+        else
         {
-            Console.WriteLine("The email could not be send. But your reservation has been created.");
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey(true);
-            GuestMenu.Start();
+            FinalPayment(UserLogin.User_Email, AccountMenu.Start);
         }
     }
 }
