@@ -44,22 +44,40 @@ public class SnacksLogic
 
     public void AddSnacks()
     {
-        int index = snacks.Any() ? snacks.Max(snack => snack.Id) + 1 : 1;
-        // checking if there is an id already in the JSON if not it becomes 1
+        int index = GetNextAvailableId();
+        // checking if there is an available Id that is not used by any existing snack
+        // If there is, it will be used. Otherwise, it will get the next available Id..
 
         Console.WriteLine("The name of the snack:");
         string snackName = Console.ReadLine();
-        Console.WriteLine("The price of the snack:");
+        Console.WriteLine("The price of the snack (format: 0,00):");
         double snackPrice = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("The description of the snack:");
-        string snackDescprition = Console.ReadLine();
-        SnackModel snack = new SnackModel(index, snackName, snackDescprition, snackPrice);
-        snack.Id = index;
+        string snackDescription = Console.ReadLine();
+        SnackModel snack = new SnackModel(index, snackName, snackDescription, snackPrice);
         snacks.Add(snack);
         _productAccesor.WriteAll(snacks);
         Console.WriteLine("Snack Added \nPress any key to return to the Manager menu");
         Console.ReadKey(true);
         ManagerMenu.Start();
+    }
+
+    private int GetNextAvailableId()
+    {
+        // If there are no snacks, start at 1.
+        if (!snacks.Any())
+        {
+            return 1;
+        }
+
+        // Find the minimum available Id that doesn't exist in the data.
+        int minAvailableId = 1;
+        while (snacks.Any(snack => snack.Id == minAvailableId))
+        {
+            minAvailableId++;
+        }
+
+        return minAvailableId;
     }
 
     public void BuySnacks()

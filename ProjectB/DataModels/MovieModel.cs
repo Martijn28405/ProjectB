@@ -21,13 +21,13 @@ public class MovieModel
     public List<DateTime> StartTime { get; set; }
 
     public MovieModel(int week,
-        string movietitle,
-        string director,
-        string information,
-        string genre,
-        string targetAudience,
-        int playTimeInMinutes,
-        List<DateTime> startTime)
+                      string movietitle,
+                      string director,
+                      string information,
+                      string genre,
+                      string targetAudience,
+                      int playTimeInMinutes,
+                      List<DateTime> startTime)
     {
         Week = week;
         MovieTitle = movietitle;

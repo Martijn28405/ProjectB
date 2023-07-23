@@ -73,8 +73,6 @@ public class MoviesLogic
 
     public void ShowMovies()
     {
-
-
         int choice = 0;
         try
         {
@@ -168,7 +166,6 @@ public class MoviesLogic
 
     public void MovieInformation()
     {
-
         Console.WriteLine("Of which movie would you like to receive some information?\n");
         foreach (var movie in movies)
         {
@@ -198,9 +195,7 @@ public class MoviesLogic
             {
                 Console.WriteLine("Invalid input. Please try again");
             }
-
         }
-
     }
 
     public void MovieInformationOptions(MovieModel movie)
@@ -245,7 +240,6 @@ public class MoviesLogic
     public void SortMoviesGenre()
     {
         //sort movies on genre
-
         int inputWeek = 0;
         try
         {
@@ -288,7 +282,6 @@ public class MoviesLogic
     public void SortMoviesAge()
     {
         //sort movies on age
-
         int inputWeek = 0;
         try
         {

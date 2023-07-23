@@ -3,34 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-public class DeleteSnackLogic
-//Word gebruikt voor een unittest.
+namespace ProjectB.Logic
 {
-    private JsonAccessor<SnackModel> _productAccesor;
-    public DeleteSnackLogic()
+    public class DeleteSnackLogic
+    //Word gebruikt voor een unittest.
     {
-        _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/movies.json");
-        snacks = _productAccesor.LoadAll();
-    }
-    public List<SnackModel> snacks;
-    public void DeleteSnack(string snack)
-    {
-        foreach (var item in snacks)
+        private JsonAccessor<SnackModel> _productAccesor;
+        public DeleteSnackLogic()
         {
-            Console.WriteLine($"Snacks: {item.NameFood}");
+            _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/movies.json");
+            snacks = _productAccesor.LoadAll();
         }
-        foreach (var item in snacks)
+        public List<SnackModel> snacks;
+        public void DeleteSnack(string snack)
         {
-            if (snack == item.NameFood)
+            foreach (var item in snacks)
             {
-                snacks.Remove(item);
-                _productAccesor.WriteAll(snacks);
-                Console.WriteLine("Snack deleted");
-                break;
+                Console.WriteLine($"Snacks: {item.NameFood}");
             }
-            else
+            foreach (var item in snacks)
             {
-                Console.WriteLine("Snack not found");
+                if (snack == item.NameFood)
+                {
+                    snacks.Remove(item);
+                    _productAccesor.WriteAll(snacks);
+                    Console.WriteLine("Snack deleted");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Snack not found");
+                }
             }
         }
     }
