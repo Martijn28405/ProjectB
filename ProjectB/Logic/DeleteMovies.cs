@@ -1,30 +1,33 @@
-﻿public class DeleteMoviesLogic
-//Word gebruikt voor een unittest.
+﻿namespace ProjectB.Logic
 {
-    private JsonAccessor<MovieModel> _accesor;
-    public DeleteMoviesLogic()
+    public class DeleteMoviesLogic
+    //Word gebruikt voor een unittest.
     {
-        _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
-        movies = _accesor.LoadAll();
-    }
-    public List<MovieModel> movies;
-
-    public void DeleteMovies(string movie)
-    {
-        foreach (var item in movies)
+        private JsonAccessor<MovieModel> _accesor;
+        public DeleteMoviesLogic()
         {
-            if (movie == item.MovieTitle)
-            {
-                movies.Remove(item);
-                _accesor.WriteAll(movies);
-                Console.WriteLine("Movie deleted");
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Movie not found");
-            }
+            _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
+            movies = _accesor.LoadAll();
+        }
+        public List<MovieModel> movies;
 
+        public void DeleteMovies(string movie)
+        {
+            foreach (var item in movies)
+            {
+                if (movie == item.MovieTitle)
+                {
+                    movies.Remove(item);
+                    _accesor.WriteAll(movies);
+                    Console.WriteLine("Movie deleted");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Movie not found");
+                }
+
+            }
         }
     }
 }
