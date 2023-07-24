@@ -6,15 +6,21 @@
     "PriceFood": 8
   },
   {
-    "id": 3,
-    "NameFood": "Hot Dog",
-    "Description": "A grilled sausage served in a bun with various toppings.",
-    "PriceFood": 5.5
-  },
-  {
     "id": 4,
     "NameFood": "Soda",
     "Description": "Carbonated soft drinks available in various flavors.",
     "PriceFood": 4
+  },
+  {
+    "id": 1,
+    "NameFood": "test",
+    "Description": "test",
+    "PriceFood": 1.2
+  },
+  {
+    "id": 3,
+    "NameFood": "test2",
+    "Description": "test2",
+    "PriceFood": 1.3
   }
 ]

@@ -2,6 +2,7 @@ using ProjectB.DataModels;
 
 public class PaymentLogic
 {
+
     public static List<string> shopping_cart_list = new List<string>();
     public static List<string> seats_list = new List<string>();
     string shopping_cart = string.Join(",", shopping_cart_list);
@@ -123,4 +124,27 @@ public class PaymentLogic
             FinalPayment(UserLogin.User_Email, AccountMenu.Start);
         }
     }
+    // public void GenerateEmailTemplate(List<SeatsCartModel> cart, List<ShoppingCartModel> snacks, List<ShoppingCartModel> shoppingCart)
+    // {
+    //     // Manually populate the shopping_cart_list with the required shopping cart items
+    //     foreach (var item in shoppingCart)
+    //     {
+    //         // Assuming the ShoppingCartModel has a property like 'Name' or 'Description' that represents the item
+    //         shopping_cart_list.Add(item.NameFood); // Change 'item.Name' to the appropriate property representing the item
+    //     }
+
+    //     string shopping_cart = string.Join(", ", shopping_cart_list); // Now, you can join the items in the shopping_cart_list
+
+    //     // Now you can generate the email template
+    //     string htmlBody = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n";
+    //     htmlBody += "<html>\n";
+    //     // ... Rest of your email template code ...
+
+    //     // Use the populated shopping_cart to display in the email template
+    //     htmlBody += $"<h3 align=\"center\">Shopping cart items: {shopping_cart}</h3>\n";
+    //     // ... Continue with the rest of your email template ...
+
+    //     htmlBody += "</html>";
+    //     // Send the email using the htmlBody
+    // }
 }

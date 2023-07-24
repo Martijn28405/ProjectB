@@ -19,5 +19,12 @@
     "password": "3",
     "fullName": "3",
     "accountType": "Manager"
+  },
+  {
+    "id": 4,
+    "emailAddress": "lucastuart1610@hotmail.com",
+    "password": "!Luca2001",
+    "fullName": "Luca Stuart",
+    "accountType": "User"
   }
 ]

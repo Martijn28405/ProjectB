@@ -61,7 +61,7 @@ public class EmailLogic
 
         htmlBody += "<style type=\"text/css\">\n";
 
-        htmlBody += "* { font-family: 'Poppins', sans-serif !important; }";
+        htmlBody += "* { font-family: 'Courier New', monospace !important; }";
 
         htmlBody += "body,\n";
 
@@ -69,7 +69,7 @@ public class EmailLogic
 
         htmlBody += "td {\n";
 
-        htmlBody += "font-family: Helvetica, Arial, sans-serif\n";
+        htmlBody += "font-family: 'Courier New', monospace\n";
 
         htmlBody += "}\n";
 
@@ -149,7 +149,7 @@ public class EmailLogic
 
         htmlBody += "table:not([class^=s-]) {\n";
 
-        htmlBody += "font-family: Helvetica, Arial, sans-serif;\n";
+        htmlBody += "font-family: 'Courier New', monospace;\n";
 
         htmlBody += "            mso-table-lspace: 0pt;\n";
 
@@ -383,21 +383,21 @@ public class EmailLogic
 
         htmlBody += "<body class=\"bg-red-100\"\n";
 
-        htmlBody += "style=\"outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Poppins', sans-serif !important; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; color: #000000; margin: 0; padding: 0; border-width: 0;\"\n";
+        htmlBody += "style=\"outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Courier New', monospace !important; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; color: #000000; margin: 0; padding: 0; border-width: 0;\"\n";
 
-        htmlBody += "bgcolor=\"#f8d7da\">\n";
+        htmlBody += "bgcolor=\"#ADD8E6\">\n";
 
         htmlBody += "<table class=\"bg-red-100 body\" valign=\"top\" role=\"presentation\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\"\n";
 
-        htmlBody += "        style=\"outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Poppins', sans-serif !important; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; color: #000000; margin: 0; padding: 0; border-width: 0;\"\n";
+        htmlBody += "        style=\"outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Courier New', monospace !important; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; color: #000000; margin: 0; padding: 0; border-width: 0;\"\n";
 
-        htmlBody += "        bgcolor=\"#f8d7da\">\n";
+        htmlBody += "        bgcolor=\"#ADD8E6\">\n";
 
         htmlBody += "        <tbody>\n";
 
         htmlBody += "            <tr>\n";
 
-        htmlBody += "                <td valign=\"top\" style=\"line-height: 24px; font-size: 16px; margin: 0;\" align=\"left\" bgcolor=\"#f8d7da\">\n";
+        htmlBody += "                <td valign=\"top\" style=\"line-height: 24px; font-size: 16px; margin: 0;\" align=\"left\" bgcolor=\"#ADD8E6\">\n";
 
         htmlBody += "                    <table class=\"container\" role=\"presentation\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\"\n";
 
@@ -694,18 +694,18 @@ public class EmailLogic
 
         htmlBody += "</table>\n";
 
-        htmlBody += "<p style=\"line-height: 24px; font-size: 16px; color:darkgray; width: 100%; margin: 0;\"\n";
-        htmlBody += "align=\"left\">Als u vragen heeft kun u ons\n";
+        htmlBody += "<p style=\"line-height: 24px; font-size: 16px; color:black; width: 100%; margin: 0;\"\n";
+        htmlBody += "align=\"left\">Voor vragen kunt u ons bellen\n";
 
         htmlBody += "bellen via: 06-485768857\n";
 
         htmlBody += "</p>\n";
 
-        htmlBody += "<p style=\"line-height: 24px; font-size: 16px; color:darkgray; color: red; width: 100%; margin: 0;\"\n";
+        htmlBody += "<p style=\"line-height: 24px; font-size: 16px; color:black; color: red; width: 100%; margin: 0;\"\n";
 
-        htmlBody += "align=\"left\">Vergeet niet te laat of niet te komen!\n";
+        htmlBody += "align=\"left\">Vergeet niet te laat of helemaal niet te komen!\n";
 
-        htmlBody += "Dit kan leiden tot een boete\n";
+        htmlBody += "Dit kan leiden tot een boete.\n";
 
         htmlBody += "</p>\n";
 

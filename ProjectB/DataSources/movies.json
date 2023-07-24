@@ -30,21 +30,6 @@
     ]
   },
   {
-    "ID": 3,
-    "Week": 1,
-    "Movie Title": "Spider-Man: No Way Home",
-    "Director": "Jon Watts",
-    "Information": "For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
-    "Genre": "Action, Adventure, Sci-Fi",
-    "Target Audience": "12",
-    "Play Time In Minutes": 150,
-    "Times Playing": [
-      "2023-06-19T19:20:00",
-      "2023-06-19T20:30:00",
-      "2023-06-19T21:00:00"
-    ]
-  },
-  {
     "ID": 4,
     "Week": 2,
     "Movie Title": "The Notebook",
@@ -57,21 +42,6 @@
       "2023-06-25T19:20:00",
       "2023-06-25T20:30:00",
       "2023-06-25T21:00:00"
-    ]
-  },
-  {
-    "ID": 5,
-    "Week": 2,
-    "Movie Title": "The Fault in Our Stars",
-    "Director": "Josh Boone",
-    "Information": "Two teens, both with different cancer conditions, fall in love after meeting at a cancer support group.",
-    "Genre": "Drama, Romance",
-    "Target Audience": "12",
-    "Play Time In Minutes": 126,
-    "Times Playing": [
-      "2023-06-26T15:20:00",
-      "2023-06-26T16:30:00",
-      "2023-06-26T18:00:00"
     ]
   },
   {
@@ -248,6 +218,19 @@
       "2023-06-23T19:20:00",
       "2023-06-23T20:30:00",
       "2023-06-23T21:00:00"
+    ]
+  },
+  {
+    "ID": 3,
+    "Week": 1,
+    "Movie Title": "test",
+    "Director": "test",
+    "Information": "test",
+    "Genre": "test",
+    "Target Audience": "10",
+    "Play Time In Minutes": 120,
+    "Times Playing": [
+      "2013-01-31T12:00:00"
     ]
   }
 ]

@@ -7,5 +7,95 @@
     "Movie": "Avatar 2",
     "Start Time": "2023-06-27T16:30:00",
     "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": "1",
+    "Movie": "Dune",
+    "Start Time": "2023-07-01T19:30:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "Black Panther: Wakanda Forever",
+    "Start Time": "2023-06-23T20:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "Black Panther: Wakanda Forever",
+    "Start Time": "2023-06-23T20:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "Don\u0027t Look Up",
+    "Start Time": "2023-06-23T20:30:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "The Batman",
+    "Start Time": "2023-06-19T15:30:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "John Wick 4",
+    "Start Time": "2023-06-18T20:30:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "John Wick 4",
+    "Start Time": "2023-06-18T20:30:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "John Wick 4",
+    "Start Time": "2023-06-18T19:20:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "John Wick 4",
+    "Start Time": "2023-06-18T19:20:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "Black Panther: Wakanda Forever",
+    "Start Time": "2023-06-23T20:00:00",
+    "Duration": 1
   }
 ]
