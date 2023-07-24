@@ -29,9 +29,9 @@ public class MoviesLogic
         string? director = Console.ReadLine();
         Console.WriteLine("Movie Description:");
         string? description = Console.ReadLine();
-        Console.WriteLine("Movie Genre:");
+        Console.WriteLine("Movie Genres (Divided by a ',' like this: Action, Adventure, Fantasy):");
         string? genre = Console.ReadLine();
-        Console.WriteLine("Movie Target Audience:");
+        Console.WriteLine("Movie Target Audienc (10, 12, 16):");
         string? targetAudience = Console.ReadLine();
         Console.WriteLine("What is the play time in minutes?");
         int playTime = Convert.ToInt32(Console.ReadLine());
