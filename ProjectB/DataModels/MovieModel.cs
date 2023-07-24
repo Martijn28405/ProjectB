@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 public class MovieModel
 {
     [JsonPropertyName("ID")]
-    public int ID { get; set; }
+    public int Id { get; set; }
     [JsonPropertyName("Week")]
     public int Week { get; set; }
     [JsonPropertyName("Movie Title")]
@@ -20,7 +20,8 @@ public class MovieModel
     [JsonPropertyName("Times Playing")]
     public List<DateTime> StartTime { get; set; }
 
-    public MovieModel(int week,
+    public MovieModel(int id,
+                      int week,
                       string movietitle,
                       string director,
                       string information,
@@ -29,6 +30,7 @@ public class MovieModel
                       int playTimeInMinutes,
                       List<DateTime> startTime)
     {
+        Id = id;
         Week = week;
         MovieTitle = movietitle;
         Director = director;

@@ -18,7 +18,10 @@ public class MoviesLogic
 
     public void AddMovie()
     {
-        Console.WriteLine("The week in which the movie will play:");
+        int id = GetNextAvailableId();
+        // checking if there is an available Id that is not used by any existing movie
+        // If there is, it will be used. Otherwise, it will get the next available Id.
+        Console.WriteLine("The week in which the movie will play?\n[1] Current Week\n[2] Next Week");
         int week = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Movie Title:");
         string? movietitle = Console.ReadLine();
@@ -35,11 +38,30 @@ public class MoviesLogic
         Console.WriteLine("Start times:");
         List<DateTime> dateTimes = CreateTime();
 
-        MovieModel movie = new MovieModel(week, movietitle, director, description, genre, targetAudience, playTime, dateTimes);
+        MovieModel movie = new MovieModel(id, week, movietitle, director, description, genre, targetAudience, playTime, dateTimes);
         movies.Add(movie);
         _accesor.WriteAll(movies);
         ManagerMenu.Start();
     }
+
+    private int GetNextAvailableId()
+    {
+        // If there are no movies, start at 1.
+        if (!movies.Any())
+        {
+            return 1;
+        }
+
+        // Find the minimum available Id that doesn't exist in the data.
+        int minAvailableId = 1;
+        while (movies.Any(snack => snack.Id == minAvailableId))
+        {
+            minAvailableId++;
+        }
+
+        return minAvailableId;
+    }
+
 
     private List<DateTime> CreateTime()
     {
@@ -109,7 +131,7 @@ public class MoviesLogic
             {
                 if (inputWeek == item.Week)
                 {
-                    Console.WriteLine($"ID: {item.ID}");
+                    Console.WriteLine($"ID: {item.Id}");
                     Console.WriteLine($"Week: {item.Week}");
                     Console.WriteLine($"TITLE: {item.MovieTitle}");
                     Console.WriteLine($"GENRE: {item.Genre}");
@@ -267,7 +289,7 @@ public class MoviesLogic
         {
             if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
             {
-                Console.WriteLine($"ID: {movie.ID}");
+                Console.WriteLine($"ID: {movie.Id}");
                 Console.WriteLine($"Week: {movie.Week}");
                 Console.WriteLine($"TITLE: {movie.MovieTitle}");
                 Console.WriteLine($"GENRE: {movie.Genre}");
@@ -310,7 +332,7 @@ public class MoviesLogic
         {
             if (inputWeek == movie.Week && inputAge == movie.TargetAudience)
             {
-                Console.WriteLine($"ID: {movie.ID}");
+                Console.WriteLine($"ID: {movie.Id}");
                 Console.WriteLine($"Week: {movie.Week}");
                 Console.WriteLine($"TITLE: {movie.MovieTitle}");
                 Console.WriteLine($"GENRE: {movie.Genre}");
@@ -323,7 +345,7 @@ public class MoviesLogic
 
     public void DeleteMovie(int movieId)
     {
-        MovieModel movieById = movies.FirstOrDefault(movie => movie.ID == movieId);
+        MovieModel movieById = movies.FirstOrDefault(movie => movie.Id == movieId);
         if (movieById == null)
         {
             Console.WriteLine("Movie not found. Please try again.");
@@ -374,7 +396,7 @@ public class MoviesLogic
             {
                 foreach (var item in movies)
                 {
-                    Console.WriteLine($"ID: {item.ID}, Title: {item.MovieTitle}");
+                    Console.WriteLine($"ID: {item.Id}, Title: {item.MovieTitle}");
                 }
                 Console.WriteLine("Which ID?");
                 int movieID = Convert.ToInt32(Console.ReadLine());
@@ -384,7 +406,7 @@ public class MoviesLogic
             {
                 foreach (var item in movies)
                 {
-                    Console.WriteLine($"ID: {item.ID}, Title: {item.MovieTitle}");
+                    Console.WriteLine($"ID: {item.Id}, Title: {item.MovieTitle}");
                 }
                 Console.WriteLine("Which title?");
                 string movieTitle = Console.ReadLine();
@@ -416,7 +438,7 @@ public class MoviesLogic
             int itemId = Convert.ToInt32(Console.ReadLine());
             // snacks is the list of available snacks.
             // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
-            MovieModel? movie = movies.FirstOrDefault(movie => movie.ID == itemId);
+            MovieModel? movie = movies.FirstOrDefault(movie => movie.Id == itemId);
             if (movie == null)
             {
                 Console.WriteLine("Invalid, please try again.");

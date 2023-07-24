@@ -44,17 +44,16 @@ public class SnacksLogic
 
     public void AddSnacks()
     {
-        int index = GetNextAvailableId();
+        int id = GetNextAvailableId();
         // checking if there is an available Id that is not used by any existing snack
-        // If there is, it will be used. Otherwise, it will get the next available Id..
-
+        // If there is, it will be used. Otherwise, it will get the next available Id.
         Console.WriteLine("The name of the snack:");
         string snackName = Console.ReadLine();
         Console.WriteLine("The price of the snack (format: 0,00):");
         double snackPrice = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("The description of the snack:");
         string snackDescription = Console.ReadLine();
-        SnackModel snack = new SnackModel(index, snackName, snackDescription, snackPrice);
+        SnackModel snack = new SnackModel(id, snackName, snackDescription, snackPrice);
         snacks.Add(snack);
         _productAccesor.WriteAll(snacks);
         Console.WriteLine("Snack Added \nPress any key to return to the Manager menu");
