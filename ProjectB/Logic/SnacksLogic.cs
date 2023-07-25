@@ -129,8 +129,7 @@ public class SnacksLogic
                 shoppingCart.Add(boughtSnack);
                 _shoppingCartAccesor.WriteAll(shoppingCart);
                 // Toegevoegd voor email:
-                boughtSnacks = snack.NameFood;
-                amountSnacks = amount;
+
 
                 Console.WriteLine($"Added {amount}x {snack.NameFood} to cart!");
                 Console.WriteLine("Your current shopping bag:");
@@ -138,8 +137,12 @@ public class SnacksLogic
                 {
                     Console.WriteLine($"SNACK: {item2.NameFood}");
                     Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
+
                 }
+                boughtSnacks = snack.NameFood;
+                amountSnacks = amount;
                 AddShoppingCart();
+
             }
             Console.WriteLine("Would you like to buy another snack?");
             Console.WriteLine("[1] Yes\n[2] No");
@@ -149,6 +152,7 @@ public class SnacksLogic
                 continue;
             }
             return;
+
         }
     }
 

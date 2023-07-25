@@ -97,6 +97,8 @@ public class PaymentLogic
         EmailLogic sendemail = new EmailLogic();
         try
         {
+            // SnacksLogic snacks = new SnacksLogic();
+
             // seat, starttime en durationtime nog toevoegen.
             // SnacksLogic.boughtSnacks, SnacksLogic.amountSnacks toegevoegd voor email
             sendemail.SendReservationEmail(userEmail, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, SnacksLogic.boughtSnacks, SnacksLogic.amountSnacks, totalPrice, randomcode.Next());

@@ -21,22 +21,67 @@ public class MoviesLogic
         int id = GetNextAvailableId();
         // checking if there is an available Id that is not used by any existing movie
         // If there is, it will be used. Otherwise, it will get the next available Id.
-        Console.WriteLine("The week in which the movie will play?\n[1] Current Week\n[2] Next Week");
-        int week = Convert.ToInt32(Console.ReadLine());
+
+        //Error handeling voor alle input bij het toevoegen van een film
+        int week;
+        Console.WriteLine("The week in which the movie will play?");
+        Console.WriteLine("[1] Current Week\n[2] Next Week");
+        while (!int.TryParse(Console.ReadLine(), out week) || (week != 1 && week != 2))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid week number:");
+        }
+
         Console.WriteLine("Movie Title:");
         string? movietitle = Console.ReadLine();
+        while (string.IsNullOrEmpty(movietitle) || int.TryParse(movietitle, out _))
+        {
+            Console.WriteLine("Invalid input. Movie Title cannot be empty. Please enter a valid title:");
+            movietitle = Console.ReadLine();
+        }
+
         Console.WriteLine("Movie Director:");
         string? director = Console.ReadLine();
+        while (string.IsNullOrEmpty(director) || int.TryParse(director, out _))
+        {
+            Console.WriteLine("Invalid input. Director cannot be empty. Please enter a valid name:");
+            director = Console.ReadLine();
+        }
+
         Console.WriteLine("Movie Description:");
         string? description = Console.ReadLine();
-        Console.WriteLine("Movie Genres (Divided by a ',' like this: Action, Adventure, Fantasy):");
+        while (string.IsNullOrEmpty(description) || int.TryParse(description, out _))
+        {
+            Console.WriteLine("Invalid input. Description cannot be empty. Please enter a valid description:");
+            description = Console.ReadLine();
+        }
+
+        Console.WriteLine("Movie Genres (When mulitple divided by a ',' like this: Action, Adventure, Fantasy):");
         string? genre = Console.ReadLine();
+        while (string.IsNullOrEmpty(genre) || int.TryParse(genre, out _))
+        {
+            Console.WriteLine("Invalid input. Genre cannot be empty. Please enter a valid genre:");
+            genre = Console.ReadLine();
+        }
+
         Console.WriteLine("Movie Target Audienc (10, 12, 16):");
         string? targetAudience = Console.ReadLine();
+        while (string.IsNullOrEmpty(targetAudience))
+        {
+            Console.WriteLine("Invalid input. Target audience cannot be empty. Please enter a valid number:");
+            targetAudience = Console.ReadLine();
+        }
+
         Console.WriteLine("What is the play time in minutes?");
-        int playTime = Convert.ToInt32(Console.ReadLine());
+        int playTime;
+        while (!int.TryParse(Console.ReadLine(), out playTime) || playTime <= 0)
+        {
+            Console.WriteLine("Invalid input. Please enter a valid playtime:");
+        }
+
         Console.WriteLine("Start times:");
         List<DateTime> dateTimes = CreateTime();
+
+        //error handeling voor datetime nog teovoegen
 
         MovieModel movie = new MovieModel(id, week, movietitle, director, description, genre, targetAudience, playTime, dateTimes);
         movies.Add(movie);

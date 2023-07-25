@@ -26,5 +26,12 @@
     "password": "!Luca2001",
     "fullName": "Luca Stuart",
     "accountType": "User"
+  },
+  {
+    "id": 5,
+    "emailAddress": "blah@blah.com",
+    "password": "blaH200!!",
+    "fullName": "blag blah",
+    "accountType": "User"
   }
 ]
