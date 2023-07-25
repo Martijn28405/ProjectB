@@ -8,9 +8,15 @@ public class SnacksLogic
     private JsonAccessor<SnackModel> _productAccesor;
     private JsonAccessor<DiscountModel> _discountAccesor;
     private JsonAccessor<ShoppingCartModel> _shoppingCartAccesor;
+
+    // toegevoegd voor email:
+    public static string? boughtSnacks = null;
+    public static int amountSnacks = 0;
+
     public List<DiscountModel> discounts;
     public List<SnackModel> snacks;
-    public List<ShoppingCartModel>? shoppingCart;
+    public List<ShoppingCartModel> shoppingCart;
+
     public SnacksLogic()
 
     {
@@ -122,6 +128,9 @@ public class SnacksLogic
                 ShoppingCartModel boughtSnack = new ShoppingCartModel(snack.NameFood, snack.PriceFood, amount);
                 shoppingCart.Add(boughtSnack);
                 _shoppingCartAccesor.WriteAll(shoppingCart);
+                // Toegevoegd voor email:
+                boughtSnacks = snack.NameFood;
+                amountSnacks = amount;
 
                 Console.WriteLine($"Added {amount}x {snack.NameFood} to cart!");
                 Console.WriteLine("Your current shopping bag:");

@@ -19,7 +19,8 @@ public class EmailLogic
 
 
 
-    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, double Totalprice, int randomcode)
+
+    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, string shopping_cart, int amount, double Totalprice, int randomcode)
     {
         string fromMail = "info.hetbioscoopje@gmail.com";
 
@@ -514,7 +515,6 @@ public class EmailLogic
         htmlBody += "                                                        <table class=\"s-4 w-full\" role=\"presentation\" border=\"0\"\n";
 
         htmlBody += "                                                            cellpadding=\"0\" cellspacing=\"0\" style=\"width: 100%;\"\n";
-
         htmlBody += "                                                            width=\"100%\">\n";
 
         htmlBody += "                                                            <tbody>\n";
@@ -597,11 +597,12 @@ public class EmailLogic
 
         htmlBody +=
             "                                                                        align=\"center\">Uw Reservering:</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Tickets voor {movie}:</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Tickets voor {movie}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Start Time: {startTime},</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Start Time: {startTime}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items: {shopping_cart}</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items:\n{amount}x {shopping_cart}</h3>\n";
+        htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Total price: {Totalprice}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Reservation Code: {randomcode}</h3>\n";
