@@ -426,9 +426,15 @@ public class MoviesLogic
 
     public void ManageMovies()
     {
-        //Add or delete movies ONLY as Admin
+        // Error handeling voor de input van de manager
         Console.WriteLine("[1] Add Movies\n[2] Delete Movies\n[3] Return to Menu");
-        int choice = Int32.Parse(Console.ReadLine());
+        int choice;
+        if (!int.TryParse(Console.ReadLine(), out choice))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            ManageMovies();
+            return;
+        }
         if (choice == 1)
         {
             AddMovie();
@@ -437,6 +443,11 @@ public class MoviesLogic
         {
             Console.WriteLine("Do you want to delete a movie based on [1] ID or [2] Title?");
             string userInput = Console.ReadLine();
+            while (string.IsNullOrEmpty(userInput) || int.TryParse(userInput, out _))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number (1 or 2).");
+                userInput = Console.ReadLine();
+            }
             if (userInput == "1")
             {
                 foreach (var item in movies)
@@ -457,6 +468,12 @@ public class MoviesLogic
                 string movieTitle = Console.ReadLine();
                 DeleteMovie(movieTitle);
             }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid choice (1 or 2).");
+                ManageMovies();
+                return;
+            }
         }
         else if (choice == 3)
         {
@@ -464,8 +481,9 @@ public class MoviesLogic
         }
         else
         {
-            Console.WriteLine("Invalid input");
+            Console.WriteLine("Invalid input. Please enter a valid choice.");
             ManageMovies();
+            return;
         }
     }
 
