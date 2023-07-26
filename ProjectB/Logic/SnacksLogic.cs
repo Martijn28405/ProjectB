@@ -9,10 +9,8 @@ public class SnacksLogic
     private JsonAccessor<DiscountModel> _discountAccesor;
     private JsonAccessor<ShoppingCartModel> _shoppingCartAccesor;
 
-    // toegevoegd voor email:
-    public static string? boughtSnacks = null;
-    public static int amountSnacks = 0;
-
+    public List<string> boughtSnacks = new();
+    public List<int> amountSnacks = new();
     public List<DiscountModel> discounts;
     public List<SnackModel> snacks;
     public List<ShoppingCartModel> shoppingCart;
@@ -139,8 +137,8 @@ public class SnacksLogic
                     Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
 
                 }
-                boughtSnacks = snack.NameFood;
-                amountSnacks = amount;
+                boughtSnacks.Add(snack.NameFood);
+                amountSnacks.Add(amount);
                 AddShoppingCart();
 
             }

@@ -8,6 +8,7 @@ public class PaymentLogic
     string seat = string.Join(",", seats_list);
     public static double totalPrice = 0;
     public static Random randomcode = new Random();
+    public static Dictionary<string, int> snackDict = new();
     private double ShowReceipt(List<SeatsCartModel> cart, List<ShoppingCartModel> snacks)
     {
 
@@ -97,11 +98,19 @@ public class PaymentLogic
         EmailLogic sendemail = new EmailLogic();
         try
         {
-            // SnacksLogic snacks = new SnacksLogic();
+            SnacksLogic snacks = new SnacksLogic();
+            foreach (var snack in snacks.boughtSnacks)
+            {
+                foreach (var amount in snacks.amountSnacks)
+                {
+                    snackDict[snack] = amount;
+                }
+            }
+
 
             // seat, starttime en durationtime nog toevoegen.
             // SnacksLogic.boughtSnacks, SnacksLogic.amountSnacks toegevoegd voor email
-            sendemail.SendReservationEmail(userEmail, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, SnacksLogic.boughtSnacks, SnacksLogic.amountSnacks, totalPrice, randomcode.Next());
+            sendemail.SendReservationEmail(userEmail, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, snackDict, totalPrice, randomcode.Next());
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
             nextMenu();

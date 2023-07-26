@@ -20,7 +20,7 @@ public class EmailLogic
 
 
 
-    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, string shopping_cart, int amount, double Totalprice, int randomcode)
+    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, Dictionary<string, int> snackdict, double Totalprice, int randomcode)
     {
         string fromMail = "info.hetbioscoopje@gmail.com";
 
@@ -601,7 +601,7 @@ public class EmailLogic
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Start Time: {startTime}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items:\n{amount}x {shopping_cart}</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items:\n{PaymentLogic.snackDict.Values}x {PaymentLogic.snackDict.Keys}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Total price: {Totalprice}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
