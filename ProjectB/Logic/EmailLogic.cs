@@ -13,15 +13,13 @@ public class EmailLogic
     public static List<ShoppingCartModel>? shoppingCart;
     public static List<string> shopping_cart_list = new List<string>();
     public static List<string> seats_list = new List<string>();
-    string shopping_cart = string.Join(", ", shopping_cart_list);
+
     string seats = string.Join(",", seats_list);
 
 
-
-
-
-    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, Dictionary<string, int> snackdict, double Totalprice, int randomcode)
+    public void SendReservationEmail(string mail, string movie, string seat, DateTime startTime, double Totalprice, int randomcode)
     {
+        string shopping_cart = string.Join("<br>", shopping_cart_list);
         string fromMail = "info.hetbioscoopje@gmail.com";
 
         string fromPassword = "xiqngqxgmictafgk";
@@ -30,7 +28,7 @@ public class EmailLogic
 
         message.From = new MailAddress(fromMail);
 
-        message.Subject = "Reservatie";
+        message.Subject = "Reservering";
 
         message.To.Add(new MailAddress($"{mail}"));
 
@@ -601,7 +599,7 @@ public class EmailLogic
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Start Time: {startTime}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items:\n{PaymentLogic.snackDict.Values}x {PaymentLogic.snackDict.Keys}</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Shopping cart items:\n<br>{shopping_cart}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Total price: {Totalprice}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";

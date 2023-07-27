@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "Seat": [
+      "Row: 0 Seat: 6",
+      "Row: 0 Seat: 7"
+    ],
+    "TotalPrice": 0,
+    "MovieName": "Mathilda"
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6",
+      "Row: 0 Seat: 7"
+    ],
+    "TotalPrice": 0,
+    "MovieName": "The Batman"
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6",
+      "Row: 0 Seat: 7"
+    ],
+    "TotalPrice": 0,
+    "MovieName": "Don\u0027t Look Up"
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6",
+      "Row: 0 Seat: 7"
+    ],
+    "TotalPrice": 0,
+    "MovieName": "The Lost City"
+  }
+]

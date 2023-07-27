@@ -5,7 +5,7 @@ public class PaymentLogic
     public static List<string> shopping_cart_list = new List<string>();
     public static List<string> seats_list = new List<string>();
     string shopping_cart = string.Join(",", shopping_cart_list);
-    string seat = string.Join(",", seats_list);
+
     public static double totalPrice = 0;
     public static Random randomcode = new Random();
     public static Dictionary<string, int> snackDict = new();
@@ -15,7 +15,6 @@ public class PaymentLogic
         foreach (var seat in cart)
         {
             Console.WriteLine($"Seat(s): {string.Join(' ', seat.Seat)}");
-            Console.WriteLine("Seats" + seat.Seat);
             Console.WriteLine($"Total Price: {seat.TotalPrice}");
             totalPrice += seat.TotalPrice;
         }
@@ -98,19 +97,20 @@ public class PaymentLogic
         EmailLogic sendemail = new EmailLogic();
         try
         {
-            SnacksLogic snacks = new SnacksLogic();
-            foreach (var snack in snacks.boughtSnacks)
-            {
-                foreach (var amount in snacks.amountSnacks)
-                {
-                    snackDict[snack] = amount;
-                }
-            }
-
+            // SnacksLogic snacks = new SnacksLogic();
+            // foreach (var snack in snacks.boughtSnacks)
+            // {
+            //     foreach (var amount in snacks.amountSnacks)
+            //     {
+            //         snackDict[snack] = amount;
+            //         Console.WriteLine(snack, amount, "test");
+            //     }
+            // }
 
             // seat, starttime en durationtime nog toevoegen.
             // SnacksLogic.boughtSnacks, SnacksLogic.amountSnacks toegevoegd voor email
-            sendemail.SendReservationEmail(userEmail, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, snackDict, totalPrice, randomcode.Next());
+            string seat = string.Join(",", seats_list);
+            sendemail.SendReservationEmail(userEmail, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
             nextMenu();

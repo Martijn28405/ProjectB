@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "NameFood": "Soda",
+    "PriceFood": 4,
+    "Amount": 12
+  },
+  {
+    "NameFood": "Nachos",
+    "PriceFood": 8,
+    "Amount": 1
+  },
+  {
+    "NameFood": "Nachos",
+    "PriceFood": 8,
+    "Amount": 1
+  },
+  {
+    "NameFood": "Nachos",
+    "PriceFood": 8,
+    "Amount": 2
+  },
+  {
+    "NameFood": "Soda",
+    "PriceFood": 4,
+    "Amount": 2
+  }
+]

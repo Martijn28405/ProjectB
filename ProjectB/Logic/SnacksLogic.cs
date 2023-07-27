@@ -9,8 +9,8 @@ public class SnacksLogic
     private JsonAccessor<DiscountModel> _discountAccesor;
     private JsonAccessor<ShoppingCartModel> _shoppingCartAccesor;
 
-    public List<string> boughtSnacks = new();
-    public List<int> amountSnacks = new();
+    // public List<string> boughtSnacks = new();
+    // public List<int> amountSnacks = new();
     public List<DiscountModel> discounts;
     public List<SnackModel> snacks;
     public List<ShoppingCartModel> shoppingCart;
@@ -38,11 +38,10 @@ public class SnacksLogic
     }
     public void AddShoppingCart()
     {
+        EmailLogic.shopping_cart_list = new List<string>();
         foreach (var item in shoppingCart)
         {
-
-            EmailLogic.shopping_cart_list.Add(item.NameFood);
-            EmailLogic.shopping_cart_list.Add(item.PriceFood.ToString());
+            EmailLogic.shopping_cart_list.Add($"{item.Amount}x {item.NameFood}");
         }
     }
 
@@ -137,8 +136,8 @@ public class SnacksLogic
                     Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
 
                 }
-                boughtSnacks.Add(snack.NameFood);
-                amountSnacks.Add(amount);
+                // boughtSnacks.Add(snack.NameFood);
+                // amountSnacks.Add(amount);
                 AddShoppingCart();
 
             }
