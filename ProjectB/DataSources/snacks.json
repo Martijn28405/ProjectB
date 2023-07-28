@@ -1,11 +1,5 @@
 [
   {
-    "id": 2,
-    "NameFood": "Nachos",
-    "Description": "Tortilla chips served with melted cheese and jalapenos.",
-    "PriceFood": 8
-  },
-  {
     "id": 4,
     "NameFood": "Soda",
     "Description": "Carbonated soft drinks available in various flavors.",
@@ -15,12 +9,6 @@
     "id": 1,
     "NameFood": "test",
     "Description": "test",
-    "PriceFood": 1.2
-  },
-  {
-    "id": 3,
-    "NameFood": "test2",
-    "Description": "test2",
-    "PriceFood": 1.3
+    "PriceFood": 1.5
   }
 ]

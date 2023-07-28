@@ -18,3 +18,4 @@ public class AccountModel
     [JsonPropertyName("accountType")]
     public string AccountType { get; set; }
 }
+

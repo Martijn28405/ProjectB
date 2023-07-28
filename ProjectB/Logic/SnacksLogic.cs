@@ -51,11 +51,25 @@ public class SnacksLogic
         // checking if there is an available Id that is not used by any existing snack
         // If there is, it will be used. Otherwise, it will get the next available Id.
         Console.WriteLine("The name of the snack:");
-        string snackName = Console.ReadLine();
+        string? snackName = Console.ReadLine();
+        while (string.IsNullOrEmpty(snackName) || int.TryParse(snackName, out _))
+        {
+            Console.WriteLine("Invalid input. Snack cannot be empty. Please enter a valid title:");
+            snackName = Console.ReadLine();
+        }
         Console.WriteLine("The price of the snack (format: 0,00):");
-        double snackPrice = Convert.ToDouble(Console.ReadLine());
+        double snackPrice;
+        while (!double.TryParse(Console.ReadLine(), out snackPrice) || snackPrice <= 0)
+        {
+            Console.WriteLine("Invalid input. Please enter a valid price:");
+        }
         Console.WriteLine("The description of the snack:");
         string snackDescription = Console.ReadLine();
+        while (string.IsNullOrEmpty(snackDescription) || int.TryParse(snackDescription, out _))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid description:");
+            snackDescription = Console.ReadLine();
+        }
         SnackModel snack = new SnackModel(id, snackName, snackDescription, snackPrice);
         snacks.Add(snack);
         _productAccesor.WriteAll(snacks);
@@ -158,7 +172,13 @@ public class SnacksLogic
     {
         //Add or delete snacks ONLY as Admin
         Console.WriteLine("[1] Add Snacks\n[2] Delete Snacks\n[3] Return to  Manager Menu");
-        int choice = Int32.Parse(Console.ReadLine());
+        int choice;
+        if (!int.TryParse(Console.ReadLine(), out choice))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            ManageSnacks();
+            return;
+        }
         if (choice == 1)
         {
             AddSnacks();
@@ -186,19 +206,28 @@ public class SnacksLogic
         {
             Console.WriteLine("Invalid input");
             ManageSnacks();
+            return;
         }
     }
     public (bool, string) DeleteSnack()
     {
+
         foreach (var item in snacks)
         {
             Console.WriteLine($"ID: {item.Id}  Snack: {item.NameFood}");
         }
 
 
+
         Console.WriteLine("Which snack do you want to delete? Please enter ID:");
-        int snackId = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine();
+        int snackId;
+
+        // Validate user input for snackId
+        while (!int.TryParse(Console.ReadLine(), out snackId) || snackId <= 0 || snackId > snacks.Max(s => s.Id))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid ID:");
+        }
+
 
         bool snackDeleted = false;
         string statusMessage = "Snack not found";
@@ -214,13 +243,11 @@ public class SnacksLogic
                 break;
             }
         }
-
         if (!snackDeleted)
         {
             Console.WriteLine("This item was not found, can you try again\n");
-            DeleteSnack();
-        }
 
+        }
         return (snackDeleted, statusMessage);
     }
 
