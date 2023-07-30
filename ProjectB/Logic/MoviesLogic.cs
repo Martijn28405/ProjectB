@@ -538,9 +538,17 @@ public class MoviesLogic
                 y++;
             }
 
+            int selectedTime;
+            while (!int.TryParse(Console.ReadLine(), out selectedTime) || selectedTime < 1 || selectedTime > startingTimes.Count)
+            {
+                Console.WriteLine("Invalid time selection, please try again.");
+            }
+            DateTime startTimeInput = startingTimes[selectedTime - 1];
+            Console.WriteLine($"You selected: {startTimeInput.ToString("HH:mm")}");
+
             //Let the user choose one of the times and put the selected time in startTimeInput
-            int selectedTime = Int32.Parse(Console.ReadLine());
-            startTimeInput = startingTimes[selectedTime - 1];
+            // int selectedTime = Int32.Parse(Console.ReadLine());
+            // startTimeInput = startingTimes[selectedTime - 1];
             Console.WriteLine("Press any key to select seats");
             Console.ReadKey(true);
             if (itemId <= 6)
@@ -560,6 +568,7 @@ public class MoviesLogic
                 Console.WriteLine("invalid input");
             }
             duration = movie.PlayTimeInMinutes;
+
         }
         else if (userChoice == 2)
         {
