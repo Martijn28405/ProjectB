@@ -368,10 +368,11 @@ public class MoviesLogic
 
         Console.WriteLine("Minimum age?(10, 12, 16)");
         string inputAge = Console.ReadLine();
-        if (inputAge != "10" && inputAge != "12" && inputAge != "16")
+        int age;
+        while (string.IsNullOrEmpty(inputAge) || !int.TryParse(inputAge, out age) || (age != 10 && age != 12 && age != 16))
         {
-            Console.WriteLine("Invalid input");
-            SortMoviesAge();
+            Console.WriteLine("Invalid input. Please try again:");
+            inputAge = Console.ReadLine();
         }
         foreach (var movie in movies)
         {
