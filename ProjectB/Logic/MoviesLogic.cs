@@ -493,15 +493,28 @@ public class MoviesLogic
         // in het menu een mogelijkheid om een movie te kiezen per week.
         // de geselecteerde movie wordt dan doorgegeven aan de zaal.
 
+
+        int userChoice;
         Console.WriteLine("Do you want to select a movie?");
         Console.WriteLine("[1] Yes\n[2] No");
-        var userChoice = Convert.ToInt32(Console.ReadLine());
+        while (!int.TryParse(Console.ReadLine(), out userChoice) || (userChoice != 1 && userChoice != 2))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid week number:");
+        }
         if (userChoice == 1)
         {
-            Console.WriteLine("Enter a movie ID");
-            int itemId = Convert.ToInt32(Console.ReadLine());
+
             // snacks is the list of available snacks.
             // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
+            Console.WriteLine("Enter a movie ID");
+            int itemId;
+            int minId = movies.Min(movie => movie.Id);
+            int maxId = movies.Max(movie => movie.Id);
+            while (!int.TryParse(Console.ReadLine(), out itemId) || itemId < minId || itemId > maxId)
+            {
+                Console.WriteLine("Invalid ID, please try again.");
+            }
+
             MovieModel? movie = movies.FirstOrDefault(movie => movie.Id == itemId);
             if (movie == null)
             {
