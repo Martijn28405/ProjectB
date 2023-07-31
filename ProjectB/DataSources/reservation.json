@@ -358,5 +358,21 @@
     "Movie": "Fantastic Beasts: The Secrets of Dumbledore",
     "Start Time": "2023-06-20T20:30:00",
     "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "EmailAddress": null,
+    "Movie": null,
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [],
+    "EmailAddress": null,
+    "Movie": null,
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
   }
 ]

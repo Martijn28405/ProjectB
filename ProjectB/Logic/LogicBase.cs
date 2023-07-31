@@ -244,10 +244,16 @@ public class LogicBase
             Console.WriteLine("Invalid input. Please try again:");
             inputAge = Console.ReadLine();
         }
+        bool foundMovies = false;
         foreach (var movie in movies)
         {
+            Console.WriteLine(movie.TargetAudience);
+            Console.WriteLine(inputAge);
+
             if (inputWeek == movie.Week && inputAge == movie.TargetAudience)
             {
+                foundMovies = true;
+                Console.WriteLine(movie.TargetAudience);
                 Console.WriteLine($"ID: {movie.Id}");
                 Console.WriteLine($"Week: {movie.Week}");
                 Console.WriteLine($"TITLE: {movie.MovieTitle}");
@@ -255,7 +261,7 @@ public class LogicBase
                 Console.WriteLine("INFO:" + movie.Information);
                 Console.WriteLine();
             }
-            else
+            if (!foundMovies)
             {
                 Console.WriteLine($"We do not have any movies for the age {age} years old in week {inputWeek}\n");
                 break;
