@@ -97,18 +97,6 @@ public class PaymentLogic
         EmailLogic sendemail = new EmailLogic();
         try
         {
-            // SnacksLogic snacks = new SnacksLogic();
-            // foreach (var snack in snacks.boughtSnacks)
-            // {
-            //     foreach (var amount in snacks.amountSnacks)
-            //     {
-            //         snackDict[snack] = amount;
-            //         Console.WriteLine(snack, amount, "test");
-            //     }
-            // }
-
-            // seat, starttime en durationtime nog toevoegen.
-            // SnacksLogic.boughtSnacks, SnacksLogic.amountSnacks toegevoegd voor email
             string seat = string.Join(",", seats_list);
             sendemail.SendReservationEmail(userEmail, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
             Console.WriteLine("Press any key to continue");

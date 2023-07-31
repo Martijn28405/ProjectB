@@ -45,8 +45,11 @@ public class LogicBase
                     Console.WriteLine($"ID: {item.Id}");
                     Console.WriteLine($"Week: {item.Week}");
                     Console.WriteLine($"TITLE: {item.MovieTitle}");
+                    Console.WriteLine($"DIRECTOR: {item.Director}");
+                    Console.WriteLine("DESCRIPTION:" + item.Information);
                     Console.WriteLine($"GENRE: {item.Genre}");
-                    Console.WriteLine("INFO:" + item.Information);
+                    Console.WriteLine($"TARGET AUDIENCE: {item.TargetAudience}");
+                    Console.WriteLine($"PLAY TIME: {item.PlayTimeInMinutes}");
                     Console.WriteLine();
                 }
 
