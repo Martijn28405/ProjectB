@@ -36,8 +36,8 @@ public class AccountMenu
                 movieInformation.MovieInformation();
                 break;
             case 2:
-                SnacksLogic viewsnacks = new SnacksLogic();
-                viewsnacks.ShowSnacks();
+                LogicBase viewsnacks = new LogicBase();
+                viewsnacks.ShowSnacksBase(true, false);
                 Start();
                 break;
             case 3:

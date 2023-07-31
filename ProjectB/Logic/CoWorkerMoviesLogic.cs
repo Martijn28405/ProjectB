@@ -15,4 +15,8 @@ public class CoWorkerMoviesLogic : LogicBase
     {
         base.SortMoviesAgeBase(isUser, isManager);
     }
+    public override void ShowSnacksBase(bool isUser = false, bool isManager = false)
+    {
+        base.ShowSnacksBase(isUser, isManager);
+    }
 }

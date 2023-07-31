@@ -1,12 +1,16 @@
 public class LogicBase
 {
+    private JsonAccessor<SnackModel> _productAccesor;
     private JsonAccessor<MovieModel> _accesor;
     protected List<MovieModel> movies;
-
+    public List<SnackModel> snacks;
     public LogicBase()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
         movies = _accesor.LoadAll();
+
+        _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/snacks.json");
+        snacks = _productAccesor.LoadAll();
     }
 
     public virtual void ShowMoviesBase(bool isUser, bool isManager)
@@ -284,6 +288,36 @@ public class LogicBase
             Console.ReadKey(true);
             CoWorkerMenu.Start();
 
+        }
+
+    }
+    public virtual void ShowSnacksBase(bool isUser, bool isManager)
+    {
+        List<SnackModel> food = new List<SnackModel>();
+        foreach (var item in snacks)
+        {
+            Console.WriteLine($"SNACK: {item.NameFood}");
+            Console.WriteLine($"PRICE: {item.PriceFood}");
+            Console.WriteLine();
+        }
+        if (isUser)
+        {
+            Console.WriteLine("Press any key to return to the menu");
+            Console.ReadKey(true);
+            AccountMenu.Start();
+
+        }
+        else if (isManager)
+        {
+            Console.WriteLine("Press any key to return to the menu");
+            Console.ReadKey(true);
+            ManagerMenu.Start();
+        }
+        else
+        {
+            Console.WriteLine("Press any key to return to the menu");
+            Console.ReadKey(true);
+            CoWorkerMenu.Start();
         }
 
     }

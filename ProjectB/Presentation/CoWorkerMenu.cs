@@ -30,8 +30,8 @@ public class CoWorkerMenu
                 CoWorkerMenu.Start();
                 break;
             case 1:
-                SnacksLogic viewsnacks = new SnacksLogic();
-                viewsnacks.ShowSnacks();
+                LogicBase viewsnacks = new LogicBase();
+                viewsnacks.ShowSnacksBase(false, false);
                 break;
             case 2:
                 ReservationsLogic showreservations = new ReservationsLogic();

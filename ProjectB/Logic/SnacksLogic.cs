@@ -171,7 +171,7 @@ public class SnacksLogic
     public void ManageSnacks()
     {
         //Add or delete snacks ONLY as Admin
-        Console.WriteLine("[1] Add Snacks\n[2] Delete Snacks\n[3] Return to  Manager Menu");
+        Console.WriteLine("[1] Add Snacks\n[2] Delete Snacks\n[3] View Snacks\n[4] Return to  Manager Menu");
         int choice;
         if (!int.TryParse(Console.ReadLine(), out choice))
         {
@@ -199,6 +199,11 @@ public class SnacksLogic
             ManagerMenu.Start();
         }
         else if (choice == 3)
+        {
+            LogicBase snack = new LogicBase();
+            snack.ShowSnacksBase(false, true);
+        }
+        else if (choice == 4)
         {
             ManagerMenu.Start();
         }

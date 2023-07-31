@@ -13,7 +13,7 @@
  | |__| | |_| |  __/\__ \ |_  | |  | |  __/ | | | |_| |
   \_____|\__,_|\___||___/\__| |_|  |_|\___|_| |_|\__,_|                                                              
         ");
-        string[] options = { "Show Movies/Make a Reservation", "Show Catering", "Back to Main Menu" };
+        string[] options = { "Show Movies/Make a Reservation", "View Catering", "Back to Main Menu" };
         Menu guestmenu = new Menu(prompt, options);
         int SelectedIndex = guestmenu.Run();
 
@@ -29,8 +29,8 @@
                 showMovies.SortMoviesAgeBase(true, false);
                 break;
             case 1:
-                SnacksLogic showSnacks = new SnacksLogic();
-                showSnacks.ShowSnacks();
+                LogicBase showSnacks = new LogicBase();
+                showSnacks.ShowSnacksBase(true, false);
                 break;
             case 2:
                 Program.Main();
