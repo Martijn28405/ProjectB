@@ -33,25 +33,11 @@ public class LogicBase
         if (choice == 1)
         {
             int inputWeek = 0;
-            try
+            Console.WriteLine("Would you like to see:\n[1] Current week\n[2] Next week");
+            while (!int.TryParse(Console.ReadLine(), out inputWeek) || (inputWeek != 1 && inputWeek != 2))
             {
-                Console.WriteLine("Would you like to see:\n[1] Current week\n[2] Next week");
-                inputWeek = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Invalid input. Please enter a valid week number:");
             }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid input");
-                ShowMoviesBase(isUser, isManager, isGuest);
-                return;
-            }
-            if (inputWeek != 1 && inputWeek != 2)
-            {
-                Console.WriteLine("Invalid input");
-                ShowMoviesBase(isUser, isManager, isGuest);
-                return;
-            }
-            Console.WriteLine();
-
             foreach (var item in movies)
             {
                 if (inputWeek == item.Week)
@@ -185,7 +171,7 @@ public class LogicBase
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
         // Error handeling nog op:
-        if (inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
+        if (string.IsNullOrEmpty(inputGenre) || int.TryParse(inputGenre, out _) || inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
         {
             Console.WriteLine("Invalid input");
             inputGenre = Console.ReadLine();
