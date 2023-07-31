@@ -24,8 +24,9 @@ public class CoWorkerMenu
             case 0:
                 LogicBase showmoviesworker = new LogicBase();
                 // showmoviesworker.ShowMovies();
-                showmoviesworker.ShowMovies(false);
-                showmoviesworker.SortMoviesGenreBase(false);
+                showmoviesworker.ShowMoviesBase(false, false);
+                showmoviesworker.SortMoviesGenreBase(false, false);
+                showmoviesworker.SortMoviesAgeBase(false, false);
                 CoWorkerMenu.Start();
                 break;
             case 1:

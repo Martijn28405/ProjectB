@@ -9,7 +9,7 @@ public class LogicBase
         movies = _accesor.LoadAll();
     }
 
-    public virtual void ShowMovies(bool isUser)
+    public virtual void ShowMoviesBase(bool isUser, bool isManager)
     {
         int choice = 0;
         try
@@ -20,7 +20,8 @@ public class LogicBase
         catch (FormatException)
         {
             Console.WriteLine("Invalid input");
-            ShowMovies(isUser);
+            ShowMoviesBase(isUser, isManager);
+            return;
         }
 
         if (choice == 1)
@@ -34,12 +35,14 @@ public class LogicBase
             catch (FormatException)
             {
                 Console.WriteLine("Invalid input");
-                ShowMovies(isUser);
+                ShowMoviesBase(isUser, isManager);
+                return;
             }
             if (inputWeek != 1 && inputWeek != 2)
             {
                 Console.WriteLine("Invalid input");
-                ShowMovies(isUser);
+                ShowMoviesBase(isUser, isManager);
+                return;
             }
             Console.WriteLine();
 
@@ -61,6 +64,14 @@ public class LogicBase
                 MoviesLogic send = new MoviesLogic();
                 send.SelectMovie(); // Call SelectMovie() only for users
             }
+            else if (isManager)
+            {
+                Console.WriteLine("Search for movies by genre completed for manager.");
+                Console.WriteLine("Press any key to return to the Main Menu.");
+                Console.ReadKey(true);
+                ManagerMenu.Start();
+
+            }
             else
             {
                 Console.WriteLine("Search for movies by genre completed for co-worker.");
@@ -74,76 +85,76 @@ public class LogicBase
         }
         else if (choice == 2)
         {
-            SortMoviesGenreBase(isUser);
+            SortMoviesGenreBase(isUser, isManager);
         }
-        else
-        {
-            Console.WriteLine("Invalid input");
-            ShowMovies(isUser);
-        }
+        // else
+        // {
+        //     Console.WriteLine("Invalid input");
+        //     ShowMovies(isUser);
+        // }
 
-        int userChoice = 0;
-        if (isUser)
-        {
-            try
-            {
-                Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
-                userChoice = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid input");
-                ShowMovies(isUser);
-            }
-        }
+        // int userChoice = 0;
+        // if (isUser)
+        // {
+        //     try
+        //     {
+        //         Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
+        //         userChoice = Convert.ToInt32(Console.ReadLine());
+        //     }
+        //     catch (FormatException)
+        //     {
+        //         Console.WriteLine("Invalid input");
+        //         ShowMovies(isUser);
+        //     }
+        // }
 
-        if (userChoice == 1)
-        {
-            if (isUser)
-            {
-                MoviesLogic send = new MoviesLogic();
-                send.SelectMovie(); // Call SelectMovie() only for users
-            }
-            else
-            {
-                Console.WriteLine("Search for movies by genre completed for co-worker.");
-                Console.WriteLine("Press any key to return to the Main Menu.");
-                Console.ReadKey(true);
-            }
+        // if (userChoice == 1)
+        // {
+        //     if (isUser)
+        //     {
+        //         MoviesLogic send = new MoviesLogic();
+        //         send.SelectMovie(); // Call SelectMovie() only for users
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("Search for movies by genre completed for co-worker.");
+        //         Console.WriteLine("Press any key to return to the Main Menu.");
+        //         Console.ReadKey(true);
+        //     }
 
-        }
-        else if (userChoice == 2)
-        {
-            if (isUser)
-            {
-                Console.WriteLine("Press any key to return to the Account menu");
-                Console.ReadKey(true);
-                AccountMenu.Start();
-            }
-            else
-            {
-                Console.WriteLine("Press any key to return to the Co-Worker menu");
-                Console.ReadKey(true);
-                CoWorkerMenu.Start();
-            }
-        }
+        // }
+        // else if (userChoice == 2)
+        // {
+        //     if (isUser)
+        //     {
+        //         Console.WriteLine("Press any key to return to the Account menu");
+        //         Console.ReadKey(true);
+        //         AccountMenu.Start();
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("Press any key to return to the Co-Worker menu");
+        //         Console.ReadKey(true);
+        //         CoWorkerMenu.Start();
+        //     }
+        // }
         // Optie 3 word niet gezien:
         else if (choice == 3)
         {
-            MoviesLogic movie = new MoviesLogic();
-            movie.SortMoviesAge();
+            SortMoviesAgeBase(isUser, isManager);
         }
         else
         {
             Console.WriteLine("Invalid input");
-            ShowMovies(isUser);
+            ShowMoviesBase(isUser, isManager);
+            return;
         }
 
     }
 
 
 
-    public virtual void SortMoviesGenreBase(bool isUser)
+    public virtual void SortMoviesGenreBase(bool isUser, bool isManager)
     {
         //sort movies on genre
         int inputWeek = 0;
@@ -155,12 +166,12 @@ public class LogicBase
         catch (FormatException)
         {
             Console.WriteLine("Invalid input");
-            SortMoviesGenreBase(isUser);
+            SortMoviesGenreBase(isUser, isManager);
         }
         if (inputWeek != 1 && inputWeek != 2)
         {
             Console.WriteLine("Invalid input");
-            SortMoviesGenreBase(isUser);
+            SortMoviesGenreBase(isUser, isManager);
         }
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
@@ -188,6 +199,14 @@ public class LogicBase
             MoviesLogic send = new MoviesLogic();
             send.SelectMovie(); // Call SelectMovie() only for users
         }
+        else if (isManager)
+        {
+            Console.WriteLine("Search for movies by genre completed for manager.");
+            Console.WriteLine("Press any key to return to the Main Menu.");
+            Console.ReadKey(true);
+            ManagerMenu.Start();
+
+        }
         else
         {
             Console.WriteLine("Search for movies by genre completed for co-worker.");
@@ -199,4 +218,73 @@ public class LogicBase
     }
 
     // Andere methods nog toevoegen die co worker, user, manager gebruiken:
+    public virtual void SortMoviesAgeBase(bool isUser, bool isManager)
+    {
+        //sort movies on age
+        int inputWeek = 0;
+        try
+        {
+            Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
+            inputWeek = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesAgeBase(isUser, isManager);
+        }
+        if (inputWeek != 1 && inputWeek != 2)
+        {
+            Console.WriteLine("Invalid input");
+            SortMoviesAgeBase(isUser, isManager);
+        }
+
+        Console.WriteLine("Minimum age?(10, 12, 16)");
+        string inputAge = Console.ReadLine();
+        int age;
+        while (string.IsNullOrEmpty(inputAge) || !int.TryParse(inputAge, out age) || (age != 10 && age != 12 && age != 16))
+        {
+            Console.WriteLine("Invalid input. Please try again:");
+            inputAge = Console.ReadLine();
+        }
+        foreach (var movie in movies)
+        {
+            if (inputWeek == movie.Week && inputAge == movie.TargetAudience)
+            {
+                Console.WriteLine($"ID: {movie.Id}");
+                Console.WriteLine($"Week: {movie.Week}");
+                Console.WriteLine($"TITLE: {movie.MovieTitle}");
+                Console.WriteLine($"GENRE: {movie.Genre}");
+                Console.WriteLine("INFO:" + movie.Information);
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine($"We do not have any movies for the age {age} years old in week {inputWeek}\n");
+                break;
+            }
+        }
+        if (isUser)
+        {
+            MoviesLogic send = new MoviesLogic();
+            send.SelectMovie();
+        }
+        else if (isManager)
+        {
+            Console.WriteLine("Search for movies by age completed for manager.");
+            Console.WriteLine("Press any key to return to the Main Menu.");
+            Console.ReadKey(true);
+            ManagerMenu.Start();
+
+        }
+        else
+        {
+
+            Console.WriteLine("Search for movies by age completed for co-worker.");
+            Console.WriteLine("Press any key to return to the Main Menu.");
+            Console.ReadKey(true);
+            CoWorkerMenu.Start();
+
+        }
+
+    }
 }

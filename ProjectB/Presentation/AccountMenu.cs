@@ -26,9 +26,10 @@ public class AccountMenu
         switch (SelectedIndex)
         {
             case 0:
-                MoviesLogic showmovies = new MoviesLogic();
-                showmovies.ShowMovies();
-                showmovies.SortMoviesGenre(true);
+                LogicBase showmovies = new LogicBase();
+                showmovies.ShowMoviesBase(true, false);
+                showmovies.SortMoviesGenreBase(true, false);
+                showmovies.SortMoviesAgeBase(true, false);
                 break;
             case 1:
                 MoviesLogic movieInformation = new MoviesLogic();

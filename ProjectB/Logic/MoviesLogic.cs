@@ -139,98 +139,98 @@ public class MoviesLogic
     }
 
 
-    public void ShowMovies()
-    {
-        int choice = 0;
-        try
-        {
-            Console.WriteLine("[1] Show all movies\n[2] Sort movies on genre\n[3] Sort movies on age");
-            choice = Convert.ToInt32(Console.ReadLine());
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Invalid input");
-            ShowMovies();
-        }
+    // public void ShowMovies()
+    // {
+    //     int choice = 0;
+    //     try
+    //     {
+    //         Console.WriteLine("[1] Show all movies\n[2] Sort movies on genre\n[3] Sort movies on age");
+    //         choice = Convert.ToInt32(Console.ReadLine());
+    //     }
+    //     catch (FormatException)
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         ShowMovies();
+    //     }
 
-        if (choice == 1)
-        {
-            int inputWeek = 0;
-            try
-            {
-                Console.WriteLine("Would you like to see:\n[1] Current week\n[2] Next week");
-                inputWeek = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid input");
-                ShowMovies();
-            }
-            if (inputWeek != 1 && inputWeek != 2)
-            {
-                Console.WriteLine("Invalid input");
-                ShowMovies();
-            }
-            Console.WriteLine();
+    //     if (choice == 1)
+    //     {
+    //         int inputWeek = 0;
+    //         try
+    //         {
+    //             Console.WriteLine("Would you like to see:\n[1] Current week\n[2] Next week");
+    //             inputWeek = Convert.ToInt32(Console.ReadLine());
+    //         }
+    //         catch (FormatException)
+    //         {
+    //             Console.WriteLine("Invalid input");
+    //             ShowMovies();
+    //         }
+    //         if (inputWeek != 1 && inputWeek != 2)
+    //         {
+    //             Console.WriteLine("Invalid input");
+    //             ShowMovies();
+    //         }
+    //         Console.WriteLine();
 
-            foreach (var item in movies)
-            {
-                if (inputWeek == item.Week)
-                {
-                    Console.WriteLine($"ID: {item.Id}");
-                    Console.WriteLine($"Week: {item.Week}");
-                    Console.WriteLine($"TITLE: {item.MovieTitle}");
-                    Console.WriteLine($"GENRE: {item.Genre}");
-                    Console.WriteLine("INFO:" + item.Information);
-                    Console.WriteLine();
-                }
+    //         foreach (var item in movies)
+    //         {
+    //             if (inputWeek == item.Week)
+    //             {
+    //                 Console.WriteLine($"ID: {item.Id}");
+    //                 Console.WriteLine($"Week: {item.Week}");
+    //                 Console.WriteLine($"TITLE: {item.MovieTitle}");
+    //                 Console.WriteLine($"GENRE: {item.Genre}");
+    //                 Console.WriteLine("INFO:" + item.Information);
+    //                 Console.WriteLine();
+    //             }
 
-            }
-            SelectMovie();
-        }
-        else if (choice == 2)
-        {
-            SortMoviesGenre(true);
-        }
-        else if (choice == 3)
-        {
-            SortMoviesAge();
-        }
-        else
-        {
-            Console.WriteLine("Invalid input");
-            ShowMovies();
-        }
+    //         }
+    //         SelectMovie();
+    //     }
+    //     else if (choice == 2)
+    //     {
+    //         SortMoviesGenre(true);
+    //     }
+    //     else if (choice == 3)
+    //     {
+    //         SortMoviesAge();
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         ShowMovies();
+    //     }
 
 
-        int userChoice = 0;
-        try
-        {
-            Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
-            userChoice = Convert.ToInt32(Console.ReadLine());
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Invalid input");
-            ShowMovies();
-        }
+    //     int userChoice = 0;
+    //     try
+    //     {
+    //         Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
+    //         userChoice = Convert.ToInt32(Console.ReadLine());
+    //     }
+    //     catch (FormatException)
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         ShowMovies();
+    //     }
 
-        if (userChoice == 1)
-        {
-            SelectMovie();
-        }
-        else if (userChoice == 2)
-        {
-            Console.WriteLine("Press any key to return to the Account menu");
-            Console.ReadKey(true);
-            AccountMenu.Start();
-        }
-        else
-        {
-            Console.WriteLine("Invalid input");
-            ShowMovies();
-        }
-    }
+    //     if (userChoice == 1)
+    //     {
+    //         SelectMovie();
+    //     }
+    //     else if (userChoice == 2)
+    //     {
+    //         Console.WriteLine("Press any key to return to the Account menu");
+    //         Console.ReadKey(true);
+    //         AccountMenu.Start();
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         ShowMovies();
+    //     }
+    // }
 
     public void MovieInformation()
     {
@@ -305,101 +305,101 @@ public class MoviesLogic
         }
     }
 
-    public void SortMoviesGenre(bool isUser)
-    {
-        //sort movies on genre
-        int inputWeek = 0;
-        try
-        {
-            Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
-            inputWeek = Convert.ToInt32(Console.ReadLine());
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Invalid input");
-            SortMoviesGenre(isUser);
-        }
-        if (inputWeek != 1 && inputWeek != 2)
-        {
-            Console.WriteLine("Invalid input");
-            SortMoviesGenre(isUser);
-        }
-        Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
-        string inputGenre = Console.ReadLine();
-        if (inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
-        {
-            Console.WriteLine("Invalid input");
-            SortMoviesGenre(isUser);
-        }
-        foreach (var movie in movies)
-        {
-            if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
-            {
-                Console.WriteLine($"ID: {movie.Id}");
-                Console.WriteLine($"Week: {movie.Week}");
-                Console.WriteLine($"TITLE: {movie.MovieTitle}");
-                Console.WriteLine($"GENRE: {movie.Genre}");
-                Console.WriteLine("INFO:" + movie.Information);
-                Console.WriteLine();
-            }
-            SelectMovie();
-        }
+    // public void SortMoviesGenre(bool isUser)
+    // {
+    //     //sort movies on genre
+    //     int inputWeek = 0;
+    //     try
+    //     {
+    //         Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
+    //         inputWeek = Convert.ToInt32(Console.ReadLine());
+    //     }
+    //     catch (FormatException)
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         SortMoviesGenre(isUser);
+    //     }
+    //     if (inputWeek != 1 && inputWeek != 2)
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         SortMoviesGenre(isUser);
+    //     }
+    //     Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
+    //     string inputGenre = Console.ReadLine();
+    //     if (inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         SortMoviesGenre(isUser);
+    //     }
+    //     foreach (var movie in movies)
+    //     {
+    //         if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
+    //         {
+    //             Console.WriteLine($"ID: {movie.Id}");
+    //             Console.WriteLine($"Week: {movie.Week}");
+    //             Console.WriteLine($"TITLE: {movie.MovieTitle}");
+    //             Console.WriteLine($"GENRE: {movie.Genre}");
+    //             Console.WriteLine("INFO:" + movie.Information);
+    //             Console.WriteLine();
+    //         }
+    //         SelectMovie();
+    //     }
 
 
-        // Call SelectMovie() only for users
-        // else
-        // {
-        //     Console.WriteLine("Search for movies by genre completed for co-worker.");
-        //     Console.WriteLine("Press any key to return to the Main Menu.");
-        //     Console.ReadKey(true);
-        //     // CoWorkerMenu.Start();
-        // }
-
-    }
+    // Call SelectMovie() only for users
+    // else
+    // {
+    //     Console.WriteLine("Search for movies by genre completed for co-worker.");
+    //     Console.WriteLine("Press any key to return to the Main Menu.");
+    //     Console.ReadKey(true);
+    //     // CoWorkerMenu.Start();
+    // }
 
 
-    public void SortMoviesAge()
-    {
-        //sort movies on age
-        int inputWeek = 0;
-        try
-        {
-            Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
-            inputWeek = Convert.ToInt32(Console.ReadLine());
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Invalid input");
-            SortMoviesAge();
-        }
-        if (inputWeek != 1 && inputWeek != 2)
-        {
-            Console.WriteLine("Invalid input");
-            SortMoviesAge();
-        }
 
-        Console.WriteLine("Minimum age?(10, 12, 16)");
-        string inputAge = Console.ReadLine();
-        int age;
-        while (string.IsNullOrEmpty(inputAge) || !int.TryParse(inputAge, out age) || (age != 10 && age != 12 && age != 16))
-        {
-            Console.WriteLine("Invalid input. Please try again:");
-            inputAge = Console.ReadLine();
-        }
-        foreach (var movie in movies)
-        {
-            if (inputWeek == movie.Week && inputAge == movie.TargetAudience)
-            {
-                Console.WriteLine($"ID: {movie.Id}");
-                Console.WriteLine($"Week: {movie.Week}");
-                Console.WriteLine($"TITLE: {movie.MovieTitle}");
-                Console.WriteLine($"GENRE: {movie.Genre}");
-                Console.WriteLine("INFO:" + movie.Information);
-                Console.WriteLine();
-            }
-        }
-        SelectMovie();
-    }
+
+    // public void SortMoviesAge()
+    // {
+    //     //sort movies on age
+    //     int inputWeek = 0;
+    //     try
+    //     {
+    //         Console.WriteLine("Current week or next week?\n[1] Current week\n[2] Next week");
+    //         inputWeek = Convert.ToInt32(Console.ReadLine());
+    //     }
+    //     catch (FormatException)
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         SortMoviesAge();
+    //     }
+    //     if (inputWeek != 1 && inputWeek != 2)
+    //     {
+    //         Console.WriteLine("Invalid input");
+    //         SortMoviesAge();
+    //     }
+
+    //     Console.WriteLine("Minimum age?(10, 12, 16)");
+    //     string inputAge = Console.ReadLine();
+    //     int age;
+    //     while (string.IsNullOrEmpty(inputAge) || !int.TryParse(inputAge, out age) || (age != 10 && age != 12 && age != 16))
+    //     {
+    //         Console.WriteLine("Invalid input. Please try again:");
+    //         inputAge = Console.ReadLine();
+    //     }
+    //     foreach (var movie in movies)
+    //     {
+    //         if (inputWeek == movie.Week && inputAge == movie.TargetAudience)
+    //         {
+    //             Console.WriteLine($"ID: {movie.Id}");
+    //             Console.WriteLine($"Week: {movie.Week}");
+    //             Console.WriteLine($"TITLE: {movie.MovieTitle}");
+    //             Console.WriteLine($"GENRE: {movie.Genre}");
+    //             Console.WriteLine("INFO:" + movie.Information);
+    //             Console.WriteLine();
+    //         }
+    //     }
+    //     SelectMovie();
+    // }
 
     public void DeleteMovie(int movieId)
     {

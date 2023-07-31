@@ -38,8 +38,10 @@ public class ManagerMenu
                 managesnacks.ManageSnacks();
                 break;
             case 2:
-                MoviesLogic showmoviesworker = new MoviesLogic();
-                showmoviesworker.ShowMovies();
+                LogicBase showMovies = new LogicBase();
+                showMovies.ShowMoviesBase(false, true);
+                showMovies.SortMoviesGenreBase(false, true);
+                showMovies.SortMoviesAgeBase(false, true);
                 Start();
                 break;
             case 3:

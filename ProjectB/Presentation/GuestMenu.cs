@@ -17,23 +17,25 @@
         Menu guestmenu = new Menu(prompt, options);
         int SelectedIndex = guestmenu.Run();
 
-            switch (SelectedIndex)
-            {
-                case 0:
-                    Console.WriteLine("Enter your e-mail (we will send you a confirmation here");
-                    string Guest_Email_Input = Console.ReadLine();
-                    Guest_Email = Guest_Email_Input;
-                    MoviesLogic showMovies = new MoviesLogic();
-                    showMovies.ShowMovies();
-                    break;
-                case 1:
-                    SnacksLogic showSnacks = new SnacksLogic();
-                    showSnacks.ShowSnacks();
-                    break;
-                case 2:
-                    Program.Main();
-                    break;
-            }
-        
+        switch (SelectedIndex)
+        {
+            case 0:
+                Console.WriteLine("Enter your e-mail (we will send you a confirmation here");
+                string Guest_Email_Input = Console.ReadLine();
+                Guest_Email = Guest_Email_Input;
+                LogicBase showMovies = new LogicBase();
+                showMovies.ShowMoviesBase(true, false);
+                showMovies.SortMoviesGenreBase(true, false);
+                showMovies.SortMoviesAgeBase(true, false);
+                break;
+            case 1:
+                SnacksLogic showSnacks = new SnacksLogic();
+                showSnacks.ShowSnacks();
+                break;
+            case 2:
+                Program.Main();
+                break;
+        }
+
     }
 }
