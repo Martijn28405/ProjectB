@@ -10,6 +10,7 @@ public class MoviesLogic
     public static string? SelectedMovie = null;
     public static DateTime startTimeInput;
     public static int duration;
+
     public MoviesLogic()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
@@ -189,7 +190,7 @@ public class MoviesLogic
         }
         else if (choice == 2)
         {
-            SortMoviesGenre();
+            SortMoviesGenre(true);
         }
         else if (choice == 3)
         {
@@ -304,7 +305,7 @@ public class MoviesLogic
         }
     }
 
-    public void SortMoviesGenre()
+    public void SortMoviesGenre(bool isUser)
     {
         //sort movies on genre
         int inputWeek = 0;
@@ -316,19 +317,19 @@ public class MoviesLogic
         catch (FormatException)
         {
             Console.WriteLine("Invalid input");
-            SortMoviesGenre();
+            SortMoviesGenre(isUser);
         }
         if (inputWeek != 1 && inputWeek != 2)
         {
             Console.WriteLine("Invalid input");
-            SortMoviesGenre();
+            SortMoviesGenre(isUser);
         }
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
         if (inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
         {
             Console.WriteLine("Invalid input");
-            SortMoviesGenre();
+            SortMoviesGenre(isUser);
         }
         foreach (var movie in movies)
         {
@@ -341,8 +342,19 @@ public class MoviesLogic
                 Console.WriteLine("INFO:" + movie.Information);
                 Console.WriteLine();
             }
+            SelectMovie();
         }
-        SelectMovie();
+
+
+        // Call SelectMovie() only for users
+        // else
+        // {
+        //     Console.WriteLine("Search for movies by genre completed for co-worker.");
+        //     Console.WriteLine("Press any key to return to the Main Menu.");
+        //     Console.ReadKey(true);
+        //     // CoWorkerMenu.Start();
+        // }
+
     }
 
 

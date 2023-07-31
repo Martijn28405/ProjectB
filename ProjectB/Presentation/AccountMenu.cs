@@ -28,7 +28,7 @@ public class AccountMenu
             case 0:
                 MoviesLogic showmovies = new MoviesLogic();
                 showmovies.ShowMovies();
-                Start();
+                showmovies.SortMoviesGenre(true);
                 break;
             case 1:
                 MoviesLogic movieInformation = new MoviesLogic();

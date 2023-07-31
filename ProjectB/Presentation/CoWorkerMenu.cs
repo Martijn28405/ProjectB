@@ -22,9 +22,11 @@ public class CoWorkerMenu
         switch (SelectedIndex)
         {
             case 0:
-                MoviesLogic showmoviesworker = new MoviesLogic();
-                showmoviesworker.ShowMovies();
-                Start();
+                LogicBase showmoviesworker = new LogicBase();
+                // showmoviesworker.ShowMovies();
+                showmoviesworker.ShowMovies(false);
+                showmoviesworker.SortMoviesGenreBase(false);
+                CoWorkerMenu.Start();
                 break;
             case 1:
                 SnacksLogic viewsnacks = new SnacksLogic();
