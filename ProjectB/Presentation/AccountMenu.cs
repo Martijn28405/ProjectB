@@ -27,9 +27,10 @@ public class AccountMenu
         {
             case 0:
                 LogicBase showmovies = new LogicBase();
-                showmovies.ShowMoviesBase(true, false);
-                showmovies.SortMoviesGenreBase(true, false);
-                showmovies.SortMoviesAgeBase(true, false);
+                showmovies.ShowMoviesBase(true, false, false);
+                showmovies.SortMoviesGenreBase(true, false, false);
+                showmovies.SortMoviesAgeBase(true, false, false);
+                showmovies.SelectMovieBase(true, false);
                 break;
             case 1:
                 MoviesLogic movieInformation = new MoviesLogic();
@@ -37,7 +38,7 @@ public class AccountMenu
                 break;
             case 2:
                 LogicBase viewsnacks = new LogicBase();
-                viewsnacks.ShowSnacksBase(true, false);
+                viewsnacks.ShowSnacksBase(true, false, false);
                 Start();
                 break;
             case 3:

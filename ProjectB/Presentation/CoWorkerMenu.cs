@@ -24,14 +24,14 @@ public class CoWorkerMenu
             case 0:
                 LogicBase showmoviesworker = new LogicBase();
                 // showmoviesworker.ShowMovies();
-                showmoviesworker.ShowMoviesBase(false, false);
-                showmoviesworker.SortMoviesGenreBase(false, false);
-                showmoviesworker.SortMoviesAgeBase(false, false);
+                showmoviesworker.ShowMoviesBase(false, false, false);
+                showmoviesworker.SortMoviesGenreBase(false, false, false);
+                showmoviesworker.SortMoviesAgeBase(false, false, false);
                 CoWorkerMenu.Start();
                 break;
             case 1:
                 LogicBase viewsnacks = new LogicBase();
-                viewsnacks.ShowSnacksBase(false, false);
+                viewsnacks.ShowSnacksBase(false, false, false);
                 break;
             case 2:
                 ReservationsLogic showreservations = new ReservationsLogic();

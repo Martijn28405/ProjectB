@@ -39,9 +39,9 @@ public class ManagerMenu
                 break;
             case 2:
                 LogicBase showMovies = new LogicBase();
-                showMovies.ShowMoviesBase(false, true);
-                showMovies.SortMoviesGenreBase(false, true);
-                showMovies.SortMoviesAgeBase(false, true);
+                showMovies.ShowMoviesBase(false, true, false);
+                showMovies.SortMoviesGenreBase(false, true, false);
+                showMovies.SortMoviesAgeBase(false, true, false);
                 Start();
                 break;
             case 3:

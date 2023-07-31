@@ -30,5 +30,12 @@
     ],
     "TotalPrice": 0,
     "MovieName": "The Lost City"
+  },
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "TotalPrice": 0,
+    "MovieName": null
   }
 ]

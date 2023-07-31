@@ -24,13 +24,14 @@
                 string Guest_Email_Input = Console.ReadLine();
                 Guest_Email = Guest_Email_Input;
                 LogicBase showMovies = new LogicBase();
-                showMovies.ShowMoviesBase(true, false);
-                showMovies.SortMoviesGenreBase(true, false);
-                showMovies.SortMoviesAgeBase(true, false);
+                showMovies.ShowMoviesBase(false, false, true);
+                showMovies.SortMoviesGenreBase(false, false, true);
+                showMovies.SortMoviesAgeBase(false, false, true);
+                showMovies.SelectMovieBase(false, true);
                 break;
             case 1:
                 LogicBase showSnacks = new LogicBase();
-                showSnacks.ShowSnacksBase(true, false);
+                showSnacks.ShowSnacksBase(false, false, true);
                 break;
             case 2:
                 Program.Main();

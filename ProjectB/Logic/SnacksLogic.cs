@@ -201,7 +201,7 @@ public class SnacksLogic
         else if (choice == 3)
         {
             LogicBase snack = new LogicBase();
-            snack.ShowSnacksBase(false, true);
+            snack.ShowSnacksBase(false, true, false);
         }
         else if (choice == 4)
         {

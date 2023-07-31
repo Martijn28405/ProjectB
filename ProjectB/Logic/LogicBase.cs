@@ -4,6 +4,8 @@ public class LogicBase
     private JsonAccessor<MovieModel> _accesor;
     protected List<MovieModel> movies;
     public List<SnackModel> snacks;
+    public static string? SelectedMovie = null;
+    public static int duration;
     public LogicBase()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");
@@ -13,7 +15,7 @@ public class LogicBase
         snacks = _productAccesor.LoadAll();
     }
 
-    public virtual void ShowMoviesBase(bool isUser, bool isManager)
+    public virtual void ShowMoviesBase(bool isUser, bool isManager, bool isGuest)
     {
         int choice = 0;
         try
@@ -24,7 +26,7 @@ public class LogicBase
         catch (FormatException)
         {
             Console.WriteLine("Invalid input");
-            ShowMoviesBase(isUser, isManager);
+            ShowMoviesBase(isUser, isManager, isGuest);
             return;
         }
 
@@ -39,13 +41,13 @@ public class LogicBase
             catch (FormatException)
             {
                 Console.WriteLine("Invalid input");
-                ShowMoviesBase(isUser, isManager);
+                ShowMoviesBase(isUser, isManager, isGuest);
                 return;
             }
             if (inputWeek != 1 && inputWeek != 2)
             {
                 Console.WriteLine("Invalid input");
-                ShowMoviesBase(isUser, isManager);
+                ShowMoviesBase(isUser, isManager, isGuest);
                 return;
             }
             Console.WriteLine();
@@ -65,8 +67,11 @@ public class LogicBase
             }
             if (isUser)
             {
-                MoviesLogic send = new MoviesLogic();
-                send.SelectMovie(); // Call SelectMovie() only for users
+                SelectMovieBase(true, false); // Call SelectMovie() only for users
+            }
+            else if (isGuest)
+            {
+                SelectMovieBase(false, true);
             }
             else if (isManager)
             {
@@ -89,7 +94,7 @@ public class LogicBase
         }
         else if (choice == 2)
         {
-            SortMoviesGenreBase(isUser, isManager);
+            SortMoviesGenreBase(isUser, isManager, isGuest);
         }
         // else
         // {
@@ -145,12 +150,12 @@ public class LogicBase
         // Optie 3 word niet gezien:
         else if (choice == 3)
         {
-            SortMoviesAgeBase(isUser, isManager);
+            SortMoviesAgeBase(isUser, isManager, isGuest);
         }
         else
         {
             Console.WriteLine("Invalid input");
-            ShowMoviesBase(isUser, isManager);
+            ShowMoviesBase(isUser, isManager, isGuest);
             return;
         }
 
@@ -158,7 +163,7 @@ public class LogicBase
 
 
 
-    public virtual void SortMoviesGenreBase(bool isUser, bool isManager)
+    public virtual void SortMoviesGenreBase(bool isUser, bool isManager, bool isGuest)
     {
         //sort movies on genre
         int inputWeek = 0;
@@ -170,12 +175,12 @@ public class LogicBase
         catch (FormatException)
         {
             Console.WriteLine("Invalid input");
-            SortMoviesGenreBase(isUser, isManager);
+            SortMoviesGenreBase(isUser, isManager, isGuest);
         }
         if (inputWeek != 1 && inputWeek != 2)
         {
             Console.WriteLine("Invalid input");
-            SortMoviesGenreBase(isUser, isManager);
+            SortMoviesGenreBase(isUser, isManager, isGuest);
         }
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
@@ -200,8 +205,11 @@ public class LogicBase
         }
         if (isUser)
         {
-            MoviesLogic send = new MoviesLogic();
-            send.SelectMovie(); // Call SelectMovie() only for users
+            SelectMovieBase(true, false); // Call SelectMovie() only for users
+        }
+        else if (isGuest)
+        {
+            SelectMovieBase(false, true);
         }
         else if (isManager)
         {
@@ -222,7 +230,7 @@ public class LogicBase
     }
 
     // Andere methods nog toevoegen die co worker, user, manager gebruiken:
-    public virtual void SortMoviesAgeBase(bool isUser, bool isManager)
+    public virtual void SortMoviesAgeBase(bool isUser, bool isManager, bool isGuest)
     {
         //sort movies on age
         int inputWeek = 0;
@@ -234,12 +242,12 @@ public class LogicBase
         catch (FormatException)
         {
             Console.WriteLine("Invalid input");
-            SortMoviesAgeBase(isUser, isManager);
+            SortMoviesAgeBase(isUser, isManager, isGuest);
         }
         if (inputWeek != 1 && inputWeek != 2)
         {
             Console.WriteLine("Invalid input");
-            SortMoviesAgeBase(isUser, isManager);
+            SortMoviesAgeBase(isUser, isManager, isGuest);
         }
 
         Console.WriteLine("Minimum age?(10, 12, 16)");
@@ -269,8 +277,11 @@ public class LogicBase
         }
         if (isUser)
         {
-            MoviesLogic send = new MoviesLogic();
-            send.SelectMovie();
+            SelectMovieBase(true, false);
+        }
+        else if (isGuest)
+        {
+            SelectMovieBase(false, true);
         }
         else if (isManager)
         {
@@ -291,7 +302,7 @@ public class LogicBase
         }
 
     }
-    public virtual void ShowSnacksBase(bool isUser, bool isManager)
+    public virtual void ShowSnacksBase(bool isUser, bool isManager, bool isGuest)
     {
         List<SnackModel> food = new List<SnackModel>();
         foreach (var item in snacks)
@@ -307,6 +318,12 @@ public class LogicBase
             AccountMenu.Start();
 
         }
+        else if (isGuest)
+        {
+            Console.WriteLine("Press any key to return to the menu");
+            Console.ReadKey(true);
+            GuestMenu.Start();
+        }
         else if (isManager)
         {
             Console.WriteLine("Press any key to return to the menu");
@@ -320,5 +337,108 @@ public class LogicBase
             CoWorkerMenu.Start();
         }
 
+    }
+    public virtual void SelectMovieBase(bool isUser, bool isGuest)
+    {
+        // in het menu een mogelijkheid om een movie te kiezen per week.
+        // de geselecteerde movie wordt dan doorgegeven aan de zaal.
+
+
+        int userChoice;
+        Console.WriteLine("Do you want to select a movie?");
+        Console.WriteLine("[1] Yes\n[2] No");
+        while (!int.TryParse(Console.ReadLine(), out userChoice) || (userChoice != 1 && userChoice != 2))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid week number:");
+        }
+        if (userChoice == 1)
+        {
+
+            // snacks is the list of available snacks.
+            // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
+            Console.WriteLine("Enter a movie ID");
+            int itemId;
+            int minId = movies.Min(movie => movie.Id);
+            int maxId = movies.Max(movie => movie.Id);
+            while (!int.TryParse(Console.ReadLine(), out itemId) || itemId < minId || itemId > maxId)
+            {
+                Console.WriteLine("Invalid ID, please try again.");
+            }
+
+            MovieModel? movie = movies.FirstOrDefault(movie => movie.Id == itemId);
+            if (movie == null)
+            {
+                Console.WriteLine("Invalid, please try again.");
+                SelectMovieBase(isUser, isGuest);
+            }
+
+            SelectedMovie = movie.MovieTitle;
+            Console.WriteLine($"{SelectedMovie} Selected!");
+            List<DateTime> startingTimes = new List<DateTime>();
+            foreach (var time in movie.StartTime)
+            {
+                startingTimes.Add(time);
+            }
+
+            Console.WriteLine("Which time would you like to reserve?");
+            int y = 1;
+            foreach (var x in startingTimes)
+            {
+                Console.WriteLine($"[{y}]. {x}");
+                y++;
+            }
+
+            int selectedTime;
+            while (!int.TryParse(Console.ReadLine(), out selectedTime) || selectedTime < 1 || selectedTime > startingTimes.Count)
+            {
+                Console.WriteLine("Invalid time selection, please try again.");
+            }
+            DateTime startTimeInput = startingTimes[selectedTime - 1];
+            Console.WriteLine($"You selected: {startTimeInput.ToString("HH:mm")}");
+
+            //Let the user choose one of the times and put the selected time in startTimeInput
+            // int selectedTime = Int32.Parse(Console.ReadLine());
+            // startTimeInput = startingTimes[selectedTime - 1];
+            Console.WriteLine("Press any key to select seats");
+            Console.ReadKey(true);
+            if (itemId <= 6)
+            {
+                SeatMenu.Start();
+            }
+            else if (itemId > 6 && itemId <= 12)
+            {
+                SeatMenu2.Start();
+            }
+            else if (itemId > 12 && itemId <= 17)
+            {
+                SeatMenu3.Start();
+            }
+            else
+            {
+                Console.WriteLine("invalid input");
+            }
+            duration = movie.PlayTimeInMinutes;
+
+        }
+        else if (userChoice == 2)
+        {
+            if (isUser)
+            {
+                Console.WriteLine("Press any key to return to the Account menu");
+                Console.ReadKey(true);
+                AccountMenu.Start();
+            }
+            else if (isGuest)
+            {
+                Console.WriteLine("Press any key to return to the Guest menu");
+                Console.ReadKey(true);
+                GuestMenu.Start();
+            }
+        }
+        else if (userChoice.GetType() != typeof(int))
+        {
+            Console.WriteLine("Invalid input");
+            SelectMovieBase(isUser, isGuest);
+        }
     }
 }
