@@ -24,7 +24,8 @@ public class ReservationsLogic
     {
         foreach (var reservation in _reservations)
         {
-            Console.WriteLine($"SEAT: {reservation.Seat}");
+            string seats = string.Join(",", reservation.Seat);
+            Console.WriteLine($"SEATS: {seats}");
             Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
             Console.WriteLine($"MOVIE: {reservation.Movie}");
             Console.WriteLine($"START TIME: {reservation.StartTime}");
