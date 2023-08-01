@@ -33,8 +33,8 @@ public class AccountMenu
                 showmovies.SelectMovieBase(true, false);
                 break;
             case 1:
-                MoviesLogic movieInformation = new MoviesLogic();
-                movieInformation.MovieInformation();
+                LogicBase showInformation = new LogicBase();
+                showInformation.MovieInformation(true, false);
                 break;
             case 2:
                 LogicBase viewsnacks = new LogicBase();

@@ -16,7 +16,7 @@ public class CoWorkerMenu
                                                                                                                                                                
                                                                                                                                                                                                                                                                                                                                                                                
 ";
-        string[] options = { "Show Movies", "Show Snacks", "View Reservations", "Edit Reservations", "Log Out", "Back to Main Menu", "Exit App" };
+        string[] options = { "Show Movies", "Show Snacks", "View Reservations", "Edit Reservations", "View Movie Information", "Log Out", "Back to Main Menu", "Exit App" };
         Menu co_workermenu = new Menu(prompt, options);
         int SelectedIndex = co_workermenu.Run();
         switch (SelectedIndex)
@@ -45,15 +45,19 @@ public class CoWorkerMenu
                 modifyReservations.modifyReservations();
                 break;
             case 4:
+                LogicBase showInformation = new LogicBase();
+                showInformation.MovieInformation(false, false);
+                break;
+            case 5:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 CoWorkerLogin.Co_WorkerEmail = default;
                 Program.Main();
                 break;
-            case 5:
+            case 6:
                 Program.Main();
                 break;
-            case 6:
+            case 7:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);

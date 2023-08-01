@@ -4,11 +4,5 @@
     "NameFood": "Soda",
     "Description": "Carbonated soft drinks available in various flavors.",
     "PriceFood": 4
-  },
-  {
-    "id": 1,
-    "NameFood": "test",
-    "Description": "test",
-    "PriceFood": 1.5
   }
 ]

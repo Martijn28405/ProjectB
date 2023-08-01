@@ -24,4 +24,8 @@ public class GuestLogic : LogicBase
     {
         base.SelectMovieBase(isUser, isGuest);
     }
+    public override void MovieInformation(bool isUser = true, bool isGuest = false)
+    {
+        base.MovieInformation(isUser, isGuest);
+    }
 }

@@ -19,4 +19,8 @@ public class CoWorkerMoviesLogic : LogicBase
     {
         base.ShowSnacksBase(isUser, isManager, isGuest);
     }
+    public override void MovieInformation(bool isUser = false, bool isGuest = false)
+    {
+        base.MovieInformation(isUser, isGuest);
+    }
 }

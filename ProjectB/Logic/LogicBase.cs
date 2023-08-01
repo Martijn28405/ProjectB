@@ -436,4 +436,87 @@ public class LogicBase
             SelectMovieBase(isUser, isGuest);
         }
     }
+    public virtual void MovieInformation(bool isUser, bool isGuest)
+    {
+        Console.WriteLine("Of which movie would you like to receive some information?\n");
+        foreach (var movie in movies)
+        {
+            Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+        }
+        string userInput = string.Empty;
+        while (true)
+        {
+            Console.WriteLine("Enter title:");
+            userInput = Console.ReadLine();
+            bool valid = false;
+
+            foreach (MovieModel movie in movies)
+            {
+                if (userInput == movie.MovieTitle)
+                {
+                    valid = true;
+                    MovieInformationOptionsBase(movie);
+                    if (isGuest)
+                    {
+                        GuestMenu.Start();
+                    }
+                    else if (isUser)
+                    {
+                        AccountMenu.Start();
+                    }
+                    else
+                    {
+                        CoWorkerMenu.Start();
+                    }
+                }
+            }
+            if (valid)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please try again");
+            }
+        }
+    }
+
+    public void MovieInformationOptionsBase(MovieModel movie)
+    {
+        while (true)
+        {
+            Console.WriteLine(@"
+[1] The synopsis of the movie.
+[2] The target audience of the movie.
+[3] The genres of the movie.
+[4] The times at which the movie is playing.
+[5] Exit Information Menu");
+
+            string userChoice = Console.ReadLine();
+            switch (userChoice)
+            {
+                case "1":
+                    Console.WriteLine($"Synopsis: {movie.Information}");
+                    break;
+                case "2":
+                    Console.WriteLine($"Target Audience: {movie.TargetAudience}");
+                    break;
+                case "3":
+                    Console.WriteLine($"Genre(s): {movie.Genre}");
+                    break;
+                case "4":
+                    foreach (DateTime time in movie.StartTime)
+                    {
+                        string dateAndTime = time.ToString("dd-MM-yyyy HH:mm");
+                        Console.WriteLine($"Dates and Times: {dateAndTime}");
+                    }
+                    break;
+                case "5":
+                    return;
+                default:
+                    Console.WriteLine("Incorrect input, try again:");
+                    break;
+            }
+        }
+    }
 }
