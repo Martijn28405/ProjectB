@@ -256,31 +256,6 @@ public class SnacksLogic
         return (snackDeleted, statusMessage);
     }
 
-
-    // public void DeleteSnack()
-    //     {
-    //         foreach (var item in snacks)
-    //         {
-    //             Console.WriteLine($"Snacks: {item.NameFood}");
-    //         }
-
-    //         Console.WriteLine("Which snack do you want to delete?");
-    //         string snack = Console.ReadLine();
-    //         foreach (var item in snacks)
-    //         {
-    //             if (snack == item.NameFood)
-    //             {
-    //                 snacks.Remove(item);
-    //                 _productAccesor.WriteAll(snacks);
-    //                 Console.WriteLine("Snack deleted");
-    //                 break;
-    //             }
-    //         }
-
-    //         Console.WriteLine("Press any key to return to menu");
-    //         Console.ReadKey(true);
-    //         ManagerMenu.Start();
-    //     }
     public void EmptyShoppingCart()
     {
         shoppingCart.Clear();
@@ -370,3 +345,28 @@ public class SnacksLogic
 
 
 
+
+// public void DeleteSnack()
+//     {
+//         foreach (var item in snacks)
+//         {
+//             Console.WriteLine($"Snacks: {item.NameFood}");
+//         }
+
+//         Console.WriteLine("Which snack do you want to delete?");
+//         string snack = Console.ReadLine();
+//         foreach (var item in snacks)
+//         {
+//             if (snack == item.NameFood)
+//             {
+//                 snacks.Remove(item);
+//                 _productAccesor.WriteAll(snacks);
+//                 Console.WriteLine("Snack deleted");
+//                 break;
+//             }
+//         }
+
+//         Console.WriteLine("Press any key to return to menu");
+//         Console.ReadKey(true);
+//         ManagerMenu.Start();
+//     }

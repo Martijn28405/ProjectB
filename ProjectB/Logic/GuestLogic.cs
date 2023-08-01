@@ -1,6 +1,5 @@
 public class GuestLogic : LogicBase
 {
-    // ... Other user-specific members and methods here ...
 
     public override void SortMoviesGenreBase(bool isUser = false, bool isManager = false, bool isGuest = true)
     {
