@@ -439,45 +439,39 @@ public class LogicBase
     public virtual void MovieInformation(bool isUser, bool isGuest)
     {
         Console.WriteLine("Of which movie would you like to receive some information?\n");
-        foreach (var movie in movies)
+        foreach (var movie in movies.OrderBy(movie => movie.Id))
         {
-            Console.WriteLine($"MOVIETITLE: {movie.MovieTitle}");
+            Console.WriteLine($"{movie.Id}: {movie.MovieTitle}");
         }
-        string userInput = string.Empty;
-        while (true)
-        {
-            Console.WriteLine("Enter title:");
-            userInput = Console.ReadLine();
-            bool valid = false;
 
-            foreach (MovieModel movie in movies)
+        Console.WriteLine("Enter ID:");
+        int userInput;
+        int maxId = movies.Max(movie => movie.Id);
+        while (!int.TryParse(Console.ReadLine(), out userInput) || userInput <= 0 || userInput > maxId)
+        {
+            Console.WriteLine("Invalid input. Please enter a valid playtime:");
+        }
+        foreach (MovieModel movie in movies)
+        {
+            if (userInput == movie.Id)
             {
-                if (userInput == movie.MovieTitle)
+
+                MovieInformationOptionsBase(movie);
+                if (isGuest)
                 {
-                    valid = true;
-                    MovieInformationOptionsBase(movie);
-                    if (isGuest)
-                    {
-                        GuestMenu.Start();
-                    }
-                    else if (isUser)
-                    {
-                        AccountMenu.Start();
-                    }
-                    else
-                    {
-                        CoWorkerMenu.Start();
-                    }
+                    GuestMenu.Start();
+                }
+                else if (isUser)
+                {
+                    AccountMenu.Start();
+                }
+                else
+                {
+                    CoWorkerMenu.Start();
                 }
             }
-            if (valid)
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please try again");
-            }
+
+
         }
     }
 

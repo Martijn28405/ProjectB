@@ -54,7 +54,7 @@ public class SnacksLogic
         string? snackName = Console.ReadLine();
         while (string.IsNullOrEmpty(snackName) || int.TryParse(snackName, out _))
         {
-            Console.WriteLine("Invalid input. Snack cannot be empty. Please enter a valid title:");
+            Console.WriteLine("Invalid input. Please try again:");
             snackName = Console.ReadLine();
         }
         Console.WriteLine("The price of the snack (format: 0,00):");
@@ -217,7 +217,7 @@ public class SnacksLogic
     public (bool, string) DeleteSnack()
     {
 
-        foreach (var item in snacks)
+        foreach (var item in snacks.OrderBy(snack => snack.Id))
         {
             Console.WriteLine($"ID: {item.Id}  Snack: {item.NameFood}");
         }
