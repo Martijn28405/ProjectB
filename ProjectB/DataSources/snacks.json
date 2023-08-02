@@ -16,5 +16,35 @@
     "NameFood": "Popcorn XXL",
     "Description": "Huge bag of popcorn.",
     "PriceFood": 3.5
+  },
+  {
+    "id": 5,
+    "NameFood": "Chips",
+    "Description": "Assorted bag of potato chips.",
+    "PriceFood": 2.5
+  },
+  {
+    "id": 6,
+    "NameFood": "Chocolate Bar",
+    "Description": "Milk chocolate bar.",
+    "PriceFood": 1.8
+  },
+  {
+    "id": 7,
+    "NameFood": "Mixed Nuts",
+    "Description": "A mix of peanuts, almonds, and cashews.",
+    "PriceFood": 3
+  },
+  {
+    "id": 8,
+    "NameFood": "Pretzels",
+    "Description": "Crunchy pretzel sticks.",
+    "PriceFood": 2
+  },
+  {
+    "id": 9,
+    "NameFood": "Cotton Candy",
+    "Description": "Fluffy and colorful cotton candy.",
+    "PriceFood": 2.5
   }
 ]

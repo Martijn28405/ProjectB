@@ -192,13 +192,12 @@ public class MoviesLogic
         else if (choice == 2)
         {
             Console.WriteLine("Do you want to delete a movie based on [1] ID or [2] Title?");
-            string userInput = Console.ReadLine();
-            while (string.IsNullOrEmpty(userInput) || int.TryParse(userInput, out _))
+            int userInput;
+            if (!int.TryParse(Console.ReadLine(), out userInput) || (userInput != 1 && userInput != 2))
             {
-                Console.WriteLine("Invalid input. Please enter a valid number (1 or 2).");
-                userInput = Console.ReadLine();
+                Console.WriteLine("Invalid input. Please enter 1 or 2.");
             }
-            if (userInput == "1")
+            if (userInput == 1)
             {
                 foreach (var item in movies)
                 {
@@ -208,7 +207,7 @@ public class MoviesLogic
                 int movieID = Convert.ToInt32(Console.ReadLine());
                 DeleteMovie(movieID);
             }
-            else if (userInput == "2")
+            else if (userInput == 2)
             {
                 foreach (var item in movies)
                 {
@@ -217,12 +216,6 @@ public class MoviesLogic
                 Console.WriteLine("Which title?");
                 string movieTitle = Console.ReadLine();
                 DeleteMovie(movieTitle);
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a valid choice (1 or 2).");
-                ManageMovies();
-                return;
             }
         }
         else if (choice == 3)

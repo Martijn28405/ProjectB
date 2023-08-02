@@ -595,7 +595,7 @@ public class EmailLogic
 
         htmlBody +=
             "                                                                        align=\"center\">Uw Reservering:</h3>\n";
-        htmlBody += $"                                                                <h3 align=\"center\">Tickets voor {movie}</h3>\n";
+        htmlBody += $"                                                                <h3 align=\"center\">Tickets voor: {movie}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
         htmlBody += $"                                                                <h3 align=\"center\">Start Time: {startTime}</h3>\n";
         htmlBody += "                                                                <h3 align=\"center\">-------------</h3>\n";
