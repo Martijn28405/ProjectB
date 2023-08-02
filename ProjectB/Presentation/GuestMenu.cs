@@ -22,10 +22,9 @@
             case 0:
                 Console.WriteLine("Enter your e-mail (we will send you a confirmation here):\n");
                 AccountsLogic logic = new AccountsLogic();
-                logic.CreateEmail();
+                Guest_Email = logic.CreateEmail();
+                Console.WriteLine(Guest_Email);
                 Console.WriteLine();
-                // string Guest_Email_Input = Console.ReadLine();
-                // Guest_Email = Guest_Email_Input;
                 LogicBase showMovies = new LogicBase();
                 showMovies.ShowMoviesBase(false, false, true);
                 showMovies.SortMoviesGenreBase(false, false, true);

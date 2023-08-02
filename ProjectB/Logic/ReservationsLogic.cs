@@ -20,32 +20,29 @@ public class ReservationsLogic
         _reservations = _accesor.LoadAll();
         _carts = _cartAccesor.LoadAll();
     }
-    public void ShowReservations()
+public void ShowReservations()
+{
+    if (_reservations.Count == 0)
     {
-        foreach (var reservation in _reservations)
-        {
-            string seats = string.Join(",", reservation.Seat);
-            Console.WriteLine($"SEATS: {seats}");
-            Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
-            Console.WriteLine($"MOVIE: {reservation.Movie}");
-            Console.WriteLine($"START TIME: {reservation.StartTime}");
-            Console.WriteLine($"DURATION: {reservation.Duration}");
-            return;
-        }
         Console.WriteLine("There are no reservations at this moment\n");
+        return;
     }
-    /*public static void AddReservation()
+
+    foreach (var reservation in _reservations)
     {
-        foreach (var item in _carts)
-
-        {
-
-            EmailLogic.seats_list.Add(item.Seat.ToString());
-        }
-    }*/
+        string seats = string.Join(",", reservation.Seat);
+        Console.WriteLine($"SEATS: {seats}");
+        Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
+        Console.WriteLine($"MOVIE: {reservation.Movie}");
+        Console.WriteLine($"START TIME: {reservation.StartTime}");
+        Console.WriteLine($"DURATION: {reservation.Duration}");
+        Console.WriteLine();
+    }
+}
 
     public void modifyReservations()
-    {
+    {   
+        ShowReservations();
         Console.WriteLine("From which movie would you like to edit the reservation?\n");
         Console.WriteLine("Enter movie:");
         string? movieInput = Console.ReadLine();

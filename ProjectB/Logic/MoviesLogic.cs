@@ -7,7 +7,7 @@ public class MoviesLogic
 {
     private JsonAccessor<MovieModel> _accesor;
     public List<MovieModel> movies;
-    public static string? SelectedMovie = null;
+    public static string? SelectedMovie;
     public static DateTime startTimeInput;
     public static int duration;
 
@@ -234,8 +234,6 @@ public class MoviesLogic
     {
         // in het menu een mogelijkheid om een movie te kiezen per week.
         // de geselecteerde movie wordt dan doorgegeven aan de zaal.
-
-
         int userChoice;
         Console.WriteLine("Do you want to select a movie?");
         Console.WriteLine("[1] Yes\n[2] No");
