@@ -8,7 +8,7 @@ public class MoviesLogic
     private JsonAccessor<MovieModel> _accesor;
     public List<MovieModel> movies;
     public static string? SelectedMovie;
-    public static DateTime startTimeInput;
+
     public static int duration;
 
     public MoviesLogic()

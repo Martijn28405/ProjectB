@@ -6,6 +6,7 @@ public class LogicBase
     public List<SnackModel> snacks;
     public static string? SelectedMovie = null;
     public static int duration;
+    public static DateTime startTimeInput;
     public LogicBase()
     {
         _accesor = new JsonAccessor<MovieModel>(@"DataSources/movies.json");

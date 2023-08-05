@@ -140,11 +140,11 @@ public class ReservationsLogic
     {
         List<string> seat = SeatMenu.selectedSeats;
         var email = UserLogin.User_Email;
-        MoviesLogic moviesLogic = new MoviesLogic();
-        string selectedMovie = MoviesLogic.SelectedMovie;
+        LogicBase moviesLogic = new LogicBase();
+        string selectedMovie = LogicBase.SelectedMovie;
         Console.WriteLine(selectedMovie);
         int durationInput = 1;
-        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput);
+        ReservationModel newReservation = new ReservationModel(seat, email, LogicBase.SelectedMovie, LogicBase.startTimeInput, durationInput);
         SeatPricing();
         ProceedCheckout(shoppingCart, newReservation);
 
@@ -156,11 +156,11 @@ public class ReservationsLogic
     {
         List<string> seat = SeatMenu2.selectedSeats;
         var email = UserLogin.User_Email;
-        MoviesLogic moviesLogic = new MoviesLogic();
-        string selectedMovie = MoviesLogic.SelectedMovie;
+        LogicBase moviesLogic = new LogicBase();
+        string selectedMovie = LogicBase.SelectedMovie;
         Console.WriteLine(selectedMovie);
         int durationInput = 1;
-        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput);
+        ReservationModel newReservation = new ReservationModel(seat, email, LogicBase.SelectedMovie, LogicBase.startTimeInput, durationInput);
         SeatPricing2();
         ProceedCheckout(shoppingCart, newReservation);
 
@@ -172,11 +172,11 @@ public class ReservationsLogic
     {
         List<string> seat = SeatMenu3.selectedSeats;
         var email = UserLogin.User_Email;
-        MoviesLogic moviesLogic = new MoviesLogic();
-        string selectedMovie = MoviesLogic.SelectedMovie;
+        LogicBase moviesLogic = new LogicBase();
+        string selectedMovie = LogicBase.SelectedMovie;
         Console.WriteLine(selectedMovie);
         int durationInput = 1;
-        ReservationModel newReservation = new ReservationModel(seat, email, selectedMovie, MoviesLogic.startTimeInput, durationInput);
+        ReservationModel newReservation = new ReservationModel(seat, email, LogicBase.SelectedMovie, LogicBase.startTimeInput, durationInput);
         SeatPricing3();
         ProceedCheckout(shoppingCart, newReservation);
 

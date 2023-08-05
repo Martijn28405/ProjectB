@@ -98,7 +98,7 @@ public class PaymentLogic
         try
         {
             string seat = string.Join(",", seats_list);
-            sendemail.SendReservationEmail(userEmail, MoviesLogic.SelectedMovie, seat, MoviesLogic.startTimeInput, totalPrice, randomcode.Next());
+            sendemail.SendReservationEmail(userEmail, LogicBase.SelectedMovie, seat, LogicBase.startTimeInput, totalPrice, randomcode.Next());
             Console.WriteLine("Press any key to continue");
             Console.ReadKey(true);
             nextMenu();
