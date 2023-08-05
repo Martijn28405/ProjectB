@@ -389,7 +389,7 @@ public class LogicBase
             {
                 Console.WriteLine("Invalid time selection, please try again.");
             }
-            DateTime startTimeInput = startingTimes[selectedTime - 1];
+            startTimeInput = startingTimes[selectedTime - 1];
             Console.WriteLine($"You selected: {startTimeInput.ToString("HH:mm")}");
 
             //Let the user choose one of the times and put the selected time in startTimeInput

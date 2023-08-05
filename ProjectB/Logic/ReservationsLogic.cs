@@ -139,11 +139,19 @@ public class ReservationsLogic
     public void CreateReservation(List<ShoppingCartModel> shoppingCart)
     {
         List<string> seat = SeatMenu.selectedSeats;
-        var email = UserLogin.User_Email;
+        var email = "";
+        if (UserLogin.User_Email == null)
+        {
+            email = GuestMenu.Guest_Email;
+        }
+        else
+        {
+            email = UserLogin.User_Email;
+        }
         LogicBase moviesLogic = new LogicBase();
         string selectedMovie = LogicBase.SelectedMovie;
         Console.WriteLine(selectedMovie);
-        int durationInput = 1;
+        int durationInput = LogicBase.duration;
         ReservationModel newReservation = new ReservationModel(seat, email, LogicBase.SelectedMovie, LogicBase.startTimeInput, durationInput);
         SeatPricing();
         ProceedCheckout(shoppingCart, newReservation);
@@ -155,11 +163,19 @@ public class ReservationsLogic
     public void CreateReservation2(List<ShoppingCartModel> shoppingCart)
     {
         List<string> seat = SeatMenu2.selectedSeats;
-        var email = UserLogin.User_Email;
+        var email = "";
+        if (UserLogin.User_Email == null)
+        {
+            email = GuestMenu.Guest_Email;
+        }
+        else
+        {
+            email = UserLogin.User_Email;
+        }
         LogicBase moviesLogic = new LogicBase();
         string selectedMovie = LogicBase.SelectedMovie;
         Console.WriteLine(selectedMovie);
-        int durationInput = 1;
+        int durationInput = LogicBase.duration;
         ReservationModel newReservation = new ReservationModel(seat, email, LogicBase.SelectedMovie, LogicBase.startTimeInput, durationInput);
         SeatPricing2();
         ProceedCheckout(shoppingCart, newReservation);
@@ -171,11 +187,19 @@ public class ReservationsLogic
     public void CreateReservation3(List<ShoppingCartModel> shoppingCart)
     {
         List<string> seat = SeatMenu3.selectedSeats;
-        var email = UserLogin.User_Email;
+        var email = "";
+        if (UserLogin.User_Email == null)
+        {
+            email = GuestMenu.Guest_Email;
+        }
+        else
+        {
+            email = UserLogin.User_Email;
+        }
         LogicBase moviesLogic = new LogicBase();
         string selectedMovie = LogicBase.SelectedMovie;
         Console.WriteLine(selectedMovie);
-        int durationInput = 1;
+        int durationInput = LogicBase.duration;
         ReservationModel newReservation = new ReservationModel(seat, email, LogicBase.SelectedMovie, LogicBase.startTimeInput, durationInput);
         SeatPricing3();
         ProceedCheckout(shoppingCart, newReservation);
