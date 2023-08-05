@@ -13,9 +13,9 @@ public class DeleteMovieTest
         deleteMoviesLogic = new DeleteMoviesLogic();
         movies = new List<MovieModel>
         {
-            new MovieModel(1,"Movie 1","Test1","Test1","Test1","Test1",135,null),
-            new MovieModel(1,"Movie 2",null,null,null,null,150,null),
-            new MovieModel(1,"Movie 3",null,null,null,null,150,null)
+            new MovieModel(1,1,"Movie 1","Test1","Test1","Test1","Test1",135,null),
+            new MovieModel(1,1,"Movie 2",null,null,null,null,150,null),
+            new MovieModel(1,2,"Movie 3",null,null,null,null,150,null)
         };
         deleteMoviesLogic.movies = movies;
     }

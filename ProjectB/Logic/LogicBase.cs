@@ -197,13 +197,9 @@ public class LogicBase
         bool foundMovies = false;
         foreach (var movie in movies)
         {
-            Console.WriteLine(movie.TargetAudience);
-            Console.WriteLine(inputAge);
-
             if (inputWeek == movie.Week && inputAge == movie.TargetAudience)
             {
                 foundMovies = true;
-                Console.WriteLine(movie.TargetAudience);
                 Console.WriteLine($"ID: {movie.Id}");
                 Console.WriteLine($"Week: {movie.Week}");
                 Console.WriteLine($"TITLE: {movie.MovieTitle}");
@@ -211,11 +207,10 @@ public class LogicBase
                 Console.WriteLine("INFO:" + movie.Information);
                 Console.WriteLine();
             }
-            if (!foundMovies)
-            {
-                Console.WriteLine($"We do not have any movies for the age {age} in week {inputWeek}\n");
-                break;
-            }
+        }
+        if (!foundMovies)
+        {
+            Console.WriteLine($"We do not have any movies for the age {age} in week {inputWeek}\n");
         }
         if (isUser)
         {
