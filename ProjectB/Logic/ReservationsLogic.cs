@@ -20,28 +20,28 @@ public class ReservationsLogic
         _reservations = _accesor.LoadAll();
         _carts = _cartAccesor.LoadAll();
     }
-public void ShowReservations()
-{
-    if (_reservations.Count == 0)
+    public void ShowReservations()
     {
-        Console.WriteLine("There are no reservations at this moment\n");
-        return;
-    }
+        if (_reservations.Count == 0)
+        {
+            Console.WriteLine("There are no reservations at this moment\n");
+            return;
+        }
 
-    foreach (var reservation in _reservations)
-    {
-        string seats = string.Join(",", reservation.Seat);
-        Console.WriteLine($"SEATS: {seats}");
-        Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
-        Console.WriteLine($"MOVIE: {reservation.Movie}");
-        Console.WriteLine($"START TIME: {reservation.StartTime}");
-        Console.WriteLine($"DURATION: {reservation.Duration}");
-        Console.WriteLine();
+        foreach (var reservation in _reservations)
+        {
+            string seats = string.Join(",", reservation.Seat);
+            Console.WriteLine($"SEATS: {seats}");
+            Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
+            Console.WriteLine($"MOVIE: {reservation.Movie}");
+            Console.WriteLine($"START TIME: {reservation.StartTime}");
+            Console.WriteLine($"DURATION: {reservation.Duration}");
+            Console.WriteLine();
+        }
     }
-}
 
     public void modifyReservations()
-    {   
+    {
         ShowReservations();
         Console.WriteLine("From which movie would you like to edit the reservation?\n");
         Console.WriteLine("Enter movie:");
@@ -130,9 +130,6 @@ public void ShowReservations()
         }
 
         // string input = Console.ReadLine();
-
-
-
         // vraag wat je wilt aanpassen
         // dit zoeken in de json
         // dit verwijderen
@@ -195,6 +192,7 @@ public void ShowReservations()
         paymentLogic.CheckOut(_carts, snacks);
         _reservations.Add(reservationModel);
         _accesor.WriteAll(_reservations);
+        _cartAccesor.WriteAll(new List<SeatsCartModel>());
         paymentLogic.FinalizeReservation();
 
 
@@ -225,10 +223,9 @@ public void ShowReservations()
         List<string> seat = SeatMenu.selectedSeats;
         //send everything to the seatscart json
         SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice);
-        JsonAccessor<SeatsCartModel> _accesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
-        List<SeatsCartModel> _seatsCart = _accesor.LoadAll();
-        _seatsCart.Add(newSeat);
-        _accesor.WriteAll(_seatsCart);
+        List<SeatsCartModel> seatsCart = _cartAccesor.LoadAll();
+        seatsCart.Add(newSeat);
+        _cartAccesor.WriteAll(seatsCart);
     }
     public void SeatPricing2()
     {
@@ -255,10 +252,9 @@ public void ShowReservations()
         List<string> seat = SeatMenu2.selectedSeats;
         //send everything to the seatscart json
         SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice);
-        JsonAccessor<SeatsCartModel> _accesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
-        List<SeatsCartModel> _seatsCart = _accesor.LoadAll();
-        _seatsCart.Add(newSeat);
-        _accesor.WriteAll(_seatsCart);
+        List<SeatsCartModel> seatsCart = _cartAccesor.LoadAll();
+        seatsCart.Add(newSeat);
+        _cartAccesor.WriteAll(seatsCart);
     }
     public void SeatPricing3()
     {
@@ -285,10 +281,9 @@ public void ShowReservations()
         List<string> seat = SeatMenu3.selectedSeats;
         //send everything to the seatscart json
         SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice);
-        JsonAccessor<SeatsCartModel> _accesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
-        List<SeatsCartModel> _seatsCart = _accesor.LoadAll();
-        _seatsCart.Add(newSeat);
-        _accesor.WriteAll(_seatsCart);
+        List<SeatsCartModel> seatsCart = _cartAccesor.LoadAll();
+        seatsCart.Add(newSeat);
+        _cartAccesor.WriteAll(seatsCart);
     }
     public static void EmptySeatCarts()
     {

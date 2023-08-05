@@ -41,5 +41,35 @@
     "Movie": null,
     "Start Time": "0001-01-01T00:00:00",
     "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 5 Seat: 6",
+      "Row: 5 Seat: 8"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": null,
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 3 Seat: 6"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": null,
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
+  },
+  {
+    "Seat": [
+      "Row: 5 Seat: 6",
+      "Row: 5 Seat: 8",
+      "Row: 7 Seat: 8"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": null,
+    "Start Time": "0001-01-01T00:00:00",
+    "Duration": 1
   }
 ]
