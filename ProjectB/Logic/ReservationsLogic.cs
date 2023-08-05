@@ -12,7 +12,6 @@ public class ReservationsLogic
     public static JsonAccessor<SeatsCartModel> _cartAccesor;
     public static List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
-    private int TotalPrice;
     public ReservationsLogic()
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
@@ -201,19 +200,20 @@ public class ReservationsLogic
     public void SeatPricing()
     {
         List<string> colors = SeatMenu.selectedSeatsColor;
+        int totalPrice = 0;
         foreach (var item in colors)
         {
             if (item == "[R]")
             {
-                PaymentLogic.totalPrice += 20;
+                totalPrice += 20;
             }
             else if (item == "[G]")
             {
-                PaymentLogic.totalPrice += 15;
+                totalPrice += 15;
             }
             else if (item == "[B]")
             {
-                PaymentLogic.totalPrice += 10;
+                totalPrice += 10;
             }
         }
 
@@ -222,27 +222,28 @@ public class ReservationsLogic
 
         List<string> seat = SeatMenu.selectedSeats;
         //send everything to the seatscart json
-        SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice);
-        List<SeatsCartModel> seatsCart = _cartAccesor.LoadAll();
-        seatsCart.Add(newSeat);
-        _cartAccesor.WriteAll(seatsCart);
+        SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, totalPrice);
+        _carts = _cartAccesor.LoadAll();
+        _carts.Add(newSeat);
+        _cartAccesor.WriteAll(_carts);
     }
     public void SeatPricing2()
     {
         List<string> colors = SeatMenu2.selectedSeatsColor;
+        int totalPrice = 0;
         foreach (var item in colors)
         {
             if (item == "[R]")
             {
-                PaymentLogic.totalPrice += 20;
+                totalPrice += 20;
             }
             else if (item == "[G]")
             {
-                PaymentLogic.totalPrice += 15;
+                totalPrice += 15;
             }
             else if (item == "[B]")
             {
-                PaymentLogic.totalPrice += 10;
+                totalPrice += 10;
             }
         }
 
@@ -251,27 +252,28 @@ public class ReservationsLogic
 
         List<string> seat = SeatMenu2.selectedSeats;
         //send everything to the seatscart json
-        SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice);
-        List<SeatsCartModel> seatsCart = _cartAccesor.LoadAll();
-        seatsCart.Add(newSeat);
-        _cartAccesor.WriteAll(seatsCart);
+        SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, totalPrice);
+        _carts = _cartAccesor.LoadAll();
+        _carts.Add(newSeat);
+        _cartAccesor.WriteAll(_carts);
     }
     public void SeatPricing3()
     {
         List<string> colors = SeatMenu3.selectedSeatsColor;
+        int totalPrice = 0;
         foreach (var item in colors)
         {
             if (item == "[R]")
             {
-                PaymentLogic.totalPrice += 20;
+                totalPrice += 20;
             }
             else if (item == "[G]")
             {
-                PaymentLogic.totalPrice += 15;
+                totalPrice += 15;
             }
             else if (item == "[B]")
             {
-                PaymentLogic.totalPrice += 10;
+                totalPrice += 10;
             }
         }
 
@@ -280,10 +282,10 @@ public class ReservationsLogic
 
         List<string> seat = SeatMenu3.selectedSeats;
         //send everything to the seatscart json
-        SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, TotalPrice);
-        List<SeatsCartModel> seatsCart = _cartAccesor.LoadAll();
-        seatsCart.Add(newSeat);
-        _cartAccesor.WriteAll(seatsCart);
+        SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, totalPrice);
+        _carts = _cartAccesor.LoadAll();
+        _carts.Add(newSeat);
+        _cartAccesor.WriteAll(_carts);
     }
     public static void EmptySeatCarts()
     {

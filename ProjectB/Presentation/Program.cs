@@ -1,7 +1,10 @@
-﻿public static class Program
+﻿using ProjectB.DataModels;
+
+public static class Program
 {
     public static void Main()
     {
+        InitializeState(); //empties seatcart when starting application
         Console.CursorVisible = false;
         string prompt = @"
  ___  ___  _______  _________        ________  ___  ________  ________  ________  ________  ________  ________      ___  _______      
@@ -44,5 +47,10 @@
                 Environment.Exit(0);
                 break;
         }
+    }
+    public static void InitializeState()
+    {
+        JsonAccessor<SeatsCartModel> cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
+        cartAccesor.WriteAll(new());
     }
 }
