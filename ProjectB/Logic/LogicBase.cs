@@ -79,65 +79,11 @@ public class LogicBase
                 CoWorkerMenu.Start();
 
             }
-
-            // SelectMovie();
         }
         else if (choice == 2)
         {
             SortMoviesGenreBase(isUser, isManager, isGuest);
         }
-        // else
-        // {
-        //     Console.WriteLine("Invalid input");
-        //     ShowMovies(isUser);
-        // }
-
-        // int userChoice = 0;
-        // if (isUser)
-        // {
-        //     try
-        //     {
-        //         Console.WriteLine("Do you want to select a movie?\n[1] Yes\n[2] No");
-        //         userChoice = Convert.ToInt32(Console.ReadLine());
-        //     }
-        //     catch (FormatException)
-        //     {
-        //         Console.WriteLine("Invalid input");
-        //         ShowMovies(isUser);
-        //     }
-        // }
-
-        // if (userChoice == 1)
-        // {
-        //     if (isUser)
-        //     {
-        //         MoviesLogic send = new MoviesLogic();
-        //         send.SelectMovie(); // Call SelectMovie() only for users
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("Search for movies by genre completed for co-worker.");
-        //         Console.WriteLine("Press any key to return to the Main Menu.");
-        //         Console.ReadKey(true);
-        //     }
-
-        // }
-        // else if (userChoice == 2)
-        // {
-        //     if (isUser)
-        //     {
-        //         Console.WriteLine("Press any key to return to the Account menu");
-        //         Console.ReadKey(true);
-        //         AccountMenu.Start();
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("Press any key to return to the Co-Worker menu");
-        //         Console.ReadKey(true);
-        //         CoWorkerMenu.Start();
-        //     }
-        // }
-        // Optie 3 word niet gezien:
         else if (choice == 3)
         {
             SortMoviesAgeBase(isUser, isManager, isGuest);
@@ -267,7 +213,7 @@ public class LogicBase
             }
             if (!foundMovies)
             {
-                Console.WriteLine($"We do not have any movies for the age {age} years old in week {inputWeek}\n");
+                Console.WriteLine($"We do not have any movies for the age {age} in week {inputWeek}\n");
                 break;
             }
         }
@@ -369,6 +315,7 @@ public class LogicBase
             }
 
             SelectedMovie = movie.MovieTitle;
+            duration = movie.PlayTimeInMinutes;
             Console.WriteLine($"{SelectedMovie} Selected!");
             List<DateTime> startingTimes = new List<DateTime>();
             foreach (var time in movie.StartTime)
@@ -413,8 +360,6 @@ public class LogicBase
             {
                 Console.WriteLine("invalid input");
             }
-            duration = movie.PlayTimeInMinutes;
-
         }
         else if (userChoice == 2)
         {
