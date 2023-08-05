@@ -272,8 +272,12 @@ public class SeatMenu2
             Console.WriteLine(seat);
         }
         Console.WriteLine("Would you like to select more seats, buy some snacks or continue to checkout?");
-        Console.WriteLine("[1] Select More Seats \n[2] Buy Snacks \n[3] Go to Checkout ");
-        string choice = Console.ReadLine();
+        string choice = "1";
+        if (selectedSeats.Any())
+        {
+            Console.WriteLine("[1] Select More Seats or Deselect Seats (Use the arrow keys and enter to decide which seat to select or deselect) \n[2] Buy Snacks \n[3] Go to Checkout ");
+            choice = Console.ReadLine();
+        }
         SnacksLogic snacksLogic = new SnacksLogic();
         ReservationsLogic reservationsLogic = new ReservationsLogic();
 
