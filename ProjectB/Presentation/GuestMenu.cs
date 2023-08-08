@@ -23,7 +23,6 @@
                 Console.WriteLine("Enter your e-mail (we will send you a confirmation here):\n");
                 AccountsLogic logic = new AccountsLogic();
                 Guest_Email = logic.CreateEmail();
-                Console.WriteLine(Guest_Email);
                 Console.WriteLine();
                 LogicBase showMovies = new LogicBase();
                 showMovies.ShowMoviesBase(false, false, true);

@@ -8,13 +8,30 @@ public class JsonAccessor<T>
 
     public JsonAccessor(string path)
     {
-        _path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, path));
+        _path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, path));
     }
 
     public List<T> LoadAll()
     {
-        string json = File.ReadAllText(_path);
-        return JsonSerializer.Deserialize<List<T>>(json);
+        try
+        {
+            // Attempt to read the JSON file contents
+            string json = File.ReadAllText(_path);           
+            // Deserialize JSON data into a list of objects
+            return JsonSerializer.Deserialize<List<T>>(json);
+        }
+        catch (FileNotFoundException ex)
+        {
+            // Handle the case where the file is not found
+            Console.WriteLine("File not found: " + ex.Message);
+        }
+        catch (JsonException ex)
+        {
+            // Handle JSON parsing errors
+            Console.WriteLine("Error parsing JSON data: " + ex.Message);
+        }
+        // Return an empty list if an exception occurred
+        return new List<T>();
     }
 
     public void WriteAll(List<T> accounts)

@@ -112,7 +112,7 @@
     "Information": "Young genius Matilda Wormwood is mistreated by her Used car salesman father Harry, her mother Zinnia, and her older brother Michael. Smart and independent, she finds solace in the fictional worlds of books at the public library.",
     "Genre": "Comedy",
     "Target Audience": "12",
-    "Play Time In Minutes": 0,
+    "Play Time In Minutes": 120,
     "Times Playing": [
       "2023-06-30T15:10:00"
     ]
@@ -200,7 +200,7 @@
     "Information": "The sequel to Black Panther (2018).",
     "Genre": "Action, Adventure, Sci-Fi",
     "Target Audience": "12",
-    "Play Time In Minutes": 0,
+    "Play Time In Minutes": 170,
     "Times Playing": [
       "2023-06-23T20:00:00"
     ]
@@ -219,29 +219,5 @@
       "2023-06-23T20:30:00",
       "2023-06-23T21:00:00"
     ]
-  },
-  {
-    "ID": 3,
-    "Week": 1,
-    "Movie Title": "test",
-    "Director": "test",
-    "Information": "test",
-    "Genre": "test",
-    "Target Audience": "10",
-    "Play Time In Minutes": 120,
-    "Times Playing": [
-      "2013-01-31T12:00:00"
-    ]
-  },
-  {
-    "ID": 5,
-    "Week": 2,
-    "Movie Title": "35646q",
-    "Director": "dgrf",
-    "Information": "fgar",
-    "Genre": "hdbfksah",
-    "Target Audience": "79",
-    "Play Time In Minutes": 55,
-    "Times Playing": []
   }
 ]
