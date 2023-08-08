@@ -45,13 +45,25 @@ public class ReservationsLogic
         Console.WriteLine("From which movie would you like to edit the reservation?\n");
         Console.WriteLine("Enter movie:");
         string? movieInput = Console.ReadLine();
+        while (string.IsNullOrEmpty(movieInput) || int.TryParse(movieInput, out _))
+        {
+            Console.WriteLine("Invalid input. Please try again, enter movie:");
+            movieInput = Console.ReadLine();
+        }
+
         Console.WriteLine("Enter e-mail:");
         string? EmailInput = Console.ReadLine();
+        while (string.IsNullOrEmpty(EmailInput) || int.TryParse(EmailInput, out _) || !EmailInput.Contains("@"))
+        {
+            Console.WriteLine("Invalid input. Please try again, enter e-mail:");
+            EmailInput = Console.ReadLine();
+        }
 
         var filteredReservations = _reservations.Where(r => r.EmailAddress == EmailInput && r.Movie == movieInput);
         foreach (var reservation in filteredReservations)
         {
-            Console.WriteLine($"SEAT: {reservation.Seat}");
+            string seats = string.Join(",", reservation.Seat);
+            Console.WriteLine($"SEAT: {seats}");
             Console.WriteLine($"EMAILADDRESS: {reservation.EmailAddress}");
             Console.WriteLine($"MOVIE: {reservation.Movie}");
             Console.WriteLine($"START TIME: {reservation.StartTime}");
@@ -65,21 +77,48 @@ public class ReservationsLogic
         Console.WriteLine("4. Start time");
         Console.WriteLine("5. Duration");
         Console.WriteLine("6. Exit");
+
         string? input = Console.ReadLine();
+        while (string.IsNullOrEmpty(input) || !int.TryParse(input, out _))
+        {
+            Console.WriteLine("Invalid input. Please try again, What would you like to edit?");
+            input = Console.ReadLine();
+        }
         switch (input)
         {
             case "1":
-                Console.WriteLine("Enter new seat:");
+                Console.WriteLine("Enter new row and seat:");
                 List<string> seatInput = new List<string>();
-                seatInput.Add(Console.ReadLine());
+
+                Console.WriteLine("Row:");
+                int seatRow;
+                while (!int.TryParse(Console.ReadLine(), out seatRow) || seatRow <= 0)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid row:");
+                }
+
+                Console.WriteLine("Seat:");
+                int seatChair;
+                while (!int.TryParse(Console.ReadLine(), out seatChair) || seatChair <= 0)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid seat:");
+                }
+
+                seatInput.Add($"Row: {seatRow} Seat: {seatChair}");
                 foreach (var reservation in filteredReservations)
                 {
                     reservation.Seat = seatInput;
                 }
                 break;
+
             case "2":
-                Console.WriteLine("Enter new email:");
+                Console.WriteLine("Enter new e-mail:");
                 string? emailInput = Console.ReadLine();
+                while (string.IsNullOrEmpty(emailInput) || int.TryParse(emailInput, out _) || !emailInput.Contains("@"))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid e-mail address:");
+                    emailInput = Console.ReadLine();
+                }
                 foreach (var reservation in filteredReservations)
                 {
                     reservation.EmailAddress = emailInput;
@@ -87,24 +126,36 @@ public class ReservationsLogic
                 break;
             case "3":
                 Console.WriteLine("Enter new movie:");
-                string? movieInput2 = Console.ReadLine();
+                string? newMovieInput = Console.ReadLine();
+                while (string.IsNullOrEmpty(newMovieInput))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid movie:");
+                    newMovieInput = Console.ReadLine();
+                }
                 foreach (var reservation in filteredReservations)
                 {
-                    reservation.Movie = movieInput2;
+                    reservation.Movie = newMovieInput;
                 }
                 break;
             case "4":
                 Console.WriteLine("Enter new start time:");
-                DateTime startTimeInput = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                DateTime startTimeInput;
+                while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out startTimeInput))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid start time in the format 'dd/MM/yyyy HH:mm:ss':");
+                }
                 foreach (var reservation in filteredReservations)
                 {
                     reservation.StartTime = startTimeInput;
                 }
-
                 break;
             case "5":
                 Console.WriteLine("Enter new duration:");
-                int durationInput = Int32.Parse(Console.ReadLine());
+                int durationInput;
+                while (!int.TryParse(Console.ReadLine(), out durationInput))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid duration:");
+                }
                 foreach (var reservation in filteredReservations)
                 {
                     reservation.Duration = durationInput;
@@ -116,6 +167,7 @@ public class ReservationsLogic
                 Console.WriteLine("Invalid input");
                 break;
         }
+
         System.Console.WriteLine("Do you want to change another reservation? (y/n)");
         string? input2 = Console.ReadLine();
         if (input2 == "y")
@@ -127,7 +179,6 @@ public class ReservationsLogic
             _accesor.WriteAll(_reservations);
             ManagerMenu.Start();
         }
-
         // string input = Console.ReadLine();
         // vraag wat je wilt aanpassen
         // dit zoeken in de json
@@ -217,8 +268,6 @@ public class ReservationsLogic
         _accesor.WriteAll(_reservations);
         _cartAccesor.WriteAll(new List<SeatsCartModel>());
         paymentLogic.FinalizeReservation();
-
-
     }
 
     public void SeatPricing()
@@ -317,10 +366,6 @@ public class ReservationsLogic
         _cartAccesor.WriteAll(_carts);
 
     }
-    /*public void SendModifiedEmails()
-    {
-        
-    }*/
 }
 
 
