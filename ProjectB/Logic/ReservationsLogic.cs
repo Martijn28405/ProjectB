@@ -364,7 +364,6 @@ public class ReservationsLogic
     {
         _carts.Clear();
         _cartAccesor.WriteAll(_carts);
-
     }
 }
 

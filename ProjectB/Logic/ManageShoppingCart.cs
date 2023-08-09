@@ -5,7 +5,7 @@ public class ManageShoppingCart
     {
         Console.CursorVisible = false;
         string prompt = "Shopping Cart Manager";
-        string[] options = { "View Shopping Cart", "Empty Shopping Cart", "Return to Account Menu" };
+        string[] options = { "View Shopping Cart", "Empty Shopping Cart", "Empty Seats Cart", "Return to Menu" };
         Menu shoppingcartmenu = new Menu(prompt, options);
         int Selectedindex = shoppingcartmenu.Run();
         switch (Selectedindex)
@@ -26,8 +26,24 @@ public class ManageShoppingCart
                 Start();
                 break;
             case 2:
-                AccountMenu.Start();
+                if (ReservationsLogic._carts == null)
+                {
+                    Console.WriteLine("Cart was already empty");
+                    Console.WriteLine("Press any key to return to the menu");
+                    Console.ReadKey(true);
+                    Start();
+                    break;
+                }
+                ReservationsLogic.EmptySeatCarts();
+                Console.WriteLine("Seats cart emptied");
+                Console.WriteLine("Press any key to return to the menu");
+                Console.ReadKey(true);
+                Start();
                 break;
+            case 3:
+                GuestMenu.Start();
+                break;
+
         }
-    }    
+    }
 }
