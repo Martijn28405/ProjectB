@@ -110,16 +110,21 @@ public class SnacksLogic
                 Console.WriteLine();
             }
             Console.WriteLine("What would you like to buy? Please enter ID:");
-            int itemId = Convert.ToInt32(Console.ReadLine());
-            string idToString = Convert.ToString(itemId);
+            // int  = Convert.ToInt32(Console.ReadLine());
             // snacks is the list of available snacks.
             // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
-            SnackModel? snack = snacks.FirstOrDefault(snack => snack.Id == itemId);
-            if (snack == null || itemId > snack.Id || itemId < snack.Id)
+            int itemId;
+            SnackModel? snack = null;
+            while (true)
             {
-                Console.WriteLine("Invalid, please try again.");
-                continue;
+                if (int.TryParse(Console.ReadLine(), out itemId))
+                {
+                    snack = snacks.FirstOrDefault(snack => snack.Id == itemId);
+                    if (itemId > 0 && snack != null) break;
+                }
+                Console.WriteLine("Invalid input. Please try again.");
             }
+
             Console.WriteLine($"ITEM ID: {snack.Id}");
             Console.WriteLine($"SNACK: {snack.NameFood}");
             Console.WriteLine($"DESCRIPTION: {snack.Description}");
@@ -127,14 +132,22 @@ public class SnacksLogic
             Console.WriteLine();
 
             Console.WriteLine("How many do you want to buy?");
-            int amount = Convert.ToInt32(Console.ReadLine());
+            int amount;
+            while (!int.TryParse(Console.ReadLine(), out amount) || (amount <= 0))
+            {
+                Console.WriteLine("Invallid input. Please try again:");
+            }
             double totalPrice = snack.PriceFood * amount;
             Console.WriteLine($"The total price is: {totalPrice}");
 
             Console.WriteLine("Would you like to add this to your cart?");
-            Console.WriteLine("[1] Yes\n[2] No");
-            string answer = Console.ReadLine();
-            if (answer == "1")
+            Console.WriteLine("[1] Yes\n[2] No (the item will not be added to you cart)");
+            int answer;
+            while (!int.TryParse(Console.ReadLine(), out answer) || (answer != 1 && answer != 2))
+            {
+                Console.WriteLine("Invallid input. Please try again:");
+            }
+            if (answer == 1)
             {
                 ShoppingCartModel boughtSnack = new ShoppingCartModel(snack.NameFood, snack.PriceFood, amount);
                 shoppingCart.Add(boughtSnack);
@@ -150,11 +163,12 @@ public class SnacksLogic
                     Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
 
                 }
-                // boughtSnacks.Add(snack.NameFood);
-                // amountSnacks.Add(amount);
-                AddShoppingCart();
-
             }
+            else if (answer == 2)
+            {
+                BuySnacks();
+            }
+            AddShoppingCart();
             Console.WriteLine("Would you like to buy another snack?");
             Console.WriteLine("[1] Yes\n[2] No");
             string anotherSnack = Console.ReadLine();

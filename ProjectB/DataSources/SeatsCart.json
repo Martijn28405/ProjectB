@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "Seat": [
+      "Row: 0 Seat: 6"
+    ],
+    "TotalPrice": 10,
+    "MovieName": null
+  }
+]

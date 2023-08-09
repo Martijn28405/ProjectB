@@ -52,5 +52,8 @@ public static class Program
     {
         JsonAccessor<SeatsCartModel> cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
         cartAccesor.WriteAll(new());
+        JsonAccessor<ShoppingCartModel> shopAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
+        shopAccesor.WriteAll(new());
     }
+
 }
