@@ -345,7 +345,11 @@ public class SeatMenu3
         }
         SnacksLogic snacksLogic = new SnacksLogic();
         ReservationsLogic reservationsLogic = new ReservationsLogic();
-
+        while (string.IsNullOrEmpty(choice) || !IsValidChoice(choice))
+        {
+            Console.WriteLine("Invalid input. Please select a valid option:");
+            choice = Console.ReadLine();
+        }
         switch (choice)
         {
             case "1":
@@ -361,6 +365,10 @@ public class SeatMenu3
                 break;
 
         }
+    }
+    static bool IsValidChoice(string input)
+    {
+        return input == "1" || input == "2" || input == "3";
     }
 
 }

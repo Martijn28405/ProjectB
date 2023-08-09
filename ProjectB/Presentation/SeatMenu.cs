@@ -245,6 +245,11 @@ public class SeatMenu
             Console.WriteLine("[1] Select More Seats or Deselect Seats (Use the arrow keys and enter to decide which seat to select or deselect) \n[2] Buy Snacks \n[3] Go to Checkout ");
             choice = Console.ReadLine();
         }
+        while (string.IsNullOrEmpty(choice) || !IsValidChoice(choice))
+        {
+            Console.WriteLine("Invalid input. Please select a valid option:");
+            choice = Console.ReadLine();
+        }
         SnacksLogic snacksLogic = new SnacksLogic();
         ReservationsLogic reservationsLogic = new ReservationsLogic();
 
@@ -267,7 +272,10 @@ public class SeatMenu
     }
 
     // Hier komt de indx met de verschillende kleuren
-
+    static bool IsValidChoice(string input)
+    {
+        return input == "1" || input == "2" || input == "3";
+    }
     static void ColorIndex()
     {
 
