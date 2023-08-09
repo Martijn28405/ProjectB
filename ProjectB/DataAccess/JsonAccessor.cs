@@ -16,7 +16,7 @@ public class JsonAccessor<T>
         try
         {
             // Attempt to read the JSON file contents
-            string json = File.ReadAllText(_path);           
+            string json = File.ReadAllText(_path);
             // Deserialize JSON data into a list of objects
             return JsonSerializer.Deserialize<List<T>>(json);
         }

@@ -1,10 +1,9 @@
-﻿
-public class ManageShoppingCart
+﻿public class ManageShoppingCart
 {
     public static void Start()
     {
         Console.CursorVisible = false;
-        string prompt = "Shopping Cart Manager";
+        string prompt = "Manage Shopping Cart Menu";
         string[] options = { "View Shopping Cart", "Empty Shopping Cart", "Empty Seats Cart", "Return to Menu" };
         Menu shoppingcartmenu = new Menu(prompt, options);
         int Selectedindex = shoppingcartmenu.Run();

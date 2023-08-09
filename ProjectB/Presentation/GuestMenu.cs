@@ -13,7 +13,7 @@
  | |__| | |_| |  __/\__ \ |_  | |  | |  __/ | | | |_| |
   \_____|\__,_|\___||___/\__| |_|  |_|\___|_| |_|\__,_|                                                              
         ");
-        string[] options = { "Show Movies/Make a Reservation", "View Catering", "View Movie Information", "Back to Main Menu", "Log Out", "Exit App", "Manage Shopping Cart" };
+        string[] options = { "Show Movies/Make a Reservation", "View Catering", "View Movie Information", "Back to Main Menu", "Manage Shopping Cart", "Log Out", "Exit App" };
         Menu guestmenu = new Menu(prompt, options);
         int SelectedIndex = guestmenu.Run();
 
@@ -42,19 +42,20 @@
                 Program.Main();
                 break;
             case 4:
+                ManageShoppingCart.Start();
+                break;
+            case 5:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 UserLogin.User_Email = default;
                 Program.Main();
                 break;
-            case 5:
+            case 6:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
                 break;
-            case 6:
-                ManageShoppingCart.Start();
-                break;
+
 
         }
 

@@ -154,23 +154,6 @@ public class MoviesLogic
         ManagerMenu.Start();
     }
 
-    public void DeleteMovie(string movieTitle)
-    {
-        MovieModel movieByTitle = movies.FirstOrDefault(movie => movie.MovieTitle == movieTitle);
-        if (movieByTitle == null)
-        {
-            Console.WriteLine("Movie not found. Please try again.");
-            return;
-        }
-
-        movies.Remove(movieByTitle);
-        _accesor.WriteAll(movies);
-        Console.WriteLine("Movie deleted");
-
-        Console.WriteLine("Press any key to return to menu");
-        Console.ReadKey(true);
-        ManagerMenu.Start();
-    }
 
     public void ManageMovies()
     {
@@ -189,32 +172,31 @@ public class MoviesLogic
         }
         else if (choice == 2)
         {
-            Console.WriteLine("Do you want to delete a movie based on [1] ID or [2] Title?");
-            int userInput;
-            if (!int.TryParse(Console.ReadLine(), out userInput) || (userInput != 1 && userInput != 2))
-            {
-                Console.WriteLine("Invalid input. Please enter 1 or 2.");
-            }
-            if (userInput == 1)
+
             {
                 foreach (var item in movies)
                 {
                     Console.WriteLine($"ID: {item.Id}, Title: {item.MovieTitle}");
                 }
-                Console.WriteLine("Which ID?");
-                int movieID = Convert.ToInt32(Console.ReadLine());
-                DeleteMovie(movieID);
-            }
-            else if (userInput == 2)
-            {
-                foreach (var item in movies)
+                int movieID;
+                while (true)
                 {
-                    Console.WriteLine($"ID: {item.Id}, Title: {item.MovieTitle}");
+                    Console.WriteLine("Please enter the ID of the movie you want to delete:");
+                    if (int.TryParse(Console.ReadLine(), out movieID))
+                    {
+                        var maxMovieId = movies.Max(x => x.Id);
+                        if (movieID > 0 && movieID <= maxMovieId)
+                        {
+                            DeleteMovie(movieID);
+                            Console.WriteLine("Movie deleted successfully.");
+                            break;
+                        }
+                    }
+                    Console.WriteLine("Invalid input.");
                 }
-                Console.WriteLine("Which title?");
-                string movieTitle = Console.ReadLine();
-                DeleteMovie(movieTitle);
+
             }
+
         }
         else if (choice == 3)
         {

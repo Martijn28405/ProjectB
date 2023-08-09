@@ -203,6 +203,7 @@ public class LogicBase
                 Console.WriteLine($"ID: {movie.Id}");
                 Console.WriteLine($"Week: {movie.Week}");
                 Console.WriteLine($"TITLE: {movie.MovieTitle}");
+                Console.WriteLine($"AGE: {movie.TargetAudience}");
                 Console.WriteLine($"GENRE: {movie.Genre}");
                 Console.WriteLine("INFO:" + movie.Information);
                 Console.WriteLine();
