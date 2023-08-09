@@ -24,7 +24,8 @@ public class PaymentLogic
             Console.WriteLine($"Snack: {snack.NameFood}");
             Console.WriteLine($"Amount: {snack.Amount}");
             Console.WriteLine($"Price: {snack.PriceFood}");
-            totalPrice += snack.PriceFood;
+            double totalSnackPrice = snack.Amount * snack.PriceFood;
+            totalPrice += totalSnackPrice;
         }
 
         Console.WriteLine($"The total price of your shopping cart is {totalPrice}.");

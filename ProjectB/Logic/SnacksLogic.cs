@@ -135,7 +135,7 @@ public class SnacksLogic
             int amount;
             while (!int.TryParse(Console.ReadLine(), out amount) || (amount <= 0))
             {
-                Console.WriteLine("Invallid input. Please try again:");
+                Console.WriteLine("Invalid input. Please try again:");
             }
             double totalPrice = snack.PriceFood * amount;
             Console.WriteLine($"The total price is: {totalPrice}");
@@ -145,7 +145,7 @@ public class SnacksLogic
             int answer;
             while (!int.TryParse(Console.ReadLine(), out answer) || (answer != 1 && answer != 2))
             {
-                Console.WriteLine("Invallid input. Please try again:");
+                Console.WriteLine("Invalid input. Please try again:");
             }
             if (answer == 1)
             {
@@ -160,7 +160,7 @@ public class SnacksLogic
                 foreach (var item2 in shoppingCart)
                 {
                     Console.WriteLine($"SNACK: {item2.NameFood}");
-                    Console.WriteLine($"PRICE: {amount}x {item2.PriceFood}");
+                    Console.WriteLine($"PRICE: {amount * item2.PriceFood}");
 
                 }
             }
@@ -170,7 +170,7 @@ public class SnacksLogic
             }
             AddShoppingCart();
             Console.WriteLine("Would you like to buy another snack?");
-            Console.WriteLine("[1] Yes\n[2] No");
+            Console.WriteLine("[1] Yes\n[Any other key] No");
             string anotherSnack = Console.ReadLine();
             if (anotherSnack == "1")
             {
