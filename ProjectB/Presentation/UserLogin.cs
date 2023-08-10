@@ -4,6 +4,7 @@ public class UserLogin
 {
     public static string User_Email = null;
     public static string User_Name = null;
+    public static string Account_Type = null;
     static private AccountsLogic accountsLogic = new AccountsLogic();
 
 
@@ -47,6 +48,7 @@ public class UserLogin
                         Console.WriteLine("Your e-mail is " + acc.EmailAddress);
                         User_Email = acc.EmailAddress;
                         User_Name = acc.FullName;
+                        Account_Type = acc.AccountType;
                         Console.WriteLine("Press any key to continue to the Menu");
                         Console.ReadKey(true);
                         AccountMenu.Start();

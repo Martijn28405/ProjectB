@@ -33,16 +33,32 @@
                     Start();
                     break;
                 }
-                ReservationsLogic.EmptySeatCarts();
-                Console.WriteLine("Seats cart emptied");
-                Console.WriteLine("Press any key to return to the menu");
-                Console.ReadKey(true);
-                Start();
-                break;
+                else
+                {
+                    ReservationsLogic.EmptySeatCarts();
+                    Console.WriteLine("Seats cart emptied");
+                    Console.WriteLine("Press any key to return to the menu");
+                    Console.ReadKey(true);
+                    Start();
+                    break;
+                }
             case 3:
-                GuestMenu.Start();
+                Program.Main();
                 break;
+                // AccountModel? currentAccount = AccountsLogic.CurrentAccount;
+                // accountType = currentAccount.AccountType;
+                // Console.WriteLine(accountType);
 
+                // if (accountType == "User")
+                // {
+                //     AccountMenu.Start();
+                // }
+                // else
+                // {
+                //     GuestMenu.Start();
+                // }
+                // break;
+                
         }
     }
 }
