@@ -64,7 +64,7 @@ public class MoviesLogic
 
         Console.WriteLine("Movie Target Audience (10, 12, 16):");
         string? targetAudience = Console.ReadLine();
-        while (string.IsNullOrEmpty(targetAudience))
+        while (string.IsNullOrEmpty(targetAudience) || (targetAudience != "10" && targetAudience != "12" && targetAudience != "16"))
         {
             Console.WriteLine("Invalid input. Please enter a valid number:");
             targetAudience = Console.ReadLine();
