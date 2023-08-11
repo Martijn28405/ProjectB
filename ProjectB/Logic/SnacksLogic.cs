@@ -223,7 +223,7 @@ public class SnacksLogic
         }
         else
         {
-            Console.WriteLine("Invalid input");
+            Console.WriteLine("Invalid input. Please enter a valid number.");
             ManageSnacks();
             return;
         }
