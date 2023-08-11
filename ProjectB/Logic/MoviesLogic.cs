@@ -174,7 +174,8 @@ public class MoviesLogic
         {
 
             {
-                foreach (var item in movies)
+                var orderedMovies = movies.OrderBy(movie => movie.Id);
+                foreach (var item in orderedMovies)
                 {
                     Console.WriteLine($"ID: {item.Id}, Title: {item.MovieTitle}");
                 }
