@@ -65,7 +65,6 @@ public class LogicBase
             }
             else if (isManager)
             {
-                Console.WriteLine("Search for movies by genre completed for manager.");
                 Console.WriteLine("Press any key to return to the Main Menu.");
                 Console.ReadKey(true);
                 ManagerMenu.Start();
@@ -73,7 +72,6 @@ public class LogicBase
             }
             else
             {
-                Console.WriteLine("Search for movies by genre completed for co-worker.");
                 Console.WriteLine("Press any key to return to the Main Menu.");
                 Console.ReadKey(true);
                 CoWorkerMenu.Start();
@@ -149,15 +147,12 @@ public class LogicBase
         }
         else if (isManager)
         {
-            Console.WriteLine("Search for movies by genre completed for manager.");
             Console.WriteLine("Press any key to return to the Main Menu.");
             Console.ReadKey(true);
             ManagerMenu.Start();
-
         }
         else
         {
-            Console.WriteLine("Search for movies by genre completed for co-worker.");
             Console.WriteLine("Press any key to return to the Main Menu.");
             Console.ReadKey(true);
             CoWorkerMenu.Start(); // Uncomment this line if you want to return to the CoWorkerMenu.
@@ -223,7 +218,6 @@ public class LogicBase
         }
         else if (isManager)
         {
-            Console.WriteLine("Search for movies by age completed for manager.");
             Console.WriteLine("Press any key to return to the Main Menu.");
             Console.ReadKey(true);
             ManagerMenu.Start();
@@ -231,8 +225,6 @@ public class LogicBase
         }
         else
         {
-
-            Console.WriteLine("Search for movies by age completed for co-worker.");
             Console.WriteLine("Press any key to return to the Main Menu.");
             Console.ReadKey(true);
             CoWorkerMenu.Start();

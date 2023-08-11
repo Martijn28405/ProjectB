@@ -54,5 +54,12 @@
     "password": "!Luca2001",
     "fullName": "luca stuart",
     "accountType": "Co-Worker"
+  },
+  {
+    "id": 9,
+    "emailAddress": "a@test.com",
+    "password": "!lucA2001",
+    "fullName": "Test test",
+    "accountType": "Manager"
   }
 ]

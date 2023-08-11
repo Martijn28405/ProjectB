@@ -34,7 +34,7 @@ public class MoviesLogic
         string? movietitle = Console.ReadLine();
         while (string.IsNullOrEmpty(movietitle) || int.TryParse(movietitle, out _))
         {
-            Console.WriteLine("Invalid input. Movie Title cannot be empty. Please enter a valid title:");
+            Console.WriteLine("Invalid input. Please enter a valid title:");
             movietitle = Console.ReadLine();
         }
 
@@ -42,7 +42,7 @@ public class MoviesLogic
         string? director = Console.ReadLine();
         while (string.IsNullOrEmpty(director) || int.TryParse(director, out _))
         {
-            Console.WriteLine("Invalid input. Director cannot be empty. Please enter a valid name:");
+            Console.WriteLine("Invalid input. Please enter a valid name:");
             director = Console.ReadLine();
         }
 
@@ -50,7 +50,7 @@ public class MoviesLogic
         string? description = Console.ReadLine();
         while (string.IsNullOrEmpty(description) || int.TryParse(description, out _))
         {
-            Console.WriteLine("Invalid input. Description cannot be empty. Please enter a valid description:");
+            Console.WriteLine("Invalid input. Please enter a valid description:");
             description = Console.ReadLine();
         }
 
@@ -58,7 +58,7 @@ public class MoviesLogic
         string? genre = Console.ReadLine();
         while (string.IsNullOrEmpty(genre) || int.TryParse(genre, out _))
         {
-            Console.WriteLine("Invalid input. Genre cannot be empty. Please enter a valid genre:");
+            Console.WriteLine("Invalid input. Please enter a valid genre:");
             genre = Console.ReadLine();
         }
 
@@ -66,7 +66,7 @@ public class MoviesLogic
         string? targetAudience = Console.ReadLine();
         while (string.IsNullOrEmpty(targetAudience))
         {
-            Console.WriteLine("Invalid input. Target audience cannot be empty. Please enter a valid number:");
+            Console.WriteLine("Invalid input. Please enter a valid number:");
             targetAudience = Console.ReadLine();
         }
 
