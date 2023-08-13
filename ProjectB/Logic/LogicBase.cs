@@ -118,7 +118,14 @@ public class LogicBase
         }
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
-        // Error handeling nog op:
+        if(inputGenre == "sci fi" || inputGenre == "sci-fi" || inputGenre == "Sci Fi")
+        {
+            inputGenre = "Sci-Fi";
+        }
+        else
+        {
+            inputGenre = char.ToUpper(inputGenre[0]) + inputGenre.Substring(1);
+        }
         if (string.IsNullOrEmpty(inputGenre) || int.TryParse(inputGenre, out _) || inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
         {
             Console.WriteLine("Invalid input");
