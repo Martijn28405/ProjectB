@@ -44,8 +44,16 @@ public class ReservationsLogic
         ShowReservations();
         Console.WriteLine("From which movie would you like to edit the reservation?\n");
         Console.WriteLine("Enter movie:");
+        List<string> moviesList = new();
+        List<string> emailList = new();
+        foreach (ReservationModel reservation in _reservations)
+        {
+            moviesList.Add(reservation.Movie);
+            emailList.Add(reservation.EmailAddress);
+            continue;
+        }
         string? movieInput = Console.ReadLine();
-        while (string.IsNullOrEmpty(movieInput) || int.TryParse(movieInput, out _))
+        while (string.IsNullOrEmpty(movieInput) || int.TryParse(movieInput, out _) || movieInput == null || !moviesList.Contains(movieInput))
         {
             Console.WriteLine("Invalid input. Please try again, enter movie:");
             movieInput = Console.ReadLine();
@@ -53,7 +61,7 @@ public class ReservationsLogic
 
         Console.WriteLine("Enter e-mail:");
         string? EmailInput = Console.ReadLine();
-        while (string.IsNullOrEmpty(EmailInput) || int.TryParse(EmailInput, out _) || !EmailInput.Contains("@"))
+        while (string.IsNullOrEmpty(EmailInput) || int.TryParse(EmailInput, out _) || EmailInput == null || !emailList.Contains(EmailInput))
         {
             Console.WriteLine("Invalid input. Please try again, enter e-mail:");
             EmailInput = Console.ReadLine();
@@ -79,7 +87,7 @@ public class ReservationsLogic
         Console.WriteLine("6. Exit");
 
         string? input = Console.ReadLine();
-        while (string.IsNullOrEmpty(input) || !int.TryParse(input, out _))
+        while (string.IsNullOrEmpty(input) || !int.TryParse(input, out _) || (input != "1" && input != "2" && input != "3" && input != "4" && input != "5" && input != "6"))
         {
             Console.WriteLine("Invalid input. Please try again, What would you like to edit?");
             input = Console.ReadLine();
@@ -92,14 +100,14 @@ public class ReservationsLogic
 
                 Console.WriteLine("Row:");
                 int seatRow;
-                while (!int.TryParse(Console.ReadLine(), out seatRow) || seatRow <= 0)
+                while (!int.TryParse(Console.ReadLine(), out seatRow) || seatRow <= 0 || seatRow > 20)
                 {
                     Console.WriteLine("Invalid input. Please enter a valid row:");
                 }
 
                 Console.WriteLine("Seat:");
                 int seatChair;
-                while (!int.TryParse(Console.ReadLine(), out seatChair) || seatChair <= 0)
+                while (!int.TryParse(Console.ReadLine(), out seatChair) || seatChair <= 0 || seatChair > 1988)
                 {
                     Console.WriteLine("Invalid input. Please enter a valid seat:");
                 }
@@ -138,11 +146,11 @@ public class ReservationsLogic
                 }
                 break;
             case "4":
-                Console.WriteLine("Enter new start time:");
+                Console.WriteLine("Enter new start time (example: 13/10/2023 15:30:00):");
                 DateTime startTimeInput;
                 while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out startTimeInput))
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid start time in the format 'dd/MM/yyyy HH:mm:ss':");
+                    Console.WriteLine("Invalid input. Please enter a valid start time in the format 'day/month/year hour:minute:second':");
                 }
                 foreach (var reservation in filteredReservations)
                 {
@@ -152,7 +160,7 @@ public class ReservationsLogic
             case "5":
                 Console.WriteLine("Enter new duration:");
                 int durationInput;
-                while (!int.TryParse(Console.ReadLine(), out durationInput))
+                while (!int.TryParse(Console.ReadLine(), out durationInput) || durationInput <= 0)
                 {
                     Console.WriteLine("Invalid input. Please enter a valid duration:");
                 }
