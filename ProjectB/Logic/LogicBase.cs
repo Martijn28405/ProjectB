@@ -118,7 +118,7 @@ public class LogicBase
         }
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
         string inputGenre = Console.ReadLine();
-        if(inputGenre == "sci fi" || inputGenre == "sci-fi" || inputGenre == "Sci Fi")
+        if (inputGenre == "sci fi" || inputGenre == "sci-fi" || inputGenre == "Sci Fi")
         {
             inputGenre = "Sci-Fi";
         }
