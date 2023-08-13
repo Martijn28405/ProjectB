@@ -122,10 +122,7 @@ public class LogicBase
         {
             inputGenre = "Sci-Fi";
         }
-        else
-        {
-            inputGenre = char.ToUpper(inputGenre[0]) + inputGenre.Substring(1);
-        }
+        inputGenre = char.ToUpper(inputGenre[0]) + inputGenre.Substring(1);
         while (string.IsNullOrEmpty(inputGenre) || int.TryParse(inputGenre, out _) || inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
         {
             Console.WriteLine("Invalid input, which genre?");

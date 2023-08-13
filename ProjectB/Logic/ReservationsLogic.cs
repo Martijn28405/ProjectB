@@ -107,7 +107,7 @@ public class ReservationsLogic
 
                 Console.WriteLine("Seat:");
                 int seatChair;
-                while (!int.TryParse(Console.ReadLine(), out seatChair) || seatChair <= 0 || seatChair > 1988)
+                while (!int.TryParse(Console.ReadLine(), out seatChair) || seatChair <= 0 || seatChair > 600)
                 {
                     Console.WriteLine("Invalid input. Please enter a valid seat:");
                 }
