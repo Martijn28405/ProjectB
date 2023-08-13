@@ -126,9 +126,9 @@ public class LogicBase
         {
             inputGenre = char.ToUpper(inputGenre[0]) + inputGenre.Substring(1);
         }
-        if (string.IsNullOrEmpty(inputGenre) || int.TryParse(inputGenre, out _) || inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
+        while (string.IsNullOrEmpty(inputGenre) || int.TryParse(inputGenre, out _) || inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
         {
-            Console.WriteLine("Invalid input");
+            Console.WriteLine("Invalid input, which genre?");
             inputGenre = Console.ReadLine();
         }
         foreach (var movie in movies)
