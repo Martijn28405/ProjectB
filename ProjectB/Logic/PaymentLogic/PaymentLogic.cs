@@ -40,7 +40,10 @@ public class PaymentLogic
         while (userInput != 1 && userInput != 2)
         {
             Console.WriteLine("Do you want to checkout? \n[1] Yes\n[2] No");
-            userInput = Convert.ToInt32(Console.ReadLine());
+            while (!int.TryParse(Console.ReadLine(), out userInput) || (userInput != 1 && userInput != 2))
+            {
+                Console.WriteLine("Invalid input. Please try again:");
+            }
             if (userInput == 1)
             {
                 Payment(totalPrice);
