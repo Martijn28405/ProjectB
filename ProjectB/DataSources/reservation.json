@@ -4,15 +4,14 @@
       "Row: 6 Seat: 5",
       "Row: 6 Seat: 8"
     ],
-    "EmailAddress": "mjvdnet@gmail.com",
-    "Movie": "The Lost City",
+    "EmailAddress": "a@a.nl",
+    "Movie": "Barbie",
     "Start Time": "2023-06-22T21:00:00",
-    "Duration": 110
+    "Duration": 120
   },
   {
     "Seat": [
-      "Row: 2 Seat: 8",
-      "Row: 2 Seat: 9"
+      "Row: 1 Seat: 5"
     ],
     "EmailAddress": "mjvdnet@gmail.com",
     "Movie": "Don\u0027t Look Up",

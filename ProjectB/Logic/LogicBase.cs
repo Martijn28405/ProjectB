@@ -117,17 +117,46 @@ public class LogicBase
             SortMoviesGenreBase(isUser, isManager, isGuest);
         }
         Console.WriteLine("Which genre?(Comedy,Action,Adventure,Sci-Fi,Crime,Thriller,Fantasy,Family,Drama)");
-        string inputGenre = Console.ReadLine();
-        if (inputGenre == "sci fi" || inputGenre == "sci-fi" || inputGenre == "Sci Fi")
+        string inputGenre = "";
+        bool validGenreInput = false;
+
+        while (!validGenreInput)
         {
-            inputGenre = "Sci-Fi";
+            inputGenre = Console.ReadLine().Trim();
+
+            if (string.IsNullOrEmpty(inputGenre) || string.IsNullOrWhiteSpace(inputGenre))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid genre.");
+            }
+            else if (int.TryParse(inputGenre, out _))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid genre.");
+            }
+            else
+            {
+                inputGenre = inputGenre.ToLower();
+
+                if (inputGenre == "sci fi" || inputGenre == "sci-fi")
+                {
+                    inputGenre = "Sci-Fi";
+                }
+                else
+                {
+                    inputGenre = char.ToUpper(inputGenre[0]) + inputGenre.Substring(1);
+                }
+                if (inputGenre == "Comedy" || inputGenre == "Action" || inputGenre == "Adventure" ||
+                    inputGenre == "Sci-Fi" || inputGenre == "Crime" || inputGenre == "Thriller" ||
+                    inputGenre == "Fantasy" || inputGenre == "Family" || inputGenre == "Drama")
+                {
+                    validGenreInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid genre.");
+                }
+            }
         }
-        inputGenre = char.ToUpper(inputGenre[0]) + inputGenre.Substring(1);
-        while (string.IsNullOrEmpty(inputGenre) || int.TryParse(inputGenre, out _) || inputGenre != "Comedy" && inputGenre != "Action" && inputGenre != "Adventure" && inputGenre != "Sci-Fi" && inputGenre != "Crime" && inputGenre != "Thriller" && inputGenre != "Fantasy" && inputGenre != "Family" && inputGenre != "Drama")
-        {
-            Console.WriteLine("Invalid input, which genre?");
-            inputGenre = Console.ReadLine();
-        }
+
         foreach (var movie in movies)
         {
             if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
@@ -139,8 +168,44 @@ public class LogicBase
                 Console.WriteLine("INFO:" + movie.Information);
                 Console.WriteLine();
             }
-
         }
+
+
+
+
+
+
+        //     string inputGenre = Console.ReadLine().Trim().ToLower();
+        //     while (string.IsNullOrEmpty(inputGenre) || string.IsNullOrWhiteSpace(inputGenre) ||
+        //    !(inputGenre == "comedy" || inputGenre == "action" || inputGenre == "adventure" ||
+        //      inputGenre == "sci-fi" || inputGenre == "crime" || inputGenre == "thriller" ||
+        //      inputGenre == "fantasy" || inputGenre == "family" || inputGenre == "drama"))
+        //     {
+        //         Console.WriteLine("Invalid input. Please enter a valid genre.");
+        //         inputGenre = Console.ReadLine().Trim().ToLower();
+        //     }
+        //     if (inputGenre == "sci-fi" || inputGenre == "sci fi")
+        //     {
+        //         inputGenre = "Sci-Fi";
+        //     }
+        //     else
+        //     {
+        //         inputGenre = char.ToUpper(inputGenre[0]) + inputGenre.Substring(1);
+        //     }
+
+        //     foreach (var movie in movies)
+        //     {
+        //         if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
+        //         {
+        //             Console.WriteLine($"ID: {movie.Id}");
+        //             Console.WriteLine($"Week: {movie.Week}");
+        //             Console.WriteLine($"TITLE: {movie.MovieTitle}");
+        //             Console.WriteLine($"GENRE: {movie.Genre}");
+        //             Console.WriteLine("INFO:" + movie.Information);
+        //             Console.WriteLine();
+        //         }
+
+        //     }
         if (isUser)
         {
             SelectMovieBase(true, false); // Call SelectMovie() only for users
