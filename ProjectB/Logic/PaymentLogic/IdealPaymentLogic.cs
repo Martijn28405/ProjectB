@@ -14,14 +14,29 @@ public class IdealPaymentLogic : IPaymentLogic
     public void Payment(double price)
     {
         Console.WriteLine("With which bank would you like to pay?\n[1] ABN AMBRO\n[2] ASN\n[3] ING\n[4] Knab\n[5] Rabobank\n[6] Regiobank\n[7] SNS\n[8] Triodos");
-        int bankChoice = Convert.ToInt32(Console.ReadLine());
+        int bankChoice;
+        while (!int.TryParse(Console.ReadLine(), out bankChoice) || bankChoice < 1 || bankChoice > 8)
+        {
+            Console.WriteLine("Invalid input. Please try again:");
+        }
+
         if (Enum.IsDefined(typeof(Banks), bankChoice))
         {
             Console.WriteLine($"Welcome to the login page of {((Banks)bankChoice).ToString()}!");
             Console.WriteLine("Username: ");
             string username = Console.ReadLine();
+            while (string.IsNullOrEmpty(username) || int.TryParse(username, out _))
+            {
+                Console.WriteLine("Invalid input. Please try again:");
+                username = Console.ReadLine();
+            }
             Console.WriteLine("Password: ");
             string password = Console.ReadLine();
+            while (string.IsNullOrEmpty(password))
+            {
+                Console.WriteLine("Invalid input. Please try again:");
+                password = Console.ReadLine();
+            }
 
             if (username != null && password != null)
             {
@@ -30,7 +45,7 @@ public class IdealPaymentLogic : IPaymentLogic
                 SnacksLogic shoppingcartempty = new SnacksLogic();
                 shoppingcartempty.EmptyShoppingCart();
                 return;
-                
+
             }
 
             Console.WriteLine("Login failed");
