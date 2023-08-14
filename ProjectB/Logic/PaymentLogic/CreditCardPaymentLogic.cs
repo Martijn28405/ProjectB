@@ -24,7 +24,7 @@ public class CreditCardPaymentLogic : IPaymentLogic
         long cardNumber;
         while (true)
         {
-            Console.WriteLine("Card number: ");
+            Console.WriteLine("Card number (16 digits): ");
             if (!long.TryParse(Console.ReadLine(), out cardNumber))
             {
                 Console.WriteLine("Invalid input. Please enter a valid card number.");
@@ -66,11 +66,11 @@ public class CreditCardPaymentLogic : IPaymentLogic
 
     private bool CreditCardNumber(long cardNumber)
     {
-        if (cardNumber.ToString().Length == 12)
+        if (cardNumber.ToString().Length == 16)
         {
             return true;
         }
-        Console.WriteLine("Invalid input");
+        Console.WriteLine("Invalid input. Please enter a valid card number.");
         return false;
     }
 
@@ -79,7 +79,6 @@ public class CreditCardPaymentLogic : IPaymentLogic
         if (!DateTime.TryParseExact(expiryDate, "MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
                 out DateTime expiryDateTime))
         {
-            Console.WriteLine("Invalid input");
             return false;
         }
         if (expiryDateTime < DateTime.Now)
@@ -97,7 +96,7 @@ public class CreditCardPaymentLogic : IPaymentLogic
         {
             return true;
         }
-        Console.WriteLine("Invalid input");
+        Console.WriteLine("Invalid input. Please enter a valid verification code.");
         return false;
     }
 }

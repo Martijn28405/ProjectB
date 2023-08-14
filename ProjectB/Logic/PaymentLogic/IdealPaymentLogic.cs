@@ -27,16 +27,17 @@ public class IdealPaymentLogic : IPaymentLogic
             string username = Console.ReadLine();
             while (string.IsNullOrEmpty(username) || int.TryParse(username, out _))
             {
-                Console.WriteLine("Invalid input. Please try again:");
+                Console.WriteLine("Incorrect username. Please try again:");
                 username = Console.ReadLine();
             }
-            Console.WriteLine("Please enter a four digit password: ");
-            int password;
+            Console.WriteLine("Please enter your 6-digit password: ");
+            string passwordStr;
             while (true)
             {
-                if(!int.TryParse(Console.ReadLine(), out password) || password < 0 || password.ToString().Length != 4)
+                passwordStr = Console.ReadLine();
+                if (passwordStr.Length != 6 || !int.TryParse(passwordStr, out int password) || password < 0)
                 {
-                    Console.WriteLine("Invalid input. Please try again:");
+                    Console.WriteLine("Invalid password. Please try again:");
                 }
                 else
                 {
@@ -44,7 +45,7 @@ public class IdealPaymentLogic : IPaymentLogic
                 }
             }
 
-            if (username != null && password != null)
+            if (username != null && passwordStr != null)
             {
                 Console.WriteLine($"Your login was correct, you've paid {price} succesfully.");
                 ReservationsLogic.EmptySeatCarts();
