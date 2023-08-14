@@ -5,35 +5,66 @@ public class CreditCardPaymentLogic : IPaymentLogic
 {
     public void Payment(double price)
     {
-        Console.WriteLine("Cardholder's name: ");
-        string cardholderName = Console.ReadLine();
+        string cardholderName;
+        while(true)
+        {
+            Console.WriteLine("Cardholder's name: ");
+            cardholderName = Console.ReadLine();
 
-        int cardNumber;
-        do
+            if (string.IsNullOrWhiteSpace(cardholderName) || int.TryParse(cardholderName, out _))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid cardholder's name.");
+            }
+            else
+            {
+                break;
+            }
+
+        }
+        long cardNumber;
+        while (true)
         {
             Console.WriteLine("Card number: ");
-            cardNumber = Convert.ToInt32(Console.ReadLine());
-        } while (!CreditCardNumber(cardNumber));
-
+            if (!long.TryParse(Console.ReadLine(), out cardNumber))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid card number.");
+            }
+            else if (CreditCardNumber(cardNumber))
+            {
+                break;
+            }
+        }
         string expiryDate;
-        do
+        while(true)
         {
             Console.WriteLine("Expiry date (mm/yyyy): ");
             expiryDate = Console.ReadLine();
-        } while (!CreditCardExpiryDate(expiryDate));
-
-
-        int verificationCode;
-        do
+            if (string.IsNullOrWhiteSpace(expiryDate) || !CreditCardExpiryDate(expiryDate))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid expiry date.");
+            }
+            else
+            {
+                break;
+            }
+        }
+        while(true)
         {
             Console.WriteLine("3 digit card verification code: ");
-            verificationCode = Convert.ToInt32(Console.ReadLine());
-        } while (!CreditCardVerificationCode(verificationCode));
-
+            int verificationCode;
+            if (!int.TryParse(Console.ReadLine(), out verificationCode))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid verification code.");
+            }
+            else if (CreditCardVerificationCode(verificationCode))
+            {
+                break;
+            }
+        }
         Console.WriteLine($"Your credentials were correct, you've paid {price}.");
     }
 
-    private bool CreditCardNumber(int cardNumber)
+    private bool CreditCardNumber(long cardNumber)
     {
         if (cardNumber.ToString().Length == 12)
         {
@@ -51,7 +82,7 @@ public class CreditCardPaymentLogic : IPaymentLogic
             Console.WriteLine("Invalid input");
             return false;
         }
-        if (expiryDateTime > DateTime.Now)
+        if (expiryDateTime < DateTime.Now)
         {
             Console.WriteLine("Creditcard has been expired.");
             return false;

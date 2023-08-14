@@ -30,12 +30,18 @@ public class IdealPaymentLogic : IPaymentLogic
                 Console.WriteLine("Invalid input. Please try again:");
                 username = Console.ReadLine();
             }
-            Console.WriteLine("Password: ");
-            string password = Console.ReadLine();
-            while (string.IsNullOrEmpty(password))
+            Console.WriteLine("Please enter a four digit password: ");
+            int password;
+            while (true)
             {
-                Console.WriteLine("Invalid input. Please try again:");
-                password = Console.ReadLine();
+                if(!int.TryParse(Console.ReadLine(), out password) || password < 0 || password.ToString().Length != 4)
+                {
+                    Console.WriteLine("Invalid input. Please try again:");
+                }
+                else
+                {
+                    break;
+                }
             }
 
             if (username != null && password != null)
