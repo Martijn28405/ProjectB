@@ -348,7 +348,7 @@ public class LogicBase
         Console.WriteLine("[1] Yes\n[2] No");
         while (!int.TryParse(Console.ReadLine(), out userChoice) || (userChoice != 1 && userChoice != 2))
         {
-            Console.WriteLine("Invalid input. Please enter a valid week number:");
+            Console.WriteLine("Invalid input. Please try again:");
         }
         if (userChoice == 1)
         {
@@ -422,13 +422,13 @@ public class LogicBase
         {
             if (isUser)
             {
-                Console.WriteLine("Press any key to return to the Account menu");
+                Console.WriteLine("Press any key to return to the main menu");
                 Console.ReadKey(true);
                 AccountMenu.Start();
             }
             else if (isGuest)
             {
-                Console.WriteLine("Press any key to return to the Guest menu");
+                Console.WriteLine("Press any key to return to the main menu");
                 Console.ReadKey(true);
                 GuestMenu.Start();
             }
