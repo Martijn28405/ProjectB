@@ -136,7 +136,7 @@ public class LogicBase
             {
                 inputGenre = inputGenre.ToLower();
 
-                if (inputGenre == "sci fi" || inputGenre == "sci-fi")
+                if (inputGenre == "sci fi" || inputGenre == "sci-fi" || inputGenre == "scifi")
                 {
                     inputGenre = "Sci-Fi";
                 }

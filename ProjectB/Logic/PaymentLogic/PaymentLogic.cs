@@ -51,8 +51,16 @@ public class PaymentLogic
             }
             if (userInput == 2)
             {
-                AccountMenu.Start();
-                return;
+                if(UserLogin.User_Email == null)
+                {
+                    GuestMenu.Start();
+                    return;
+                }
+                else
+                {
+                    AccountMenu.Start();
+                    return;
+                }
             }
             Console.WriteLine("Invalid input");
         }

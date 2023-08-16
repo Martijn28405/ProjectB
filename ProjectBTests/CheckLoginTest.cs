@@ -38,7 +38,7 @@ public class CheckLoginTest
     public void TestFailedLogin()
     {
         // Arrange
-        string expectedOutput = "Login Failed\nNo account found with that email and password or you are not allowed to login here with those details.\nPress any key to return to the login screen\n";
+        string expectedOutput = "Login Failed\nNo account found with that email and/or password or you are not allowed to login here with those details.\nPress any key to return to the login screen\n";
 
         // Act
         Start();

@@ -4,7 +4,7 @@
     {
         Console.CursorVisible = false;
         string prompt = "Manage Shopping Cart Menu";
-        string[] options = { "View Shopping Cart", "Empty Shopping Cart", "Empty Seats Cart", "Return to Menu" };
+        string[] options = { "View Shopping Cart", "Empty Shopping Cart","Empty Seats Cart", "Return to Menu" };
         Menu shoppingcartmenu = new Menu(prompt, options);
         int Selectedindex = shoppingcartmenu.Run();
         switch (Selectedindex)
@@ -43,21 +43,8 @@
                     break;
                 }
             case 3:
-                Program.Main();
+                AccountMenu.Start();
                 break;
-                // AccountModel? currentAccount = AccountsLogic.CurrentAccount;
-                // accountType = currentAccount.AccountType;
-                // Console.WriteLine(accountType);
-
-                // if (accountType == "User")
-                // {
-                //     AccountMenu.Start();
-                // }
-                // else
-                // {
-                //     GuestMenu.Start();
-                // }
-                // break;
                 
         }
     }

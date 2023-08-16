@@ -46,5 +46,17 @@
     "NameFood": "Cotton Candy",
     "Description": "Fluffy and colorful cotton candy.",
     "PriceFood": 2.5
+  },
+  {
+    "id": 3,
+    "NameFood": "ACTION BOX Juice",
+    "Description": "Buy two orange juices and save 40 cents!",
+    "PriceFood": 2.2
+  },
+  {
+    "id": 10,
+    "NameFood": "ACTION BOX soda",
+    "Description": "Save 2 euro\u0027s buy buying 3 soda\u0027s with this action box!",
+    "PriceFood": 10
   }
 ]

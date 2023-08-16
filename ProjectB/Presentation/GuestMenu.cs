@@ -1,8 +1,10 @@
-﻿static class GuestMenu
+﻿using ProjectB.DataModels;
+static class GuestMenu
 {
     public static string Guest_Email = null;
     public static void Start()
     {
+        InitializeState();
         Console.CursorVisible = false;
         string prompt = (@"
 
@@ -13,7 +15,7 @@
  | |__| | |_| |  __/\__ \ |_  | |  | |  __/ | | | |_| |
   \_____|\__,_|\___||___/\__| |_|  |_|\___|_| |_|\__,_|                                                              
         ");
-        string[] options = { "Show Movies/Make a Reservation", "View Catering", "View Movie Information", "Back to Main Menu", "Manage Shopping Cart", "Log Out", "Exit App" };
+        string[] options = { "Show Movies/Make a Reservation", "View Catering", "View Movie Information", "Back to Main Menu", "Log Out", "Exit App" };
         Menu guestmenu = new Menu(prompt, options);
         int SelectedIndex = guestmenu.Run();
 
@@ -42,15 +44,12 @@
                 Program.Main();
                 break;
             case 4:
-                ManageShoppingCart.Start();
-                break;
-            case 5:
                 Console.WriteLine("Press any key to confirm");
                 Console.ReadKey(true);
                 UserLogin.User_Email = default;
                 Program.Main();
                 break;
-            case 6:
+            case 5:
                 Console.WriteLine("press any key to exit the app");
                 Console.ReadKey(true);
                 Environment.Exit(0);
@@ -59,5 +58,12 @@
 
         }
 
+    }
+    public static void InitializeState()
+    {
+        JsonAccessor<SeatsCartModel> cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
+        cartAccesor.WriteAll(new());
+        JsonAccessor<ShoppingCartModel> shopAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
+        shopAccesor.WriteAll(new());
     }
 }

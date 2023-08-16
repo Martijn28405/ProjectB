@@ -56,7 +56,7 @@
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Login Failed");
                         Console.ResetColor();
-                        Console.WriteLine("No account found with that email and password or you are not allowed to login here with those details.");
+                        Console.WriteLine("No account found with that email and/or password or you are not allowed to login here with those details.");
                         Console.WriteLine("Press any key to return to the login screen");
                         Console.ReadKey(true);
                         Start();
