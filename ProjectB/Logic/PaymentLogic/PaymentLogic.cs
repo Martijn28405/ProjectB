@@ -9,6 +9,7 @@ public class PaymentLogic
     public static double totalPrice = 0;
     public static Random randomcode = new Random();
     public static Dictionary<string, int> snackDict = new();
+
     private double ShowReceipt(List<SeatsCartModel> cart, List<ShoppingCartModel> snacks)
     {
 
@@ -16,7 +17,7 @@ public class PaymentLogic
         {
             Console.WriteLine($"Seat(s): {string.Join(' ', seat.Seat)}");
             Console.WriteLine($"Total Price: {seat.TotalPrice}");
-            totalPrice += seat.TotalPrice;
+            totalPrice = seat.TotalPrice;
         }
 
         foreach (var snack in snacks)
@@ -29,7 +30,7 @@ public class PaymentLogic
         }
 
         Console.WriteLine($"The total price of your shopping cart is {totalPrice}.");
-
+        cart.Clear();
         return totalPrice;
     }
 
@@ -51,7 +52,7 @@ public class PaymentLogic
             }
             if (userInput == 2)
             {
-                if(UserLogin.User_Email == null)
+                if (UserLogin.User_Email == null)
                 {
                     GuestMenu.Start();
                     return;

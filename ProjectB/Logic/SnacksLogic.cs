@@ -172,11 +172,11 @@ public class SnacksLogic
             Console.WriteLine("Would you like to buy another snack?");
             Console.WriteLine("[1] Yes\n[Any other key] No");
             string anotherSnack = Console.ReadLine();
-            if (anotherSnack == "1")
+            if (anotherSnack != "1")
             {
-                continue;
+                break;
             }
-            return;
+            continue
 
         }
     }
