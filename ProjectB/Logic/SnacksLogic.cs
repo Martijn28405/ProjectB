@@ -176,7 +176,7 @@ public class SnacksLogic
             {
                 break;
             }
-            continue
+            continue;
 
         }
     }
