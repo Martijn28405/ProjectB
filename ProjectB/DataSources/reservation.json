@@ -1,10 +1,9 @@
 [
   {
     "Seat": [
-      "Row: 6 Seat: 5",
-      "Row: 6 Seat: 8"
+      "Row: 12 Seat: 90"
     ],
-    "EmailAddress": "a@a.nl",
+    "EmailAddress": "@a.nl",
     "Movie": "Barbie",
     "Start Time": "2023-06-22T21:00:00",
     "Duration": 120

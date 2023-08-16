@@ -15,21 +15,6 @@
     ]
   },
   {
-    "ID": 2,
-    "Week": 1,
-    "Movie Title": "The Batman",
-    "Director": "Matt Reeves",
-    "Information": "In this gritty take on the Dark Knight, Robert Pattinson stars as Bruce Wayne/Batman as he takes on Gotham\u0027s underworld and faces off against iconic villains like The Riddler and Catwoman.",
-    "Genre": "Action, Crime, Drama",
-    "Target Audience": "16",
-    "Play Time In Minutes": 150,
-    "Times Playing": [
-      "2023-06-19T13:20:00",
-      "2023-06-19T15:30:00",
-      "2023-06-19T16:00:00"
-    ]
-  },
-  {
     "ID": 6,
     "Week": 2,
     "Movie Title": "La La Land",

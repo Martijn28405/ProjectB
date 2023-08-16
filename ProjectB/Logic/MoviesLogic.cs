@@ -56,9 +56,11 @@ public class MoviesLogic
 
         Console.WriteLine("Movie Genres (When mulitple divided by a ',' like this: Action, Adventure, Fantasy):");
         string? genre = Console.ReadLine();
-        while (string.IsNullOrEmpty(genre) || int.TryParse(genre, out _))
+        string[] validGenres = { "Comedy", "Action", "Adventure", "Sci-Fi", "Crime", "Thriller", "Fantasy", "Family", "Drama" };
+
+        while (string.IsNullOrEmpty(genre) || !AreValidGenres(genre, validGenres))
         {
-            Console.WriteLine("Invalid input. Please enter a valid genre:");
+            Console.WriteLine("Invalid input. Please enter valid genres:");
             genre = Console.ReadLine();
         }
 
@@ -87,7 +89,18 @@ public class MoviesLogic
         _accesor.WriteAll(movies);
         ManagerMenu.Start();
     }
-
+    static bool AreValidGenres(string input, string[] validGenres)
+    {
+        string[] genres = input.Split(", ");
+        foreach (string genre in genres)
+        {
+            if (!Array.Exists(validGenres, validGenre => validGenre == genre))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     private int GetNextAvailableId()
     {
         // If there are no movies, start at 1.
