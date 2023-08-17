@@ -7,7 +7,7 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 
 public class EmailLogic
-
+// This file is used to create the e-mail that will be sent after checkout.
 {
     static JsonAccessor<ShoppingCartModel> _shoppingCartAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
     public static List<ShoppingCartModel>? shoppingCart;

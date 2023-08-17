@@ -1,7 +1,7 @@
 ﻿namespace ProjectB.Logic
 {
     public class DeleteMoviesLogic
-    //Word gebruikt voor een unit test.
+    // This file is being used for an unit test.
     {
         private JsonAccessor<MovieModel> _accesor;
         public DeleteMoviesLogic()

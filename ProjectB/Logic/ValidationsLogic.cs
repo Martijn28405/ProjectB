@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProjectB.Logic
+// This file contains the validations for creating a new account (full name, e-mail and password).
 {
     public class ValidationsLogic
     {

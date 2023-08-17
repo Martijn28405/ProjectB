@@ -1,4 +1,5 @@
 public class UserMoviesLogic : LogicBase
+// This file is the base for UserMoviesLogic.
 {
     public override void SortMoviesGenreBase(bool isUser = true, bool isManager = false, bool isGuest = false)
     {

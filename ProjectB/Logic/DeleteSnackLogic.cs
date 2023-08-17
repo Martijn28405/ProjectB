@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace ProjectB.Logic
 {
     public class DeleteSnackLogic
-    //Word gebruikt voor een unit test.
+    // This file is being used for an unit test.
     {
         private JsonAccessor<SnackModel> _productAccesor;
         public DeleteSnackLogic()

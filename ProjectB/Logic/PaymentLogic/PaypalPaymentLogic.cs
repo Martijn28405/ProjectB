@@ -1,4 +1,5 @@
 public class PaypalPaymentLogic : IPaymentLogic
+// this file is used to pay with PayPal, it checks if the information is valid.
 {
     public void Payment(double price)
     {

@@ -1,4 +1,5 @@
 public class UserLogic : LogicBase
+// This file is the base for UserLogic.
 {
     public override void SortMoviesGenreBase(bool isUser = true, bool isManager = false, bool isGuest = false)
     {

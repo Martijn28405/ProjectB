@@ -5,6 +5,7 @@ using System.Text.Json;
 using ProjectB.Logic;
 
 public class AccountsLogic
+// this file is used to create an account, have the account consist of certain rules and create ID's for accounts.
 {
     private JsonAccessor<AccountModel> _accessor;
     private List<AccountModel> _accounts;

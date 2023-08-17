@@ -1,6 +1,7 @@
 using ProjectB.DataModels;
 
 public class PaymentLogic
+// This file is used for the methods surrounding payments like showing the receipts and finalizing the payment.
 {
     public static List<string> shopping_cart_list = new List<string>();
     public static List<string> seats_list = new List<string>();

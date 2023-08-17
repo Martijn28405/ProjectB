@@ -1,4 +1,5 @@
 public class GuestLogic : LogicBase
+// This file is the base for the GuestLogic.
 {
     public override void SortMoviesGenreBase(bool isUser = false, bool isManager = false, bool isGuest = true)
     {

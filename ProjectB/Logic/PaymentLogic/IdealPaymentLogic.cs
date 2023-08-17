@@ -1,4 +1,5 @@
 public class IdealPaymentLogic : IPaymentLogic
+// this file is used to pay with a iDeal, it checks if the information is valid.
 {
     public enum Banks
     {

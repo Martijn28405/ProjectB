@@ -1,4 +1,5 @@
 public class CoWorkerMoviesLogic : LogicBase
+// This file is the base for CoWorkerMoviesLogic.
 {
     public override void SortMoviesGenreBase(bool isUser = false, bool isManager = false, bool isGuest = false)
     {

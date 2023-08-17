@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text.Json;
 public class MoviesLogic
+// // This file contains everything surrounding movies, like showing the movies, creating new movies and editing movies.
 {
     private JsonAccessor<MovieModel> _accesor;
     public List<MovieModel> movies;

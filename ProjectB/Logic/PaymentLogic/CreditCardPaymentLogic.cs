@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
-
 public class CreditCardPaymentLogic : IPaymentLogic
+// this file is used to pay with a creditcard, it checks if the information is valid.
 {
     public void Payment(double price)
     {

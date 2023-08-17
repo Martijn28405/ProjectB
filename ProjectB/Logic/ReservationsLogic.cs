@@ -7,6 +7,7 @@ using System.Text.Json.Serialization;
 using ProjectB.DataModels;
 
 public class ReservationsLogic
+// This file contains everything surrounding reservations, like showing the reservations, creating new reservations and editing reservations.
 {
     private JsonAccessor<ReservationModel> _accesor;
     public static JsonAccessor<SeatsCartModel> _cartAccesor;

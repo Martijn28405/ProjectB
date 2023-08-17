@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 public class SnacksLogic
+// This file contains everything surrounding snacks, like showing the snacks, creating new snacks and editing snacks.
 {
     private JsonAccessor<SnackModel> _productAccesor;
     private JsonAccessor<DiscountModel> _discountAccesor;

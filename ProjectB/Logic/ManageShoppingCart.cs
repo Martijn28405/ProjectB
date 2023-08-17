@@ -1,4 +1,5 @@
 ﻿public class ManageShoppingCart
+// In this file we have the shopping cart menu, here you get send to different files to edit the shopping cart or seats cart.
 {
     public static void Start()
     {

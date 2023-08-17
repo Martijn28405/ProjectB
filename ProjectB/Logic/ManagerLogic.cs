@@ -1,4 +1,5 @@
 public class ManagerLogic : LogicBase
+// This file is the base for ManagerLogic.
 {
     public override void SortMoviesGenreBase(bool isUser = false, bool isManager = true, bool isGuest = false)
     {

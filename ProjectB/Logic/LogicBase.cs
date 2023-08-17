@@ -1,4 +1,5 @@
 public class LogicBase
+// This file contains methods and variables that get used by different account types.
 {
     private JsonAccessor<SnackModel> _productAccesor;
     private JsonAccessor<MovieModel> _accesor;
