@@ -26,5 +26,12 @@
     "password": "!Luca2001",
     "fullName": "l c",
     "accountType": "User"
+  },
+  {
+    "id": 5,
+    "emailAddress": "mjvdnet@gmail.com",
+    "password": "W@chtw0ord",
+    "fullName": "Jordina van der Net",
+    "accountType": "User"
   }
 ]
