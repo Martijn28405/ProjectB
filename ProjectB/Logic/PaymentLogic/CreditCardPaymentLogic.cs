@@ -100,4 +100,3 @@ public class CreditCardPaymentLogic : IPaymentLogic
         return false;
     }
 }
-

@@ -75,7 +75,6 @@ public class LogicBase
                 Console.WriteLine("Press any key to return to the Main Menu.");
                 Console.ReadKey(true);
                 CoWorkerMenu.Start();
-
             }
         }
         else if (choice == 2)
@@ -92,10 +91,7 @@ public class LogicBase
             ShowMoviesBase(isUser, isManager, isGuest);
             return;
         }
-
     }
-
-
 
     public virtual void SortMoviesGenreBase(bool isUser, bool isManager, bool isGuest)
     {
@@ -156,7 +152,6 @@ public class LogicBase
                 }
             }
         }
-
         foreach (var movie in movies)
         {
             if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
@@ -170,42 +165,6 @@ public class LogicBase
             }
         }
 
-
-
-
-
-
-        //     string inputGenre = Console.ReadLine().Trim().ToLower();
-        //     while (string.IsNullOrEmpty(inputGenre) || string.IsNullOrWhiteSpace(inputGenre) ||
-        //    !(inputGenre == "comedy" || inputGenre == "action" || inputGenre == "adventure" ||
-        //      inputGenre == "sci-fi" || inputGenre == "crime" || inputGenre == "thriller" ||
-        //      inputGenre == "fantasy" || inputGenre == "family" || inputGenre == "drama"))
-        //     {
-        //         Console.WriteLine("Invalid input. Please enter a valid genre.");
-        //         inputGenre = Console.ReadLine().Trim().ToLower();
-        //     }
-        //     if (inputGenre == "sci-fi" || inputGenre == "sci fi")
-        //     {
-        //         inputGenre = "Sci-Fi";
-        //     }
-        //     else
-        //     {
-        //         inputGenre = char.ToUpper(inputGenre[0]) + inputGenre.Substring(1);
-        //     }
-
-        //     foreach (var movie in movies)
-        //     {
-        //         if (inputWeek == movie.Week && movie.Genre.Contains(inputGenre))
-        //         {
-        //             Console.WriteLine($"ID: {movie.Id}");
-        //             Console.WriteLine($"Week: {movie.Week}");
-        //             Console.WriteLine($"TITLE: {movie.MovieTitle}");
-        //             Console.WriteLine($"GENRE: {movie.Genre}");
-        //             Console.WriteLine("INFO:" + movie.Information);
-        //             Console.WriteLine();
-        //         }
-
-        //     }
         if (isUser)
         {
             SelectMovieBase(true, false); // Call SelectMovie() only for users
@@ -226,10 +185,8 @@ public class LogicBase
             Console.ReadKey(true);
             CoWorkerMenu.Start(); // Uncomment this line if you want to return to the CoWorkerMenu.
         }
-
     }
 
-    // Andere methods nog toevoegen die co worker, user, manager gebruiken:
     public virtual void SortMoviesAgeBase(bool isUser, bool isManager, bool isGuest)
     {
         //sort movies on age
@@ -290,14 +247,12 @@ public class LogicBase
             Console.WriteLine("Press any key to return to the Main Menu.");
             Console.ReadKey(true);
             ManagerMenu.Start();
-
         }
         else
         {
             Console.WriteLine("Press any key to return to the Main Menu.");
             Console.ReadKey(true);
             CoWorkerMenu.Start();
-
         }
 
     }
@@ -315,7 +270,6 @@ public class LogicBase
             Console.WriteLine("Press any key to return to the menu");
             Console.ReadKey(true);
             AccountMenu.Start();
-
         }
         else if (isGuest)
         {
@@ -335,14 +289,12 @@ public class LogicBase
             Console.ReadKey(true);
             CoWorkerMenu.Start();
         }
-
     }
+
     public virtual void SelectMovieBase(bool isUser, bool isGuest)
     {
         // in het menu een mogelijkheid om een movie te kiezen per week.
         // de geselecteerde movie wordt dan doorgegeven aan de zaal.
-
-
         int userChoice;
         Console.WriteLine("Do you want to select a movie?");
         Console.WriteLine("[1] Yes\n[2] No");
@@ -352,7 +304,6 @@ public class LogicBase
         }
         if (userChoice == 1)
         {
-
             // snacks is the list of available snacks.
             // FirstOrDefault() iterates over each element in the list and checks whether the NameFood property of the element matches the snackName entered by the user.
             Console.WriteLine("Enter a movie ID");
@@ -396,7 +347,7 @@ public class LogicBase
             startTimeInput = startingTimes[selectedTime - 1];
             Console.WriteLine($"You selected: {startTimeInput.ToString("HH:mm")}");
 
-            //Let the user choose one of the times and put the selected time in startTimeInput
+            // Let's the user choose one of the times and put the selected time in startTimeInput
             // int selectedTime = Int32.Parse(Console.ReadLine());
             // startTimeInput = startingTimes[selectedTime - 1];
             Console.WriteLine("Press any key to select seats");
@@ -458,7 +409,6 @@ public class LogicBase
         {
             if (userInput == movie.Id)
             {
-
                 MovieInformationOptionsBase(movie);
                 if (isGuest)
                 {
@@ -473,8 +423,6 @@ public class LogicBase
                     CoWorkerMenu.Start();
                 }
             }
-
-
         }
     }
 

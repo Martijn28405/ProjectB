@@ -54,11 +54,9 @@ static class GuestMenu
                 Console.ReadKey(true);
                 Environment.Exit(0);
                 break;
-
-
         }
-
     }
+
     public static void InitializeState()
     {
         JsonAccessor<SeatsCartModel> cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");

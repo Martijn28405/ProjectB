@@ -12,6 +12,7 @@ public class ReservationsLogic
     public static JsonAccessor<SeatsCartModel> _cartAccesor;
     public static List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
+    
     public ReservationsLogic()
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
@@ -19,6 +20,7 @@ public class ReservationsLogic
         _reservations = _accesor.LoadAll();
         _carts = _cartAccesor.LoadAll();
     }
+
     public void ShowReservations()
     {
         if (_reservations.Count == 0)
@@ -192,12 +194,6 @@ public class ReservationsLogic
             _accesor.WriteAll(_reservations);
             ManagerMenu.Start();  
         }
-        // string input = Console.ReadLine();
-        // vraag wat je wilt aanpassen
-        // dit zoeken in de json
-        // dit verwijderen
-        // nieuwe vragen
-        // dit toevoegen
     }
 
     public void CreateReservation(List<ShoppingCartModel> shoppingCart)
@@ -248,6 +244,7 @@ public class ReservationsLogic
         Console.WriteLine("Press any key to continue");
         Console.ReadKey(true);
     }
+
     public void CreateReservation3(List<ShoppingCartModel> shoppingCart)
     {
         List<string> seat = SeatMenu3.selectedSeats;
@@ -307,7 +304,7 @@ public class ReservationsLogic
         string selectedMovie = MoviesLogic.SelectedMovie;
 
         List<string> seat = SeatMenu.selectedSeats;
-        //send everything to the seatscart json
+        // send everything to the seatscart.json
         SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, totalPrice);
         _carts = _cartAccesor.LoadAll();
         _carts.Add(newSeat);
@@ -337,12 +334,13 @@ public class ReservationsLogic
         string selectedMovie = MoviesLogic.SelectedMovie;
 
         List<string> seat = SeatMenu2.selectedSeats;
-        //send everything to the seatscart json
+        // send everything to the seatscart.json
         SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, totalPrice);
         _carts = _cartAccesor.LoadAll();
         _carts.Add(newSeat);
         _cartAccesor.WriteAll(_carts);
     }
+
     public void SeatPricing3()
     {
         List<string> colors = SeatMenu3.selectedSeatsColor;
@@ -367,17 +365,16 @@ public class ReservationsLogic
         string selectedMovie = MoviesLogic.SelectedMovie;
 
         List<string> seat = SeatMenu3.selectedSeats;
-        //send everything to the seatscart json
+        // send everything to the seatscart.json
         SeatsCartModel newSeat = new SeatsCartModel(seat, selectedMovie, totalPrice);
         _carts = _cartAccesor.LoadAll();
         _carts.Add(newSeat);
         _cartAccesor.WriteAll(_carts);
     }
+
     public static void EmptySeatCarts()
     {
         _carts.Clear();
         _cartAccesor.WriteAll(_carts);
     }
 }
-
-

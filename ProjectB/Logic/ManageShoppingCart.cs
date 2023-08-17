@@ -44,8 +44,7 @@
                 }
             case 3:
                 AccountMenu.Start();
-                break;
-                
+                break;   
         }
     }
 }

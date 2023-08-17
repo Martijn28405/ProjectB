@@ -1,6 +1,5 @@
 public class CoWorkerMenu
 {
-    // This code wil only be excuted if the Co-worker called.
     public static void Start()
     {
         Console.CursorVisible = false;
@@ -23,7 +22,6 @@ public class CoWorkerMenu
         {
             case 0:
                 LogicBase showmoviesworker = new LogicBase();
-                // showmoviesworker.ShowMovies();
                 showmoviesworker.ShowMoviesBase(false, false, false);
                 showmoviesworker.SortMoviesGenreBase(false, false, false);
                 showmoviesworker.SortMoviesAgeBase(false, false, false);

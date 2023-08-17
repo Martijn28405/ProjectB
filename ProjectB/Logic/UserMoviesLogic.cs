@@ -1,12 +1,8 @@
 public class UserMoviesLogic : LogicBase
 {
-    // ... Other user-specific members and methods here ...
-
     public override void SortMoviesGenreBase(bool isUser = true, bool isManager = false, bool isGuest = false)
     {
-        base.SortMoviesGenreBase(isUser, isManager, isGuest); // Call the base method with the correct flag for users
-        // User-specific sorting logic for genre (if any)
-        // For example, you can add additional filters, prompts, or actions for users here.
+        base.SortMoviesGenreBase(isUser, isManager, isGuest);
     }
     public override void ShowMoviesBase(bool isUser = true, bool isManager = false, bool isGuest = false)
     {

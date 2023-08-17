@@ -7,7 +7,6 @@ public class UserLogin
     public static string Account_Type = null;
     static private AccountsLogic accountsLogic = new AccountsLogic();
 
-
     public static void Start()
     {
         Console.CursorVisible = false;
@@ -64,13 +63,10 @@ public class UserLogin
                         Start();
                     }
                 }
-
                 else
                 {
-                    AccountMenu.Start();
-                    
+                    AccountMenu.Start();  
                 }
-
                 break;
             case 1:
                 Program.Main();

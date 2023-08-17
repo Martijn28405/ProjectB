@@ -4,8 +4,6 @@ using System.IO;
 using System.Text.Json;
 using ProjectB.Logic;
 
-
-//This class is not static so later on we can use inheritance and interfaces
 public class AccountsLogic
 {
     private JsonAccessor<AccountModel> _accessor;
@@ -113,7 +111,3 @@ public class AccountsLogic
         return CurrentAccount;
     }
 }
-
-
-
-

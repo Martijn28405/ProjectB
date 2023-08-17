@@ -157,7 +157,6 @@ public class SeatMenu
             {
                 selectedSeatIndex -= seats.GetLength(1);
                 DrawSeats();
-
             }
         }
     }
@@ -171,10 +170,7 @@ public class SeatMenu
             {
                 selectedSeatIndex += seats.GetLength(1);
                 DrawSeats();
-
             }
-
-
         }
     }
 
@@ -187,7 +183,6 @@ public class SeatMenu
             {
                 selectedSeatIndex--;
                 DrawSeats();
-
             }
         }
     }
@@ -201,9 +196,7 @@ public class SeatMenu
             {
                 selectedSeatIndex++;
                 DrawSeats();
-
             }
-
         }
     }
 
@@ -237,8 +230,6 @@ public class SeatMenu
         {
             Console.WriteLine("Seat already taken. Please select another seat.");
         }
-
-
     }
 
     static void Choice()
@@ -276,11 +267,8 @@ public class SeatMenu
                 reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
         }
-        // Send the price of all selected seats and which seats are selected to the checkout
-
     }
 
-    // Hier komt de indx met de verschillende kleuren
     static bool IsValidChoice(string input)
     {
         return input == "1" || input == "2" || input == "3";
@@ -291,67 +279,15 @@ public class SeatMenu
 
     }
 
-    // Proberen maken van de clear functie zodat Color index werkt
-
     private static void CinemaBaseColor()
     {
         Console.ForegroundColor = ConsoleColor.DarkBlue;
 
     }
 
-
     private static void CinemaBaseColorYellow()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
 
     }
-
-    /*private static void JsonEdditor()
-    {
-        {
-                // Lees de JSON uit het bestand
-                string json = System.IO.File.ReadAllText(@"Seat_Color.json");
-
-                // Deserialiseer de JSON in een JObject
-                JObject jObject = JObject.Parse(json);
-
-                // Zoek de 'Color_Seats_Small_Cinema'-array op
-                JArray seatsArray = (JArray)jObject["Color_Seats_Small_Cinema"];
-
-                // Loop door de array heen en vervang de codes door hun kleuren
-
-
-
-                // hier wil je aan passesn dat de kleuren worden veranderd in de scinema seats
-                for (int i = 0; i < seatsArray.Count; i++)
-                {
-                    JArray seatRow = (JArray)seatsArray[i];
-                    for (int j = 0; j < seatRow.Count; j++)
-                    {
-                        string seatCode = seatRow[j].ToString();
-                        switch (seatCode)
-                        {
-                            case "B":
-                                seatRow[j] = "Blue";
-                                break;
-                            case "G":
-                                seatRow[j] = "Yellow";
-                                break;
-                            case "R":
-                                seatRow[j] = "Red";
-                                break;
-                        }
-                    }
-                }*/
-
-    // De gewijzigde JSON is nu opgeslagen in het jObject, dus je kunt de JSON nu weer wegschrijven naar het bestand als je dat wilt.
-    // Laatste stap is het opslaan van het gewijzigde JObject als JSON naar een string, en deze string kan weer worden weggeschreven naar het bestand.
-    /*string newJson = jObject.ToString();
-    System.IO.File.WriteAllText(@"Seat_Cinema.Json", newJson);*/
 }
-
-
-
-
-
-

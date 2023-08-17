@@ -21,8 +21,6 @@ public class CheckMovieInformation
             {
                 return "Movie not found";
             }
-
-
         }
         return null;
     }

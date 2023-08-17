@@ -5,7 +5,6 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-
 public class SeatMenu3
 {
     // Small cinema
@@ -212,7 +211,6 @@ public class SeatMenu3
 
     static void DrawSeats()
     {
-
         Console.CursorTop = 10;
         Console.WriteLine("The blue seats are our standard seats, which are great and comfortable.\n" +
                   "Our yellow seats are handwoven and have a better position for the screen.\n" +
@@ -259,8 +257,6 @@ public class SeatMenu3
         }
         Console.WriteLine("                                                     Screen");
         Console.WriteLine("---------------------------------------------------------------------------------------------------------------------");
-
-
     }
 
     static void MoveSelectionUp()
@@ -298,9 +294,7 @@ public class SeatMenu3
             {
                 selectedSeatIndex++;
                 DrawSeats();
-
             }
-
         }
     }
 
@@ -334,8 +328,6 @@ public class SeatMenu3
         {
             Console.WriteLine("Seat already taken. Please select another seat.");
         }
-
-
     }
 
     static void Choice()
@@ -371,12 +363,10 @@ public class SeatMenu3
             case "3":
                 reservationsLogic.CreateReservation3(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
-
         }
     }
     static bool IsValidChoice(string input)
     {
         return input == "1" || input == "2" || input == "3";
     }
-
 }

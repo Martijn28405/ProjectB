@@ -58,9 +58,9 @@ public class AccountMenu
                 Console.ReadKey(true);
                 Environment.Exit(0);
                 break;
-
         }
     }
+
     public static void ResetSeats()
     {
         SeatMenu.Reset();

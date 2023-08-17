@@ -129,7 +129,6 @@ public class SeatMenu2
 
     static void DrawSeats()
     {
-
         Console.CursorTop = 10;
         Console.WriteLine("The blue seats are our standard seats, which are great and comfortable.\n" +
                   "Our yellow seats are handwoven and have a better position for the screen.\n" +
@@ -176,7 +175,6 @@ public class SeatMenu2
         }
         Console.WriteLine("                                 Screen");
         Console.WriteLine("-------------------------------------------------------------------------------");
-
     }
 
     static void MoveSelectionUp()
@@ -188,7 +186,6 @@ public class SeatMenu2
             {
                 selectedSeatIndex -= seats.GetLength(1);
                 DrawSeats();
-
             }
         }
     }
@@ -202,10 +199,7 @@ public class SeatMenu2
             {
                 selectedSeatIndex += seats.GetLength(1);
                 DrawSeats();
-
             }
-
-
         }
     }
 
@@ -218,7 +212,6 @@ public class SeatMenu2
             {
                 selectedSeatIndex--;
                 DrawSeats();
-
             }
         }
     }
@@ -232,9 +225,7 @@ public class SeatMenu2
             {
                 selectedSeatIndex++;
                 DrawSeats();
-
             }
-
         }
     }
 
@@ -268,8 +259,6 @@ public class SeatMenu2
         {
             Console.WriteLine("Seat already taken. Please select another seat.");
         }
-
-
     }
 
     static void Choice()
@@ -305,13 +294,10 @@ public class SeatMenu2
             case "3":
                 reservationsLogic.CreateReservation2(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
-
         }
     }
     static bool IsValidChoice(string input)
     {
         return input == "1" || input == "2" || input == "3";
     }
-
 }
-

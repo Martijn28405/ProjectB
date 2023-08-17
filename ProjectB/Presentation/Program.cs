@@ -48,6 +48,7 @@ public static class Program
                 break;
         }
     }
+
     public static void InitializeState()
     {
         JsonAccessor<SeatsCartModel> cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
@@ -55,5 +56,4 @@ public static class Program
         JsonAccessor<ShoppingCartModel> shopAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
         shopAccesor.WriteAll(new());
     }
-
 }

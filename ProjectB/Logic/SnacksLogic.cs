@@ -8,15 +8,11 @@ public class SnacksLogic
     private JsonAccessor<SnackModel> _productAccesor;
     private JsonAccessor<DiscountModel> _discountAccesor;
     private JsonAccessor<ShoppingCartModel> _shoppingCartAccesor;
-
-    // public List<string> boughtSnacks = new();
-    // public List<int> amountSnacks = new();
     public List<DiscountModel> discounts;
     public List<SnackModel> snacks;
     public List<ShoppingCartModel> shoppingCart;
 
     public SnacksLogic()
-
     {
         _productAccesor = new JsonAccessor<SnackModel>(@"DataSources/snacks.json");
         snacks = _productAccesor.LoadAll();
@@ -24,6 +20,7 @@ public class SnacksLogic
         _shoppingCartAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
         shoppingCart = _shoppingCartAccesor.LoadAll();
     }
+
     public void ShowSnacks()
     {
         List<SnackModel> food = new List<SnackModel>();
@@ -36,6 +33,7 @@ public class SnacksLogic
         Console.WriteLine("Press any key to return to the menu");
         Console.ReadKey(true);
     }
+
     public void AddShoppingCart()
     {
         EmailLogic.shopping_cart_list = new List<string>();
@@ -152,8 +150,6 @@ public class SnacksLogic
                 ShoppingCartModel boughtSnack = new ShoppingCartModel(snack.NameFood, snack.PriceFood, amount);
                 shoppingCart.Add(boughtSnack);
                 _shoppingCartAccesor.WriteAll(shoppingCart);
-                // Toegevoegd voor email:
-
 
                 Console.WriteLine($"Added {amount}x {snack.NameFood} to cart!");
                 Console.WriteLine("Your current shopping bag:");
@@ -161,7 +157,6 @@ public class SnacksLogic
                 {
                     Console.WriteLine($"SNACK: {item2.NameFood}");
                     Console.WriteLine($"PRICE: {amount * item2.PriceFood}");
-
                 }
             }
             else if (answer == 2)
@@ -177,10 +172,8 @@ public class SnacksLogic
                 break;
             }
             continue;
-
         }
     }
-
 
     public void ManageSnacks()
     {
@@ -228,15 +221,13 @@ public class SnacksLogic
             return;
         }
     }
+
     public (bool, string) DeleteSnack()
     {
-
         foreach (var item in snacks.OrderBy(snack => snack.Id))
         {
             Console.WriteLine($"ID: {item.Id}  Snack: {item.NameFood}");
         }
-
-
 
         Console.WriteLine("Which snack do you want to delete? Please enter ID:");
         int snackId;
@@ -246,7 +237,6 @@ public class SnacksLogic
         {
             Console.WriteLine("Invalid input. Please enter a valid ID:");
         }
-
 
         bool snackDeleted = false;
         string statusMessage = "Snack not found";
@@ -274,7 +264,6 @@ public class SnacksLogic
     {
         shoppingCart.Clear();
         _shoppingCartAccesor.WriteAll(shoppingCart);
-
     }
 
     public void ViewShoppingCart()
@@ -291,7 +280,6 @@ public class SnacksLogic
             {
                 Console.WriteLine("Your shopping cart is empty");
             }
-
         }
     }
 
@@ -304,7 +292,6 @@ public class SnacksLogic
         }
         Console.WriteLine("Would you like to add something to your cart?");
         Console.WriteLine("[1] Yes\n[2] No");
-
 
         foreach (var item in discounts)
         {
@@ -338,49 +325,9 @@ public class SnacksLogic
                         Console.ReadKey(true);
                         AccountMenu.Start();
                         break;
-
-
                     }
                 }
             }
-
-            {
-                // Console.WriteLine("Press any key to return to the Account Menu");
-                // Console.ReadKey(true);
-                // AccountMenu.Start();
-                // break;
-
-            }
         }
     }
-
-
 }
-
-
-
-
-// public void DeleteSnack()
-//     {
-//         foreach (var item in snacks)
-//         {
-//             Console.WriteLine($"Snacks: {item.NameFood}");
-//         }
-
-//         Console.WriteLine("Which snack do you want to delete?");
-//         string snack = Console.ReadLine();
-//         foreach (var item in snacks)
-//         {
-//             if (snack == item.NameFood)
-//             {
-//                 snacks.Remove(item);
-//                 _productAccesor.WriteAll(snacks);
-//                 Console.WriteLine("Snack deleted");
-//                 break;
-//             }
-//         }
-
-//         Console.WriteLine("Press any key to return to menu");
-//         Console.ReadKey(true);
-//         ManagerMenu.Start();
-//     }

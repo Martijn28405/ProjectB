@@ -20,8 +20,6 @@ public class MoviesLogic
         int id = GetNextAvailableId();
         // checking if there is an available Id that is not used by any existing movie
         // If there is, it will be used. Otherwise, it will get the next available Id.
-
-        //Error handeling voor alle input bij het toevoegen van een film
         int week;
         Console.WriteLine("The week in which the movie will play?");
         Console.WriteLine("[1] Current Week\n[2] Next Week");
@@ -82,13 +80,12 @@ public class MoviesLogic
         Console.WriteLine("Start times:");
         List<DateTime> dateTimes = CreateTime();
 
-        //error handeling voor datetime nog teovoegen
-
         MovieModel movie = new MovieModel(id, week, movietitle, director, description, genre, targetAudience, playTime, dateTimes);
         movies.Add(movie);
         _accesor.WriteAll(movies);
         ManagerMenu.Start();
     }
+
     static bool AreValidGenres(string input, string[] validGenres)
     {
         string[] genres = input.Split(", ");
@@ -101,6 +98,7 @@ public class MoviesLogic
         }
         return true;
     }
+
     private int GetNextAvailableId()
     {
         // If there are no movies, start at 1.
@@ -115,10 +113,8 @@ public class MoviesLogic
         {
             minAvailableId++;
         }
-
         return minAvailableId;
     }
-
 
     private List<DateTime> CreateTime()
     {
@@ -170,7 +166,6 @@ public class MoviesLogic
 
     public void ManageMovies()
     {
-        // Error handeling voor de input van de manager
         Console.WriteLine("[1] Add Movies\n[2] Delete Movies\n[3] Return to Menu");
         int choice;
         if (!int.TryParse(Console.ReadLine(), out choice))
@@ -185,7 +180,6 @@ public class MoviesLogic
         }
         else if (choice == 2)
         {
-
             {
                 var orderedMovies = movies.OrderBy(movie => movie.Id);
                 foreach (var item in orderedMovies)
@@ -208,9 +202,7 @@ public class MoviesLogic
                     }
                     Console.WriteLine("Invalid input.");
                 }
-
             }
-
         }
         else if (choice == 3)
         {
