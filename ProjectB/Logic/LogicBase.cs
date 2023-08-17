@@ -404,7 +404,7 @@ public class LogicBase
         int maxId = movies.Max(movie => movie.Id);
         while (!int.TryParse(Console.ReadLine(), out userInput) || userInput <= 0 || userInput > maxId)
         {
-            Console.WriteLine("Invalid input. Please enter a valid playtime:");
+            Console.WriteLine("Invalid input. Please enter a valid ID:");
         }
         foreach (MovieModel movie in movies)
         {
