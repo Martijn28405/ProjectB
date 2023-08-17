@@ -30,7 +30,7 @@ public class MoviesLogic
 
         Console.WriteLine("Movie Title:");
         string? movietitle = Console.ReadLine();
-        while (string.IsNullOrEmpty(movietitle) || int.TryParse(movietitle, out _))
+        while (string.IsNullOrEmpty(movietitle))
         {
             Console.WriteLine("Invalid input. Please enter a valid title:");
             movietitle = Console.ReadLine();
