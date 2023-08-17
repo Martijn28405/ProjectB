@@ -180,7 +180,7 @@ public class ReservationsLogic
             case "5":
                 Console.WriteLine("Enter new duration:");
                 int durationInput;
-                while (!int.TryParse(Console.ReadLine(), out durationInput) || durationInput <= 0)
+                while (!int.TryParse(Console.ReadLine(), out durationInput) || durationInput <= 0 || durationInput > 480)
                 {
                     Console.WriteLine("Invalid input. Please enter a valid duration:");
                 }
