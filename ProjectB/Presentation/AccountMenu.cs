@@ -20,7 +20,7 @@ public class AccountMenu
                                                                                                                                 
                                                                                                                                 
 ";
-        string[] options = { "Make A Reservation/Show Movies", "View Movie Information", "View Catering", "Back to Main Menu", "Manage Shopping Cart", "Log Out", "Exit App" };
+        string[] options = { "Make A Reservation/Show Movies", "View Movie Information", "View Catering", "Manage Shopping Cart", "Back to Main Menu", "Log Out", "Exit App" };
         Menu accountmenu = new Menu(prompt, options);
         int SelectedIndex = accountmenu.Run();
         switch (SelectedIndex)
@@ -42,10 +42,10 @@ public class AccountMenu
                 Start();
                 break;
             case 3:
-                Program.Main();
+                ManageShoppingCart.Start();
                 break;
             case 4:
-                ManageShoppingCart.Start();
+                Program.Main();
                 break;
             case 5:
                 Console.WriteLine("Press any key to confirm");

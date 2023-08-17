@@ -27,5 +27,15 @@
     "Movie": "John Wick 4",
     "Start Time": "2023-06-18T19:20:00",
     "Duration": 180
+  },
+  {
+    "Seat": [
+      "Row: 1 Seat: 6",
+      "Row: 1 Seat: 7"
+    ],
+    "EmailAddress": "lucastuart1610@hotmail.com",
+    "Movie": "The Lost City",
+    "Start Time": "2023-06-22T20:30:00",
+    "Duration": 110
   }
 ]
