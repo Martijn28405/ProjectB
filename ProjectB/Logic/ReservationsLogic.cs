@@ -184,8 +184,13 @@ public class ReservationsLogic
         }
         else
         {
+            if (ManagerLogin.Manager_Email == null)
+            {
+                _accesor.WriteAll(_reservations);
+                CoWorkerMenu.Start();
+            }
             _accesor.WriteAll(_reservations);
-            ManagerMenu.Start();
+            ManagerMenu.Start();  
         }
         // string input = Console.ReadLine();
         // vraag wat je wilt aanpassen
