@@ -401,8 +401,9 @@ public class LogicBase
 
         Console.WriteLine("Enter ID:");
         int userInput;
+        var movieId = movies.Select(movieId => movieId.Id);
         int maxId = movies.Max(movie => movie.Id);
-        while (!int.TryParse(Console.ReadLine(), out userInput) || userInput <= 0 || userInput > maxId)
+        while (!int.TryParse(Console.ReadLine(), out userInput) || userInput <= 0 || userInput > maxId || !movieId.Contains(userInput))
         {
             Console.WriteLine("Invalid input. Please enter a valid ID:");
         }
