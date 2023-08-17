@@ -263,6 +263,7 @@ public class LogicBase
         {
             Console.WriteLine($"SNACK: {item.NameFood}");
             Console.WriteLine($"PRICE: {item.PriceFood}");
+            Console.WriteLine($"DESCRIPTION {item.Description}");
             Console.WriteLine();
         }
         if (isUser)
