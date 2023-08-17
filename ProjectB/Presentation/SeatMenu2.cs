@@ -16,7 +16,14 @@ public class SeatMenu2
     static bool[,] takenSeats = new bool[19, 18];
     public static List<string> selectedSeats = new List<string>();
     public static List<string> selectedSeatsColor = new List<string>();
-
+    public static void Reset()
+    {
+        selectedSeatIndex = 6; // Initially select the first seat
+        seats = new string[19, 18]; // 14x142 array of seats
+        takenSeats = new bool[19, 18];
+        selectedSeats = new List<string>();
+        selectedSeatsColor = new List<string>();
+    }
 
     public static void Start()
     {

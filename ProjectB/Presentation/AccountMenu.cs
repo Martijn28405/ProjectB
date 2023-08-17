@@ -4,7 +4,7 @@ public class AccountMenu
     public static void Start()
     {
         Console.CursorVisible = false;
-
+        ResetSeats();
         string prompt = @"
 
                                     _     __  __                  
@@ -59,9 +59,12 @@ public class AccountMenu
                 Environment.Exit(0);
                 break;
 
-
-
         }
-
+    }
+    public static void ResetSeats()
+    {
+        SeatMenu.Reset();
+        SeatMenu2.Reset();
+        SeatMenu3.Reset();
     }
 }

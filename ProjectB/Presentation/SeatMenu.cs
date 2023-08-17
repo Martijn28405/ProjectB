@@ -16,6 +16,15 @@ public class SeatMenu
     public static List<string> selectedSeats = new List<string>();
     public static List<string> selectedSeatsColor = new List<string>();
 
+    public static void Reset()
+    {
+        selectedSeatIndex = 6; // Initially select the first seat
+        seats = new string[14, 12]; // 14x142 array of seats
+        takenSeats = new bool[14, 12];
+        selectedSeats = new List<string>();
+        selectedSeatsColor = new List<string>();
+    }
+
     public static void Start()
     {
         Console.Clear();

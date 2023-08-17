@@ -65,5 +65,13 @@ static class GuestMenu
         cartAccesor.WriteAll(new());
         JsonAccessor<ShoppingCartModel> shopAccesor = new JsonAccessor<ShoppingCartModel>(@"DataSources/shoppingcart.json");
         shopAccesor.WriteAll(new());
+        ResetSeats();
+    }
+
+    public static void ResetSeats()
+    {
+        SeatMenu.Reset();
+        SeatMenu2.Reset();
+        SeatMenu3.Reset();
     }
 }
