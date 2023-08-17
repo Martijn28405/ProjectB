@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.Design;
-
+// Manager page to log in:
 public class ManagerLogin
 {
     public static string Manager_Email = null;
@@ -25,7 +25,7 @@ public class ManagerLogin
           
                                                                                                            
 ";
-
+        // Options for manager to choose from:
         string[] options = { "Login", "Add Account", "Back to Main Menu" };
         Menu loginmenu = new Menu(prompt, options);
         int SelectedIndex = loginmenu.Run();

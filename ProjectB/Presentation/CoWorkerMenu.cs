@@ -1,3 +1,4 @@
+// Co-worker menu when logged in:
 public class CoWorkerMenu
 {
     public static void Start()
@@ -15,6 +16,7 @@ public class CoWorkerMenu
                                                                                                                                                                
                                                                                                                                                                                                                                                                                                                                                                                
 ";
+        // Options that co-worker can choose from:
         string[] options = { "Show Movies", "Show Snacks", "View Reservations", "Edit Reservations", "Log Out", "Back to Main Menu", "Exit App" };
         Menu co_workermenu = new Menu(prompt, options);
         int SelectedIndex = co_workermenu.Run();

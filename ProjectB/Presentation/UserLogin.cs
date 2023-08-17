@@ -1,5 +1,5 @@
 using System.ComponentModel.Design;
-
+// Page for user to log in:
 public class UserLogin
 {
     public static string User_Email = null;
@@ -68,7 +68,7 @@ public class UserLogin
                 }
                 else
                 {
-                    AccountMenu.Start();  
+                    AccountMenu.Start();
                 }
                 break;
             case 1:

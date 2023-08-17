@@ -6,7 +6,7 @@ public class CreditCardPaymentLogic : IPaymentLogic
     public void Payment(double price)
     {
         string cardholderName;
-        while(true)
+        while (true)
         {
             Console.WriteLine("Cardholder's name: ");
             cardholderName = Console.ReadLine();
@@ -35,7 +35,7 @@ public class CreditCardPaymentLogic : IPaymentLogic
             }
         }
         string expiryDate;
-        while(true)
+        while (true)
         {
             Console.WriteLine("Expiry date (mm/yyyy): ");
             expiryDate = Console.ReadLine();
@@ -48,7 +48,7 @@ public class CreditCardPaymentLogic : IPaymentLogic
                 break;
             }
         }
-        while(true)
+        while (true)
         {
             Console.WriteLine("3 digit card verification code: ");
             int verificationCode;

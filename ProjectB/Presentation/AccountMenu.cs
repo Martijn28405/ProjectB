@@ -1,4 +1,4 @@
-﻿
+﻿// Account menu file for user that has logged in:
 public class AccountMenu
 {
     public static void Start()
@@ -20,6 +20,7 @@ public class AccountMenu
                                                                                                                                 
                                                                                                                                 
 ";
+        // Options for user to choose out:
         string[] options = { "Make A Reservation/Show Movies", "View Movie Information", "View Catering", "Manage Shopping Cart", "Back to Main Menu", "Log Out", "Exit App" };
         Menu accountmenu = new Menu(prompt, options);
         int SelectedIndex = accountmenu.Run();
@@ -60,7 +61,7 @@ public class AccountMenu
                 break;
         }
     }
-
+    // Method to reset the seats so user wont pay twice for an order:
     public static void ResetSeats()
     {
         SeatMenu.Reset();

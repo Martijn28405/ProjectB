@@ -4,7 +4,6 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-
 public class SeatMenu
 {
     // Small cinema
@@ -16,6 +15,7 @@ public class SeatMenu
     public static List<string> selectedSeats = new List<string>();
     public static List<string> selectedSeatsColor = new List<string>();
 
+    // Resets the cinema so user wont pay double:
     public static void Reset()
     {
         selectedSeatIndex = 6; // Initially select the first seat
@@ -98,6 +98,7 @@ public class SeatMenu
         seats[11, 11] = "   ";
     }
 
+    // Shows the seats:
     static void DrawSeats()
     {
 
@@ -157,6 +158,7 @@ public class SeatMenu
             {
                 selectedSeatIndex -= seats.GetLength(1);
                 DrawSeats();
+
             }
         }
     }
@@ -170,7 +172,10 @@ public class SeatMenu
             {
                 selectedSeatIndex += seats.GetLength(1);
                 DrawSeats();
+
             }
+
+
         }
     }
 
@@ -183,6 +188,7 @@ public class SeatMenu
             {
                 selectedSeatIndex--;
                 DrawSeats();
+
             }
         }
     }
@@ -196,7 +202,9 @@ public class SeatMenu
             {
                 selectedSeatIndex++;
                 DrawSeats();
+
             }
+
         }
     }
 
@@ -230,6 +238,8 @@ public class SeatMenu
         {
             Console.WriteLine("Seat already taken. Please select another seat.");
         }
+
+
     }
 
     static void Choice()
@@ -267,6 +277,8 @@ public class SeatMenu
                 reservationsLogic.CreateReservation(snacksLogic.shoppingCart ?? new List<ShoppingCartModel>());
                 break;
         }
+
+
     }
 
     static bool IsValidChoice(string input)
@@ -279,15 +291,24 @@ public class SeatMenu
 
     }
 
+
     private static void CinemaBaseColor()
     {
         Console.ForegroundColor = ConsoleColor.DarkBlue;
 
     }
 
+
     private static void CinemaBaseColorYellow()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
 
     }
+
 }
+
+
+
+
+
+

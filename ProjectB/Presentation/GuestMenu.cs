@@ -1,6 +1,7 @@
 ﻿using ProjectB.DataModels;
 static class GuestMenu
 {
+    // Guest Menu start screen:
     public static string Guest_Email = null;
     public static void Start()
     {
@@ -15,6 +16,7 @@ static class GuestMenu
  | |__| | |_| |  __/\__ \ |_  | |  | |  __/ | | | |_| |
   \_____|\__,_|\___||___/\__| |_|  |_|\___|_| |_|\__,_|                                                              
         ");
+        // Guest options to choose from:
         string[] options = { "Show Movies/Make a Reservation", "View Catering", "View Movie Information", "Back to Main Menu", "Log Out", "Exit App" };
         Menu guestmenu = new Menu(prompt, options);
         int SelectedIndex = guestmenu.Run();
@@ -57,6 +59,7 @@ static class GuestMenu
         }
     }
 
+    // Clears the JSON when stopping during a reservation:
     public static void InitializeState()
     {
         JsonAccessor<SeatsCartModel> cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
@@ -65,7 +68,7 @@ static class GuestMenu
         shopAccesor.WriteAll(new());
         ResetSeats();
     }
-
+    // Resets the seats so the user wont pay double:
     public static void ResetSeats()
     {
         SeatMenu.Reset();
