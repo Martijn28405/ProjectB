@@ -58,6 +58,9 @@ public class ManagerLogin
                         Console.WriteLine("Login Failed");
                         Console.ResetColor();
                         Console.WriteLine("No account found with that email and password or you are not allowed to login here with those details.");
+                        Console.WriteLine();
+                        Console.WriteLine("Warning: sometimes after creating multiple accounts an error occurs, if this is the case please restart your program.");
+                        Console.WriteLine();
                         Console.WriteLine("Press any key to return to the login screen");
                         Console.ReadKey(true);
                         Start();
