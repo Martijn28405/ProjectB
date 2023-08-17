@@ -12,13 +12,31 @@ public class ReservationsLogic
     public static JsonAccessor<SeatsCartModel> _cartAccesor;
     public static List<SeatsCartModel> _carts;
     public List<ReservationModel> _reservations;
-    
+
     public ReservationsLogic()
     {
         _accesor = new JsonAccessor<ReservationModel>(@"DataSources/reservation.json");
         _cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");
         _reservations = _accesor.LoadAll();
         _carts = _cartAccesor.LoadAll();
+    }
+
+    public void ShowUserSeats()
+    {
+        foreach (var item in _carts)
+        {
+            if (item != null)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"SEAT(S): {string.Join(' ', item.Seat)}");
+                Console.WriteLine($"SEATPRICE: {item.TotalPrice}");
+            }
+            else
+            {
+                Console.WriteLine("No reservations at the moment.");
+            }
+        }
+
     }
 
     public void ShowReservations()
@@ -192,7 +210,7 @@ public class ReservationsLogic
                 CoWorkerMenu.Start();
             }
             _accesor.WriteAll(_reservations);
-            ManagerMenu.Start();  
+            ManagerMenu.Start();
         }
     }
 
