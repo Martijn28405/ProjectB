@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using System.Xml.XPath;
-
+// Manager page to log in:
 public class ManagerMenu
 {
     static public void Start()
@@ -21,7 +21,7 @@ public class ManagerMenu
 
 
 
-
+        // Manager options to choose from:
         string[] options = { "Movie Management", "Snack Management", "View Movies", "View Reservations", "Edit Reservations", "Back to Main Menu", "Log Out", "Exit App" };
         Menu managermenu = new Menu(prompt, options);
         int SelectedIndex = managermenu.Run();

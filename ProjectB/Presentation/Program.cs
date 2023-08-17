@@ -1,5 +1,5 @@
 ﻿using ProjectB.DataModels;
-
+// Main starting page where you can be send to different user pages:
 public static class Program
 {
     public static void Main()
@@ -18,7 +18,7 @@ public static class Program
     Locatie: Wijnhaven 107, 3011 WN Rotterdam
                                                                                                                                                                                                                                  
 ";
-
+        // The options to choose from:
         string[] options = { "Login", "Add Account", "Guest Login", "Manager Login", "Co-Worker Login", "Exit Code" };
         Menu mymenu = new Menu(prompt, options);
         int SelectedIndex = mymenu.Run();
@@ -48,7 +48,7 @@ public static class Program
                 break;
         }
     }
-
+    // Everytime a new terminal is made al the JSON files are emptied:
     public static void InitializeState()
     {
         JsonAccessor<SeatsCartModel> cartAccesor = new JsonAccessor<SeatsCartModel>(@"DataSources/SeatsCart.json");

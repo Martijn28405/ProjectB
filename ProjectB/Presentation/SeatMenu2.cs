@@ -16,6 +16,7 @@ public class SeatMenu2
     static bool[,] takenSeats = new bool[19, 18];
     public static List<string> selectedSeats = new List<string>();
     public static List<string> selectedSeatsColor = new List<string>();
+    // Resets the cinema so user wont pay double:
     public static void Reset()
     {
         selectedSeatIndex = 6; // Initially select the first seat
@@ -126,7 +127,7 @@ public class SeatMenu2
         seats[18, 15] = "   ";
         seats[17, 15] = "   ";
     }
-
+    // Shows the seats:
     static void DrawSeats()
     {
         Console.CursorTop = 10;

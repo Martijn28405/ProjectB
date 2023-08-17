@@ -1,4 +1,5 @@
-﻿public class CoWorkerLogin
+﻿// Co-worker menu to log in:
+public class CoWorkerLogin
 {
     public static string Co_WorkerEmail = null;
     private static AccountsLogic _accountsLogic = new AccountsLogic();
@@ -24,6 +25,7 @@
 
                                                                                                           
 ";
+        // Choices co-worker to choose from:
         string[] options = { "Login", "Add Account", "Back to Main Menu" };
         Menu loginmenu = new Menu(prompt, options);
         int SelectedIndex = loginmenu.Run();
@@ -38,7 +40,7 @@
                     Console.WriteLine("Please enter your password:");
                     string password = Console.ReadLine();
                     AccountModel acc = _accountsLogic.CheckLogin(email, password);
-                    
+
                     if (acc != null && acc.AccountType == "Co-Worker")
                     {
                         Console.ForegroundColor = ConsoleColor.Green;

@@ -1,4 +1,5 @@
 using static System.Console;
+
 public class Menu
 {
     private int SelectedIndex;
