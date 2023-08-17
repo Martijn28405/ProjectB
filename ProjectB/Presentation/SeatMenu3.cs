@@ -220,7 +220,7 @@ public class SeatMenu3
         Console.WriteLine("Blue: $10");
         Console.WriteLine("Yellow: $15");
         Console.WriteLine("Red: $20");
-        Console.WriteLine("Select a seat:");
+        Console.WriteLine("Use the arrow keys to choose a seat and then press ENTER to select it:");
 
         for (int i = 0; i < seats.GetLength(0); i++)
         {

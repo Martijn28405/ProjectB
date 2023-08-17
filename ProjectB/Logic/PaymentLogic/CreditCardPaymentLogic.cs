@@ -62,6 +62,10 @@ public class CreditCardPaymentLogic : IPaymentLogic
             }
         }
         Console.WriteLine($"Your credentials were correct, you've paid {price}.");
+        ReservationsLogic.EmptySeatCarts();
+        SnacksLogic shoppingcartempty = new SnacksLogic();
+        shoppingcartempty.EmptyShoppingCart();
+        return;
     }
 
     private bool CreditCardNumber(long cardNumber)
