@@ -10,9 +10,9 @@ public class PaypalPaymentLogic : IPaymentLogic
             Console.WriteLine("Invalid username. Please try again:");
             username = Console.ReadLine();
         }
-        Console.WriteLine("Password: ");
+        Console.WriteLine("Password (4 digits): ");
         string password = Console.ReadLine();
-        while (string.IsNullOrEmpty(password) || password.Contains("-"))
+        while (string.IsNullOrEmpty(password) || password.Contains("-") || password.Length < 4 || password.Length > 4)
         {
             Console.WriteLine("Invalid password. Please try again:");
             password = Console.ReadLine();
