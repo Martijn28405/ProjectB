@@ -72,7 +72,7 @@ public class MoviesLogic
 
         Console.WriteLine("What is the play time in minutes?");
         int playTime;
-        while (!int.TryParse(Console.ReadLine(), out playTime) || playTime <= 0)
+        while (!int.TryParse(Console.ReadLine(), out playTime) || playTime <= 0 || playTime > 480)
         {
             Console.WriteLine("Invalid input. Please enter a valid playtime:");
         }
